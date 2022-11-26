@@ -2,13 +2,13 @@ import Layout from '../components/layout';
 import PhotoPreview from '../components/photo-preview';
 import { useEffect, useState } from 'react'
 
-export default function Home() {
+export default function AllPhotos() {
     const [photos, setPhotos] = useState([]);
 
     async function getPhotos() {
         const req = await fetch('https://jsonplaceholder.typicode.com/photos');
         const photoData = (await req.json());
-        photoData.length = 6;
+        photoData.length = 25;
         setPhotos(photoData);
     }
 
@@ -20,7 +20,7 @@ export default function Home() {
     <Layout>
 
         <section>
-            <h1>Latest Photos</h1>
+            <h1>All Photos</h1>
             <div>
                 {photos.map((photo) => (<PhotoPreview id={photo.id} title={photo.title} imgurl={photo.url}/>))}
             </div>

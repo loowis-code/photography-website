@@ -1,14 +1,21 @@
 import Link from 'next/link';
+import styles from './css-modules/header.module.css'
 
 export default function Header () {
     return (
-        <div>
-            <div>
-                <Link href="/">Lewis Inches | Photography</Link>
+        <div className={styles.header}>
+            <div className={styles.titleblock}>
+                <div className={styles.title}>
+                    <Link className={styles.titlelink} href="/">Lewis Inches</Link>
+                </div>
+                <div>
+                    <p className={styles.tagline}>Photography in Edinburgh</p>
+                </div>
+            </div>
+            <div className={styles.navs}>
+                <Link className={styles.navlink} href="/all-photos" >View All Images</Link>
                 
-                <Link href="/all-photos" >View All photos</Link>
-                
-                <Link href="/about-contact">About Me</Link>
+                <Link className={styles.navlink} href="/about-contact">About Me</Link>
             </div>
         </div>
     );

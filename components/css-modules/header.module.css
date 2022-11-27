@@ -1,0 +1,59 @@
+@font-face {
+    font-family: newspaper;
+    src: url(../../public/PlayfairDisplay-Black.ttf);
+}
+.header {
+    font-family: newspaper;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 1rem;
+    
+
+}
+
+.titleblock {
+    border-left: solid;
+    border-right: solid;
+    padding: 0rem 1rem;
+}
+
+.title {
+    font-size: 3rem;
+    text-align: center; 
+
+}
+
+.tagline {
+    font-size: 1rem;
+    text-align: right;
+}
+
+.navs {
+    font-size: 1.5rem;
+    text-align: center; 
+}
+
+.titlelink {
+    text-decoration: none;
+    color: #000;
+}
+
+.titlelink:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.navlink {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    margin: 0rem 0.5rem;
+    padding: 0rem 0.5rem;
+}
+.navlink:hover {
+    color: #000;
+    border-left: solid;
+    border-right: solid;
+    
+}

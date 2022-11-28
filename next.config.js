@@ -1,5 +1,5 @@
 module.exports = {
     images: {
-      domains: ['via.placeholder.com'],
+      domains: ['photography-website.s3.eu-west-2.amazonaws.com'],
     },
   }

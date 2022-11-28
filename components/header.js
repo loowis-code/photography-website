@@ -6,7 +6,7 @@ export default function Header () {
         <div className={styles.header}>
             <div className={styles.titleblock}>
                 <div className={styles.title}>
-                    <Link className={styles.titlelink} href="/">Lewis Inches</Link>
+                    <Link className={styles.titlelink} href="/"><h1>Lewis Inches</h1></Link>
                 </div>
                 <div>
                     <p className={styles.tagline}>Photography in Edinburgh</p>

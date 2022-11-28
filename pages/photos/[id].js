@@ -12,7 +12,7 @@ export default function Photo() {
     const {id} = router.query
     
     async function getPhoto() {
-        const req = await fetch(`https://jsonplaceholder.typicode.com/photos/${id}`);
+        const req = await fetch(`/api/post/${id}`);
         // const req = await fetch(`/api/post/${id}`);
         const photoData = await req.json();
         setPhoto(photoData);

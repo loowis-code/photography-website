@@ -3,13 +3,13 @@ import PhotoPreview from '../components/photo-preview';
 import { useEffect, useState } from 'react'
 
 export default function Home() {
-    const [photos, setPhotos] = useState([]);
+    const [data, setData] = useState([]);
 
     async function getPhotos() {
-        const req = await fetch('https://jsonplaceholder.typicode.com/photos');
+        const req = await fetch('/api/getPhotos');
         const photoData = (await req.json());
-        photoData.length = 6;
-        setPhotos(photoData);
+        photoData.length = 3;
+        setData(photoData);
     }
 
     useEffect(() => {
@@ -20,11 +20,9 @@ export default function Home() {
     <Layout>
 
         <section>
-            <h1>Latest Photos</h1>
-            <div>
-                {photos.map((photo) => (<PhotoPreview id={photo.id} title={photo.title} imgurl={photo.url}/>))}
+            <div className="row">
+                {data.map((d) => (<PhotoPreview id={d.data.id} title={d.data.title} imgurl={d.data.img_url}/>))}
             </div>
-
         </section>
 
     </Layout>

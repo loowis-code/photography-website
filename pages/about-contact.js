@@ -4,8 +4,8 @@ export default function AboutContact() {
   return (
     <Layout>
         <section>
-            <h1>About Me</h1>
-            <h2>Hello</h2>
+            <h2>About Me</h2>
+            <h3>Hello</h3>
         </section>
 
     </Layout>

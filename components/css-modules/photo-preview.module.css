@@ -1,0 +1,15 @@
+@font-face {
+    font-family: newspaper;
+    src: url(../../public/PlayfairDisplay-Black.ttf);
+}
+
+.photopreview {
+    font-family: newspaper;
+    text-decoration: none;
+    color: #000;
+    
+}
+
+.photopreview:hover {
+    color: #000;
+}

@@ -1,10 +1,6 @@
-@font-face {
-    font-family: newspaper;
-    src: url(../../public/PlayfairDisplay-Black.ttf);
-}
-
 .photopreview {
-    font-family: newspaper;
+    font-family: newspapersemibold;
+    font-size: 1.5rem;
     text-decoration: none;
     color: #000;
     

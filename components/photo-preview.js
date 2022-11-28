@@ -17,12 +17,7 @@ export default function PhotoPreview({ id, title, imgurl }) {
                             priority='true'                           
                         />
                     </div>
-                        
-                    <div className="card-body">
                         <h5 className="card-title">{title}</h5>
-                    </div>
-
-
             </Link>
         </div>
     )

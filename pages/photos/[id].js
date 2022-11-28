@@ -7,33 +7,33 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head';
 
 export default function Photo() {
-    const [photo, setPhoto] = useState([]);
     const router = useRouter()
     const {id} = router.query
     
-    async function getPhoto() {
-        const req = await fetch(`/api/post/${id}`);
-        // const req = await fetch(`/api/post/${id}`);
-        const photoData = await req.json();
-        setPhoto(photoData);
+    const [data, setData] = useState([]);
+
+    async function getPhotos() {
+        const req = await fetch(`/api/photo/${id}`);
+        const photoData = (await req.json());
+        setData(photoData);
     }
 
     useEffect(() => {
         if (router.isReady) {
             const {id} = router.query
         }
-        getPhoto();
+        getPhotos();
     },[router.isReady])
 
     return (
         <Layout>
           
         <Head>
-            <title>{photo.title}</title>
+            {data.map((d) => ( <title>{d.data.title} | Lewis</title> ))}
         </Head>
         
         <section>
-            <PhotoBody title={photo.title} imgurl={photo.url}/>
+            {data.map((d) => (<PhotoBody data={d.data}/>))}
         </section>
 
         </Layout>

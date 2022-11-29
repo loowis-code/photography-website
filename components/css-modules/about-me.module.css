@@ -2,12 +2,11 @@
     font-family: newspaper;
     border-top: solid;
     margin-top: 5%;
-    text-align: center;
+
     font-size: 2.5rem;
 }
 
 .mainabouttext {
     font-family: newspapermedium;
-    text-align: center;
     font-size: 1.5rem;
 }

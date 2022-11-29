@@ -10,10 +10,15 @@
     padding: 0rem 1rem;
 }
 
-.title {
-    font-size: 3rem;
-    text-align: center; 
+.titlelink {
+    font-size: 4rem;
+    text-decoration: none;
+    color: #000;
+}
 
+.titlelink:hover {
+    color: #000;
+    text-decoration: underline;
 }
 
 .tagline {
@@ -26,16 +31,6 @@
     text-align: center;
     border-top: solid;
     border-bottom: solid;
-}
-
-.titlelink {
-    text-decoration: none;
-    color: #000;
-}
-
-.titlelink:hover {
-    color: #000;
-    text-decoration: underline;
 }
 
 .navlink {

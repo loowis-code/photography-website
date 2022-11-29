@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styles from './css-modules/photo-body.module.css'
 
-export default function PostBody({data}) {
+export default function PhotoBody({data}) {
     return (
         <div className={styles.imagecontainer}>                        
             <Image 

@@ -5,7 +5,7 @@ export default function PhotoBody({data}) {
     return (
         <div className={styles.imagecontainer}>                        
             <Image 
-                src={`https://photography-website.s3.eu-west-2.amazonaws.com/${data.img_url}`}
+                src={`https://photography-website.s3.eu-west-2.amazonaws.com/${data.imgurl}.jpg`}
                 alt={data.title}
                 width="600"
                 height="400"
@@ -22,14 +22,14 @@ export default function PhotoBody({data}) {
             <div className={styles.imageDetails}>
                 <div className="row">
                     <div className={styles.imageinfo}>
-                        <p>Location - {data.location}</p>
+                        {(data.location)? <p>{data.location}</p> : null}
                     </div>
                     <div className={styles.imagesettings}>
-                        <p>Camera - {data.settings.camera_used}</p>
-                        <p>Image Settings</p>
-                        <p>{data.settings.shutter_speed} - Shutter Speed</p>
-                        <p>{data.settings.aperture} - Aperture</p>
-                        <p>{data.settings.iso} - ISO</p>
+                        <p>{data.settings.camera_used}</p>
+                        {(data.settings.length > 1)? <p>Image Settings</p> : null}
+                        {(data.settings.shutter_speed)? <p>{data.settings.shutter_speed}</p> : null}
+                        {(data.settings.aperture)? <p>{data.settings.aperture}</p> : null}
+                        {(data.settings.iso)? <p>{data.settings.iso}</p> : null}
                     </div>
                     
                 </div>

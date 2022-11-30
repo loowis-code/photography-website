@@ -22,7 +22,7 @@ export default function Home() {
 
         <section>
             <div className="row">
-                {data.map((d) => (<PhotoPreview id={d.data.id} title={d.data.title} imgurl={d.data.img_url}/>))}
+                {data.map((d) => (<PhotoPreview id={d.data.id} title={d.data.title} imgurl={d.data.imgurl}/>))}
             </div>
             <div>
                 <AboutMe />

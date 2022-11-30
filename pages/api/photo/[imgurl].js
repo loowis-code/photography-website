@@ -6,11 +6,11 @@ const query = faunadb.query;
 const client = new faunadb.Client({secret, domain:"db.eu.fauna.com"})
 
 module.exports = async (req, res) => {
-    const { id } = req.query
+    const { imgurl } = req.query
     try {
         const dbs = await client.query(
             query.Map(
-                query.Paginate(query.Match(query.Index("photos_by_id"), id)),
+                query.Paginate(query.Match(query.Index("photos_by_imgurl"), imgurl)),
                 query.Lambda("X", query.Get(query.Var("X")))
               )
         )

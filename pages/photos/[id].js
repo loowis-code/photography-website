@@ -19,9 +19,6 @@ export default function Photo() {
     }
 
     useEffect(() => {
-        if (router.isReady) {
-            const {id} = router.query
-        }
         getPhotos();
     },[router.isReady])
 

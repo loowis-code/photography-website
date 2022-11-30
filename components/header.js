@@ -8,7 +8,6 @@ export default function Header () {
     async function getCollections() {
         const req = await fetch('/api/collections');
         const collectionData = (await req.json());
-        console.log(collectionData);
         setCollections(collectionData);
     }
 

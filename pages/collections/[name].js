@@ -16,17 +16,17 @@ export default function Collection() {
         const req = await fetch(`/api/collection/${name}`);
         const collectionData = (await req.json());
         var ids = collectionData[0]
-        console.log(ids)
         if (ids != undefined) {
             ids = ids.data.photo_ids
             var photos = []
             for (const id of ids) {
                 const req = await fetch(`/api/photo/${id}`);
                 const photoData = (await req.json());
-                photos.push(photoData);
+                photos.push(photoData[0]);
                 
             }
-            setPhotos(photos[0]);
+            console.log(photos)
+            setPhotos(photos);
         }
 
     }
@@ -44,7 +44,7 @@ export default function Collection() {
         
         <section>
             <div className="row">
-                {photos.map((d) => (<PhotoPreview id={d.data.id} title={d.data.title} imgurl={d.data.img_url}/>))}
+                {photos.map((d) => (<PhotoPreview title={d.data.title} imgurl={d.data.imgurl}/>))}
             </div>
         </section>
 

@@ -9,7 +9,7 @@ export default function Home() {
     async function getPhotos() {
         const req = await fetch('/api/getPhotos');
         const photoData = (await req.json());
-        photoData.length = 3;
+        photoData.length = 6;
         setData(photoData);
     }
 

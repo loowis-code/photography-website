@@ -20,13 +20,12 @@ export default function AboutMe({}) {
                 
 
             </div>
-            <div className='col-4'>
+            <div  className={styles.text} class='col'>
                 <p>
                 My name is Lewis Inches, a software engineer from Edinburgh. This website
                 features some pictures I've taken, mainly around Edinburgh, using my Olympus OM40.
                 </p>
             </div>
-            <div className='col-2'></div>
         </div>
 
         </div>

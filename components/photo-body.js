@@ -16,7 +16,7 @@ export default function PhotoBody({data}) {
             <div className={styles.imageHeader}>
                 <div className="row">
                     <p className={styles.imagetitle}>{data.title}</p>
-                    <p className={styles.imagedate}>{data.date_taken}</p>
+                    <p className={styles.imagedate}>{new Date(data.date_taken).toLocaleDateString("en-GB",{year: 'numeric', month: 'long', day: 'numeric' })}</p>
                 </div>
             </div>
             <div className={styles.imageDetails}>

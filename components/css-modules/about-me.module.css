@@ -10,3 +10,16 @@
     font-family: newspapermedium;
     font-size: 1.5rem;
 }
+
+@media only screen and (max-width: 1024px) {
+    .text {
+        width: 80%;
+    }
+
+}
+@media only screen and (min-width: 1025px) {
+    .text {
+        width: 40%;
+    }
+
+}

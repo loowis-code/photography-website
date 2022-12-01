@@ -1,9 +1,9 @@
 .photocontainer {
     padding-bottom: 2%;
+    font-family: newspapersemibold;
+
 }
 .photopreview {
-    font-family: newspapersemibold;
-    font-size: 1.5rem;
     text-decoration: none;
     color: #000;
     

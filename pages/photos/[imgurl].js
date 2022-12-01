@@ -15,7 +15,6 @@ export default function Photo() {
     async function getPhotos() {
         const req = await fetch(`/api/photo/${imgurl}`);
         const photoData = (await req.json());
-        console.log(photoData);
         setData(photoData);
     }
 

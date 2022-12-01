@@ -18,8 +18,7 @@ module.exports = async (req, res) => {
                     (ref) => query.Get(ref)
                 )
             )
-            
-            )
+        )
             
         res.status(200).json(dbs.data);
     } catch(error) {

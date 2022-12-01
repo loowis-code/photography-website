@@ -25,7 +25,9 @@ export default function Collection() {
                 photos.push(photoData[0]);
                 
             }
-            console.log(photos)
+            photos.sort((a, b) => {
+                return b.data.date_taken.localeCompare(a.data.date_taken);
+            });
             setPhotos(photos);
         }
 

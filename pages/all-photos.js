@@ -8,7 +8,9 @@ export default function AllPhotos() {
     async function getPhotos() {
         const req = await fetch('/api/getPhotos');
         const photoData = (await req.json());
-        console.log(photoData);
+        photoData.sort((a, b) => {
+            return b.data.date_taken.localeCompare(a.data.date_taken);
+        });
         setData(photoData);
     }
 

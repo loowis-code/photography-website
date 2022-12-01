@@ -9,6 +9,9 @@ export default function Home() {
     async function getPhotos() {
         const req = await fetch('/api/getPhotos');
         const photoData = (await req.json());
+        photoData.sort((a, b) => {
+            return b.data.date_taken.localeCompare(a.data.date_taken);
+        });
         photoData.length = 6;
         setData(photoData);
     }

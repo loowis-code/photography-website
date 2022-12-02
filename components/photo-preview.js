@@ -4,8 +4,8 @@ import styles from './css-modules/photo-preview.module.css'
 
 export default function PhotoPreview({ title, imgurl }) {
     return (
-        <div class="col-4">
             <div className={styles.photocontainer}>
+                <div class="col">
             <Link className={styles.photopreview} href={`/photos/${imgurl}`}>
 
                     <div>

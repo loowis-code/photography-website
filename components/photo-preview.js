@@ -14,8 +14,7 @@ export default function PhotoPreview({ title, imgurl }) {
                             alt={imgurl}
                             width="600"
                             height="600"
-                            layout='responsive'
-                            priority='true'                           
+                            layout='responsive'                          
                         />
                     </div>
                     

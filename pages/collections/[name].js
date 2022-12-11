@@ -6,36 +6,32 @@ import { useEffect, useState } from 'react'
 
 import Head from 'next/head';
 
-export default function Collection() {
-    const router = useRouter()
-    const {name} = router.query
-    
-    const [photos, setPhotos] = useState([]);
+export async function getServerSideProps(context) {
+    const {name} = context.query
 
-    async function getPhotoData() {
-        const req = await fetch(`/api/collection/${name}`);
-        const collectionData = (await req.json());
-        var ids = collectionData[0]
-        if (ids != undefined) {
-            ids = ids.data.photo_ids
-            var photos = []
-            for (const id of ids) {
-                const req = await fetch(`/api/photo/${id}`);
-                const photoData = (await req.json());
-                photos.push(photoData[0]);
-                
-            }
-            photos.sort((a, b) => {
-                return b.data.date_taken.localeCompare(a.data.date_taken);
-            });
-            setPhotos(photos);
+    const req = await fetch(`https://www.lewisinches.pictures/api/collection/${name}`);
+    const collectionData = (await req.json());
+    var ids = collectionData[0]
+    if (ids != undefined) {
+        ids = ids.data.photo_ids
+        var photos = []
+        for (const id of ids) {
+            const req = await fetch(`https://www.lewisinches.pictures/api/photo/${id}`);
+            const photoData = (await req.json());
+            photos.push(photoData[0]);
+            
         }
+        photos.sort((a, b) => {
+            return b.data.date_taken.localeCompare(a.data.date_taken);
+        });
 
     }
 
-    useEffect(() => {
-        getPhotoData();
-    },[router.isReady])
+    return { props: {photos} }
+}
+
+function Collection({ photos }) {
+
 
     return (
         <Layout>
@@ -53,3 +49,5 @@ export default function Collection() {
         </Layout>
     );
 }
+
+export default Collection

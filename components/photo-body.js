@@ -10,7 +10,6 @@ export default function PhotoBody({data}) {
                 width="600"
                 height="400"
                 layout='responsive'
-                priority='true'
                                         
             />
             <div className={styles.imageHeader}>

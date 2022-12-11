@@ -1,38 +1,32 @@
 import Layout from '../../components/layout';
 import PhotoBody from '../../components/photo-body';
 
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-
 import Head from 'next/head';
 
-export default function Photo() {
-    const router = useRouter()
-    const {imgurl} = router.query
-    
-    const [data, setData] = useState([]);
+export async function getServerSideProps(context) {
+    const {imgurl} = context.query
 
-    async function getPhotos() {
-        const req = await fetch(`/api/photo/${imgurl}`);
-        const photoData = (await req.json());
-        setData(photoData);
-    }
+    const req = await fetch(`https://www.lewisinches.pictures/api/photo/${imgurl}`);
+    const photoData = (await req.json());
 
-    useEffect(() => {
-        getPhotos();
-    },[router.isReady])
 
+    return { props: {photoData} }
+}
+
+function Photo({photoData}) {
     return (
         <Layout>
           
         <Head>
-            {data.map((d) => ( <title>{d.data.title} | Lewis</title> ))}
+            {photoData.map((d) => ( <title>{d.data.title} | Lewis</title> ))}
         </Head>
         
         <section>
-            {data.map((d) => (<PhotoBody data={d.data}/>))}
+            {photoData.map((d) => (<PhotoBody data={d.data}/>))}
         </section>
 
         </Layout>
     );
 }
+
+export default Photo

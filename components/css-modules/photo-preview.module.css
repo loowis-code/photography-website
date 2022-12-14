@@ -1,35 +1,13 @@
 .photocontainer {
-    padding-bottom: 2%;
+    -webkit-column-break-inside : avoid;
+    -moz-column-break-inside : avoid;
+    break-inside: avoid;
     font-family: newspapersemibold;
-    width: 33%;
-
-
 }
 
-@media only screen and (max-width: 768px) {
-    .photocontainer {
-        padding-bottom: 2%;
-        font-family: newspapersemibold;
-        width: 50%;
-    }
- 
- }
-
- 
-@media only screen and (max-width: 425px) {
-    .photocontainer {
-        padding-bottom: 2%;
-        font-family: newspapersemibold;
-        width: 100%;
-    }
- 
- }
-
 .photopreview {
-    text-decoration: none;
-    color: #000;
-    
-    
+  text-decoration: none;
+  color: #000;
 }
 
 .photopreview:hover {

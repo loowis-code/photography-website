@@ -2,8 +2,6 @@ import Head from 'next/head';
 import Header from '../components/header'
 
 export default function Layout({ children }) {
-
-
     return (
         <div>
             <Head>
@@ -14,13 +12,10 @@ export default function Layout({ children }) {
             </Head>
 
             <Header />
-
+            
             <div>
                 {children}
             </div>
-                
-            </div>
-        
+        </div>
     )
-    
 }

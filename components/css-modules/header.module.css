@@ -41,43 +41,33 @@
     margin: 0rem 0.5rem;
     padding: 0rem 0.5rem;
 }
+
 .navlink:hover {
     color: #000;
     text-decoration: underline;
-    
 }
 
 @media only screen and (max-width: 450px) {
     .titlelink {
         font-size: 3rem;
-      }
-
+    }
     .tagline {
         font-size: 0.75rem;
-
     }
-    
     .navs {
         font-size: 1.125rem;
-
     }
- 
- }
+}
 
 @media only screen and (max-width: 350px) {
     .titlelink {
         font-size: 2rem;
-      }
-
+    }
     .tagline {
         font-size: 0.5rem;
-
     }
-    
     .navs {
         font-size: 0.75rem;
-
     }
- 
- }
+}
 

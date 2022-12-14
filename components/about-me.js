@@ -10,13 +10,12 @@ export default function AboutMe({}) {
             <div className={styles.mainabouttext}>
                 <div className='row'>
                     <div className='col-md-2 col'>
-
-                            <img 
+                            <Image
                             src="https://photography-website.s3.eu-west-2.amazonaws.com/picture_of_me.jpg"
                             alt="Photo of Me"
-                            width="100%"
+                            width='600'
+                            height='600'
                             className="img-fluid rounded"/>
-               
                     </div>
                     <div className='col-xl-5 col-sm'>
                         <p>
@@ -24,10 +23,8 @@ export default function AboutMe({}) {
                         features some pictures I've taken, mainly around Edinburgh, using my Olympus OM40.
                         </p>
                     </div>
-
                 </div>
             </div>
-            
         </div>
     );
 }

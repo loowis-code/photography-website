@@ -9,8 +9,7 @@ export default function PhotoBody({data}) {
                 alt={data.title}
                 width="600"
                 height="400"
-                layout='responsive'
-                                        
+                layout='responsive'                 
             />
             <div className={styles.imageHeader}>
                 <div className="row">
@@ -30,11 +29,8 @@ export default function PhotoBody({data}) {
                         {(data.settings.aperture)? <p>{data.settings.aperture}</p> : null}
                         {(data.settings.iso)? <p>{data.settings.iso}</p> : null}
                     </div>
-                    
                 </div>
-                
-            </div>
-                           
+            </div>            
         </div>
     )
 }

@@ -2,14 +2,14 @@ import Link from 'next/link';
 import Image from 'next/image'
 import styles from './css-modules/photo-preview.module.css'
 
-export default function PhotoPreview({ title, imgurl }) {
+export default function PhotoPreview({ title, filename, id }) {
     return (
         <div className={styles.photocontainer}>
-            <Link className={styles.photopreview} href={`/photos/${imgurl}`}>
+            <Link className={styles.photopreview} href={`/photos/${id}`}>
                 <div>
                     <Image 
-                        src={`https://photography-website.s3.eu-west-2.amazonaws.com/${imgurl}.jpg`}
-                        alt={imgurl}
+                        src={`https://photography-website.s3.eu-west-2.amazonaws.com/${filename}`}
+                        alt={title}
                         width="1200"
                         height="1200"
                         layout="responsive"

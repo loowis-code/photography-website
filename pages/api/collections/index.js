@@ -1,6 +1,6 @@
 const faunadb = require('faunadb')
 
-const secret = process.env.FAUNA_SECRET_KEY;
+const secret = process.env.FAUNA_SECRET_KEY_2;
 
 const query = faunadb.query;
 const client = new faunadb.Client({secret, domain:"db.eu.fauna.com"})

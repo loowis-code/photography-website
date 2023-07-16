@@ -16,8 +16,10 @@ function Photo() {
     }
 
     useEffect(() => {
-        getPhoto();
-    },[])
+        if (router.query.id) {
+            getPhoto();
+        }
+    },[router.query.id])
 
     return (
         <Layout>

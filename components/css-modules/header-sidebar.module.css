@@ -1,0 +1,44 @@
+.header {
+    font-family: newspaper;
+    display: block;
+    width: fit-content;
+    margin: 0rem 1rem 0rem 0rem;
+    border-right: solid;
+    height: 100vh;
+}
+
+.titleblock {
+    margin: 0rem 1rem;
+}
+
+.titlelink {
+    font-size: 4rem;
+    text-decoration: none;
+    color: #000;
+}
+
+.titlelink:hover {
+    color: #000;
+    border-bottom: solid;
+}
+
+.tagline {
+    font-size: 1.5rem;
+}
+
+.navs {
+    font-size: 1.5rem;
+    border-top: solid;
+
+}
+
+.navlink {
+    text-decoration: none;
+    color: #000;
+    margin: 0rem 1rem;
+}
+
+.navlink:hover {
+    color: #000;
+    /* border-bottom: solid; */
+}

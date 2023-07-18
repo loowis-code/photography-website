@@ -2,7 +2,29 @@
     -webkit-column-count: 4;
     -moz-column-count:    4;
     column-count:         4;
+    padding: 0 1rem;
 }
+
+.recentTitle {
+    font-size: 2rem;
+    color: #000;
+    padding-top: 1rem;
+}
+
+.featuredTitle {
+    font-size: 2rem;
+    color: #000;
+    padding-top: 1rem;
+}
+
+.imageCarousels {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    /* top: 50%; */
+    transform: translateY(10%);
+}
+
 
 @media (max-width: 1200px) {
     .photos {

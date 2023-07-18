@@ -39,7 +39,7 @@ export default function HeaderSidebar () {
                             </div>
                         </div>
                     </div>
-                    <Link className={styles.navlink} href="/about">About</Link>
+                    {/* <Link className={styles.navlink} href="/about">About</Link> */}
                 </div>
             </div>
         </div>

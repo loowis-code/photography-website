@@ -24,14 +24,14 @@ function Home() {
         <Layout>
             <section>
                 <div className={styles.imageCarousels}>
-                <p className={styles.recentTitle}>Recent Images</p>
-                <div className={styles.photos}>
-                    {photos.map((d) => (<PhotoPreview id={d.data.url_id} title={d.data.title} filename={d.data.filename}/>))}
-                </div>
-                <p className={styles.featuredTitle}>Featured Images</p>
-                <div className={styles.photos}>
-                    {photos.map((d) => (<PhotoPreview id={d.data.url_id} title={d.data.title} filename={d.data.filename}/>))}
-                </div>
+                    <p className={styles.recentTitle}>Recent Images</p>
+                    <div className={styles.photos}>
+                        {photos.map((d) => (<PhotoPreview id={d.data.url_id} title={d.data.title} filename={d.data.filename}/>))}
+                    </div>
+                    <p className={styles.featuredTitle}>Featured Images</p>
+                    <div className={styles.photos}>
+                        {photos.map((d) => (<PhotoPreview id={d.data.url_id} title={d.data.title} filename={d.data.filename}/>))}
+                    </div>
                 </div>
             </section>
         </Layout>

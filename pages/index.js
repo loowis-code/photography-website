@@ -1,10 +1,11 @@
 import Layout from '../components/layout';
-import PhotoPreview from '../components/photo-preview';
+import ImageCarousel from '../components/ImageCarousel';
 import styles from './css-modules/index.module.css';
 import { useState, useEffect } from 'react';
 
 function Home() {
     const [photos, setPhotos] = useState([]);
+    const [featured, setFeatured] = useState([]);
 
     async function getLatestPhotos() {
         const req = await fetch('/api/getPhotos');
@@ -12,8 +13,17 @@ function Home() {
         photoData.sort((a, b) => {
             return b.data.photo_data.date_taken.localeCompare(a.data.photo_data.date_taken);
         });
+        let featured = [];
+        photoData.forEach(function (photo) {
+            if (photo.data.featured === "on") {
+                featured.push(photo.data.filename);
+                console.log(photo.data.filename);
+            }
+        });
+        setFeatured(featured);
         photoData.length = 4;
-        setPhotos(photoData);
+        let photoUrls = photoData.map((d) => d.data.filename);
+        setPhotos(photoUrls);
     }
 
     useEffect(() => {
@@ -25,12 +35,12 @@ function Home() {
             <section>
                 <div className={styles.imageCarousels}>
                     <p className={styles.recentTitle}>Recent Images</p>
-                    <div className={styles.photos}>
-                        {photos.map((d) => (<PhotoPreview id={d.data.url_id} title={d.data.title} filename={d.data.filename}/>))}
+                    <div className={styles.carousel}>
+                        <ImageCarousel images={photos} />
                     </div>
                     <p className={styles.featuredTitle}>Featured Images</p>
-                    <div className={styles.photos}>
-                        {photos.map((d) => (<PhotoPreview id={d.data.url_id} title={d.data.title} filename={d.data.filename}/>))}
+                    <div className={styles.carousel}>
+                        <ImageCarousel images={featured} />
                     </div>
                 </div>
             </section>

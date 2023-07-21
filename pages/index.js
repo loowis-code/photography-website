@@ -17,7 +17,6 @@ function Home() {
         photoData.forEach(function (photo) {
             if (photo.data.featured === "on") {
                 featured.push(photo.data.filename);
-                console.log(photo.data.filename);
             }
         });
         setFeatured(featured);
@@ -34,11 +33,11 @@ function Home() {
         <Layout>
             <section>
                 <div className={styles.imageCarousels}>
-                    <p className={styles.recentTitle}>Recent Images</p>
+                    <p className={styles.title}>Recent Images</p>
                     <div className={styles.carousel}>
                         <ImageCarousel images={photos} />
                     </div>
-                    <p className={styles.featuredTitle}>Featured Images</p>
+                    <p className={styles.title}>Featured Images</p>
                     <div className={styles.carousel}>
                         <ImageCarousel images={featured} />
                     </div>

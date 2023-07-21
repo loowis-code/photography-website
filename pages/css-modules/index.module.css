@@ -1,25 +1,16 @@
 
-.recentTitle {
+.title {
     font-size: 2rem;
     color: #000;
-    padding-top: 1rem;
-}
-
-.featuredTitle {
-    font-size: 2rem;
-    color: #000;
-    padding-top: 1rem;
+    padding-top: 0.5rem;
 }
 
 .imageCarousels {
-    display: absolute;
-    height: 100vh;
-    padding-top: 5%;
-    padding-left: 25vw;
+
+    padding-top: 1%;
 
 }
 
 .carousel {
     width: fit-content;
-    
 }

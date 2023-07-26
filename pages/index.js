@@ -1,5 +1,6 @@
 import Layout from '../components/layout';
 import ImageCarousel from '../components/ImageCarousel';
+import About from '../components/about-me';
 import styles from './css-modules/index.module.css';
 import { useState, useEffect } from 'react';
 
@@ -32,7 +33,8 @@ function Home() {
     return (
         <Layout>
             <section>
-                <div className={styles.imageCarousels}>
+                <div className='row'>
+                <div className='col'>
                     <p className={styles.title}>Recent Images</p>
                     <div className={styles.carousel}>
                         <ImageCarousel images={photos} />
@@ -41,6 +43,8 @@ function Home() {
                     <div className={styles.carousel}>
                         <ImageCarousel images={featured} />
                     </div>
+                </div>
+
                 </div>
             </section>
         </Layout>

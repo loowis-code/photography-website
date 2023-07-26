@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styles from '../css-modules/image-carousel.module.css';
 
+import Image from 'next/image'
+
 const ImageCarousel = ({ images }) => {
   const [leftIndex, setLeftIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -40,17 +42,17 @@ const ImageCarousel = ({ images }) => {
         {/* <div className='row'> */}
             {/* <div className='col'> */}
                 <div className={styles.leftImage}>
-                    <img src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[leftIndex]}`} alt={`Image ${leftIndex}`} />
+                    <Image width={1200} height={1200} src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[leftIndex]}`} alt={`Image ${leftIndex}`} />
                 </div>    
             {/* </div> */}
             {/* <div className='col'> */}
                 <div className={styles.centerImage}>
-                    <img src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[currentIndex]}`} alt={`Image ${currentIndex}`} />
+                    <Image width={1200} height={1200}  src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[currentIndex]}`} alt={`Image ${currentIndex}`} />
                 </div>
             {/* </div> */}
             {/* <div className='col'> */}
                 <div className={styles.rightImage}>
-                    <img src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[rightIndex]}`} alt={`Image ${rightIndex}`} />
+                    <Image width={1200} height={1200} src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[rightIndex]}`} alt={`Image ${rightIndex}`}/>
                 </div>
             {/* </div> */}
         {/* </div> */}

@@ -17,7 +17,7 @@ export default function HeaderSidebar () {
     }, [])
 
     return (
-        <div>
+        <div className={styles.sidebar}>
             <div className={styles.header}>
                 <div className={styles.titleblock}>
                     <div className={styles.title}>

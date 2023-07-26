@@ -3,7 +3,7 @@
 }
 
 .header {
-    font-family: newspaper;
+    font-family: urbanist;
     display: block;
     width: fit-content;
     border-right: solid;
@@ -16,7 +16,7 @@
 }
 
 .titlelink {
-    font-size: 3rem;
+    font-size: 3.5rem;
     text-decoration: none;
     color: #000;
 }
@@ -28,12 +28,13 @@
 
 .tagline {
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-family: urbanistItalic;
 }
 
 .navs {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     border-top: solid;
 
 }

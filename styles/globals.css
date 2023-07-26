@@ -16,30 +16,60 @@
 } */
 
 section {
-    font-family: newspaper;
+    font-family: urbanist;
 }
 
 @font-face {
     font-family: newspaper;
-    src: url(../public/PlayfairDisplay-Black.ttf);
+    src: url(../public/Playfair/PlayfairDisplay-Black.ttf);
 }
 
 @font-face {
     font-family: newspaperregular;
-    src: url(../public/PlayfairDisplay-Regular.ttf);
+    src: url(../public/Playfair/PlayfairDisplay-Regular.ttf);
 }
 
 @font-face {
     font-family: newspapersemibold;
-    src: url(../public/PlayfairDisplay-SemiBold.ttf);
+    src: url(../public/Playfair/PlayfairDisplay-SemiBold.ttf);
 }
 
 @font-face {
     font-family: newspapermedium;
-    src: url(../public/PlayfairDisplay-Medium.ttf);
+    src: url(../public/Playfair/PlayfairDisplay-Medium.ttf);
 }
 
 @font-face {
     font-family: newspaperextrabold;
-    src: url(../public/PlayfairDisplay-ExtraBold.ttf);
+    src: url(../public/Playfair/PlayfairDisplay-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: urbanist;
+    src: url(../public/Urbanist/Urbanist-Regular.ttf);
+}
+
+@font-face {
+    font-family: urbanistItalic;
+    src: url(../public/Urbanist/Urbanist-Italic.ttf);
+}
+
+@font-face {
+    font-family: urbanistBold;
+    src: url(../public/Urbanist/Urbanist-Bold.ttf);
+}
+
+@font-face {
+    font-family: urbanistBoldItalic;
+    src: url(../public/Urbanist/Urbanist-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: urbanistLight;
+    src: url(../public/Urbanist/Urbanist-Light.ttf);
+}
+
+@font-face {
+    font-family: urbanistLightItalic;
+    src: url(../public/Urbanist/Urbanist-LightItalic.ttf);
 }

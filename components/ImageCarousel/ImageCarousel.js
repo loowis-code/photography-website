@@ -39,23 +39,17 @@ const ImageCarousel = ({ images }) => {
         <div className={styles.carouselwrapper}>
         <button className={styles.prevbutton} onClick={handlePrev} />
         <button className={styles.nextbutton} onClick={handleNext} />
-        {/* <div className='row'> */}
-            {/* <div className='col'> */}
-                <div className={styles.leftImage}>
-                    <Image width={1200} height={1200} src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[leftIndex]}`} alt={`Image ${leftIndex}`} />
-                </div>    
-            {/* </div> */}
-            {/* <div className='col'> */}
-                <div className={styles.centerImage}>
-                    <Image width={1200} height={1200}  src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[currentIndex]}`} alt={`Image ${currentIndex}`} />
-                </div>
-            {/* </div> */}
-            {/* <div className='col'> */}
-                <div className={styles.rightImage}>
-                    <Image width={1200} height={1200} src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[rightIndex]}`} alt={`Image ${rightIndex}`}/>
-                </div>
-            {/* </div> */}
-        {/* </div> */}
+            <div className={styles.leftImage}>
+                <Image width={1200} height={1200} src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[leftIndex]}`} alt={`Image ${leftIndex}`} />
+            </div>    
+
+            <div className={styles.centerImage}>
+                <Image width={1200} height={1200}  src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[currentIndex]}`} alt={`Image ${currentIndex}`} />
+            </div>
+
+            <div className={styles.rightImage}>
+                <Image width={1200} height={1200} src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[rightIndex]}`} alt={`Image ${rightIndex}`}/>
+            </div>
         </div>
     </div>
   );

@@ -4,11 +4,11 @@
 }
 
 .imageHeader {
-    font-family: newspaperextrabold;
+    font-family: UrbanistBold;
 }
 
 .imageDetails {
-    font-family: newspaperextrabold;
+    font-family: UrbanistBoldItalic;
     border-top: solid;
     border-bottom: solid;
 }

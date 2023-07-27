@@ -6,7 +6,7 @@ export default function PhotoPreview({ title, filename, id }) {
     return (
         <div className={styles.photocontainer}>
             <Link className={styles.photopreview} href={`/photos/${id}`}>
-                <div>
+                <div className={styles.photo}>
                     <Image 
                         src={`https://photography-website.s3.eu-west-2.amazonaws.com/${filename}`}
                         alt={title}

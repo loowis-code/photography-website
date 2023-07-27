@@ -15,6 +15,10 @@
     }
 } */
 
+body {
+    background-color: #8a2be2;
+    color: #ffc348;
+}
 section {
     font-family: urbanist;
 }

@@ -1,29 +1,27 @@
 .sidebar {
     position: fixed;
+    height: 100vh;
+
 }
 
 .header {
     font-family: urbanist;
     display: block;
     width: fit-content;
-    border-right: solid;
-    height: 100vh;
-}
-
-.titleblock {
     padding: 0rem 2rem;
     text-align: center;
 }
 
-.titlelink {
+.title {
     font-size: 3.5rem;
     text-decoration: none;
-    color: #000;
+    color: #ffc348;
 }
 
-.titlelink:hover {
-    color: #000;
-    border-bottom: solid;
+.title:hover {
+    color: #ffc348;
+    text-shadow: 0.5rem 0.5rem 0.5rem #a88bbd;
+    
 }
 
 .tagline {
@@ -35,17 +33,18 @@
 .navs {
     text-align: center;
     font-size: 2rem;
-    border-top: solid;
-
+    display: block;
 }
 
 .navlink {
     text-decoration: none;
-    color: #000;
+    color: #ffc348;
     margin: 0rem 2rem;
+    display: block;
 }
 
 .navlink:hover {
-    color: #000;
-    /* border-bottom: solid; */
+    color: #ffc348;
+    text-shadow: 0.5rem 0.5rem 0.5rem #a88bbd;
+
 }

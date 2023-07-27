@@ -7,9 +7,15 @@
 
 .photopreview {
   text-decoration: none;
-  color: #000;
+  color: #ffc348;
+
 }
 
 .photopreview:hover {
-    color: #000;
+    color: #ffc348;
+    text-shadow: 0.5rem 0.5rem 0.5rem #a88bbd;
+}
+
+.photo > img{
+    border-radius: 5%;
 }

@@ -1,6 +1,11 @@
 .imagecontainer {
     width: 65%;
     margin: 0 auto;
+    
+}
+
+.imagecontainer > img {
+    border-radius: 1%;
 }
 
 .imageHeader {

@@ -19,28 +19,14 @@ export default function HeaderSidebar () {
     return (
         <div className={styles.sidebar}>
             <div className={styles.header}>
-                <div className={styles.titleblock}>
-                    <div className={styles.title}>
-                        <Link className={styles.titlelink} href="/">Lewis Inches</Link>
-                    </div>
-                    <div>
-                        <p className={styles.tagline}>Photography</p>
-                    </div>
+                <Link className={styles.title} href="/">Lewis Inches</Link>
+                <div>
+                    <p className={styles.tagline}>Photography</p>
                 </div>
-                <div className={styles.navs}>
-                    <Link className={styles.navlink} href="/all-photos" >View All Images</Link>
-                    <div className={styles.navlink}>
-                        <div className="dropdown">
-                            <div className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown">
-                                Collections
-                            </div>
-                            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                {data.map((d) => (<a className="dropdown-item" href={`/collections/${d.data.collection_id}`}>{d.data.collection_name}</a>))}
-                            </div>
-                        </div>
-                    </div>
-                    {/* <Link className={styles.navlink} href="/about">About</Link> */}
-                </div>
+            </div>
+            <div className={styles.navs}>
+                <Link className={styles.navlink} href="/all-photos" >All Images</Link>
+                {data.map((d) => (<Link className={styles.navlink} href={`/collections/${d.data.collection_id}`}>{d.data.collection_name}</Link>))}
             </div>
         </div>
     );

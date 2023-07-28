@@ -1,8 +1,8 @@
 body {
-    background-color: #8a2be2;
-    color: #ffc348;
+    background-color: #F4F2DE;
+    color: #7C9D96;
     overflow-x: hidden;   
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 section {
     font-family: urbanist;

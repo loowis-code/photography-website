@@ -1,9 +1,16 @@
+.carousels {
+    padding: 5% 0% 5% 5%;
+    
+}
 
 .title {
     font-size: 2rem;
-    padding-top: 0.5rem;
+    padding-left: 1%;
 }
 
-.featuredCarousel {
-    padding-bottom: 10%;
+.featuredCarousel,
+.recentCarousel {
+    /* background-color: #A1CCD1; */
+    margin: 2%;
+    /* border: solid #E9B384; */
 }

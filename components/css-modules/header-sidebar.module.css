@@ -1,6 +1,11 @@
 .sidebar {
     position: fixed;
     height: 100vh;
+    /* border: solid; */
+    background-color: #A1CCD1;
+    /* margin-top: 12.5%; */
+    border-right:  50px solid #E9B384;
+    /* margin-left: 1%; */
 
 }
 
@@ -10,17 +15,18 @@
     width: fit-content;
     padding: 0rem 2rem;
     text-align: center;
+    
 }
 
 .title {
     font-size: 3.5rem;
     text-decoration: none;
-    color: #ffc348;
+    color: #7C9D96;
 }
 
 .title:hover {
-    color: #ffc348;
-    text-shadow: 0.5rem 0.5rem 0.5rem #a88bbd;
+    color: #7C9D96;
+    text-shadow: 0.1rem 0.1rem 0.1rem #E9B384;
     
 }
 
@@ -34,17 +40,18 @@
     text-align: center;
     font-size: 2rem;
     display: block;
+    padding-top: 50%;
 }
 
 .navlink {
     text-decoration: none;
-    color: #ffc348;
+    color: #7C9D96;
     margin: 0rem 2rem;
     display: block;
 }
 
 .navlink:hover {
-    color: #ffc348;
-    text-shadow: 0.5rem 0.5rem 0.5rem #a88bbd;
+    color: #7C9D96;
+    text-shadow: 0.1rem 0.1rem 0.1rem #E9B384;
 
 }

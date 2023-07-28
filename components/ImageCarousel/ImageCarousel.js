@@ -37,8 +37,8 @@ const ImageCarousel = ({ images }) => {
   return (
     <div className={styles.carousel}>
         <div className={styles.carouselwrapper}>
-        <button className={styles.prevbutton} onClick={handlePrev} />
-        <button className={styles.nextbutton} onClick={handleNext} />
+            <button className={styles.prevbutton} onClick={handlePrev} />
+            <button className={styles.nextbutton} onClick={handleNext} />
             <div className={styles.leftImage}>
                 {/* <Image width={1200} height={1200} src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[leftIndex]}`} alt={`Image ${leftIndex}`} /> */}
                 <img src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[leftIndex]}`} alt={`Image ${leftIndex}`}/>

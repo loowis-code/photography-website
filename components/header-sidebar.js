@@ -25,7 +25,7 @@ export default function HeaderSidebar () {
                 </div>
             </div>
             <div className={styles.navs}>
-                <Link className={styles.navlink} href="/all-photos" >All Images</Link>
+                <Link className={styles.navlink} href="/all-photos" >All</Link>
                 {data.map((d) => (<Link className={styles.navlink} href={`/collections/${d.data.collection_id}`}>{d.data.collection_name}</Link>))}
             </div>
         </div>

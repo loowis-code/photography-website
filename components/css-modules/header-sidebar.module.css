@@ -2,24 +2,24 @@
     position: fixed;
     height: 100vh;
     background-color: #A1CCD1;
-    border-right: 10px solid #E9B384;
-
+    border-right: 0.5rem solid #E9B384;
+    z-index: 99;
 }
 
 .sidebar::before {
-    border-right:  10px solid #e98484;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
+    border-right:  0.5rem solid #e98484;
+    top: 0;
+    right: 0;
+    bottom: 0;
     display: block;
     position: absolute;
     content: "";
 }
 .sidebar::after {
-    border-right:  10px solid #cc74b9;
-    top: 0px;
-    right: 10px;
-    bottom: 0px;
+    border-right:  0.5rem solid #cc74b9;
+    top: 0;
+    right: 0.5rem;
+    bottom: 0;
     display: block;
     position: absolute;
     content: "";
@@ -28,7 +28,7 @@
     font-family: urbanist;
     display: block;
     width: fit-content;
-    padding: 0rem 2rem;
+    margin: 0rem 3rem 0rem 2rem;
     text-align: center;
     
 }

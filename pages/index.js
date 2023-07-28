@@ -36,11 +36,11 @@ function Home() {
                 <div className='row'>
                 <div className='col'>
                     <p className={styles.title}>Recent Images</p>
-                    <div className={styles.carousel}>
+                    <div className={styles.recentCarousel}>
                         <ImageCarousel images={photos} />
                     </div>
                     <p className={styles.title}>Featured Images</p>
-                    <div className={styles.carousel}>
+                    <div className={styles.featuredCarousel}>
                         <ImageCarousel images={featured} />
                     </div>
                 </div>

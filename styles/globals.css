@@ -1,23 +1,8 @@
-/* @media only screen and (min-width: 1321px) {
-    section {
-        padding: 0 1% 1%;
-        margin: 0 5%;
-        width: 90%;
-
-    }
-}
- 
-@media only screen and (max-width: 1320px) {
-    section {
-        padding: 0 1% 1%;
-        margin: 0 5%;
-        width: 90%;
-    }
-} */
-
 body {
     background-color: #8a2be2;
     color: #ffc348;
+    overflow-x: hidden;   
+    overflow-y: hidden;
 }
 section {
     font-family: urbanist;

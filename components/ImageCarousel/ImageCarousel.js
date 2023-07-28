@@ -40,15 +40,18 @@ const ImageCarousel = ({ images }) => {
         <button className={styles.prevbutton} onClick={handlePrev} />
         <button className={styles.nextbutton} onClick={handleNext} />
             <div className={styles.leftImage}>
-                <Image width={1200} height={1200} src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[leftIndex]}`} alt={`Image ${leftIndex}`} />
+                {/* <Image width={1200} height={1200} src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[leftIndex]}`} alt={`Image ${leftIndex}`} /> */}
+                <img src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[leftIndex]}`} alt={`Image ${leftIndex}`}/>
             </div>    
 
             <div className={styles.centerImage}>
-                <Image width={1200} height={1200}  src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[currentIndex]}`} alt={`Image ${currentIndex}`} />
+                {/* <Image width={1200} height={1200}  src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[currentIndex]}`} alt={`Image ${currentIndex}`} /> */}
+                <img src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[currentIndex]}`} alt={`Image ${currentIndex}`}/>
             </div>
 
             <div className={styles.rightImage}>
-                <Image width={1200} height={1200} src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[rightIndex]}`} alt={`Image ${rightIndex}`}/>
+                {/* <Image width={1200} height={1200} src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[rightIndex]}`} alt={`Image ${rightIndex}`}/> */}
+                <img src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[rightIndex]}`} alt={`Image ${rightIndex}`}/>
             </div>
         </div>
     </div>

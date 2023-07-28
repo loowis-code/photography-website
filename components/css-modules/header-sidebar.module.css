@@ -5,6 +5,7 @@
     background-color: #A1CCD1;
     border-right: 0.5rem solid #E9B384;
     z-index: 99;
+    top: 0;
 }
 
 .sidebar::before {

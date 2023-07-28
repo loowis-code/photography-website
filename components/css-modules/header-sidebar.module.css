@@ -1,14 +1,29 @@
 .sidebar {
     position: fixed;
     height: 100vh;
-    /* border: solid; */
     background-color: #A1CCD1;
-    /* margin-top: 12.5%; */
-    border-right:  50px solid #E9B384;
-    /* margin-left: 1%; */
+    border-right: 10px solid #E9B384;
 
 }
 
+.sidebar::before {
+    border-right:  10px solid #e98484;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    display: block;
+    position: absolute;
+    content: "";
+}
+.sidebar::after {
+    border-right:  10px solid #cc74b9;
+    top: 0px;
+    right: 10px;
+    bottom: 0px;
+    display: block;
+    position: absolute;
+    content: "";
+}
 .header {
     font-family: urbanist;
     display: block;
@@ -37,6 +52,7 @@
 }
 
 .navs {
+    font-family: urbanistBoldItalic;
     text-align: center;
     font-size: 2rem;
     display: block;

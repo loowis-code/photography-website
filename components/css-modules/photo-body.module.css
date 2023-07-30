@@ -1,11 +1,20 @@
-.imagecontainer {
-    width: 65%;
-    margin: 0 auto;
-    
+.singleImage {
+    width: 77.5vw;
+    margin-left: 22.5vw;
+    padding: 1% 10%;
+    height: 100vh;
 }
 
-.imagecontainer > img {
+.imagecontainer {
+    max-width: fit-content;
+    margin: 0 auto;
+}
+
+ .imagecontainer > img {
     border-radius: 1%;
+    max-height: 80vh;
+    max-width: fit-content;
+
 }
 
 .imageHeader {
@@ -14,14 +23,11 @@
 
 .imageDetails {
     font-family: UrbanistBoldItalic;
-    border-top: solid;
-    border-bottom: solid;
 }
 
 .imagetitle {
-    font-size: 2rem;
+    font-size: 1.5rem;
     width: 50%;
-    text-align: start;
 }
 
 .imagedate {
@@ -30,20 +36,8 @@
     text-align: end;
 }
 
-.imageinfo {
-    font-size: 1.5rem;
-    width: 50%;
-    text-align: start;
-}
-
 .imagesettings {
     font-size: 1.25rem;
-    width: 50%;
-    text-align: end;
-}
-
-@media only screen and (max-width: 768px) {
-    .imagecontainer {
-        width: 90%;
-    } 
-}
+    width: 100%;
+    /* text-align: end; */
+} 

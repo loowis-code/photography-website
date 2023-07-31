@@ -3,11 +3,13 @@
     margin-left: 22.5vw;
     padding: 1% 10%;
     height: 100vh;
+    font-size: 1.25rem;
 }
 
 .imagecontainer {
     max-width: fit-content;
     margin: 0 auto;
+    margin-bottom: 0;
 }
 
  .imagecontainer > img {
@@ -19,25 +21,49 @@
 
 .imageHeader {
     font-family: UrbanistBold;
-}
-
-.imageDetails {
-    font-family: UrbanistBoldItalic;
+    display: flex;
+    margin-bottom: 0;
 }
 
 .imagetitle {
     font-size: 1.5rem;
-    width: 50%;
+    margin: 0;
+    margin-bottom: 0;
+
 }
 
 .imagedate {
-    font-size: 1.25rem;
-    width: 50%;
-    text-align: end;
+    font-size: 1.5rem;
+    margin-left: auto; 
+    margin-right: 0;
+    margin-bottom: 0;
 }
 
-.imagesettings {
-    font-size: 1.25rem;
-    width: 100%;
-    /* text-align: end; */
-} 
+.imageDetails {
+    font-family: UrbanistBoldItalic;
+    display: flex;
+}
+
+.imageCamera {
+    margin: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+    .singleImage {
+        width: 100vw;
+        margin-left: 0;
+        margin-top: 15vh;
+        padding-top: 5%;
+        height: 85vh;
+        font-size: 1rem;
+    }
+
+    .imagetitle {
+        font-size: 1.25rem;
+    }
+    
+    .imagedate {
+        font-size: 1.25rem;
+    }
+
+}

@@ -3,7 +3,6 @@
     overflow: hidden;
     width: 66%;
     margin-left: 33%;
-    /* border: solid; */
 }
 
 .carouselwrapper {
@@ -13,7 +12,6 @@
     justify-content: center;
     align-items: center;
     padding: 2%;
-    /* border: solid; */
 }
 
 .centerImage {
@@ -67,11 +65,13 @@
 .prevbutton,
 .nextbutton {
     position: absolute;
-    width: 50%;
+    width: 10%;
     height: 100%;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    opacity: 0.4;
+    color: grey;
 }
 
 .prevbutton {

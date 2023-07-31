@@ -22,8 +22,8 @@ function Home() {
         });
         setFeatured(featured);
         photoData.length = 4;
-        let photoUrls = photoData.map((d) => d.data.filename);
-        setPhotos(photoUrls);
+        let photoInfo = photoData.map((d) => d.data.filename)
+        setPhotos(photoInfo);
     }
 
     useEffect(() => {
@@ -35,7 +35,7 @@ function Home() {
             <section>
                 <div className={styles.carousels}>
                     <div className='col'>
-                    <div className={styles.recentCarousel}>
+                        <div className={styles.recentCarousel}>
                             <p className={styles.title}>Recent Images</p>
                             <ImageCarousel images={photos} />
                         </div>

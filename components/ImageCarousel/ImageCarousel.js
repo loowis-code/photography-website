@@ -36,7 +36,6 @@ const ImageCarousel = ({ images }) => {
   };
 
   const handleTouchEnd = (event) => {
-    console.log('hello')
     const touchEndX = event.changedTouches[0].clientX;
     const touchThreshold = 50;
 

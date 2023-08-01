@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from '../css-modules/image-carousel.module.css';
 
 const ImageCarousel = ({ images }) => {
   const [leftIndex, setLeftIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(1);
   const [rightIndex, setRightIndex] = useState(2);
+  const touchStartX = useRef(null);
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
@@ -35,6 +36,7 @@ const ImageCarousel = ({ images }) => {
   };
 
   const handleTouchEnd = (event) => {
+    console.log('hello')
     const touchEndX = event.changedTouches[0].clientX;
     const touchThreshold = 50;
 

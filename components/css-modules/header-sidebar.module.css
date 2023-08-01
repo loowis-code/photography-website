@@ -76,16 +76,14 @@
 
 @media only screen and (max-width: 1000px) {
     .sidebar {
-        position: fixed;
-        height: 15vh;
+        height: fit-content;
+        max-height: 25vh;
         width: 100vw;
-        /* border-bottom: 0.25rem solid #E9B384; */
         border-right: none;
         text-align: center;
     }
 
     .sidebar::before {
-        /* border-bottom:  0.25rem solid #e98484; */
         border-right:  none;
         top: 0;
         right: 0;
@@ -95,7 +93,6 @@
         content: none;  
     }
     .sidebar::after {
-        /* border-bottom:  0.25rem solid #cc74b9; */
         border-right:  none;
         top: 0;
         right: 0;
@@ -130,6 +127,5 @@
 
     .navlink:hover {
         text-shadow:none;
-    
     }
 }

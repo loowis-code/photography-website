@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../css-modules/image-carousel.module.css';
 
-import Link from 'next/link';
-import Image from 'next/image';
 const ImageCarousel = ({ images }) => {
   const [leftIndex, setLeftIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -30,12 +28,29 @@ const ImageCarousel = ({ images }) => {
     setRightIndex((nextIndex) =>
         nextIndex === images.length - 1 ? 0 : nextIndex + 1
     );
+  };
 
+  const handleTouchStart = (event) => {
+    touchStartX.current = event.touches[0].clientX;
+  };
 
+  const handleTouchEnd = (event) => {
+    const touchEndX = event.changedTouches[0].clientX;
+    const touchThreshold = 50;
+
+    if (touchStartX.current - touchEndX > touchThreshold) {
+      handleNext();
+    } else if (touchEndX - touchStartX.current > touchThreshold) {
+      handlePrev();
+    }
   };
 
   return (
-    <div className={styles.carousel}>
+    <div 
+        className={styles.carousel}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+    >
         <div className={styles.carouselwrapper}>
             <button className={styles.prevbutton} onClick={handlePrev} >
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">

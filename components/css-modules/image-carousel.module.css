@@ -97,19 +97,13 @@
     }
 
     .centerImage {
-        position: relative;
-        z-index: 9;
-        left: 12%;
+        left: 0;
     }
     
     .leftImage,
     .rightImage {
         opacity: 0.8;
-        height: 100%;
-        margin: auto;
-        z-index: 8;
         position: absolute;
-        width: 25%;
     }
     
     .rightImage {

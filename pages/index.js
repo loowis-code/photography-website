@@ -34,15 +34,13 @@ function Home() {
         <Layout>
             <section>
                 <div className={styles.carousels}>
-                    <div className='col'>
-                        <div className={styles.recentCarousel}>
-                            <p className={styles.title}>Recent Images</p>
-                            <ImageCarousel images={photos} />
-                        </div>
-                        <div className={styles.featuredCarousel}>
-                            <p className={styles.title}>Featured Images</p>
-                            <ImageCarousel images={featured} />
-                        </div>
+                    <div className={styles.recentCarousel}>
+                        <p className={styles.title}>Recent Images</p>
+                        <ImageCarousel images={photos} />
+                    </div>
+                    <div className={styles.featuredCarousel}>
+                        <p className={styles.title}>Featured Images</p>
+                        <ImageCarousel images={featured} />
                     </div>
                 </div>
             </section>

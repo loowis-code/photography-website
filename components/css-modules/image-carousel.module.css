@@ -1,0 +1,131 @@
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 66%;
+    margin-left: 33%;
+}
+
+.carouselwrapper {
+    display: flex;
+    margin: auto;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+}
+
+.centerImage {
+    position: relative;
+    z-index: 9;
+    left: 12%;
+}
+
+.leftImage,
+.rightImage {
+    opacity: 0.8;
+    height: 100%;
+    margin: auto;
+    z-index: 8;
+    position: absolute;
+    width: 33%;
+}
+
+.rightImage {
+    transform: translateX(75%);
+}
+
+.leftImage {
+    transform: translateX(-75%);
+}
+
+.centerImage img {
+    display: block;
+    width: 70%;
+    border-radius: 5%; 
+}
+
+.leftImage img,
+.rightImage img {
+    height: 80%;
+    display: block;
+    border-radius: 5%; 
+    object-fit: cover;
+    transform: translateY(12.5%);
+}
+
+.leftImage img {
+    mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+.rightImage img {
+    mask-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+    
+}
+
+.prevbutton,
+.nextbutton {
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.4;
+    color: grey;
+}
+
+.prevbutton {
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.nextbutton {
+    top: 0;
+    right: 0;
+    z-index: 10;
+}
+
+@media only screen and (max-width: 1000px) {
+    .carousel {
+        margin: auto;
+        width: 100%;
+    }
+
+    .carouselwrapper {
+        padding: 0;
+    }
+
+    .centerImage {
+        left: 0;
+    }
+    
+    .leftImage,
+    .rightImage {
+        opacity: 0.8;
+        position: absolute;
+    }
+    
+    .rightImage {
+        transform: translateX(100%);
+    }
+    
+    .leftImage {
+        transform: translateX(-100%);
+    }
+    
+    .centerImage img {
+        display: block;
+        width: 100%;
+        border-radius: 5%; 
+    }
+    
+    .leftImage img,
+    .rightImage img {
+        height: 60%;
+        display: block;
+        border-radius: 5%; 
+        object-fit: cover;
+        transform: translateY(33%);
+    }
+}

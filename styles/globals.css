@@ -1,41 +1,64 @@
-@media only screen and (min-width: 1321px) {
-    section {
-        padding: 0 1% 1%;
-        margin: 0 5%;
-        width: 90%;
-
-    }
+body {
+    background-color: #F4F2DE;
+    color: #7C9D96;
+    overflow-x: hidden;   
+    /* overflow-y: hidden; */
 }
- 
-@media only screen and (max-width: 1320px) {
-    section {
-        padding: 0 1% 1%;
-        margin: 0 5%;
-        width: 90%;
-    }
+section {
+    font-family: urbanist;
 }
 
 @font-face {
     font-family: newspaper;
-    src: url(../public/PlayfairDisplay-Black.ttf);
+    src: url(../public/Playfair/PlayfairDisplay-Black.ttf);
 }
 
 @font-face {
     font-family: newspaperregular;
-    src: url(../public/PlayfairDisplay-Regular.ttf);
+    src: url(../public/Playfair/PlayfairDisplay-Regular.ttf);
 }
 
 @font-face {
     font-family: newspapersemibold;
-    src: url(../public/PlayfairDisplay-SemiBold.ttf);
+    src: url(../public/Playfair/PlayfairDisplay-SemiBold.ttf);
 }
 
 @font-face {
     font-family: newspapermedium;
-    src: url(../public/PlayfairDisplay-Medium.ttf);
+    src: url(../public/Playfair/PlayfairDisplay-Medium.ttf);
 }
 
 @font-face {
     font-family: newspaperextrabold;
-    src: url(../public/PlayfairDisplay-ExtraBold.ttf);
+    src: url(../public/Playfair/PlayfairDisplay-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: urbanist;
+    src: url(../public/Urbanist/Urbanist-Regular.ttf);
+}
+
+@font-face {
+    font-family: urbanistItalic;
+    src: url(../public/Urbanist/Urbanist-Italic.ttf);
+}
+
+@font-face {
+    font-family: urbanistBold;
+    src: url(../public/Urbanist/Urbanist-Bold.ttf);
+}
+
+@font-face {
+    font-family: urbanistBoldItalic;
+    src: url(../public/Urbanist/Urbanist-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: urbanistLight;
+    src: url(../public/Urbanist/Urbanist-Light.ttf);
+}
+
+@font-face {
+    font-family: urbanistLightItalic;
+    src: url(../public/Urbanist/Urbanist-LightItalic.ttf);
 }

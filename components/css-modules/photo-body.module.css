@@ -1,44 +1,69 @@
+.singleImage {
+    width: 77.5vw;
+    margin-left: 22.5vw;
+    padding: 1% 10%;
+    height: 100vh;
+    font-size: 1.25rem;
+}
+
 .imagecontainer {
-    width: 65%;
+    max-width: fit-content;
     margin: 0 auto;
+    margin-bottom: 0;
+}
+
+ .imagecontainer > img {
+    border-radius: 1%;
+    max-height: 80vh;
+    max-width: fit-content;
+
 }
 
 .imageHeader {
-    font-family: newspaperextrabold;
-}
-
-.imageDetails {
-    font-family: newspaperextrabold;
-    border-top: solid;
-    border-bottom: solid;
+    font-family: UrbanistBold;
+    display: flex;
+    margin-bottom: 0;
 }
 
 .imagetitle {
-    font-size: 2rem;
-    width: 50%;
-    text-align: start;
+    font-size: 1.5rem;
+    margin: 0;
+    margin-bottom: 0;
+
 }
 
 .imagedate {
-    font-size: 1.25rem;
-    width: 50%;
-    text-align: end;
-}
-
-.imageinfo {
     font-size: 1.5rem;
-    width: 50%;
-    text-align: start;
+    margin-left: auto; 
+    margin-right: 0;
+    margin-bottom: 0;
 }
 
-.imagesettings {
-    font-size: 1.25rem;
-    width: 50%;
-    text-align: end;
+.imageDetails {
+    font-family: UrbanistBoldItalic;
+    display: flex;
 }
 
-@media only screen and (max-width: 768px) {
-    .imagecontainer {
-        width: 90%;
-    } 
+.imageCamera {
+    margin: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+    .singleImage {
+        width: 100vw;
+        margin-left: 0;
+        margin-top: 15vh;
+        padding-top: 5%;
+        height: 85vh;
+        font-size: 1rem;
+    }
+
+    .imagetitle {
+        font-size: 1.25rem;
+    }
+    
+    .imagedate {
+        font-size: 1.25rem;
+    }
+
 }

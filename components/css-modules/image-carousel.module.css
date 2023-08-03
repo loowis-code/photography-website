@@ -1,8 +1,7 @@
 .carousel {
     position: relative;
     overflow: hidden;
-    width: 66%;
-    margin-left: 33%;
+    width: 100%;
 }
 
 .carouselwrapper {
@@ -86,7 +85,7 @@
     z-index: 10;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1600px) {
     .carousel {
         margin: auto;
         width: 100%;

@@ -1,30 +1,33 @@
 .title {
     font-size: 2rem;
-    padding-left: 40%;
 }
 
 .featuredCarousel,
 .recentCarousel {
     margin: 2%;
 }
-
-@media only screen and (max-width: 1000px) {
+.carousels {
+    margin-left: 25vw;
+    padding-top: 2.5vh;
+    text-align: center;
+}
+@media only screen and (max-width: 1600px) {
     .title {
         font-size: 2rem;
-        padding-left: 0;
     }
     
     .featuredCarousel,
     .recentCarousel {
         margin: 0;
-        text-align: center;
         padding-bottom: 5%;
     }
 
     .carousels {
-        margin-top: 25vh;
+        margin-top: 20vh;
         height: fit-content;
         max-height: 80vh;
+        margin-left: 0;
+        padding-top: 0;
     }
 
 

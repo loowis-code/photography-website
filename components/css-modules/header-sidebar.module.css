@@ -6,6 +6,7 @@
     border-right: 0.5rem solid #E9B384;
     z-index: 99;
     top: 0;
+    text-align: center;
 }
 
 .sidebar::before {
@@ -29,10 +30,7 @@
 .header {
     font-family: urbanist;
     display: block;
-    width: fit-content;
-    margin: 0 3vw;
-    text-align: center;
-    
+    width: 100%;
 }
 
 .title {

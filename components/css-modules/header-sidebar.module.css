@@ -80,26 +80,25 @@
         max-height: 25vh;
         width: 100vw;
         border-right: none;
+        border-bottom: 0.25rem solid #E9B384;
         text-align: center;
     }
 
     .sidebar::before {
-        border-right:  none;
+        border-right: none;
+        border-bottom: 0.25rem solid #e98484;
         top: 0;
+        left: 0;
         right: 0;
         bottom: 0;
-        display: block;
-        position: absolute;
-        content: none;  
     }
     .sidebar::after {
-        border-right:  none;
+        border-right: none;
+        border-bottom: 0.25rem solid #cc74b9;
         top: 0;
+        left: 0;
         right: 0;
-        bottom: 0;
-        display: block;
-        position: absolute;
-        content: none;    
+        bottom: 0.2rem;
     }
 
     .header {

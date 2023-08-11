@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from '../css-modules/image-carousel.module.css';
 
 const ImageCarousel = ({ images }) => {
@@ -6,8 +6,10 @@ const ImageCarousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [rightIndex, setRightIndex] = useState(2);
   const touchStartX = useRef(null);
+  let intervalID;
 
   const handlePrev = () => {
+    intervalID = setInterval(fadeOut, 5)
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
@@ -20,6 +22,7 @@ const ImageCarousel = ({ images }) => {
   };
 
   const handleNext = () => {
+    intervalID = setInterval(fadeOut, 5)
     setCurrentIndex((nextIndex) =>
         nextIndex === images.length - 1 ? 0 : nextIndex + 1
     );
@@ -30,6 +33,41 @@ const ImageCarousel = ({ images }) => {
         nextIndex === images.length - 1 ? 0 : nextIndex + 1
     );
   };
+
+    function fadeOut() {
+        const rightImage = document.querySelector(`.${styles.rightImage}`);
+        const centerImage = document.querySelector(`.${styles.centerImage}`);
+        const leftImage = document.querySelector(`.${styles.leftImage}`);
+        var centerOpacity = Number(window.getComputedStyle(centerImage).getPropertyValue("opacity"));
+        if (centerOpacity >= 0.4) {
+            centerOpacity = centerOpacity - 0.01;
+            var opacity = centerOpacity - 0.2;
+            centerImage.style.opacity = centerOpacity;
+            rightImage.style.opacity = opacity;
+            leftImage.style.opacity = opacity;
+        } else {
+            clearInterval(intervalID);
+            intervalID = setInterval(fadeIn, 5)
+        }
+    }
+
+    function fadeIn() {
+        const rightImage = document.querySelector(`.${styles.rightImage}`);
+        const centerImage = document.querySelector(`.${styles.centerImage}`);
+        const leftImage = document.querySelector(`.${styles.leftImage}`);
+        var centerOpacity = Number(window.getComputedStyle(centerImage).getPropertyValue("opacity"));
+        if (centerOpacity <= 0.99) {
+            centerOpacity = centerOpacity + 0.01;
+            var opacity = centerOpacity - 0.2;
+            centerImage.style.opacity = centerOpacity;
+            rightImage.style.opacity = opacity;
+            leftImage.style.opacity = opacity;
+        } else {
+            clearInterval(intervalID);
+        }
+    }
+
+
 
   const handleTouchStart = (event) => {
     touchStartX.current = event.touches[0].clientX;

@@ -104,6 +104,7 @@
         opacity: 0.8;
         position: absolute;
         height: 100%;
+        /* width: 33%; */
     }
     
     .rightImage {

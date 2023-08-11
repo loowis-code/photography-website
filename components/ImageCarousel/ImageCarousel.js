@@ -2,52 +2,61 @@ import React, { useState, useRef, useEffect } from 'react';
 import styles from '../css-modules/image-carousel.module.css';
 
 const ImageCarousel = ({ images }) => {
-  const [leftIndex, setLeftIndex] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(1);
-  const [rightIndex, setRightIndex] = useState(2);
-  const touchStartX = useRef(null);
-  let intervalID;
+    const [leftIndex, setLeftIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(1);
+    const [rightIndex, setRightIndex] = useState(2);
+    const touchStartX = useRef(null);
+    let intervalID;
 
-  const handlePrev = () => {
-    intervalID = setInterval(fadeOut, 5)
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-    setLeftIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-    setRightIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
+    const handlePrev = () => {
+        intervalID = setInterval(fadeOut, 5)
+        setTimeout(decrementIndex, 1000)
+    };
 
-  const handleNext = () => {
-    intervalID = setInterval(fadeOut, 5)
-    setCurrentIndex((nextIndex) =>
+    function decrementIndex() {
+        setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
+        setLeftIndex((prevIndex) =>
+            prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
+        setRightIndex((prevIndex) =>
+            prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
+        intervalID = setInterval(fadeIn, 5)
+    }
+
+    const handleNext = () => {
+        intervalID = setInterval(fadeOut, 5)
+        setTimeout(incrementIndex, 1000)
+    };
+
+    function incrementIndex() {
+        setCurrentIndex((nextIndex) =>
         nextIndex === images.length - 1 ? 0 : nextIndex + 1
-    );
-    setLeftIndex((nextIndex) =>
-        nextIndex === images.length - 1 ? 0 : nextIndex + 1
-    );
-    setRightIndex((nextIndex) =>
-        nextIndex === images.length - 1 ? 0 : nextIndex + 1
-    );
-  };
+        );
+        setLeftIndex((nextIndex) =>
+            nextIndex === images.length - 1 ? 0 : nextIndex + 1
+        );
+        setRightIndex((nextIndex) =>
+            nextIndex === images.length - 1 ? 0 : nextIndex + 1
+        );
+        intervalID = setInterval(fadeIn, 5)
+    }
 
     function fadeOut() {
         const rightImage = document.querySelector(`.${styles.rightImage}`);
         const centerImage = document.querySelector(`.${styles.centerImage}`);
         const leftImage = document.querySelector(`.${styles.leftImage}`);
         var centerOpacity = Number(window.getComputedStyle(centerImage).getPropertyValue("opacity"));
-        if (centerOpacity >= 0.4) {
+        if (centerOpacity >= 0.01) {
             centerOpacity = centerOpacity - 0.01;
-            var opacity = centerOpacity - 0.2;
+            var opacity = opacity >= 0.2 ? centerOpacity - 0.2 : 0;
             centerImage.style.opacity = centerOpacity;
             rightImage.style.opacity = opacity;
             leftImage.style.opacity = opacity;
         } else {
             clearInterval(intervalID);
-            intervalID = setInterval(fadeIn, 5)
         }
     }
 
@@ -67,22 +76,20 @@ const ImageCarousel = ({ images }) => {
         }
     }
 
+    const handleTouchStart = (event) => {
+        touchStartX.current = event.touches[0].clientX;
+    };
 
+    const handleTouchEnd = (event) => {
+        const touchEndX = event.changedTouches[0].clientX;
+        const touchThreshold = 50;
 
-  const handleTouchStart = (event) => {
-    touchStartX.current = event.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (event) => {
-    const touchEndX = event.changedTouches[0].clientX;
-    const touchThreshold = 50;
-
-    if (touchStartX.current - touchEndX > touchThreshold) {
-      handleNext();
-    } else if (touchEndX - touchStartX.current > touchThreshold) {
-      handlePrev();
-    }
-  };
+        if (touchStartX.current - touchEndX > touchThreshold) {
+            handleNext();
+        } else if (touchEndX - touchStartX.current > touchThreshold) {
+            handlePrev();
+        }
+    };
 
   return (
     <div 

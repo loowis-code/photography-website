@@ -1,7 +1,7 @@
 .singleImage {
     width: 77.5vw;
     margin-left: 22.5vw;
-    padding: 1% 10%;
+    padding: 10% 10%;
     height: 100vh;
     font-size: 1.25rem;
 }
@@ -50,11 +50,11 @@
 
 @media only screen and (max-width: 1600px) {
     .singleImage {
-        width: 100vw;
-        margin-left: 0;
-        margin-top: 25vh;
-        padding-top: 5%;
-        height: 85vh;
+        width: 90vw;
+        margin: auto;
+        margin-top: 20vh;
+        padding-top: 0;
+        height: 80vh;
         font-size: 1rem;
     }
 

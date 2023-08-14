@@ -83,7 +83,7 @@ const ImageCarousel = ({ images }) => {
             </div>    
 
             <div className={styles.centerImage}>
-                <Link className={styles.imageLink} href={`/photos/${images[0] ? images[currentIndex].id : 'default'}`}>
+                <Link className={styles.imageLink} href={`/photos/${images[0] ? images[currentIndex].url_id : 'default'}`}>
                     <div className={styles.centreImagePhoto}>
                         <Image 
                             src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[0] ? images[currentIndex].filename : 'default.jpg'}`}

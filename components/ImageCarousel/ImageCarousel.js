@@ -1,6 +1,10 @@
 import React, { useState, useRef } from 'react';
 import styles from '../css-modules/image-carousel.module.css';
 
+import PhotoPreview from '../photo-preview';
+import Link from 'next/link';
+import Image from 'next/image';
+
 const ImageCarousel = ({ images }) => {
   const [leftIndex, setLeftIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -64,49 +68,46 @@ const ImageCarousel = ({ images }) => {
                 </svg>
             </button>
             <div className={styles.leftImage}>
-                <img src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[leftIndex]}`} alt={`Image ${leftIndex}`}/>
-                {/* <Link href={`/photos/${images[leftIndex].data.url_id}`}>
-                    <div>
+
+                    <div className={styles.leftImagePhoto}>
                         <Image 
-                            src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[leftIndex].data.filename}`}
-                            alt={images[leftIndex].data.title}
+                            src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[0] ? images[leftIndex].filename : 'default.jpg'}`}
+                            alt={images[0] ? images[leftIndex].title : 'default'}
                             width="1200"
                             height="1200"
                             layout="responsive"
                         />
-                        <h5 className="card-title">{images[leftIndex].data.title}</h5>
+                        <h5 className="card-title">{images[0] ? images[leftIndex].title : 'default'}</h5>
                     </div>
-                </Link> */}
+
             </div>    
 
             <div className={styles.centerImage}>
-                <img src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[currentIndex]}`} alt={`Image ${currentIndex}`}/>
-                {/* <Link href={`/photos/${images[currentIndex].data.url_id}`}>
+                <Link className={styles.imageLink} href={`/photos/${images[0] ? images[currentIndex].id : 'default'}`}>
+                    <div className={styles.centreImagePhoto}>
                         <Image 
-                            src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[currentIndex].data.filename}`}
-                            alt={images[currentIndex].data.title}
+                            src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[0] ? images[currentIndex].filename : 'default.jpg'}`}
+                            alt={images[0] ? images[currentIndex].title : 'default'}
                             width="1200"
                             height="1200"
                             layout="responsive"
                         />
-                        <h5 className="card-title">{images[currentIndex].data.title}</h5>
-                </Link> */}
+                        <h5 className="card-title">{images[0] ? images[currentIndex].title : 'default'}</h5>
+                    </div>
+                </Link>
             </div>
 
             <div className={styles.rightImage}>
-                <img src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[rightIndex]}`} alt={`Image ${rightIndex}`}/>
-                {/* <Link href={`/photos/${images[rightIndex].data.url_id}`}>
-                    <div>
+                    <div className={styles.rightImagePhoto}>
                         <Image 
-                            src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[rightIndex].data.filename}`}
-                            alt={images[rightIndex].data.title}
+                            src={`https://photography-website.s3.eu-west-2.amazonaws.com/${images[0] ? images[rightIndex].filename : 'default.jpg'}`}
+                            alt={images[0] ? images[rightIndex].title : 'default'}
                             width="1200"
                             height="1200"
                             layout="responsive"
                         />
-                        <h5 className="card-title">{images[rightIndex].data.title}</h5>
+                        <h5 className="card-title">{images[0] ? images[rightIndex].title : 'default'}</h5>
                     </div>
-                </Link> */}
             </div>
         </div>
     </div>

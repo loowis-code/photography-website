@@ -26,7 +26,8 @@ function Collection() {
     return (
         <Layout>
         
-        <section>
+        <section className={styles.container}>
+            <h1>Collection</h1>
             <div className={styles.photos}>
                 {collectionsData.map((d) => (<PhotoPreview title={d.data.title} id={d.data.url_id} filename={d.data.filename} className={styles.photo}/>))}
             </div>

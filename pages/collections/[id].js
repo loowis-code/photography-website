@@ -14,23 +14,22 @@ function Collection() {
         const req = await fetch(`/api/collection/${router.query.id}`);
         const collectionData = await req.json();
         setCollectionInfo(collectionData[0])
-        setPhotoData(collectionData.slice(1))
-
+        if (Array.isArray(collectionData)) {
+            setPhotoData(collectionData.slice(1))
+        }
     }
 
     useEffect(() => {
-        if(router.isReady) {
-            getCollectionData();
-        }
-    },[router.isReady])
+        getCollectionData();
+    },[router.asPath])
 
     return (
         <Layout>
         
         <section className={styles.container}>
-            <h1>{collectionInfo.name}</h1>
+            <h1>{collectionInfo?.name}</h1>
             <div className={styles.photos}>
-                {photoData.map((d) => (<PhotoPreview title={d.data.title} id={d.data.url_id} filename={d.data.filename} className={styles.photo}/>))}
+                {photoData?.map((d) => (<PhotoPreview title={d.data.title} id={d.data.url_id} filename={d.data.filename} className={styles.photo}/>))}
             </div>
         </section>
 

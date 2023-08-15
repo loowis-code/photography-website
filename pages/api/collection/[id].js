@@ -14,8 +14,9 @@ module.exports = async (req, res) => {
                 query.Lambda("X", query.Get(query.Var("X")))
               )
         )
-
+        let collectionInfo = {name: dbs.data[0].data.collection_name, description: dbs.data[0].data.collection_desc};
         var photos = []
+        photos.push(collectionInfo);
         let photo_ids = dbs.data[0].data.collection_photo_ids;
         for (let i = 0; i < photo_ids.length; i++) {
             let dbs2 = await client.query(

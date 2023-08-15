@@ -1,19 +1,20 @@
 import Layout from '../../components/layout';
 import PhotoPreview from '../../components/photo-preview';
 import styles from '../css-modules/all-photos.module.css';
-import Head from 'next/head';
 import { useRouter } from 'next/router'
 
 import { useState, useEffect } from 'react';
 
 function Collection() {
-    const [collectionsData, setCollectionsData] = useState([]);
+    const [collectionInfo, setCollectionInfo] = useState([]);
+    const [photoData ,setPhotoData] = useState([]);
     const router = useRouter()
 
     async function getCollectionData() {
         const req = await fetch(`/api/collection/${router.query.id}`);
         const collectionData = await req.json();
-        setCollectionsData(collectionData)
+        setCollectionInfo(collectionData[0])
+        setPhotoData(collectionData.slice(1))
 
     }
 
@@ -27,9 +28,9 @@ function Collection() {
         <Layout>
         
         <section className={styles.container}>
-            <h1>Collection</h1>
+            <h1>{collectionInfo.name}</h1>
             <div className={styles.photos}>
-                {collectionsData.map((d) => (<PhotoPreview title={d.data.title} id={d.data.url_id} filename={d.data.filename} className={styles.photo}/>))}
+                {photoData.map((d) => (<PhotoPreview title={d.data.title} id={d.data.url_id} filename={d.data.filename} className={styles.photo}/>))}
             </div>
         </section>
 

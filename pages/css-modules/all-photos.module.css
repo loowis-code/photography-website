@@ -12,6 +12,10 @@
     grid-gap: 1rem;
 }
 
+.header {
+    text-align: center;
+}
+
 @media only screen and (max-width: 1600px) {
 
     .container {

@@ -84,6 +84,7 @@
         border-bottom: 0.25rem solid #E9B384;
         text-align: center;
         padding: 0;
+        z-index: 3;
     }
 
     .sidebar::before {

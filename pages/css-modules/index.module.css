@@ -23,9 +23,6 @@
     }
 
     .carousels {
-        margin-top: 20vh;
-        height: fit-content;
-        max-height: 80vh;
         margin-left: 0;
         padding-top: 0;
     }

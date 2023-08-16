@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import styles from './css-modules/header-sidebar.module.css'
 import { useEffect, useState } from 'react'
-import Head from 'next/head';
 
 export default function HeaderSidebar () {
     const [data, setCollections] = useState([]);

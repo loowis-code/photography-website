@@ -76,8 +76,8 @@
 
 @media only screen and (max-width: 1600px) {
     .sidebar {
+        position: sticky;
         height: fit-content;
-        max-height: 20vh;
         width: 100vw;
         max-width: 100vw;
         border-right: none;

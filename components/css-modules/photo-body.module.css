@@ -57,6 +57,36 @@
     margin: 0;
 }
 
+.prevbutton,
+.nextbutton {
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.4;
+    color: grey;
+}
+
+.prevbutton:hover,
+.nextbutton:hover {
+    text-decoration: none;
+    color: grey;
+}
+
+.prevbutton {
+    top: 0;
+    left: 25vw;
+    z-index: 1;
+}
+
+.nextbutton {
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
 @media only screen and (max-width: 1600px) {
     .singleImage {
         margin: auto;
@@ -76,6 +106,10 @@
     
     .imagedate {
         font-size: 1rem;
+    }
+
+    .prevbutton {
+        left: 0;
     }
 
 }

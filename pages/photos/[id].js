@@ -9,6 +9,7 @@ import Head from 'next/head';
 function Photo() {
     const [photo, setPhoto] = useState([]);
     const router = useRouter()
+
     async function getPhoto() {
         const req = await fetch(`/api/photo/${router.query.id}`);
         const photoData = await req.json();
@@ -28,7 +29,7 @@ function Photo() {
             </Head>
         
             <section>
-                {photo.map((d) => (<PhotoBody data={d.data}/>))}
+                {photo.map((d) => (<PhotoBody data={d.data} id={router.query.id}/>))}
             </section>
         </Layout>
     );

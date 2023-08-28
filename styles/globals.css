@@ -1,64 +1,64 @@
 body {
-    background-color: #F4F2DE;
-    color: #7C9D96;
-    overflow-x: hidden;   
+  background-color: #f4f2de;
+  color: #7c9d96;
+  overflow-x: hidden;
 }
 
 section {
-    font-family: urbanist;
+  font-family: urbanist;
 }
 
 @font-face {
-    font-family: newspaper;
-    src: url(../public/Playfair/PlayfairDisplay-Black.ttf);
+  font-family: newspaper;
+  src: url(../public/Playfair/PlayfairDisplay-Black.ttf);
 }
 
 @font-face {
-    font-family: newspaperregular;
-    src: url(../public/Playfair/PlayfairDisplay-Regular.ttf);
+  font-family: newspaperregular;
+  src: url(../public/Playfair/PlayfairDisplay-Regular.ttf);
 }
 
 @font-face {
-    font-family: newspapersemibold;
-    src: url(../public/Playfair/PlayfairDisplay-SemiBold.ttf);
+  font-family: newspapersemibold;
+  src: url(../public/Playfair/PlayfairDisplay-SemiBold.ttf);
 }
 
 @font-face {
-    font-family: newspapermedium;
-    src: url(../public/Playfair/PlayfairDisplay-Medium.ttf);
+  font-family: newspapermedium;
+  src: url(../public/Playfair/PlayfairDisplay-Medium.ttf);
 }
 
 @font-face {
-    font-family: newspaperextrabold;
-    src: url(../public/Playfair/PlayfairDisplay-ExtraBold.ttf);
+  font-family: newspaperextrabold;
+  src: url(../public/Playfair/PlayfairDisplay-ExtraBold.ttf);
 }
 
 @font-face {
-    font-family: urbanist;
-    src: url(../public/Urbanist/Urbanist-Regular.ttf);
+  font-family: urbanist;
+  src: url(../public/Urbanist/Urbanist-Regular.ttf);
 }
 
 @font-face {
-    font-family: urbanistItalic;
-    src: url(../public/Urbanist/Urbanist-Italic.ttf);
+  font-family: urbanistItalic;
+  src: url(../public/Urbanist/Urbanist-Italic.ttf);
 }
 
 @font-face {
-    font-family: urbanistBold;
-    src: url(../public/Urbanist/Urbanist-Bold.ttf);
+  font-family: urbanistBold;
+  src: url(../public/Urbanist/Urbanist-Bold.ttf);
 }
 
 @font-face {
-    font-family: urbanistBoldItalic;
-    src: url(../public/Urbanist/Urbanist-BoldItalic.ttf);
+  font-family: urbanistBoldItalic;
+  src: url(../public/Urbanist/Urbanist-BoldItalic.ttf);
 }
 
 @font-face {
-    font-family: urbanistLight;
-    src: url(../public/Urbanist/Urbanist-Light.ttf);
+  font-family: urbanistLight;
+  src: url(../public/Urbanist/Urbanist-Light.ttf);
 }
 
 @font-face {
-    font-family: urbanistLightItalic;
-    src: url(../public/Urbanist/Urbanist-LightItalic.ttf);
+  font-family: urbanistLightItalic;
+  src: url(../public/Urbanist/Urbanist-LightItalic.ttf);
 }

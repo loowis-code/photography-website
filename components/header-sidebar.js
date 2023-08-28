@@ -27,9 +27,15 @@ export default function HeaderSidebar() {
             </div>
             <div className={styles.navs}>
                 <Link className={styles.navlink} href="/all-photos">
-                    All
+                    All Images
                 </Link>
-                {data.map((d) => (
+                <Link className={styles.navlink} href="/collections">
+                    Collections
+                </Link>
+                <Link className={styles.navlink} href="">
+                    GPS Map
+                </Link>
+                {/* {data.map((d) => (
                     <Link
                         className={styles.navlink}
                         href={`/collections/${d.data.collection_id}`}
@@ -37,7 +43,7 @@ export default function HeaderSidebar() {
                     >
                         {d.data.collection_name}
                     </Link>
-                ))}
+                ))} */}
             </div>
         </div>
     )

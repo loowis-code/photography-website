@@ -17,5 +17,6 @@
 }
 
 .photo > img {
-    border-radius: 5%;
+    border-radius: 2.5%;
+    border: #e98484 0.25rem solid;
 }

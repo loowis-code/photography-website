@@ -42,7 +42,7 @@
 
 .title:hover {
     color: #7c9d96;
-    text-shadow: 0.1rem 0.1rem 0.1rem #e9b384;
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(233, 179, 132);
 }
 
 .tagline {

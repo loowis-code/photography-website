@@ -1,131 +1,131 @@
 .sidebar {
-  position: fixed;
-  height: 100vh;
-  width: fit-content;
-  max-width: 25vw;
-  background-color: #a1ccd1;
-  border-right: 0.5rem solid #e9b384;
-  top: 0;
-  text-align: center;
-  padding: 0 3%;
+    position: fixed;
+    height: 100vh;
+    width: fit-content;
+    max-width: 25vw;
+    background-color: #a1ccd1;
+    border-right: 0.5rem solid #e9b384;
+    top: 0;
+    text-align: center;
+    padding: 0 3%;
 }
 
 .sidebar::before {
-  border-right: 0.5rem solid #e98484;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-  position: absolute;
-  content: '';
+    border-right: 0.5rem solid #e98484;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    position: absolute;
+    content: '';
 }
 .sidebar::after {
-  border-right: 0.5rem solid #cc74b9;
-  top: 0;
-  right: 0.5rem;
-  bottom: 0;
-  display: block;
-  position: absolute;
-  content: '';
+    border-right: 0.5rem solid #cc74b9;
+    top: 0;
+    right: 0.5rem;
+    bottom: 0;
+    display: block;
+    position: absolute;
+    content: '';
 }
 .header {
-  font-family: urbanist;
-  display: block;
-  width: 100%;
+    font-family: urbanist;
+    display: block;
+    width: 100%;
 }
 
 .title {
-  font-size: 5rem;
-  text-decoration: none;
-  color: #7c9d96;
+    font-size: 5rem;
+    text-decoration: none;
+    color: #7c9d96;
 }
 
 .title:hover {
-  color: #7c9d96;
-  text-shadow: 0.1rem 0.1rem 0.1rem #e9b384;
+    color: #7c9d96;
+    text-shadow: 0.1rem 0.1rem 0.1rem #e9b384;
 }
 
 .tagline {
-  text-align: center;
-  font-size: 3rem;
-  font-family: urbanistItalic;
+    text-align: center;
+    font-size: 3rem;
+    font-family: urbanistItalic;
 }
 
 .navs {
-  font-family: urbanistBoldItalic;
-  text-align: center;
-  font-size: 3rem;
-  display: block;
-  padding-top: 50%;
+    font-family: urbanistBoldItalic;
+    text-align: center;
+    font-size: 3rem;
+    display: block;
+    padding-top: 50%;
 }
 
 .navlink {
-  text-decoration: none;
-  color: #7c9d96;
-  margin: 0rem 2rem;
-  display: block;
+    text-decoration: none;
+    color: #7c9d96;
+    margin: 0rem 2rem;
+    display: block;
 }
 
 .navlink:hover {
-  color: #7c9d96;
-  text-shadow: 0.1rem 0.1rem 0.1rem #e9b384;
+    color: #7c9d96;
+    text-shadow: 0.1rem 0.1rem 0.1rem #e9b384;
 }
 
 @media only screen and (max-width: 1600px) {
-  .sidebar {
-    position: sticky;
-    height: fit-content;
-    width: 100vw;
-    max-width: 100vw;
-    border-right: none;
-    border-bottom: 0.25rem solid #e9b384;
-    text-align: center;
-    padding: 0;
-    z-index: 3;
-  }
+    .sidebar {
+        position: sticky;
+        height: fit-content;
+        width: 100vw;
+        max-width: 100vw;
+        border-right: none;
+        border-bottom: 0.25rem solid #e9b384;
+        text-align: center;
+        padding: 0;
+        z-index: 3;
+    }
 
-  .sidebar::before {
-    border-right: none;
-    border-bottom: 0.25rem solid #e98484;
-    left: 0;
-    top: auto;
-    bottom: 0;
-    height: 0.25rem;
-  }
-  .sidebar::after {
-    border-right: none;
-    border-bottom: 0.25rem solid #cc74b9;
-    left: 0;
-    top: auto;
-    bottom: 0.25rem;
-    right: 0;
-    height: 0.25rem;
-  }
+    .sidebar::before {
+        border-right: none;
+        border-bottom: 0.25rem solid #e98484;
+        left: 0;
+        top: auto;
+        bottom: 0;
+        height: 0.25rem;
+    }
+    .sidebar::after {
+        border-right: none;
+        border-bottom: 0.25rem solid #cc74b9;
+        left: 0;
+        top: auto;
+        bottom: 0.25rem;
+        right: 0;
+        height: 0.25rem;
+    }
 
-  .header {
-    width: auto;
-    margin: 0;
-  }
+    .header {
+        width: auto;
+        margin: 0;
+    }
 
-  .title {
-    font-size: 2.5rem;
-  }
+    .title {
+        font-size: 2.5rem;
+    }
 
-  .tagline {
-    font-size: 1rem;
-  }
+    .tagline {
+        font-size: 1rem;
+    }
 
-  .navs {
-    font-family: urbanist;
-    padding-top: 0%;
-    padding-bottom: 2%;
-    display: flex;
-    justify-content: center;
-    font-size: 1.5rem;
-    z-index: 99;
-  }
+    .navs {
+        font-family: urbanist;
+        padding-top: 0%;
+        padding-bottom: 2%;
+        display: flex;
+        justify-content: center;
+        font-size: 1.5rem;
+        z-index: 99;
+    }
 
-  .navlink:hover {
-    text-shadow: none;
-  }
+    .navlink:hover {
+        text-shadow: none;
+    }
 }

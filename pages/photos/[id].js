@@ -14,6 +14,7 @@ function Photo() {
         const req = await fetch(`/api/photo/${router.query.id}`);
         const photoData = await req.json();
         setPhoto(photoData);
+        console.log(photoData)
     }
 
     useEffect(() => {
@@ -25,11 +26,11 @@ function Photo() {
     return (
         <Layout>
             <Head>
-                {photo.map((d) => ( <title>{d.data.title} | Lewis</title> ))}
+                <title>{(photo[0])? photo[0].data.title : "Photo" } | Lewis</title>
             </Head>
         
             <section>
-                {photo.map((d) => (<PhotoBody data={d.data} id={router.query.id}/>))}
+                {photo.map((d) => (<PhotoBody data={d.data} id={router.query.id} key={d.data.title}/>))}
             </section>
         </Layout>
     );

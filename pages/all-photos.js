@@ -25,7 +25,7 @@ function AllPhotos() {
             <section className={styles.container}>
                 <h1 className={styles.header}>All Photos</h1>
                 <div className={styles.photos}>
-                    {photos.map((d) => (<PhotoPreview title={d.data.title} filename={d.data.filename} id={d.data.url_id}/>))}
+                    {photos.map((d) => (<PhotoPreview title={d.data.title} filename={d.data.filename} id={d.data.url_id} key={d.data.url_id}/>))}
                 </div>
             </section>
         </Layout>

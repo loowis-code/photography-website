@@ -29,7 +29,7 @@ function Collection() {
         <section className={styles.container}>
             <h1 className={styles.header}>{collectionInfo?.name}</h1>
             <div className={styles.photos}>
-                {photoData?.map((d) => (<PhotoPreview title={d.data.title} id={d.data.url_id} filename={d.data.filename} className={styles.photo}/>))}
+                {photoData?.map((d) => (<PhotoPreview title={d.data.title} key={d.data.url_id} id={d.data.url_id} filename={d.data.filename} className={styles.photo}/>))}
             </div>
         </section>
 

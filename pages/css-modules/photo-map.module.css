@@ -1,0 +1,31 @@
+.container {
+    margin-top: 1rem;
+    margin-left: 25vw;
+    width: 75vw;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+}
+
+.map {
+    height: 80vh;
+    width: 50vw;
+    margin-left: 12.5%;
+}
+
+@media only screen and (max-width: 1600px) {
+    .container {
+        margin: 0;
+        padding: 1rem;
+        width: 100vw;
+    }
+
+    .map {
+        height: 60vh;
+        width: 75vw;
+        margin: auto;
+        z-index: 0;
+    }
+}

@@ -32,7 +32,7 @@ export default function Header() {
                 <Link className={styles.navlink} href="/collections">
                     Collections
                 </Link>
-                <Link className={styles.navlink} href="">
+                <Link className={styles.navlink} href="/photo-map">
                     GPS Map
                 </Link>
                 {/* {data.map((d) => (

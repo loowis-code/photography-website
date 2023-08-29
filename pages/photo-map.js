@@ -4,23 +4,50 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 
 function PhotoMap() {
-    useEffect(() => {
 
+    function initaliseMap(trimmedPhotoData) {
         var map = L.map('map').setView([54.304, -4.878], 6);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap'
         }).addTo(map);
-
-        var marker = L.marker([55.9524,-3.1945]).addTo(map);
-        var marker2 = L.marker([51.5098,-0.1226]).addTo(map);
-
-        marker.bindPopup("<a href=/photos/4>Train Station</a>");
-
-        marker2.bindPopup("<a href=/photos/46>Westminster Bridge</a>");
-
         
+        for (var i = 0; i < trimmedPhotoData.length; i++) {
+            if (trimmedPhotoData[i].lat != undefined && trimmedPhotoData[i].long != undefined) {
+                var marker = L.marker([trimmedPhotoData[i].lat, trimmedPhotoData[i].long]).addTo(map);
+                marker.bindPopup("<a href=/photos/" + trimmedPhotoData[i].id + ">" + trimmedPhotoData[i].title + "</a>");
+            }
 
-    });
+        }
+    }
+
+    async function getAllPhotos() {
+        const req = await fetch('/api/getPhotos')
+        const photoData = await req.json()
+
+        var trimmedPhotoData = []
+        for (var i = 0; i < photoData.length; i++) {
+            if (photoData[i].data.photo_data.GPS_data != null) {
+                var gps = photoData[i].data.photo_data.GPS_data
+                var lat = gps.split(',')[0]
+                var long = gps.split(',')[1]
+                trimmedPhotoData.push({
+                    lat: lat,
+                    long: long,
+                    title: photoData[i].data.title,
+                    id: photoData[i].data.url_id
+                })
+            }
+        }
+        initaliseMap(trimmedPhotoData)
+    }
+
+
+
+    useEffect(() => {
+        getAllPhotos()
+
+
+    }, []);
 
     return (
         <Layout>

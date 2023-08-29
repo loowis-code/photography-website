@@ -22,4 +22,11 @@
         padding: 1rem;
         width: 100vw;
     }
+
+    .map { 
+        height: 60vh;
+        width: 75vw;
+        margin: auto;
+        z-index: 0;
+    }
 }

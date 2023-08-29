@@ -31,7 +31,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 4rem;
-    text-shadow: -0.1rem -0.1rem 0 black, 0.1rem -0.1rem 0 black, -0.1rem 0.1rem 0 black, 0.1rem 0.1rem 0 black;
+    text-shadow:
+        -0.1rem -0.1rem 0 black,
+        0.1rem -0.1rem 0 black,
+        -0.1rem 0.1rem 0 black,
+        0.1rem 0.1rem 0 black;
     padding: 1%;
 }
 

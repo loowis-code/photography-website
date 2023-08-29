@@ -1,5 +1,5 @@
-import Layout from '../components/layout'
-import PhotoPreview from '../components/photo-preview'
+import Layout from '../components/Layout'
+import PhotoPreview from '../components/PhotoPreview'
 import styles from './css-modules/all-photos.module.css'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'

@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import styles from './css-modules/header-sidebar.module.css'
+import styles from './Header.module.css'
 import { useEffect, useState } from 'react'
 
-export default function HeaderSidebar() {
+export default function Header() {
     const [data, setCollections] = useState([])
 
     async function getCollections() {

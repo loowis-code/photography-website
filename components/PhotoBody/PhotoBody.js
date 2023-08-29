@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import styles from './css-modules/photo-body.module.css'
+import styles from './PhotoBody.module.css'
 
 export default function PhotoBody({ data, id }) {
     return (

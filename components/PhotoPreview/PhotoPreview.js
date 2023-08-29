@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import styles from './css-modules/photo-preview.module.css'
+import styles from './PhotoPreview.module.css'
 
 export default function PhotoPreview({ title, filename, id }) {
     return (

@@ -1,5 +1,5 @@
-import Layout from '../components/layout'
-import CollectionPreview from '../components/collection-preview'
+import Layout from '../components/Layout/layout'
+import CollectionPreview from '../components/CollectionPreview'
 import styles from './css-modules/collections.module.css'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'

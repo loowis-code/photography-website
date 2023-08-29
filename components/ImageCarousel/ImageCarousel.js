@@ -1,7 +1,5 @@
 import React, { useState, useRef } from 'react'
-import styles from '../css-modules/image-carousel.module.css'
-
-import PhotoPreview from '../photo-preview'
+import styles from './ImageCarousel.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 

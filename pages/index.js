@@ -1,4 +1,4 @@
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import ImageCarousel from '../components/ImageCarousel'
 import styles from './css-modules/index.module.css'
 import { useState, useEffect } from 'react'

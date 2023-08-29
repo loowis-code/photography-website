@@ -4,19 +4,29 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 
 function PhotoMap() {
-
     function initaliseMap(trimmedPhotoData) {
-        var map = L.map('map').setView([54.304, -4.878], 6);
+        var map = L.map('map').setView([54.304, -4.878], 6)
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap'
-        }).addTo(map);
-        
-        for (var i = 0; i < trimmedPhotoData.length; i++) {
-            if (trimmedPhotoData[i].lat != undefined && trimmedPhotoData[i].long != undefined) {
-                var marker = L.marker([trimmedPhotoData[i].lat, trimmedPhotoData[i].long]).addTo(map);
-                marker.bindPopup("<a href=/photos/" + trimmedPhotoData[i].id + ">" + trimmedPhotoData[i].title + "</a>");
-            }
+            attribution: '© OpenStreetMap',
+        }).addTo(map)
 
+        for (var i = 0; i < trimmedPhotoData.length; i++) {
+            if (
+                trimmedPhotoData[i].lat != undefined &&
+                trimmedPhotoData[i].long != undefined
+            ) {
+                var marker = L.marker([
+                    trimmedPhotoData[i].lat,
+                    trimmedPhotoData[i].long,
+                ]).addTo(map)
+                marker.bindPopup(
+                    '<a href=/photos/' +
+                        trimmedPhotoData[i].id +
+                        '>' +
+                        trimmedPhotoData[i].title +
+                        '</a>',
+                )
+            }
         }
     }
 
@@ -34,20 +44,16 @@ function PhotoMap() {
                     lat: lat,
                     long: long,
                     title: photoData[i].data.title,
-                    id: photoData[i].data.url_id
+                    id: photoData[i].data.url_id,
                 })
             }
         }
         initaliseMap(trimmedPhotoData)
     }
 
-
-
     useEffect(() => {
         getAllPhotos()
-
-
-    }, []);
+    }, [])
 
     return (
         <Layout>

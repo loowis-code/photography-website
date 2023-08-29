@@ -1,4 +1,4 @@
-import Layout from '../components/Layout/layout'
+import Layout from '../components/Layout'
 import CollectionPreview from '../components/CollectionPreview'
 import styles from './css-modules/collections.module.css'
 import { useState, useEffect } from 'react'

@@ -14,7 +14,6 @@ function Photo() {
         const req = await fetch(`/api/photo/${router.query.id}`)
         const photoData = await req.json()
         setPhoto(photoData)
-        console.log(photoData)
     }
 
     useEffect(() => {

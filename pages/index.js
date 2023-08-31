@@ -17,7 +17,7 @@ function Home() {
         })
         let featured = []
         photoData.forEach(function (photo) {
-            if (photo.data.featured === 'on') {
+            if (photo.data.featured === true) {
                 featured.push({
                     filename: photo.data.filename,
                     url_id: photo.data.url_id,

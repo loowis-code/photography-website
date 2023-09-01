@@ -9,7 +9,7 @@ export default function PhotoBody({ data, id }) {
 
         var map = L.map('map', {
             center: [lat, long],
-            zoom: 13,
+            zoom: 14,
             zoomControl: false,
         })
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {

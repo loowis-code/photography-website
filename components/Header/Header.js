@@ -35,15 +35,11 @@ export default function Header() {
                 <Link className={styles.navlink} href="/photo-map">
                     GPS Map
                 </Link>
-                {/* {data.map((d) => (
-                    <Link
-                        className={styles.navlink}
-                        href={`/collections/${d.data.collection_id}`}
-                        key={d.data.collection_id}
-                    >
-                        {d.data.collection_name}
-                    </Link>
-                ))} */}
+            </div>
+            <div className={styles.links}>
+                <div className={styles.link}><a href='https://www.instagram.com/lewisi.photos/'><img src='instagram.svg'></img></a></div>
+                <div className={styles.link}><a href='https://github.com/LewisI224'><img src='github.svg'></img></a></div>
+
             </div>
         </div>
     )

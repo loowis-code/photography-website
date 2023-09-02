@@ -35,7 +35,7 @@
 }
 
 .title {
-    font-size: 5rem;
+    font-size: 4rem;
     text-decoration: none;
     color: #7c9d96;
 }
@@ -69,6 +69,22 @@
 .navlink:hover {
     color: #7c9d96;
     text-shadow: 0.1rem 0.1rem 0.1rem #e9b384;
+}
+
+.links {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    justify-content: center;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 5%;
+}
+
+.link {
+    padding: 1%;
 }
 
 @media only screen and (max-width: 1600px) {
@@ -127,5 +143,22 @@
 
     .navlink:hover {
         text-shadow: none;
+    }
+
+    .links {
+        all: unset;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        right: 0;
+        justify-content: end;
+        text-align: end;
+        padding: 2%;
+        
+    }
+    
+    .link {
+        all: unset;
+        padding: 1%;
     }
 }

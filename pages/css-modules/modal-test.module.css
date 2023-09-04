@@ -1,0 +1,38 @@
+.container {
+    margin-top: 1rem;
+    margin-left: 25vw;
+    width: 75vw;
+    height: 100vh;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+}
+
+@media only screen and (max-width: 1600px) {
+    .container {
+        margin: 0;
+        padding: 1rem;
+        width: 100vw;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .photos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .photos {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

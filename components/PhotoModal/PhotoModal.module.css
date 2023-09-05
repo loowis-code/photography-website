@@ -12,48 +12,50 @@
     cursor: pointer;
 }
 
-.openModal {
-    margin: 0 auto;
-    display: flex;
-    
-}
-
-.close {
-    all: unset;
-    position: absolute;
-    top: 1%;
-    right: 2%;
-    font-size: 1.5rem;
-    user-select: none;
-    
-}
-
-.modalContent {
-    display: none;
-    position: absolute;
-    width: 50vw;
-    height: 70vh;
-    top: 10vh;
-    right: 12vw;
-    cursor: auto;
-    z-index: 999;
-
-}
-
 .photo > img {
     border-radius: 2.5%;
     border: #e98484 0.25rem solid;
 }
 
+.modalContent {
+    position: fixed;
+    display: none;
+    z-index: 999;
+    cursor: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-32%, -50%);
+    width: fit-content;
+    max-width: 70%;
+}
+
+.close {
+    all: unset;
+    font-size: 3rem;
+    user-select: none;
+    position: absolute;
+    top: 2%;
+    right: 2.5%;
+    
+}
+
 @media only screen and (max-width: 1600px) {
     .modalContent {
-        width: 90vw;
-        height: 90vh;
-        top: 25vh;
-        right: 5%;
-        cursor: auto;
+        all: unset;
+        position: fixed;
+        display: none;
         z-index: 999;
-    
+        cursor: auto;
+        top: 25%;
+        left: 25%;
+        width: fit-content;
+        max-width: 80%;
+    }
+
+    .close {
+        font-size: 1.5rem;
+        top: 2%;
+        right: 5%;
     }
 
 }

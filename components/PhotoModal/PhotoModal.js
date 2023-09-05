@@ -23,7 +23,7 @@ export default function PhotoModal({id, maxID}) {
         }
         var modal = document.getElementById(id + 'ModalContent')
         modal.style.pointerEvents = 'auto'
-        modal.style.display = 'block'
+        modal.style.display = 'flex'
         modal.style.opacity = 1
     }
 

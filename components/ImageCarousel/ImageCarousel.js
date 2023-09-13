@@ -90,8 +90,8 @@ const ImageCarousel = ({ images }) => {
                             alt={
                                 images[0] ? images[leftIndex].title : 'default'
                             }
-                            width="1200"
-                            height="1200"
+                            width="1386"
+                            height="919"
                             layout="responsive"
                         />
                         <h5 className="card-title">
@@ -119,8 +119,8 @@ const ImageCarousel = ({ images }) => {
                                         ? images[currentIndex].title
                                         : 'default'
                                 }
-                                width="1200"
-                                height="1200"
+                                width="1386"
+                                height="919"
                                 layout="responsive"
                             />
                             <h5 className="card-title">
@@ -143,8 +143,8 @@ const ImageCarousel = ({ images }) => {
                             alt={
                                 images[0] ? images[rightIndex].title : 'default'
                             }
-                            width="1200"
-                            height="1200"
+                            width="1386"
+                            height="919"
                             layout="responsive"
                         />
                         <h5 className="card-title">

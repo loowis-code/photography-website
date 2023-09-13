@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
 import styles from './css-modules/modal-test.module.css'
-import PhotoModal from '../components/PhotoModal'
+import PhotoModal from '../components/PhotoModalv2'
 import Head from 'next/head'
 
 function ModalTest() {

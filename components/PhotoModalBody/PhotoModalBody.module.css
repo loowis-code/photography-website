@@ -48,15 +48,25 @@
 @media only screen and (max-width: 1600px) {
     .singleImage {
         font-size: 1rem;
-        padding: 1%;
+        width: 90vw;
     }
 
     .imagecontainer {
-        padding: 0;
+        width: 100%;
+        height: fit-content;
+        max-height: 60vh;
+        text-align: center;
+        margin: 1% 0;
     }
 
-    .image > img {
+    .imagecontainer > img {
         border-radius: 1%;
+        width: fit-content;
+        max-width: 100%;
+        height: fit-content;
+        max-height: 60vh;
+        object-fit: contain;
+
     }
 
     .imagetitle {

@@ -6,15 +6,12 @@ export default function PhotoModalBody({ data, id }) {
     return (
         <div className={styles.singleImage}>
             <div className={styles.imagecontainer}>
-                <div className={styles.image}>
-                    <Image
-                        src={`https://photography-website.s3.eu-west-2.amazonaws.com/${data.filename}`}
-                        alt={data.title}
-                        width="1386"
-                        height="919"
-                        layout="responsive"
-                    />
-                </div>
+                <Image
+                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/${data.filename}`}
+                    alt={data.title}
+                    width="1386"
+                    height="919"
+                />
                 <div className={styles.imageHeader}>
                     <p className={styles.imagetitle}>
                         {data.photo_data.location ? (

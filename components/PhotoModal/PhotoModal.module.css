@@ -24,9 +24,10 @@
     cursor: auto;
     top: 50%;
     left: 50%;
-    transform: translate(-32%, -50%);
-    width: fit-content;
-    max-width: 70%;
+    transform: translate(-20%, -50%);
+    width:80%;
+    height: fit-content;
+    max-height: 90vh;
 }
 
 .close {
@@ -35,11 +36,38 @@
     user-select: none;
     position: absolute;
     top: 2%;
-    right: 2.5%;
+    right: 32.5%;
     
 }
 
 @media only screen and (max-width: 1600px) {
+    .modalContent {
+        top: auto;
+        left: auto;
+        transform: none;
+        right: 5%;
+        position: fixed;
+        display: none;
+        z-index: 999;
+        cursor: auto;
+        top: 25%;
+        width: fit-content;
+        max-width: 70vw;
+        height: fit-content;
+        max-height: 70vh;
+
+    }
+
+    .close {
+        font-size: 1.5rem;
+        top: 2.5%;
+        right: 5%;
+    }
+
+
+}
+
+@media only screen and (max-width: 1365px) {
     .modalContent {
         all: unset;
         position: fixed;
@@ -47,14 +75,15 @@
         z-index: 999;
         cursor: auto;
         top: 25%;
-        left: 25%;
-        width: fit-content;
-        max-width: 80%;
+        width: 90vw;
+        height: fit-content;
+        max-height: 70vh;
+
     }
 
     .close {
         font-size: 1.5rem;
-        top: 2%;
+        top: 2.5%;
         right: 5%;
     }
 

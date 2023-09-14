@@ -1,26 +1,15 @@
 import Image from 'next/image'
 import styles from './BootstrapModal.module.css'
 
-export default function BootstrapModal({id}) {
-
-    const data = {
-        title: 'Train Station',
-        filename: 'train_station_19_12_2022.jpg',
-        photo_data: {
-            camera: 'Olympus OM40',
-            film: 'Colorplus 200',
-            date_taken: '2022-12-19',
-            location: 'Edinburgh',
-        }
-    }
+export default function BootstrapModal({data}) {
 
     return (
         <div>
 
-            <div className={styles.photo} data-bs-toggle="modal" data-bs-target={'#Modal' + id}>
+            <div className={styles.photo} data-bs-toggle="modal" data-bs-target={'#Modal' + data.url_id}>
                 <Image
-                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/train_station_19_12_2022.jpg`}
-                    alt="Train Station"
+                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/${data.filename}`}
+                    alt={data.title}
                     width="1386"
                     height="919"
                     layout="responsive"
@@ -28,7 +17,7 @@ export default function BootstrapModal({id}) {
                 <h5 className={styles.thumbnailTitle}>{data.title}</h5>
             </div>
 
-            <div className="modal fade" id={'Modal' + id} tabindex="-1" aria-labelledby={'Modal' + data.title} aria-hidden="true">
+            <div className="modal fade" id={'Modal' + data.url_id} tabindex="-1" aria-labelledby={'Modal' + data.title} aria-hidden="true">
                 <div className="modal-dialog modal-xl modal-dialog-centered">
                     <div style={{backgroundColor: "#f4f2de"}} className="modal-content">
                         <div style={{paddingBottom: "0"}} className="modal-header">
@@ -36,10 +25,10 @@ export default function BootstrapModal({id}) {
                             <button style={{right: "2%", top: "2%", position: "absolute"}} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div  style={{padding: "0 1%"}} className="modal-body" >
-                            <a href={`/photos/${id}`}>
+                            <a href={`/photos/${data.url_id}`}>
                             <Image
-                                src={`https://photography-website.s3.eu-west-2.amazonaws.com/train_station_19_12_2022.jpg`}
-                                alt="Train Station"
+                                src={`https://photography-website.s3.eu-west-2.amazonaws.com/${data.filename}`}
+                                alt={data.title}
                                 width="1386"
                                 height="919"
                                 className={styles.image}

@@ -2,8 +2,26 @@ import Layout from '../components/Layout'
 import styles from './css-modules/modal-test.module.css'
 import BootstrapModal from '../components/BootstrapModal'
 import Head from 'next/head'
+import { useState, useEffect } from 'react'
 
 function ModalTest() {
+
+    const [photos, setPhotos] = useState([])
+
+    async function getAllPhotos() {
+        const req = await fetch('/api/getPhotos')
+        const photoData = await req.json()
+        photoData.sort((a, b) => {
+            return b.data.photo_data.date_taken.localeCompare(
+                a.data.photo_data.date_taken,
+            )
+        })
+        setPhotos(photoData)
+    }
+
+    useEffect(() => {
+        getAllPhotos()
+    }, [])
 
     return (
         <Layout>
@@ -13,15 +31,11 @@ function ModalTest() {
             <section id="pageContainer" className={styles.container}>
                 <h1 className={styles.header}>Modal Test</h1>
                 <div className={styles.photos}>
-                    <BootstrapModal id={1}/>
-                    <BootstrapModal id={2}/>
-                    <BootstrapModal id={3}/>
-                    <BootstrapModal id={4}/>
-                    <BootstrapModal id={5}/>
-                    <BootstrapModal id={6}/>
-                    <BootstrapModal id={7}/>
-                    <BootstrapModal id={8}/>
-                    <BootstrapModal id={9}/>
+                {photos.map((d) => (
+                        <BootstrapModal
+                            data={d.data}
+                        />
+                    ))}
 
                 </div>
                 

@@ -6,10 +6,12 @@
 .recentCarousel {
     margin: 2%;
 }
+
 .carousels {
     padding-top: 2.5vh;
     text-align: center;
 }
+
 @media only screen and (max-width: 1600px) {
     .title {
         font-size: 2rem;

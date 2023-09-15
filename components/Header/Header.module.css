@@ -148,7 +148,8 @@
     .links {
         all: unset;
         position: absolute;
-        width: 100%;
+        width: fit-content;
+        display: flex;
         top: 0;
         right: 0;
         justify-content: end;

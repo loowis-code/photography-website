@@ -3,6 +3,7 @@ import styles from './css-modules/modal-test.module.css'
 import BootstrapModal from '../components/BootstrapModal'
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
+import { XMasonry, XBlock } from "react-xmasonry";
 
 function ModalTest() {
 
@@ -30,15 +31,15 @@ function ModalTest() {
             </Head>
             <section id="pageContainer" className={styles.container}>
                 <h1 className={styles.header}>Modal Test</h1>
-                <div className={styles.photos}>
-                {photos.map((d) => (
-                        <BootstrapModal
-                            data={d.data}
-                        />
+                <XMasonry maxColumns="3" targetBlockWidth="500">
+                    {photos.map((d) => (
+                        <XBlock>
+                            <BootstrapModal
+                                data={d.data}
+                            />
+                        </XBlock>
                     ))}
-
-                </div>
-                
+                </XMasonry>   
             </section>
         </Layout>
     )

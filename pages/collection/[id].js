@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import { XMasonry, XBlock } from "react-xmasonry";
-import PhotoModal from '../components/PhotoModal'
+import PhotoModal from '../../components/PhotoModal'
 
 function Collection() {
     const [collectionInfo, setCollectionInfo] = useState([])
@@ -34,7 +34,7 @@ function Collection() {
             <section className={styles.container}>
                 <h1 className={styles.header}>{collectionInfo?.name}</h1>
                 <XMasonry maxColumns="3" targetBlockWidth="500">
-                        {photos.map((d) => (
+                        {photoData?.map((d) => (
                             <XBlock key={d.data.url_id}>
                                 <PhotoModal
                                     data={d.data}

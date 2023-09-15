@@ -1,9 +1,10 @@
 import Layout from '../../components/Layout'
-import PhotoPreview from '../../components/PhotoPreview'
 import styles from '../css-modules/all-photos.module.css'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
+import { XMasonry, XBlock } from "react-xmasonry";
+import PhotoModal from '../components/PhotoModal'
 
 function Collection() {
     const [collectionInfo, setCollectionInfo] = useState([])
@@ -32,17 +33,16 @@ function Collection() {
             </Head>
             <section className={styles.container}>
                 <h1 className={styles.header}>{collectionInfo?.name}</h1>
-                <div className={styles.photos}>
-                    {photoData?.map((d) => (
-                        <PhotoPreview
-                            title={d.data.title}
-                            key={d.data.url_id}
-                            id={d.data.url_id}
-                            filename={d.data.filename}
-                            className={styles.photo}
-                        />
-                    ))}
-                </div>
+                <XMasonry maxColumns="3" targetBlockWidth="500">
+                        {photos.map((d) => (
+                            <XBlock key={d.data.url_id}>
+                                <PhotoModal
+                                    data={d.data}
+                                    key={d.data.url_id}
+                                />
+                            </XBlock>
+                        ))}
+                    </XMasonry>  
             </section>
         </Layout>
     )

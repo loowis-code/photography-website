@@ -1,8 +1,9 @@
 import Layout from '../components/Layout'
-import PhotoPreview from '../components/PhotoPreview'
 import styles from './css-modules/all-photos.module.css'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
+import { XMasonry, XBlock } from "react-xmasonry";
+import PhotoModal from '../components/PhotoModal'
 
 function AllPhotos() {
     const [photos, setPhotos] = useState([])
@@ -29,16 +30,16 @@ function AllPhotos() {
             </Head>
             <section className={styles.container}>
                 <h1 className={styles.header}>All Photos</h1>
-                <div className={styles.photos}>
-                    {photos.map((d) => (
-                        <PhotoPreview
-                            title={d.data.title}
-                            filename={d.data.filename}
-                            id={d.data.url_id}
-                            key={d.data.url_id}
-                        />
-                    ))}
-                </div>
+                <XMasonry maxColumns="3" targetBlockWidth="500">
+                        {photos.map((d) => (
+                            <XBlock key={d.data.url_id}>
+                                <PhotoModal
+                                    data={d.data}
+                                    key={d.data.url_id}
+                                />
+                            </XBlock>
+                        ))}
+                    </XMasonry>   
             </section>
         </Layout>
     )

@@ -36,6 +36,7 @@ function ModalTest() {
                         <XBlock>
                             <BootstrapModal
                                 data={d.data}
+                                key={d.data.url_id}
                             />
                         </XBlock>
                     ))}

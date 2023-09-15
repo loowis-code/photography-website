@@ -1,8 +1,7 @@
 import Image from 'next/image'
-import styles from './PhotoModal.module.css'
-import PhotoModalBody from '../PhotoModalBody'
+import styles from './PhotoModalv2.module.css'
 
-export default function PhotoModal({id, maxID}) {
+export default function PhotoModalv2({id, maxID}) {
 
     const data = {
         title: 'Train Station',
@@ -23,7 +22,7 @@ export default function PhotoModal({id, maxID}) {
         }
         var modal = document.getElementById(id + 'ModalContent')
         modal.style.pointerEvents = 'auto'
-        modal.style.display = 'flex'
+        modal.style.display = 'block'
         modal.style.opacity = 1
     }
 
@@ -55,7 +54,17 @@ export default function PhotoModal({id, maxID}) {
             </div>
             <div id={id + 'ModalContent'} className={styles.modalContent}>
                 <button className={styles.close} onClick={closeModal}>X</button>
-                <PhotoModalBody data={data} id={id} key="Train Station"/>
+                <div className={styles.modalImage}>
+                    <Image
+                        src={`https://photography-website.s3.eu-west-2.amazonaws.com/train_station_19_12_2022.jpg`}
+                        alt="Train Station"
+                        width="1386"
+                        height="919"
+                        layout="responsive"
+                        
+                    />
+                </div>
+                <p className={styles.imageHeader}>{data.title}, {data.photo_data.location}</p>
             </div>
         </div>
     )

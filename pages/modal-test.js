@@ -33,7 +33,7 @@ function ModalTest() {
                 <h1 className={styles.header}>Modal Test</h1>
                 <XMasonry maxColumns="3" targetBlockWidth="500">
                     {photos.map((d) => (
-                        <XBlock>
+                        <XBlock key={d.data.url_id}>
                             <BootstrapModal
                                 data={d.data}
                                 key={d.data.url_id}

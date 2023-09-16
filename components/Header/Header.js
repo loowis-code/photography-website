@@ -37,9 +37,16 @@ export default function Header() {
                 </Link>
             </div>
             <div className={styles.links}>
-                <div className={styles.link}><a href='https://www.instagram.com/lewisi.photos/'><img src='/instagram.svg'></img></a></div>
-                <div className={styles.link}><a href='https://github.com/LewisI224'><img src='/github.svg'></img></a></div>
-
+                <div className={styles.link}>
+                    <a href="https://www.instagram.com/lewisi.photos/">
+                        <img src="/instagram.svg"></img>
+                    </a>
+                </div>
+                <div className={styles.link}>
+                    <a href="https://github.com/LewisI224">
+                        <img src="/github.svg"></img>
+                    </a>
+                </div>
             </div>
         </div>
     )

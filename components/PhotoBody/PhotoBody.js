@@ -28,7 +28,6 @@ export default function PhotoBody({ data, id }) {
         if (data.photo_data.GPS_data != undefined) {
             initaliseMap(data)
         }
-        
     }, [])
 
     return (

@@ -3,7 +3,7 @@ import styles from '../css-modules/all-photos.module.css'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
-import { XMasonry, XBlock } from "react-xmasonry";
+import { XMasonry, XBlock } from 'react-xmasonry'
 import PhotoModal from '../../components/PhotoModal'
 
 function Collection() {
@@ -34,15 +34,12 @@ function Collection() {
             <section className={styles.container}>
                 <h1 className={styles.header}>{collectionInfo?.name}</h1>
                 <XMasonry maxColumns="3" targetBlockWidth="500">
-                        {photoData?.map((d) => (
-                            <XBlock key={d.data.url_id}>
-                                <PhotoModal
-                                    data={d.data}
-                                    key={d.data.url_id}
-                                />
-                            </XBlock>
-                        ))}
-                    </XMasonry>  
+                    {photoData?.map((d) => (
+                        <XBlock key={d.data.url_id}>
+                            <PhotoModal data={d.data} key={d.data.url_id} />
+                        </XBlock>
+                    ))}
+                </XMasonry>
             </section>
         </Layout>
     )

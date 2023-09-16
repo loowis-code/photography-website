@@ -2,7 +2,7 @@ import Layout from '../components/Layout'
 import styles from './css-modules/all-photos.module.css'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
-import { XMasonry, XBlock } from "react-xmasonry";
+import { XMasonry, XBlock } from 'react-xmasonry'
 import PhotoModal from '../components/PhotoModal'
 
 function AllPhotos() {
@@ -31,15 +31,12 @@ function AllPhotos() {
             <section className={styles.container}>
                 <h1 className={styles.header}>All Photos</h1>
                 <XMasonry maxColumns="3" targetBlockWidth="500">
-                        {photos.map((d) => (
-                            <XBlock key={d.data.url_id}>
-                                <PhotoModal
-                                    data={d.data}
-                                    key={d.data.url_id}
-                                />
-                            </XBlock>
-                        ))}
-                    </XMasonry>   
+                    {photos.map((d) => (
+                        <XBlock key={d.data.url_id}>
+                            <PhotoModal data={d.data} key={d.data.url_id} />
+                        </XBlock>
+                    ))}
+                </XMasonry>
             </section>
         </Layout>
     )

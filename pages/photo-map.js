@@ -5,7 +5,7 @@ import Head from 'next/head'
 
 function PhotoMap() {
     function initaliseMap(trimmedPhotoData) {
-        var map = L.map('map').setView([54.304, -4.878], 6)
+        var map = L.map('map').setView([54.775, -2.483], 6)
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap',
         }).addTo(map)

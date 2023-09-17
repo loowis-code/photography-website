@@ -7,17 +7,15 @@ import { XMasonry, XBlock } from 'react-xmasonry'
 import PhotoModal from '../../components/PhotoModal'
 
 function Collection() {
-    const [collectionInfo, setCollectionInfo] = useState([])
+    const [collectionInfo, setCollectionInfo] = useState({})
     const [photoData, setPhotoData] = useState([])
     const router = useRouter()
 
     async function getCollectionData() {
         const req = await fetch(`/api/collection/${router.query.id}`)
-        const collectionData = await req.json()
-        setCollectionInfo(collectionData[0])
-        if (Array.isArray(collectionData)) {
-            setPhotoData(collectionData.slice(1))
-        }
+        const data = await req.json()
+        setCollectionInfo(data[0])
+        setPhotoData(data.slice(1))
     }
 
     useEffect(() => {
@@ -35,8 +33,8 @@ function Collection() {
                 <h1 className={styles.header}>{collectionInfo?.name}</h1>
                 <XMasonry maxColumns="3" targetBlockWidth="500">
                     {photoData?.map((d) => (
-                        <XBlock key={d.data.url_id}>
-                            <PhotoModal data={d.data} key={d.data.url_id} />
+                        <XBlock key={d.id}>
+                            <PhotoModal data={d} key={d.id} />
                         </XBlock>
                     ))}
                 </XMasonry>

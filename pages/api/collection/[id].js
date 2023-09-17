@@ -1,44 +1,16 @@
-const faunadb = require('faunadb')
 
-const secret = process.env.FAUNA_SECRET_KEY_2
-
-const query = faunadb.query
-const client = new faunadb.Client({ secret, domain: 'db.eu.fauna.com' })
-
-module.exports = async (req, res) => {
-    const { id } = req.query
-    try {
-        const dbs = await client.query(
-            query.Map(
-                query.Paginate(
-                    query.Match(query.Index('collections_by_id'), id),
-                ),
-                query.Lambda('X', query.Get(query.Var('X'))),
-            ),
-        )
-        let collectionInfo = {
-            name: dbs.data[0].data.collection_name,
-            description: dbs.data[0].data.collection_desc,
-        }
-        var photos = []
-        photos.push(collectionInfo)
-        let photo_ids = dbs.data[0].data.collection_photo_ids
-        for (let i = 0; i < photo_ids.length; i++) {
-            let dbs2 = await client.query(
-                query.Map(
-                    query.Paginate(
-                        query.Match(
-                            query.Index('photos_by_url_id'),
-                            photo_ids[i].key,
-                        ),
-                    ),
-                    query.Lambda('X', query.Get(query.Var('X'))),
-                ),
-            )
-            photos.push(dbs2.data[0])
-        }
-        res.status(200).json(photos)
-    } catch (error) {
-        res.status(500).json({ error: error.message })
+import prisma from "../../../prisma/prisma";
+ 
+export default async function getPhoto(req, res) {
+ 
+  const images_in_collection = await prisma.collections_images_lookup.findMany({where:{collectionsId:req.query.id}});
+  let data = [];
+  const collection_data = await prisma.collections.findUnique({where:{id:req.query.id}});
+  data.push(collection_data)
+    for (const image of images_in_collection) {
+        const image_data = await prisma.images.findUnique({where:{id:image.imagesId}});
+        data.push(image_data)
     }
+  res.json(data)
 }
+

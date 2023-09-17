@@ -11,30 +11,30 @@ function Home() {
         const req = await fetch('/api/getPhotos')
         const photoData = await req.json()
         photoData.sort((a, b) => {
-            return b.data.photo_data.date_taken.localeCompare(
-                a.data.photo_data.date_taken,
+            return b.date.localeCompare(
+                a.date,
             )
         })
         let featured = []
         photoData.forEach(function (photo) {
-            if (photo.data.featured === true) {
+            if (photo.featured === true) {
                 featured.push({
-                    filename: photo.data.filename,
-                    url_id: photo.data.url_id,
-                    title: photo.data.title,
+                    filename: photo.url,
+                    url_id: photo.id,
+                    title: photo.title,
                 })
             }
         })
 
         setFeatured(featured)
 
-        photoData.length = 4
+        photoData.length = 3
         let recent = []
         photoData.forEach(function (photo) {
             recent.push({
-                filename: photo.data.filename,
-                url_id: photo.data.url_id,
-                title: photo.data.title,
+                filename: photo.url,
+                url_id: photo.id,
+                title: photo.title,
             })
         })
         setRecent(recent)

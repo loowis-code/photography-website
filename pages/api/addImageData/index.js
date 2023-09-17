@@ -8,7 +8,7 @@ export default async function addImageData(req, res) {
     },
   });
  
-  const images = await prisma.image.findMany();
+  const images = await prisma.images.findMany();
 
   res.json(images)
 }

@@ -9,8 +9,7 @@ function Collections() {
 
     async function getCollections() {
         const req = await fetch('/api/collections')
-        const collectionData = await req.json()
-        setCollections(collectionData)
+        setCollections(await req.json())
     }
 
     useEffect(() => {
@@ -27,10 +26,10 @@ function Collections() {
                 <div className={styles.collections}>
                     {collections.map((d) => (
                         <CollectionPreview
-                            name={d.data.collection_name}
-                            cover_image={d.data.collection_cover_image}
-                            id={d.data.collection_id}
-                            key={d.data.collection_id}
+                            name={d.name}
+                            cover_image={d.cover_url}
+                            id={d.id}
+                            key={d.id}
                         />
                     ))}
                 </div>

@@ -10,13 +10,7 @@ function AllPhotos() {
 
     async function getAllPhotos() {
         const req = await fetch('/api/getPhotos')
-        const photoData = await req.json()
-        photoData.sort((a, b) => {
-            return b.data.photo_data.date_taken.localeCompare(
-                a.data.photo_data.date_taken,
-            )
-        })
-        setPhotos(photoData)
+        setPhotos(await req.json())
     }
 
     useEffect(() => {
@@ -32,8 +26,8 @@ function AllPhotos() {
                 <h1 className={styles.header}>All Photos</h1>
                 <XMasonry maxColumns="3" targetBlockWidth="500">
                     {photos.map((d) => (
-                        <XBlock key={d.data.url_id}>
-                            <PhotoModal data={d.data} key={d.data.url_id} />
+                        <XBlock key={d.id}>
+                            <PhotoModal data={d} key={d.id} />
                         </XBlock>
                     ))}
                 </XMasonry>

@@ -36,15 +36,12 @@ function PhotoMap() {
 
         var trimmedPhotoData = []
         for (var i = 0; i < photoData.length; i++) {
-            if (photoData[i].data.photo_data.GPS_data != null) {
-                var gps = photoData[i].data.photo_data.GPS_data
-                var lat = gps.split(',')[0]
-                var long = gps.split(',')[1]
+            if (photoData[i].gps_lat != null) {
                 trimmedPhotoData.push({
-                    lat: lat,
-                    long: long,
-                    title: photoData[i].data.title,
-                    id: photoData[i].data.url_id,
+                    lat: photoData[i].gps_lat,
+                    long: photoData[i].gps_long,
+                    title: photoData[i].title,
+                    id: photoData[i].id,
                 })
             }
         }

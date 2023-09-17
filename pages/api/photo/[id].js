@@ -1,25 +1,8 @@
-const faunadb = require('faunadb')
+import prisma from "../../../prisma/prisma";
+ 
+export default async function getPhoto(req, res) {
+ 
+  const image = await prisma.images.findUnique({where:{id:req.query.id}});
 
-const secret = process.env.FAUNA_SECRET_KEY_2
-
-const query = faunadb.query
-const client = new faunadb.Client({ secret, domain: 'db.eu.fauna.com' })
-
-module.exports = async (req, res) => {
-    const { id } = req.query
-    const idInt = parseInt(id)
-
-    try {
-        const dbs = await client.query(
-            query.Map(
-                query.Paginate(
-                    query.Match(query.Index('photos_by_url_id'), idInt),
-                ),
-                query.Lambda('X', query.Get(query.Var('X'))),
-            ),
-        )
-        res.status(200).json(dbs.data)
-    } catch (error) {
-        res.status(500).json({ error: error.message })
-    }
+  res.json(image)
 }

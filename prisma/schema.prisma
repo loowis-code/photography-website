@@ -1,10 +1,10 @@
 generator client {
   provider = "prisma-client-js"
 }
- 
+
 datasource db {
-  provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
@@ -25,6 +25,8 @@ model images {
   aperture                  String?
   shutter_speed             String?
   featured                  Boolean
+  gps_lat                   Float?
+  gps_long                  Float?
   collections_images_lookup collections_images_lookup[]
 }
 
@@ -40,7 +42,7 @@ model collections {
   id                        String                      @id @unique @default(cuid())
   name                      String                      @unique
   subtitle                  String?
-  desciption                String?
+  description               String?
   cover_url                 String?
   collections_images_lookup collections_images_lookup[]
 }

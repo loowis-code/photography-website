@@ -7,10 +7,56 @@ datasource db {
   url = env("POSTGRES_PRISMA_URL") // uses connection pooling
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
- 
-model Image {
-  id        Int      @id @default(autoincrement())
-  url      String
-  title     String   @unique
-  createdAt DateTime @default(now())
+
+model images {
+  id                        String                      @id @unique @default(cuid())
+  url                       String                      @unique
+  title                     String                      @unique
+  subtitle                  String?
+  description_long          String?
+  description_short         String?
+  alt_text                  String
+  camera                    String
+  film                      String
+  date                      DateTime
+  location                  String?
+  author                    String?
+  iso                       Int?
+  aperture                  String?
+  shutter_speed             String?
+  featured                  Boolean
+  collections_images_lookup collections_images_lookup[]
+}
+
+model collections_images_lookup {
+  id            String       @id @unique @default(cuid())
+  photo         images?      @relation(fields: [imagesId], references: [id])
+  collection    collections? @relation(fields: [collectionsId], references: [id])
+  imagesId      String?
+  collectionsId String?
+}
+
+model collections {
+  id                        String                      @id @unique @default(cuid())
+  name                      String                      @unique
+  subtitle                  String?
+  desciption                String?
+  cover_url                 String?
+  collections_images_lookup collections_images_lookup[]
+}
+
+model film {
+  id    String  @id @unique @default(cuid())
+  name  String  @unique
+  iso   Int?
+  brand String?
+}
+
+model camera {
+  id            String    @id @unique @default(cuid())
+  brand         String
+  model         String
+  year_released Int?
+  manual_url    String?
+  date_obtained DateTime?
 }

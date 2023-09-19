@@ -82,7 +82,7 @@ const ImageCarousel = ({ images }) => {
                 <div className={styles.leftImage}>
                     <div className={styles.leftImagePhoto}>
                         <Image
-                            src={`https://photography-website.s3.eu-west-2.amazonaws.com/${
+                            src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${
                                 images[0]
                                     ? images[leftIndex].filename
                                     : 'default.jpg'
@@ -109,7 +109,7 @@ const ImageCarousel = ({ images }) => {
                     >
                         <div className={styles.centreImagePhoto}>
                             <Image
-                                src={`https://photography-website.s3.eu-west-2.amazonaws.com/${
+                                src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${
                                     images[0]
                                         ? images[currentIndex].filename
                                         : 'default.jpg'
@@ -135,7 +135,7 @@ const ImageCarousel = ({ images }) => {
                 <div className={styles.rightImage}>
                     <div className={styles.rightImagePhoto}>
                         <Image
-                            src={`https://photography-website.s3.eu-west-2.amazonaws.com/${
+                            src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${
                                 images[0]
                                     ? images[rightIndex].filename
                                     : 'default.jpg'

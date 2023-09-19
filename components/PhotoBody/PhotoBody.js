@@ -7,7 +7,7 @@ export default function PhotoBody({ data }) {
         <div className={styles.singleImage}>
             <div className={styles.imagecontainer}>
                 <Image
-                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/${data.url}`}
+                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
                     alt={data.title}
                     width="1386"
                     height="919"

@@ -53,10 +53,11 @@ export default function PhotoModal({ data }) {
                         <div style={{ padding: '0 1%' }} className="modal-body">
                             <a href={`/photos/${data.id}`}>
                                 <Image
-                                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/${data.url}`}
+                                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
                                     alt={data.title}
                                     width="1386"
                                     height="919"
+                                    layout='responsive'
                                     className={styles.image}
                                 />
                             </a>

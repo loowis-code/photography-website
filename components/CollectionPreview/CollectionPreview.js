@@ -10,7 +10,7 @@ export default function CollectionPreview({ name, cover_image, id }) {
                 href={`/collection/${id}`}
             >
                 <Image
-                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/${cover_image}`}
+                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/collection_cover_images/${cover_image}`}
                     alt={name}
                     width="1386"
                     height="919"

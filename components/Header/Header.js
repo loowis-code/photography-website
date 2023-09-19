@@ -3,17 +3,6 @@ import styles from './Header.module.css'
 import { useEffect, useState } from 'react'
 
 export default function Header() {
-    const [data, setCollections] = useState([])
-
-    async function getCollections() {
-        const req = await fetch('/api/collections')
-        const collectionData = await req.json()
-        setCollections(collectionData)
-    }
-
-    useEffect(() => {
-        getCollections()
-    }, [])
 
     return (
         <div className={styles.sidebar}>

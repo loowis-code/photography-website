@@ -7,10 +7,10 @@ export default function PhotoModal({ data }) {
             <div
                 className={styles.photo}
                 data-bs-toggle="modal"
-                data-bs-target={'#Modal' + data.url_id}
+                data-bs-target={'#Modal' + data.id}
             >
                 <Image
-                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/${data.filename}`}
+                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
                     alt={data.title}
                     width="1386"
                     height="919"
@@ -21,7 +21,7 @@ export default function PhotoModal({ data }) {
 
             <div
                 className="modal fade"
-                id={'Modal' + data.url_id}
+                id={'Modal' + data.id}
                 tabindex="-1"
                 aria-labelledby={'Modal' + data.title}
                 aria-hidden="true"
@@ -36,7 +36,7 @@ export default function PhotoModal({ data }) {
                             className="modal-header"
                         >
                             <p className={styles.imageTitle}>
-                                {data.title}, {data.photo_data.location}
+                                {data.title}, {data.location}
                             </p>
                             <button
                                 style={{
@@ -51,22 +51,23 @@ export default function PhotoModal({ data }) {
                             ></button>
                         </div>
                         <div style={{ padding: '0 1%' }} className="modal-body">
-                            <a href={`/photos/${data.url_id}`}>
+                            <a href={`/photos/${data.id}`}>
                                 <Image
-                                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/${data.filename}`}
+                                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
                                     alt={data.title}
                                     width="1386"
                                     height="919"
+                                    layout='responsive'
                                     className={styles.image}
                                 />
                             </a>
                         </div>
                         <div className="modal-footer">
                             <p className={styles.imageCamera}>
-                                Camera: {data.photo_data.camera}
+                                Camera: {data.camera}
                             </p>
                             <p className={styles.imageFilm}>
-                                Film: {data.photo_data.film}
+                                Film: {data.film}
                             </p>
                         </div>
                     </div>

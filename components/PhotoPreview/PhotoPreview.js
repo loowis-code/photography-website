@@ -8,7 +8,7 @@ export default function PhotoPreview({ title, filename, id }) {
             <Link className={styles.photopreview} href={`/photos/${id}`}>
                 <div className={styles.photo}>
                     <Image
-                        src={`https://photography-website.s3.eu-west-2.amazonaws.com/${filename}`}
+                        src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${filename}`}
                         alt={title}
                         width="1200"
                         height="1200"

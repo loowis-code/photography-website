@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import styles from './PhotoBody.module.css'
+import styles from './ImagePage.module.css'
 
-export default function PhotoBody({ data }) {
+export default function ImagePage({ data }) {
 
     return (
         <div className={styles.singleImage}>

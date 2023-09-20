@@ -7,7 +7,7 @@ export default function Layout({ children }) {
         <div>
             <div className="">
                 <Head>
-                    <title>Lewis Inches - Photography</title>
+                    <title>Lewis Inches Photography</title>
                     <meta
                         name="description"
                         content="Exhibition of photos taken by me. Mainly taken in Edinburgh"

@@ -15,13 +15,13 @@ export default function Header() {
                 </div>
             </div>
             <div className={styles.navs}>
-                <Link className={styles.navlink} href="/all-photos">
+                <Link className={styles.navlink} href="/all-images">
                     All Images
                 </Link>
                 <Link className={styles.navlink} href="/collections">
                     Collections
                 </Link>
-                <Link className={styles.navlink} href="/photo-map">
+                <Link className={styles.navlink} href="/image-map">
                     GPS Map
                 </Link>
             </div>

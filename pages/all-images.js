@@ -1,33 +1,33 @@
 import Layout from '../components/Layout'
-import styles from './css-modules/all-photos.module.css'
+import styles from './css-modules/all-images.module.css'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { XMasonry, XBlock } from 'react-xmasonry'
-import PhotoModal from '../components/PhotoModal'
+import ImageModal from '../components/ImageModal'
 
-function AllPhotos() {
+function AllImages() {
     const [photos, setPhotos] = useState([])
 
-    async function getAllPhotos() {
+    async function getAllImages() {
         const req = await fetch('/api/getPhotos')
         setPhotos(await req.json())
     }
 
     useEffect(() => {
-        getAllPhotos()
+        getAllImages()
     }, [])
 
     return (
         <Layout>
             <Head>
-                <title>All Photos | Lewis Inches - Photography</title>
+                <title>All Images | Lewis Inches Photography</title>
             </Head>
             <section className={styles.container}>
-                <h1 className={styles.header}>All Photos</h1>
+                <h1 className={styles.header}>All Images</h1>
                 <XMasonry maxColumns="3" targetBlockWidth="500">
                     {photos.map((d) => (
                         <XBlock key={d.id}>
-                            <PhotoModal data={d} key={d.id} />
+                            <ImageModal data={d} key={d.id} />
                         </XBlock>
                     ))}
                 </XMasonry>
@@ -36,4 +36,4 @@ function AllPhotos() {
     )
 }
 
-export default AllPhotos
+export default AllImages

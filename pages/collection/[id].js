@@ -15,7 +15,13 @@ function Collection() {
         const req = await fetch(`/api/collection/${router.query.id}`)
         const data = await req.json()
         setCollectionInfo(data[0])
-        setPhotoData(data.slice(1))
+        const photoData = data.slice(1)
+        photoData.sort((a, b) => {
+            return b.date.localeCompare(
+                a.date,
+            )
+        })
+        setPhotoData(photoData)
     }
 
     useEffect(() => {

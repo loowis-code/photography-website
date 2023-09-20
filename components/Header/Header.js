@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import styles from './Header.module.css'
-import { useEffect, useState } from 'react'
 
 export default function Header() {
 
@@ -22,7 +21,7 @@ export default function Header() {
                     Collections
                 </Link>
                 <Link className={styles.navlink} href="/image-map">
-                    GPS Map
+                    Image Map
                 </Link>
             </div>
             <div className={styles.links}>

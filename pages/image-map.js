@@ -55,10 +55,10 @@ function ImageMap() {
     return (
         <Layout>
             <Head>
-                <title>Photo Map | Lewis Inches - Photography</title>
+                <title>Image Map | Lewis Inches - Photography</title>
             </Head>
             <section className={styles.container}>
-                <h1 className={styles.header}>Photo Map</h1>
+                <h1 className={styles.header}>Image Map</h1>
                 <div id="map" className={styles.map}></div>
             </section>
         </Layout>

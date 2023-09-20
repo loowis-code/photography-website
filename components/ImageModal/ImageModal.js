@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import styles from './PhotoModal.module.css'
+import styles from './ImageModal.module.css'
 
-export default function PhotoModal({ data }) {
+export default function ImageModal({ data }) {
     return (
         <div>
             <div
@@ -51,7 +51,7 @@ export default function PhotoModal({ data }) {
                             ></button>
                         </div>
                         <div style={{ padding: '0 1%' }} className="modal-body">
-                            <a href={`/photos/${data.id}`}>
+                            <a href={`/images/${data.id}`}>
                                 <Image
                                     src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
                                     alt={data.title}

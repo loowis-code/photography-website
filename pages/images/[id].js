@@ -1,5 +1,5 @@
 import Layout from '../../components/Layout'
-import PhotoBody from '../../components/PhotoBody'
+import PhotoBody from '../../components/ImagePage'
 
 import { useState, useEffect } from 'react'
 

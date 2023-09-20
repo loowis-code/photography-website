@@ -1,10 +1,10 @@
 import Layout from '../../components/Layout'
-import styles from '../css-modules/all-photos.module.css'
+import styles from '../css-modules/all-images.module.css'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import { XMasonry, XBlock } from 'react-xmasonry'
-import PhotoModal from '../../components/PhotoModal'
+import ImageModal from '../../components/ImageModal'
 
 function Collection() {
     const [collectionInfo, setCollectionInfo] = useState({})
@@ -15,7 +15,13 @@ function Collection() {
         const req = await fetch(`/api/collection/${router.query.id}`)
         const data = await req.json()
         setCollectionInfo(data[0])
-        setPhotoData(data.slice(1))
+        const photoData = data.slice(1)
+        photoData.sort((a, b) => {
+            return b.date.localeCompare(
+                a.date,
+            )
+        })
+        setPhotoData(photoData)
     }
 
     useEffect(() => {
@@ -34,7 +40,7 @@ function Collection() {
                 <XMasonry maxColumns="3" targetBlockWidth="500">
                     {photoData?.map((d) => (
                         <XBlock key={d.id}>
-                            <PhotoModal data={d} key={d.id} />
+                            <ImageModal data={d} key={d.id} />
                         </XBlock>
                     ))}
                 </XMasonry>

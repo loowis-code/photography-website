@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import styles from './Header.module.css'
-import { useEffect, useState } from 'react'
 
 export default function Header() {
 
@@ -15,14 +14,14 @@ export default function Header() {
                 </div>
             </div>
             <div className={styles.navs}>
-                <Link className={styles.navlink} href="/all-photos">
+                <Link className={styles.navlink} href="/all-images">
                     All Images
                 </Link>
                 <Link className={styles.navlink} href="/collections">
                     Collections
                 </Link>
-                <Link className={styles.navlink} href="/photo-map">
-                    GPS Map
+                <Link className={styles.navlink} href="/image-map">
+                    Image Map
                 </Link>
             </div>
             <div className={styles.links}>

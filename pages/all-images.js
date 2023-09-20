@@ -1,13 +1,14 @@
 import Layout from '../components/Layout'
-import styles from './css-modules/index.module.css'
+import styles from './css-modules/all-images.module.css'
 import { useState, useEffect } from 'react'
+import Head from 'next/head'
 import { XMasonry, XBlock } from 'react-xmasonry'
 import ImageModal from '../components/ImageModal'
 
-function Home() {
-    const [featured, setFeatured] = useState([])
+function AllImages() {
+    const [photos, setPhotos] = useState([])
 
-    async function getFeaturedImages() {
+    async function getAllImages() {
         const req = await fetch('/api/getPhotos')
         const photoData = await req.json()
         photoData.sort((a, b) => {
@@ -15,36 +16,30 @@ function Home() {
                 a.date,
             )
         })
-        let featured = []
-        photoData.forEach(function (photo) {
-            if (photo.featured === true) {
-                featured.push(photo)
-            }
-        })
-
-        setFeatured(featured)
+        setPhotos(photoData)
     }
 
     useEffect(() => {
-        getFeaturedImages()
+        getAllImages()
     }, [])
 
     return (
         <Layout>
-            <section>
-                <div className={styles.carousels}>
-                    <h1>Featured Images</h1>
+            <Head>
+                <title>All Images | Lewis Inches Photography</title>
+            </Head>
+            <section className={styles.container}>
+                <h1 className={styles.header}>All Images</h1>
                 <XMasonry maxColumns="3" targetBlockWidth="550">
-                    {featured.map((d) => (
+                    {photos.map((d) => (
                         <XBlock key={d.id}>
                             <ImageModal data={d} key={d.id} />
                         </XBlock>
                     ))}
                 </XMasonry>
-                </div>
             </section>
         </Layout>
     )
 }
 
-export default Home
+export default AllImages

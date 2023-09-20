@@ -1,9 +1,9 @@
 import Layout from '../components/Layout'
-import styles from './css-modules/photo-map.module.css'
+import styles from './css-modules/image-map.module.css'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 
-function PhotoMap() {
+function ImageMap() {
     function initaliseMap(trimmedPhotoData) {
         var map = L.map('map').setView([54.775, -2.483], 6)
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -55,14 +55,14 @@ function PhotoMap() {
     return (
         <Layout>
             <Head>
-                <title>Photo Map | Lewis Inches - Photography</title>
+                <title>Image Map | Lewis Inches - Photography</title>
             </Head>
             <section className={styles.container}>
-                <h1 className={styles.header}>Photo Map</h1>
+                <h1 className={styles.header}>Image Map</h1>
                 <div id="map" className={styles.map}></div>
             </section>
         </Layout>
     )
 }
 
-export default PhotoMap
+export default ImageMap

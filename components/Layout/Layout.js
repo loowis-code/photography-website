@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import Header from '../Header'
+import { Analytics } from '@vercel/analytics/react';
 
 export default function Layout({ children }) {
     return (
         <div>
             <div className="">
                 <Head>
-                    <title>Lewis Inches - Photography</title>
+                    <title>Lewis Inches Photography</title>
                     <meta
                         name="description"
                         content="Exhibition of photos taken by me. Mainly taken in Edinburgh"
@@ -36,7 +37,7 @@ export default function Layout({ children }) {
                     ></script>
                 </Head>
                 <Header />
-
+                <Analytics />
                 {children}
             </div>
         </div>

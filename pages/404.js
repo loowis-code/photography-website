@@ -25,7 +25,7 @@ function Custom404() {
                 <title>404 | Lewis Inches Photography</title>
             </Head>
             <section className={styles.container}>
-                <h1 className={styles.heading}>This page doesn't exist :/</h1>
+                <h1 className={styles.heading}>This page does not exist :/</h1>
                 <div className={styles.photoContainer}>
                 <ImageModal data={photo} />
                 </div>

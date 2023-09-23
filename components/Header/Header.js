@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from './Header.module.css'
 import { usePathname } from 'next/navigation'
 
@@ -57,12 +58,32 @@ export default function Header() {
             <div className={styles.links}>
                 <div className={styles.link}>
                     <a href="https://www.instagram.com/lewisi.photos/">
-                        <img src="/instagram.svg"></img>
+                        <Image
+                            src="/instagram.svg"
+                            alt="link to instagram"
+                            width="1200"
+                            height="1200"
+                            sizes="100vw"
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                            }}
+                        />
                     </a>
                 </div>
                 <div className={styles.link}>
                     <a href="https://github.com/LewisI224">
-                        <img src="/github.svg"></img>
+                        <Image
+                            src="/github.svg"
+                            alt="link to github"
+                            width="1200"
+                            height="1200"
+                            sizes="100vw"
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                            }}
+                        />
                     </a>
                 </div>
             </div>

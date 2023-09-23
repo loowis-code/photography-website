@@ -4,7 +4,7 @@ import Head from 'next/head'
 import ImageModal from '../components/ImageModal'
 import { useState, useEffect } from 'react'
 
-function custom404() {
+function Custom404() {
     const [photo, setPhoto] = useState([])
 
     async function getAllImages() {
@@ -35,4 +35,4 @@ function custom404() {
     )
 }
 
-export default custom404
+export default Custom404

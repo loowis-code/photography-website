@@ -71,6 +71,21 @@
     text-shadow: 0.1rem 0.1rem 0.1rem #e9b384;
 }
 
+.active {
+    text-decoration: none;
+    color: #7c9d96;
+    text-shadow:
+    -0.1rem -0.1rem 0 #e9b384,
+    0.1rem -0.1rem 0 #e9b384,
+    -0.1rem 0.1rem 0 #e9b384,
+    0.1rem 0.1rem 0 #e9b384;
+    display: block;
+}
+
+.active:hover {
+    color: #7c9d96;
+}
+
 .links {
     display: flex;
     position: absolute;

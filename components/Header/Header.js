@@ -1,7 +1,16 @@
 import Link from 'next/link'
 import styles from './Header.module.css'
+import { usePathname} from 'next/navigation';
+import { use } from 'react';
 
 export default function Header() {
+    let pathname = new RegExp();
+    if (usePathname() != "/") {
+        pathname = new RegExp(usePathname());
+    } else {
+        pathname = new RegExp("homepage");
+    }
+
 
     return (
         <div className={styles.sidebar}>
@@ -13,14 +22,15 @@ export default function Header() {
                     <p className={styles.tagline}>Photography</p>
                 </div>
             </div>
+            
             <div className={styles.navs}>
-                <Link className={styles.navlink} href="/all-images">
+                <Link className={pathname.test("/all-images") ? (styles.active) : styles.navlink} href="/all-images">
                     All Images
                 </Link>
-                <Link className={styles.navlink} href="/collections">
+                <Link className={pathname.test("/collections") ? (styles.active) : styles.navlink} href="/collections">
                     Collections
                 </Link>
-                <Link className={styles.navlink} href="/image-map">
+                <Link className={pathname.test("/image-map") ? (styles.active) : styles.navlink} href="/image-map">
                     Image Map
                 </Link>
             </div>

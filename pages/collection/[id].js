@@ -37,7 +37,7 @@ function Collection() {
             </Head>
             <section className={styles.container}>
                 <h1 className={styles.header}>{collectionInfo?.name}</h1>
-                <XMasonry maxColumns="3" targetBlockWidth="500">
+                <XMasonry maxColumns="3" targetBlockWidth="550">
                     {photoData?.map((d) => (
                         <XBlock key={d.id}>
                             <ImageModal data={d} key={d.id} />

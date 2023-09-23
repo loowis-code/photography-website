@@ -3,6 +3,7 @@ import CollectionPreview from '../components/CollectionPreview'
 import styles from './css-modules/collections.module.css'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
+import { XMasonry, XBlock } from 'react-xmasonry'
 
 function Collections() {
     const [collections, setCollections] = useState([])
@@ -22,17 +23,18 @@ function Collections() {
                 <title>Collections | Lewis Inches - Photography</title>
             </Head>
             <section className={styles.container}>
-                <h1 className={styles.header}>Collections</h1>
-                <div className={styles.collections}>
+                <XMasonry maxColumns="3" targetBlockWidth="550">
                     {collections.map((d) => (
-                        <CollectionPreview
-                            name={d.name}
-                            cover_image={d.cover_url}
-                            id={d.id}
-                            key={d.id}
-                        />
+                        <XBlock key={d.id}>
+                            <CollectionPreview
+                                name={d.name}
+                                cover_image={d.cover_url}
+                                id={d.id}
+                                key={d.id}
+                            />
+                        </XBlock>
                     ))}
-                </div>
+                </XMasonry>
             </section>
         </Layout>
     )

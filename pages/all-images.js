@@ -29,7 +29,6 @@ function AllImages() {
                 <title>All Images | Lewis Inches Photography</title>
             </Head>
             <section className={styles.container}>
-                <h1 className={styles.header}>All Images</h1>
                 <XMasonry maxColumns="3" targetBlockWidth="550">
                     {photos.map((d) => (
                         <XBlock key={d.id}>

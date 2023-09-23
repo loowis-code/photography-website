@@ -1,29 +1,10 @@
-.title {
-    font-size: 2.5rem;
-}
-
-.featuredCarousel,
-.recentCarousel {
-    margin: 2%;
-}
-
-.carousels {
+.container {
     padding-top: 2.5vh;
     text-align: center;
 }
 
 @media only screen and (max-width: 1600px) {
-    .title {
-        font-size: 2rem;
-    }
-
-    .featuredCarousel,
-    .recentCarousel {
-        margin: 0;
-        padding-bottom: 5%;
-    }
-
-    .carousels {
+    .container {
         margin-left: 0;
         padding-top: 0;
     }

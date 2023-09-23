@@ -21,7 +21,7 @@ function Home() {
                 featured.push(photo)
             }
         })
-
+        featured.length = 9;
         setFeatured(featured)
     }
 
@@ -32,15 +32,14 @@ function Home() {
     return (
         <Layout>
             <section>
-                <div className={styles.carousels}>
-                    <h1>Featured Images</h1>
-                <XMasonry maxColumns="3" targetBlockWidth="550">
-                    {featured.map((d) => (
-                        <XBlock key={d.id}>
-                            <ImageModal data={d} key={d.id} />
-                        </XBlock>
-                    ))}
-                </XMasonry>
+                <div className={styles.container}>
+                    <XMasonry maxColumns="4" targetBlockWidth="500">
+                        {featured.map((d) => (
+                            <XBlock key={d.id}>
+                                <ImageModal data={d} key={d.id} />
+                            </XBlock>
+                        ))}
+                    </XMasonry>
                 </div>
             </section>
         </Layout>

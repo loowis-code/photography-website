@@ -2,16 +2,6 @@
     margin-top: 1rem;
     width: 75vw;
     padding: 2rem;
-}
-
-.photos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    grid-gap: 1rem;
-}
-
-.header {
     text-align: center;
 }
 

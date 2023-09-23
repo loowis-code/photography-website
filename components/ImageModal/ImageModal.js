@@ -16,7 +16,7 @@ export default function ImageModal({ data }) {
                     height="919"
                     layout="responsive"
                 />
-                <h5 className={styles.thumbnailTitle}>{data.title}</h5>
+                <h5>{data.title}</h5>
             </div>
 
             <div

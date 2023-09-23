@@ -1,0 +1,19 @@
+.heading {
+    text-align: center;
+    padding-top: 1%;
+}
+
+.photoContainer {
+    justify-content: center;
+    padding-top: 5%;
+    margin: auto;
+    width: 50vw;
+}
+
+@media only screen and (max-width: 1600px) {
+    .photoContainer {
+        margin: 0;
+        padding: 1rem;
+        width: 100vw;
+    }
+}

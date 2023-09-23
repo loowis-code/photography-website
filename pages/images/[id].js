@@ -25,16 +25,11 @@ function Photo() {
     return (
         <Layout>
             <Head>
-                <title>
-                    {photo.title} | Lewis Inches - Photography
-                </title>
+                <title>{photo.title} | Lewis Inches - Photography</title>
             </Head>
 
             <section>
-                <PhotoBody
-                    data={photo}
-                    key={photo.id}
-                />
+                <PhotoBody data={photo} key={photo.id} />
             </section>
         </Layout>
     )

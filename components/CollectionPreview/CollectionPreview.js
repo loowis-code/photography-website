@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from "next/image"
+import Image from 'next/image'
 import styles from './CollectionPreview.module.css'
 
 export default function CollectionPreview({ name, cover_image, id }) {
@@ -16,11 +16,12 @@ export default function CollectionPreview({ name, cover_image, id }) {
                     height="919"
                     sizes="100vw"
                     style={{
-                        width: "100%",
-                        height: "auto"
-                    }} />
+                        width: '100%',
+                        height: 'auto',
+                    }}
+                />
                 <h5 className={styles.title}>{name}</h5>
             </Link>
         </div>
-    );
+    )
 }

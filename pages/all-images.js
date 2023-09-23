@@ -12,9 +12,7 @@ function AllImages() {
         const req = await fetch('/api/getPhotos')
         const photoData = await req.json()
         photoData.sort((a, b) => {
-            return b.date.localeCompare(
-                a.date,
-            )
+            return b.date.localeCompare(a.date)
         })
         setPhotos(photoData)
     }

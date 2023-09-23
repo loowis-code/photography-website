@@ -1,8 +1,7 @@
-import Image from "next/image"
+import Image from 'next/image'
 import styles from './ImagePage.module.css'
 
 export default function ImagePage({ data }) {
-
     return (
         <div className={styles.singleImage}>
             <div className={styles.imagecontainer}>
@@ -13,9 +12,10 @@ export default function ImagePage({ data }) {
                     height="919"
                     sizes="100vw"
                     style={{
-                        width: "100%",
-                        height: "auto"
-                    }} />
+                        width: '100%',
+                        height: 'auto',
+                    }}
+                />
             </div>
 
             <div className={styles.imageDetails}>
@@ -25,21 +25,19 @@ export default function ImagePage({ data }) {
                     </p>
                 ) : null}
                 <p className={styles.imageDate}>
-                    {new Date(
-                        data.date,
-                    ).toLocaleDateString('en-GB', {
+                    {new Date(data.date).toLocaleDateString('en-GB', {
                         year: 'numeric',
                         month: 'short',
                         day: 'numeric',
                     })}
                 </p>
                 {data.camera ? (
-                <p className={styles.imageCamera}>Camera: {data.camera}</p>
+                    <p className={styles.imageCamera}>Camera: {data.camera}</p>
                 ) : null}
                 {data.film ? (
                     <p className={styles.imageFilm}>Film: {data.film}</p>
                 ) : null}
             </div>
         </div>
-    );
+    )
 }

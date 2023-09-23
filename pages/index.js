@@ -11,9 +11,7 @@ function Home() {
         const req = await fetch('/api/getPhotos')
         const photoData = await req.json()
         photoData.sort((a, b) => {
-            return b.date.localeCompare(
-                a.date,
-            )
+            return b.date.localeCompare(a.date)
         })
         let featured = []
         photoData.forEach(function (photo) {
@@ -21,7 +19,7 @@ function Home() {
                 featured.push(photo)
             }
         })
-        featured.length = 9;
+        featured.length = 9
         setFeatured(featured)
     }
 

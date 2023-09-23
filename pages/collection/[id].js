@@ -17,9 +17,7 @@ function Collection() {
         setCollectionInfo(data[0])
         const photoData = data.slice(1)
         photoData.sort((a, b) => {
-            return b.date.localeCompare(
-                a.date,
-            )
+            return b.date.localeCompare(a.date)
         })
         setPhotoData(photoData)
     }

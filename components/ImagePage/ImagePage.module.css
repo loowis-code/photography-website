@@ -54,33 +54,33 @@
         display: block;
         padding-top: 2.5vh;
     }
-    
+
     .imagecontainer {
         width: fit-content;
         height: fit-content;
         max-height: 80vh;
         margin: auto;
     }
-    
+
     .imagecontainer img {
         max-height: 75vh;
         max-width: 90vw;
     }
-    
+
     .imageDetails {
         width: 90vw;
         margin-left: auto;
         border: none;
     }
-    
+
     .imageDate {
         font-size: 1rem;
     }
-    
+
     .imageCamera {
         font-size: 1rem;
     }
-    
+
     .imageFilm {
         font-size: 1rem;
     }

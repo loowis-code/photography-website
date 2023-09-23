@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
 import styles from './css-modules/image-map.module.css'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import Head from 'next/head'
 
 function ImageMap() {
@@ -20,7 +20,7 @@ function ImageMap() {
                     trimmedPhotoData[i].long,
                 ]).addTo(map)
                 marker.bindPopup(
-                    '<a href=/photos/' +
+                    '<a href=/images/' +
                         trimmedPhotoData[i].id +
                         '>' +
                         trimmedPhotoData[i].title +

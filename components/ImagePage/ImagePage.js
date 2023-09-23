@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image"
 import styles from './ImagePage.module.css'
 
 export default function ImagePage({ data }) {
@@ -11,8 +11,11 @@ export default function ImagePage({ data }) {
                     alt={data.title}
                     width="1386"
                     height="919"
-                    layout="responsive"
-                />
+                    sizes="100vw"
+                    style={{
+                        width: "100%",
+                        height: "auto"
+                    }} />
             </div>
 
             <div className={styles.imageDetails}>
@@ -38,5 +41,5 @@ export default function ImagePage({ data }) {
                 ) : null}
             </div>
         </div>
-    )
+    );
 }

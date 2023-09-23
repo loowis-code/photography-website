@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import styles from './ImageCarousel.module.css'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from "next/image"
 
 const ImageCarousel = ({ images }) => {
     const [leftIndex, setLeftIndex] = useState(0)
@@ -92,8 +92,11 @@ const ImageCarousel = ({ images }) => {
                             }
                             width="1386"
                             height="919"
-                            layout="responsive"
-                        />
+                            sizes="100vw"
+                            style={{
+                                width: "100%",
+                                height: "auto"
+                            }} />
                         <h5 className="card-title">
                             {images[0] ? images[leftIndex].title : 'default'}
                         </h5>
@@ -121,8 +124,11 @@ const ImageCarousel = ({ images }) => {
                                 }
                                 width="1386"
                                 height="919"
-                                layout="responsive"
-                            />
+                                sizes="100vw"
+                                style={{
+                                    width: "100%",
+                                    height: "auto"
+                                }} />
                             <h5 className="card-title">
                                 {images[0]
                                     ? images[currentIndex].title
@@ -145,8 +151,11 @@ const ImageCarousel = ({ images }) => {
                             }
                             width="1386"
                             height="919"
-                            layout="responsive"
-                        />
+                            sizes="100vw"
+                            style={{
+                                width: "100%",
+                                height: "auto"
+                            }} />
                         <h5 className="card-title">
                             {images[0] ? images[rightIndex].title : 'default'}
                         </h5>
@@ -154,7 +163,7 @@ const ImageCarousel = ({ images }) => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default ImageCarousel

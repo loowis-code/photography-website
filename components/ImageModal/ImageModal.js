@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image"
 import styles from './ImageModal.module.css'
 
 export default function ImageModal({ data }) {
@@ -14,8 +14,11 @@ export default function ImageModal({ data }) {
                     alt={data.title}
                     width="1386"
                     height="919"
-                    layout="responsive"
-                />
+                    sizes="100vw"
+                    style={{
+                        width: "100%",
+                        height: "auto"
+                    }} />
                 <h5>{data.title}</h5>
             </div>
 
@@ -57,9 +60,12 @@ export default function ImageModal({ data }) {
                                     alt={data.title}
                                     width="1386"
                                     height="919"
-                                    layout='responsive'
                                     className={styles.image}
-                                />
+                                    sizes="100vw"
+                                    style={{
+                                        width: "100%",
+                                        height: "auto"
+                                    }} />
                             </a>
                         </div>
                         <div className="modal-footer">
@@ -74,5 +80,5 @@ export default function ImageModal({ data }) {
                 </div>
             </div>
         </div>
-    )
+    );
 }

@@ -171,8 +171,6 @@
         display: flex;
         top: 0;
         right: 0;
-        justify-content: end;
-        text-align: end;
         padding: 2%;
     }
 

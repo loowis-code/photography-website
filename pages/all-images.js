@@ -17,8 +17,25 @@ function AllImages() {
         setPhotos(photoData)
     }
 
+
+    function SortBy(type) {
+        if (type === 'date') {
+            photos.sort((a, b) => {
+                return b.date.localeCompare(a.date)
+            })
+            setPhotos([...photos])
+        } else if (type === 'title') {
+            photos.sort((a, b) => {
+                return a.title.localeCompare(b.title)
+            })
+            setPhotos([...photos])
+        }
+    }
+
     useEffect(() => {
         getAllImages()
+        // const photoData = require('../test_data.json')
+        // setPhotos(photoData)
     }, [])
 
     return (
@@ -27,6 +44,8 @@ function AllImages() {
                 <title>All Images | Lewis Inches Photography</title>
             </Head>
             <section className={styles.container}>
+                <button onClick={() => SortBy('date')}>Sort By Date</button>
+                <button onClick={() => SortBy('title')}>Sort By Title</button>
                 <XMasonry maxColumns="3" targetBlockWidth="550">
                     {photos.map((d) => (
                         <XBlock key={d.id}>

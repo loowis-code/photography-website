@@ -52,10 +52,6 @@ function AllImages() {
         getAllImages()
     }, [])
 
-    useEffect(() => {
-        console.log('hello')
-    }, [photos]);
-
     return (
         <Layout>
             <Head>

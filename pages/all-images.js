@@ -7,6 +7,7 @@ import ImageModal from '../components/ImageModal'
 
 function AllImages() {
     const [photos, setPhotos] = useState([])
+    const [sortKey, setSortKey] = useState(0);
 
     async function getAllImages() {
         const req = await fetch('/api/getPhotos')
@@ -19,24 +20,41 @@ function AllImages() {
 
 
     function SortBy(type) {
-        if (type === 'date') {
-            photos.sort((a, b) => {
+        setSortKey(prevSortKey => prevSortKey + 1);
+        if (type === 'date-o-n') {
+            const sortedPhotos = [...photos]
+            sortedPhotos.sort((a, b) => {
+                return a.date.localeCompare(b.date)
+            })
+            setPhotos(sortedPhotos);
+        } else if (type === 'date-n-o') {
+            const sortedPhotos = [...photos]
+            sortedPhotos.sort((a, b) => {
                 return b.date.localeCompare(a.date)
             })
-            setPhotos([...photos])
-        } else if (type === 'title') {
-            photos.sort((a, b) => {
+            setPhotos(sortedPhotos)
+        } else if (type === 'title-a-z') {
+            const sortedPhotos = [...photos]
+            sortedPhotos.sort((a, b) => {
                 return a.title.localeCompare(b.title)
             })
-            setPhotos([...photos])
+            setPhotos(sortedPhotos)
+        } else if (type === 'title-z-a') {
+            const sortedPhotos = [...photos]
+            sortedPhotos.sort((a, b) => {
+                return b.title.localeCompare(a.title)
+            })
+            setPhotos(sortedPhotos)
         }
     }
 
     useEffect(() => {
         getAllImages()
-        // const photoData = require('../test_data.json')
-        // setPhotos(photoData)
     }, [])
+
+    useEffect(() => {
+        console.log('hello')
+    }, [photos]);
 
     return (
         <Layout>
@@ -44,9 +62,13 @@ function AllImages() {
                 <title>All Images | Lewis Inches Photography</title>
             </Head>
             <section className={styles.container}>
-                <button onClick={() => SortBy('date')}>Sort By Date</button>
-                <button onClick={() => SortBy('title')}>Sort By Title</button>
-                <XMasonry maxColumns="3" targetBlockWidth="550">
+                <div className={styles.sortingButtons}>
+                    <button onClick={() => SortBy('date-o-n')}>Sort By Date (Oldest to Newest)</button>
+                    <button onClick={() => SortBy('date-n-o')}>Sort By Date (Newest to Oldest)</button>
+                    <button onClick={() => SortBy('title-a-z')}>Sort By Title (A-Z)</button>
+                    <button onClick={() => SortBy('title-z-a')}>Sort By Title (Z-A)</button>
+                </div>
+                <XMasonry key={sortKey} maxColumns="3" targetBlockWidth="550">
                     {photos.map((d) => (
                         <XBlock key={d.id}>
                             <ImageModal data={d} key={d.id} />

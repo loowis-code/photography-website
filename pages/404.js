@@ -10,7 +10,8 @@ function Custom404() {
     async function getAllImages() {
         const req = await fetch('/api/getPhotos')
         const photoData = await req.json()
-        const randomPhoto = photoData[Math.floor(Math.random() * photoData.length)]
+        const randomPhoto =
+            photoData[Math.floor(Math.random() * photoData.length)]
 
         setPhoto(randomPhoto)
     }
@@ -27,9 +28,8 @@ function Custom404() {
             <section className={styles.container}>
                 <h1 className={styles.heading}>This page does not exist :/</h1>
                 <div className={styles.photoContainer}>
-                <ImageModal data={photo} />
+                    <ImageModal data={photo} />
                 </div>
-                
             </section>
         </Layout>
     )

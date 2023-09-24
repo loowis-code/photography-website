@@ -7,7 +7,7 @@ import ImageModal from '../components/ImageModal'
 
 function AllImages() {
     const [photos, setPhotos] = useState([])
-    const [sortKey, setSortKey] = useState(0);
+    const [sortKey, setSortKey] = useState(0)
 
     async function getAllImages() {
         const req = await fetch('/api/getPhotos')
@@ -18,15 +18,14 @@ function AllImages() {
         setPhotos(photoData)
     }
 
-
     function SortBy(type) {
-        setSortKey(prevSortKey => prevSortKey + 1);
+        setSortKey((prevSortKey) => prevSortKey + 1)
         if (type === 'date-o-n') {
             const sortedPhotos = [...photos]
             sortedPhotos.sort((a, b) => {
                 return a.date.localeCompare(b.date)
             })
-            setPhotos(sortedPhotos);
+            setPhotos(sortedPhotos)
         } else if (type === 'date-n-o') {
             const sortedPhotos = [...photos]
             sortedPhotos.sort((a, b) => {
@@ -59,10 +58,34 @@ function AllImages() {
             </Head>
             <section className={styles.container}>
                 <div className={styles.sortingButtons}>
-                    <button onClick={() => SortBy('date-o-n')}>Sort By Date (Oldest to Newest)</button>
-                    <button onClick={() => SortBy('date-n-o')}>Sort By Date (Newest to Oldest)</button>
-                    <button onClick={() => SortBy('title-a-z')}>Sort By Title (A-Z)</button>
-                    <button onClick={() => SortBy('title-z-a')}>Sort By Title (Z-A)</button>
+                    <button
+                        type="button"
+                        className={styles.button}
+                        onClick={() => SortBy('date-o-n')}
+                    >
+                        Sort By Date (Oldest to Newest)
+                    </button>
+                    <button
+                        type="button"
+                        className={styles.button}
+                        onClick={() => SortBy('date-n-o')}
+                    >
+                        Sort By Date (Newest to Oldest)
+                    </button>
+                    <button
+                        type="button"
+                        className={styles.button}
+                        onClick={() => SortBy('title-a-z')}
+                    >
+                        Sort By Title (A-Z)
+                    </button>
+                    <button
+                        type="button"
+                        className={styles.button}
+                        onClick={() => SortBy('title-z-a')}
+                    >
+                        Sort By Title (Z-A)
+                    </button>
                 </div>
                 <XMasonry key={sortKey} maxColumns="3" targetBlockWidth="550">
                     {photos.map((d) => (

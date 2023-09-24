@@ -3,34 +3,24 @@ import styles from './ImagePage.module.css'
 import { useEffect } from 'react'
 
 export default function ImagePage({ data }) {
-
     function initaliseMap() {
-        if (
-            data.gps_lat != null &&
-            data.gps_long != null
-        ) {
-            var map = L.map('map', { zoomControl: false }).setView([data.gps_lat, data.gps_long], 13)
+        if (data.gps_lat != null && data.gps_long != null) {
+            var map = L.map('map', { zoomControl: false }).setView(
+                [data.gps_lat, data.gps_long],
+                13,
+            )
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap',
             }).addTo(map)
 
-
-                var marker = L.marker([
-                    data.gps_lat,
-                    data.gps_long,
-                ]).addTo(map)
-                marker.bindPopup(
-                    '<a href=/images/' +
-                        data.id +
-                        '>' +
-                        data.title +
-                        '</a>',
-                )
+            var marker = L.marker([data.gps_lat, data.gps_long]).addTo(map)
+            marker.bindPopup(
+                '<a href=/images/' + data.id + '>' + data.title + '</a>',
+            )
         } else {
             const map = document.getElementById('map')
             map.style.display = 'none'
         }
-        
     }
 
     useEffect(() => {
@@ -59,13 +49,9 @@ export default function ImagePage({ data }) {
                         {data.title}, {data.location}
                     </p>
                 ) : data.title ? (
-                    <p className={styles.imageTitle}>
-                        {data.title}
-                    </p>
+                    <p className={styles.imageTitle}>{data.title}</p>
                 ) : data.location ? (
-                    <p className={styles.imageLocation}>
-                        {data.location}
-                    </p>
+                    <p className={styles.imageLocation}>{data.location}</p>
                 ) : null}
                 {data.date ? (
                     <p className={styles.imageDate}>

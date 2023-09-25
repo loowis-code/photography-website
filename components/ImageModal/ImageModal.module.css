@@ -1,6 +1,7 @@
 .photo {
     font-family: urbanistBoldItalic;
     padding: 0 1%;
+    transition: 0.6s;
 }
 
 .photo:hover {

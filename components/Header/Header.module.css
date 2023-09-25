@@ -38,6 +38,7 @@
     font-size: 4rem;
     text-decoration: none;
     color: #7c9d96;
+    transition: 0.3s;
 }
 
 .title:hover {
@@ -64,6 +65,7 @@
     color: #7c9d96;
     margin: 0rem 2rem;
     display: block;
+    transition: 0.3s;
 }
 
 .navlink:hover {

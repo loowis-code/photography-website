@@ -1,11 +1,13 @@
 .container {
     padding-top: 2.5vh;
+    padding-right: 1vw;
     text-align: center;
 }
 
 @media only screen and (max-width: 1600px) {
     .container {
         margin-left: 0;
-        padding-top: 0;
+        padding-top: 1vh;
+        padding-right: 0;
     }
 }

@@ -4,6 +4,7 @@ import styles from './css-modules/collections.module.css'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { XMasonry, XBlock } from 'react-xmasonry'
+import prisma from '../prisma/prisma'
 
 export async function getStaticProps() {
     const res = await prisma.collections.findMany()

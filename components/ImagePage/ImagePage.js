@@ -3,29 +3,29 @@ import styles from './ImagePage.module.css'
 import { useEffect } from 'react'
 
 export default function ImagePage({ data }) {
-    function initaliseMap() {
-        if (data.gps_lat != null && data.gps_long != null) {
-            var map = L.map('map', { zoomControl: false }).setView(
-                [data.gps_lat, data.gps_long],
-                13,
-            )
-            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap',
-            }).addTo(map)
+    // function initaliseMap() {
+    //     if (data.gps_lat != null && data.gps_long != null) {
+    //         var map = L.map('map', { zoomControl: false }).setView(
+    //             [data.gps_lat, data.gps_long],
+    //             13,
+    //         )
+    //         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //             attribution: '© OpenStreetMap',
+    //         }).addTo(map)
 
-            var marker = L.marker([data.gps_lat, data.gps_long]).addTo(map)
-            marker.bindPopup(
-                '<a href=/images/' + data.id + '>' + data.title + '</a>',
-            )
-        } else {
-            const map = document.getElementById('map')
-            map.style.display = 'none'
-        }
-    }
+    //         var marker = L.marker([data.gps_lat, data.gps_long]).addTo(map)
+    //         marker.bindPopup(
+    //             '<a href=/images/' + data.id + '>' + data.title + '</a>',
+    //         )
+    //     } else {
+    //         const map = document.getElementById('map')
+    //         map.style.display = 'none'
+    //     }
+    // }
 
-    useEffect(() => {
-        initaliseMap()
-    }, [])
+    // useEffect(() => {
+    //     initaliseMap()
+    // }, [])
 
     return (
         <div className={styles.singleImage}>
@@ -71,7 +71,7 @@ export default function ImagePage({ data }) {
                 {data.author != 'Lewis Inches' ? (
                     <p className={styles.imageDetail}>Author: {data.author}</p>
                 ) : null}
-                <div id="map" className={styles.map}></div>
+                {/* <div id="map" className={styles.map}></div> */}
             </div>
         </div>
     )

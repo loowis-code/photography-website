@@ -5,17 +5,19 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { XMasonry, XBlock } from 'react-xmasonry'
 
-function Collections() {
+export async function getStaticProps() {
+    const res = await prisma.collections.findMany()
+    return {
+        props: { data: JSON.parse(JSON.stringify(res)) },
+    }
+}
+
+function Collections({ data }) {
     const [collections, setCollections] = useState([])
 
-    async function getCollections() {
-        const req = await fetch('/api/collections')
-        setCollections(await req.json())
-    }
-
     useEffect(() => {
-        getCollections()
-    }, [])
+        setCollections(data)
+    }, [data])
 
     return (
         <Layout>

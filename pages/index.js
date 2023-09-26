@@ -3,18 +3,24 @@ import styles from './css-modules/index.module.css'
 import { useState, useEffect } from 'react'
 import { XMasonry, XBlock } from 'react-xmasonry'
 import ImageModal from '../components/ImageModal'
+import prisma from '../prisma/prisma'
 
-function Home() {
+export async function getStaticProps() {
+    const res = await prisma.images.findMany()
+    return {
+        props: { data: JSON.parse(JSON.stringify(res)) },
+    }
+}
+
+function Home({ data }) {
     const [featured, setFeatured] = useState([])
 
-    async function getFeaturedImages() {
-        const req = await fetch('/api/getPhotos')
-        const photoData = await req.json()
-        photoData.sort((a, b) => {
+    async function filterFeatured() {
+        data.sort((a, b) => {
             return b.date.localeCompare(a.date)
         })
         let featured = []
-        photoData.forEach(function (photo) {
+        data.forEach(function (photo) {
             if (photo.featured === true) {
                 featured.push(photo)
             }
@@ -24,7 +30,7 @@ function Home() {
     }
 
     useEffect(() => {
-        getFeaturedImages()
+        filterFeatured()
     }, [])
 
     return (

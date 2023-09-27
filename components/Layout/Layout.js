@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Header from '../Header'
-import { Analytics } from '@vercel/analytics/react'
+// import { Analytics } from '@vercel/analytics/react'
 import Script from 'next/script'
 
 export default function Layout({ children }) {
@@ -71,7 +71,7 @@ export default function Layout({ children }) {
                     />
                 </Head>
                 <Header />
-                <Analytics />
+                {/* <Analytics /> */}
                 <Script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" />
                 <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" />
                 {children}

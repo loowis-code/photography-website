@@ -82,6 +82,7 @@
         -0.1rem 0.1rem 0 #e9b384,
         0.1rem 0.1rem 0 #e9b384;
     display: block;
+    margin: 0rem 2rem;
 }
 
 .active:hover {
@@ -168,7 +169,7 @@
     .links {
         all: unset;
         position: absolute;
-        width: fit-content;
+        width: 10vh;
         display: flex;
         top: 0;
         right: 0;
@@ -178,6 +179,8 @@
     .link {
         all: unset;
         padding: 1%;
+        width: 20vw;
+        height: 20vw;
     }
 
     .link:hover {

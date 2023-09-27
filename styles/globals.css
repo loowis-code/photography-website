@@ -6,10 +6,11 @@ body {
 
 section {
     font-family: urbanist;
-    margin-left: 25vw;
+    margin-left: 20vw;
+    padding: 0 2.5%;
 }
 
-@media only screen and (max-width: 1600px) {
+@media only screen and (max-width: 1712px) {
     section {
         margin-left: 0;
     }

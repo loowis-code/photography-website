@@ -20,7 +20,7 @@ export default function ImageModal({ data }) {
                         height: 'auto',
                     }}
                 />
-                <h5>{data.title}</h5>
+                <h5 className={styles.thumbnailTitle}>{data.title}</h5>
             </div>
 
             <div

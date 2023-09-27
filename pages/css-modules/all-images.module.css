@@ -1,7 +1,5 @@
 .container {
     margin-top: 1rem;
-    width: 75vw;
-    padding: 2rem;
     text-align: center;
 }
 
@@ -23,7 +21,7 @@
     border: solid #e98484;
 }
 
-@media only screen and (max-width: 1600px) {
+@media only screen and (max-width: 1712px) {
     .container {
         margin: 0;
         padding: 1rem;

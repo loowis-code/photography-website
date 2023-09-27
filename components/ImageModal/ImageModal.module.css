@@ -1,7 +1,11 @@
 .photo {
-    font-family: urbanistBoldItalic;
     padding: 0 1%;
     transition: 0.6s;
+}
+
+.thumbnailTitle {
+    font-size: larger;
+    font-family: urbanistBoldItalic;
 }
 
 .photo:hover {
@@ -14,15 +18,17 @@
 }
 
 .imageTitle {
-    font-size: 1.5rem;
+    font-size: x-large;
     font-family: urbanistBold;
 }
 
 .imageCamera {
+    font-size: large;
     font-family: urbanistBold;
 }
 
 .imageFilm {
+    font-size: large;
     font-family: urbanistBold;
 }
 

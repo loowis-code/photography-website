@@ -41,17 +41,15 @@ export default function ImagePage({ data }) {
                         height: 'auto',
                     }}
                 />
-            </div>
-
-            <div className={styles.imageDetails}>
+                <div className={styles.imageDetails}>
                 {data.title && data.location ? (
-                    <p className={styles.imageTitle}>
+                    <p className={styles.imageHeader}>
                         {data.title}, {data.location}
                     </p>
                 ) : data.title ? (
-                    <p className={styles.imageTitle}>{data.title}</p>
+                    <p className={styles.imageHeader}>{data.title}</p>
                 ) : data.location ? (
-                    <p className={styles.imageLocation}>{data.location}</p>
+                    <p className={styles.imageHeader}>{data.location}</p>
                 ) : null}
                 {data.date ? (
                     <p className={styles.imageDate}>
@@ -73,6 +71,9 @@ export default function ImagePage({ data }) {
                 ) : null}
                 {/* <div id="map" className={styles.map}></div> */}
             </div>
+            </div>
+
+            
         </div>
     )
 }

@@ -62,7 +62,7 @@ export default function Header() {
             </div>
             <div className={styles.links}>
                 <div className={styles.link}>
-                    <a href="https://www.instagram.com/lewisi.photos/">
+                    <a href="https://www.instagram.com/loowis.pictures/">
                         <Image
                             src="/instagram.svg"
                             alt="link to instagram"

@@ -16,11 +16,16 @@ export default function Header() {
         <div className={styles.sidebar}>
             <div className={styles.header}>
                 <Link className={styles.title} href="/">
-                    Lewis Inches
-                </Link>
-                <div>
+                    <Image
+                            src="/logo-text.png"
+                            alt="website logo"
+                            width="2981"
+                            height="1020"
+                            sizes="100vw"
+                            className={styles.title}
+                        />
                     <p className={styles.tagline}>Photography</p>
-                </div>
+                </Link>
             </div>
 
             <div className={styles.navs}>

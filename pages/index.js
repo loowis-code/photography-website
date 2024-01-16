@@ -14,6 +14,7 @@ export async function getStaticProps() {
 
 function Home({ data }) {
     const [featured, setFeatured] = useState([])
+    const [format, setFormat] = useState('film')
 
     async function filterFeatured() {
         data.sort((a, b) => {
@@ -31,19 +32,55 @@ function Home({ data }) {
 
     useEffect(() => {
         filterFeatured()
-    }, [])
+    }, [])  
 
     return (
         <Layout>
             <section>
                 <div className={styles.container}>
-                    <XMasonry maxColumns="4" targetBlockWidth="500">
-                        {featured.map((d) => (
-                            <XBlock key={d.id}>
-                                <ImageModal data={d} key={d.id} />
-                            </XBlock>
-                        ))}
-                    </XMasonry>
+                    <div className={styles.formatSelection}>
+                        <div onClick={() => setFormat('film')}  className={
+                        format === 'film'
+                            ? styles.formatTitleActive
+                            : styles.formatTitle
+                        }>
+                            Film
+                        </div>
+                        <div onClick={() => setFormat('digital')}  className={
+                        format === 'digital'
+                            ? styles.formatTitleActive
+                            : styles.formatTitle
+                        }>
+                            Digital
+                        </div>
+                    </div>
+                    <div className={
+                        format === 'digital'
+                            ? styles.digitalShow
+                            : styles.digitalHide
+                        }>
+                            <XMasonry maxColumns="4" targetBlockWidth="500">
+                                {featured.map((d) => (
+                                    <XBlock key={d.id}>
+                                        <ImageModal data={d} key={d.id} />
+                                    </XBlock>
+                                ))}
+                            </XMasonry>
+                    </div>
+                    <div className={
+                        format === 'film'
+                            ? styles.filmShow
+                            : styles.filmHide
+                        }>
+                            <XMasonry maxColumns="4" targetBlockWidth="500">
+                                {featured.map((d) => (
+                                    <XBlock key={d.id}>
+                                        <ImageModal data={d} key={d.id} />
+                                    </XBlock>
+                                ))}
+                            </XMasonry>
+                    </div>
+
                 </div>
             </section>
         </Layout>

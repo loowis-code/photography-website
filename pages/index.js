@@ -13,21 +13,29 @@ export async function getStaticProps() {
 }
 
 function Home({ data }) {
-    const [featured, setFeatured] = useState([])
+    const [dFeatured, setDFeatured] = useState([])
+    const [aFeatured, setAFeatured] = useState([])
     const [format, setFormat] = useState('film')
 
     async function filterFeatured() {
         data.sort((a, b) => {
             return b.date.localeCompare(a.date)
         })
-        let featured = []
+        let dFeatured = []
+        let aFeatured = []
         data.forEach(function (photo) {
-            if (photo.featured === true) {
-                featured.push(photo)
+            console.log(photo)
+            if (photo.featured === true && photo.digital === true && photo.hidden === false) {
+                dFeatured.push(photo)
+            }
+            if (photo.featured === true && photo.digital === false && photo.hidden === false) {
+                aFeatured.push(photo)
             }
         })
-        featured.length = 9
-        setFeatured(featured)
+        dFeatured.length = 9
+        setDFeatured(dFeatured)
+        aFeatured.length = 9
+        setAFeatured(aFeatured)
     }
 
     useEffect(() => {
@@ -60,7 +68,7 @@ function Home({ data }) {
                             : styles.digitalHide
                         }>
                             <XMasonry maxColumns="4" targetBlockWidth="500">
-                                {featured.map((d) => (
+                                {dFeatured.map((d) => (
                                     <XBlock key={d.id}>
                                         <ImageModal data={d} key={d.id} page="Home"/>
                                     </XBlock>
@@ -73,7 +81,7 @@ function Home({ data }) {
                             : styles.filmHide
                         }>
                             <XMasonry maxColumns="4" targetBlockWidth="500">
-                                {featured.map((d) => (
+                                {aFeatured.map((d) => (
                                     <XBlock key={d.id}>
                                         <ImageModal data={d} key={d.id} page="Home"/>
                                     </XBlock>

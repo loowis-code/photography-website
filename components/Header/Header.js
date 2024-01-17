@@ -33,7 +33,7 @@ export default function Header() {
                     className={
                         pathnameRegex.test('/all-images')
                             ? styles.allActive
-                            : styles.navlink
+                            : styles.allLink
                     }
                     href="/all-images"
                 >
@@ -43,7 +43,7 @@ export default function Header() {
                     className={
                         pathnameRegex.test('/collections')
                             ? styles.collActive
-                            : styles.navlink
+                            : styles.collLink
                     }
                     href="/collections"
                 >
@@ -53,7 +53,7 @@ export default function Header() {
                     className={
                         pathnameRegex.test('/image-map')
                             ? styles.mapActive
-                            : styles.navlink
+                            : styles.mapLink
                     }
                     href="/image-map"
                 >

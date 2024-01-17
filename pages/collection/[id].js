@@ -75,8 +75,15 @@ function Collection({ images_data, collection_data }) {
         setPhotos(sortedPhotos)
     }
 
+    function filterHidden(images_data) {
+        const hiddenPhotos = images_data.filter((photo) => {
+            return photo.hidden === false
+        })
+        setPhotos(hiddenPhotos)
+    }
+
     useEffect(() => {
-        setPhotos(images_data)
+        filterHidden(images_data)
     }, [images_data])
 
     return (

@@ -36,7 +36,7 @@ function ImageMap() {
 
         var trimmedPhotoData = []
         for (var i = 0; i < photoData.length; i++) {
-            if (photoData[i].gps_lat != null) {
+            if (photoData[i].gps_lat != null && photoData[i].hidden === false) {
                 trimmedPhotoData.push({
                     lat: photoData[i].gps_lat,
                     long: photoData[i].gps_long,

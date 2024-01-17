@@ -17,7 +17,7 @@ model images {
   description_short         String?
   alt_text                  String
   camera                    String
-  film                      String
+  film                      String?
   date                      DateTime
   location                  String?
   author                    String?
@@ -28,6 +28,8 @@ model images {
   gps_lat                   Float?
   gps_long                  Float?
   collections_images_lookup collections_images_lookup[]
+  digital                   Boolean                    @default(false)
+  hidden                    Boolean                    @default(false)
 }
 
 model collections_images_lookup {
@@ -45,6 +47,7 @@ model collections {
   description               String?
   cover_url                 String?
   collections_images_lookup collections_images_lookup[]
+  digital                   Boolean                    @default(false)
 }
 
 model film {
@@ -61,4 +64,5 @@ model camera {
   year_released Int?
   manual_url    String?
   date_obtained DateTime?
+  digital                   Boolean                    @default(false)
 }

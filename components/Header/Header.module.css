@@ -63,7 +63,7 @@
     transform: translateY(100%);
 }
 
-.navlink {
+.allLink {
     text-decoration: none;
     color: #7c9d96;
     display: block;
@@ -71,9 +71,35 @@
     transition: 0.3s;
 }
 
-.navlink:hover {
+.collLink {
+    text-decoration: none;
     color: #7c9d96;
-    text-shadow: 0.1rem 0.1rem 0.1rem #e9b384;
+    display: block;
+    margin: 0rem 2rem;
+    transition: 0.3s;
+}
+
+.mapLink {
+    text-decoration: none;
+    color: #7c9d96;
+    display: block;
+    margin: 0rem 2rem;
+    transition: 0.3s;
+}
+
+.allLink:hover {
+    color: #7c9d96;
+    text-shadow: 0.1rem 0.1rem 0.1rem #E98484;
+}
+
+.collLink:hover {
+    color: #7c9d96;
+    text-shadow: 0.1rem 0.1rem 0.1rem #CC74B9;
+}
+
+.mapLink:hover {
+    color: #7c9d96;
+    text-shadow: 0.1rem 0.1rem 0.1rem #3A5683;
 }
 
 .allActive {

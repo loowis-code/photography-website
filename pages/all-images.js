@@ -46,8 +46,15 @@ function AllImages({ data }) {
         setPhotos(sortedPhotos)
     }
 
+    function filterHidden(data) {
+        const hiddenPhotos = data.filter((photo) => {
+            return photo.hidden === false
+        })
+        setPhotos(hiddenPhotos)
+    }
+
     useEffect(() => {
-        setPhotos(data)
+        filterHidden(data)
     }, [data])
 
     return (

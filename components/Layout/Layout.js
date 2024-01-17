@@ -8,11 +8,11 @@ export default function Layout({ children }) {
         <div>
             <div className="">
                 <Head>
-                    <title>Lewis Inches Photography</title>
+                    <title>Loowis Photography</title>
 
                     <meta
                         name="description"
-                        content="A photography portfolio website featuring images taken by Lewis Inches, mainly in Edinburgh using an Olympus OM40."
+                        content="A photography portfolio website featuring images taken by Lewis Inches, mainly in Edinburgh using an Olympus OM40 and Canon EOS 550D."
                     />
                     <meta
                         property="og:image"
@@ -24,11 +24,11 @@ export default function Layout({ children }) {
                     />
                     <meta
                         property="og:title"
-                        content="Lewis Inches Photography"
+                        content="Loowis Photography"
                     />
                     <meta
                         property="og:description"
-                        content="A photography portfolio website featuring images taken by Lewis Inches, mainly in Edinburgh using an Olympus OM40."
+                        content="A photography portfolio website featuring images taken by Lewis Inches, mainly in Edinburgh using an Olympus OM40 and Canon EOS 550D."
                     />
                     <meta
                         property="og:image"
@@ -45,11 +45,11 @@ export default function Layout({ children }) {
                     />
                     <meta
                         name="twitter:title"
-                        content="Lewis Inches Photography"
+                        content="Loowis Photography"
                     />
                     <meta
                         name="twitter:description"
-                        content="A photography portfolio website featuring images taken by Lewis Inches, mainly in Edinburgh using an Olympus OM40."
+                        content="A photography portfolio website featuring images taken by Lewis Inches, mainly in Edinburgh using an Olympus OM40 and Canon EOS 550D."
                     />
                     <meta
                         name="twitter:image"

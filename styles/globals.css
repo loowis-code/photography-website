@@ -10,6 +10,16 @@ section {
     padding: 0 2.5%;
 }
 
+:root {
+    --textPrimary: #7C9D96;
+    --bgPrimary: #F4F2DE;
+    --bgSecondary: #A1CCD1;
+    --accentOne: #E9B384;
+    --accentTwo: #E98484;
+    --accentThree: #CC74B9;
+    --accentFour: #3A5683;
+  }
+
 @media only screen and (max-width: 1712px) {
     section {
         margin-left: 0;

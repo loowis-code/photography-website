@@ -12,9 +12,32 @@
     text-shadow: 0.1rem 0.1rem 0.1rem #e9b384;
 }
 
-.photo > img {
+.image {
+    width: 100%;
+    height: auto;
     border-radius: 0.5%;
     border: #e98484 0.25rem solid;
+}
+
+.imageHome {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5%;
+    border: #E9B384 0.25rem solid;
+}
+
+.imageAll {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5%;
+    border: #E98484 0.25rem solid;
+}
+
+.imageCollections {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5%;
+    border: #CC74B9 0.25rem solid;
 }
 
 .imageTitle {

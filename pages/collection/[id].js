@@ -92,7 +92,7 @@ function Collection({ images_data, collection_data }) {
                 <XMasonry key={sortKey} maxColumns="3" targetBlockWidth="550">
                     {photos?.map((d) => (
                         <XBlock key={d.id}>
-                            <ImageModal data={d} key={d.id} />
+                            <ImageModal data={d} key={d.id} page="Collections"/>
                         </XBlock>
                     ))}
                 </XMasonry>

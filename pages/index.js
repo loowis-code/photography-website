@@ -62,7 +62,7 @@ function Home({ data }) {
                             <XMasonry maxColumns="4" targetBlockWidth="500">
                                 {featured.map((d) => (
                                     <XBlock key={d.id}>
-                                        <ImageModal data={d} key={d.id} />
+                                        <ImageModal data={d} key={d.id} page="Home"/>
                                     </XBlock>
                                 ))}
                             </XMasonry>
@@ -75,7 +75,7 @@ function Home({ data }) {
                             <XMasonry maxColumns="4" targetBlockWidth="500">
                                 {featured.map((d) => (
                                     <XBlock key={d.id}>
-                                        <ImageModal data={d} key={d.id} />
+                                        <ImageModal data={d} key={d.id} page="Home"/>
                                     </XBlock>
                                 ))}
                             </XMasonry>

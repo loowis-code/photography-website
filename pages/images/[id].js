@@ -29,7 +29,7 @@ function Photo({ data }) {
     return (
         <Layout>
             <Head>
-                <title>{data.title} | Lewis Inches - Photography</title>
+                <title>{data.title} | Loowis Photography</title>
             </Head>
 
             <section>

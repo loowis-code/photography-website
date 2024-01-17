@@ -23,9 +23,10 @@ function Collections({ data }) {
     return (
         <Layout>
             <Head>
-                <title>Collections | Lewis Inches - Photography</title>
+                <title>Collections | Loowis Photography</title>
             </Head>
             <section className={styles.container}>
+                <h1 className={styles.header}>Collections</h1>
                 <XMasonry maxColumns="3" targetBlockWidth="550">
                     {collections.map((d) => (
                         <XBlock key={d.id}>

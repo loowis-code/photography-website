@@ -53,9 +53,10 @@ function AllImages({ data }) {
     return (
         <Layout>
             <Head>
-                <title>All Images | Lewis Inches Photography</title>
+                <title>All Images | Loowis Photography</title>
             </Head>
             <section className={styles.container}>
+                <h1 className={styles.header}>All Images</h1>
                 <SortingButtons SortBy={SortBy} />
                 <XMasonry key={sortKey} maxColumns="3" targetBlockWidth="550">
                     {photos.map((d) => (

@@ -32,7 +32,7 @@ export default function Header() {
                 <Link
                     className={
                         pathnameRegex.test('/all-images')
-                            ? styles.active
+                            ? styles.allActive
                             : styles.navlink
                     }
                     href="/all-images"
@@ -42,7 +42,7 @@ export default function Header() {
                 <Link
                     className={
                         pathnameRegex.test('/collections')
-                            ? styles.active
+                            ? styles.collActive
                             : styles.navlink
                     }
                     href="/collections"
@@ -52,7 +52,7 @@ export default function Header() {
                 <Link
                     className={
                         pathnameRegex.test('/image-map')
-                            ? styles.active
+                            ? styles.mapActive
                             : styles.navlink
                     }
                     href="/image-map"

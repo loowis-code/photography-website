@@ -76,19 +76,51 @@
     text-shadow: 0.1rem 0.1rem 0.1rem #e9b384;
 }
 
-.active {
+.allActive {
     text-decoration: none;
     color: #7c9d96;
     text-shadow:
-        -0.1rem -0.1rem 0 #e9b384,
-        0.1rem -0.1rem 0 #e9b384,
-        -0.1rem 0.1rem 0 #e9b384,
-        0.1rem 0.1rem 0 #e9b384;
+        -0.1rem -0.1rem 0 #E98484,
+        0.1rem -0.1rem 0 #E98484,
+        -0.1rem 0.1rem 0 #E98484,
+        0.1rem 0.1rem 0 #E98484;
     display: block;
     margin: 0rem 2rem;
 }
 
-.active:hover {
+.collActive {
+    text-decoration: none;
+    color: #7c9d96;
+    text-shadow:
+        -0.1rem -0.1rem 0 #CC74B9,
+        0.1rem -0.1rem 0 #CC74B9,
+        -0.1rem 0.1rem 0 #CC74B9,
+        0.1rem 0.1rem 0 #CC74B9;
+    display: block;
+    margin: 0rem 2rem;
+}
+
+.mapActive {
+    text-decoration: none;
+    color: #7c9d96;
+    text-shadow:
+        -0.1rem -0.1rem 0 #3A5683,
+        0.1rem -0.1rem 0 #3A5683,
+        -0.1rem 0.1rem 0 #3A5683,
+        0.1rem 0.1rem 0 #3A5683;
+    display: block;
+    margin: 0rem 2rem;
+}
+
+.allActive:hover {
+    color: #7c9d96;
+}
+
+.collActive:hover {
+    color: #7c9d96;
+}
+
+.mapActive:hover {
     color: #7c9d96;
 }
 

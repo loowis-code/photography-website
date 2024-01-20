@@ -24,12 +24,24 @@ function AllImages({ data }) {
         switch (type) {
             case 'date-o-n':
                 sortedPhotos.sort((a, b) => {
-                    return a.date.localeCompare(b.date)
+                    if (a.date != null && b.date != null) {
+                        return a.date.localeCompare(b.date)
+                    } else if (a.date != null && b.date == null) {
+                        return 1
+                    } else if (a.date == null && b.date != null) {
+                        return -1
+                    }
                 })
                 break
             case 'date-n-o':
                 sortedPhotos.sort((a, b) => {
-                    return b.date.localeCompare(a.date)
+                    if (a.date != null && b.date != null) {
+                        return b.date.localeCompare(a.date)
+                    } else if (a.date != null && b.date == null) {
+                        return -1
+                    } else if (a.date == null && b.date != null) {
+                        return 1
+                    }
                 })
                 break
             case 'title-a-z':

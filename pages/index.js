@@ -18,9 +18,6 @@ function Home({ data }) {
     const [format, setFormat] = useState('film')
 
     async function filterFeatured() {
-        data.sort((a, b) => {
-            return b.date.localeCompare(a.date)
-        })
         let dFeatured = []
         let aFeatured = []
         data.forEach(function (photo) {

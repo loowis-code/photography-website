@@ -18,7 +18,7 @@ model images {
   alt_text                  String
   camera                    String
   film                      String?
-  date                      DateTime
+  date                      DateTime?
   location                  String?
   author                    String?
   iso                       Int?

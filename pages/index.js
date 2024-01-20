@@ -32,10 +32,22 @@ function Home({ data }) {
                 aFeatured.push(photo)
             }
         })
-        dFeatured.length = 9
+        dFeatured = shuffle(dFeatured)
+        aFeatured = shuffle(aFeatured)
+        dFeatured.length = 18
         setDFeatured(dFeatured)
-        aFeatured.length = 9
+        aFeatured.length = 18
         setAFeatured(aFeatured)
+    }
+
+    function shuffle(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array
     }
 
     useEffect(() => {

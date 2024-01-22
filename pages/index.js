@@ -21,7 +21,6 @@ function Home({ data }) {
         let dFeatured = []
         let aFeatured = []
         data.forEach(function (photo) {
-            console.log(photo)
             if (photo.featured === true && photo.digital === true && photo.hidden === false) {
                 dFeatured.push(photo)
             }

@@ -89,17 +89,19 @@ function Collection({ images_data, collection_data }) {
     return (
         <Layout>
             <Head>
-                <title>
-                    {collection_data?.name} | Loowis Photography
-                </title>
+                <title>{collection_data?.name} | Loowis Photography</title>
             </Head>
             <section className={styles.container}>
                 <h1 className={styles.header}>{collection_data?.name}</h1>
-                <SortingButtons SortBy={SortBy} page="Collections"/>
+                <SortingButtons SortBy={SortBy} page="Collections" />
                 <XMasonry key={sortKey} maxColumns="3" targetBlockWidth="550">
                     {photos?.map((d) => (
                         <XBlock key={d.id}>
-                            <ImageModal data={d} key={d.id} page="Collections"/>
+                            <ImageModal
+                                data={d}
+                                key={d.id}
+                                page="Collections"
+                            />
                         </XBlock>
                     ))}
                 </XMasonry>

@@ -22,10 +22,7 @@ export default function Layout({ children }) {
                         property="og:url"
                         content="https://lewisinches.pictures"
                     />
-                    <meta
-                        property="og:title"
-                        content="Loowis Photography"
-                    />
+                    <meta property="og:title" content="Loowis Photography" />
                     <meta
                         property="og:description"
                         content="A photography portfolio website featuring images taken by Lewis Inches, mainly in Edinburgh using an Olympus OM40 and Canon EOS 550D."
@@ -43,10 +40,7 @@ export default function Layout({ children }) {
                         property="twitter:url"
                         content="https://lewisinches.pictures"
                     />
-                    <meta
-                        name="twitter:title"
-                        content="Loowis Photography"
-                    />
+                    <meta name="twitter:title" content="Loowis Photography" />
                     <meta
                         name="twitter:description"
                         content="A photography portfolio website featuring images taken by Lewis Inches, mainly in Edinburgh using an Olympus OM40 and Canon EOS 550D."

@@ -80,7 +80,7 @@ function AllImages({ data }) {
                 <XMasonry key={sortKey} maxColumns="3" targetBlockWidth="550">
                     {photos.map((d) => (
                         <XBlock key={d.id}>
-                            <ImageModal data={d} key={d.id} page="All"/>
+                            <ImageModal data={d} key={d.id} page="All" />
                         </XBlock>
                     ))}
                 </XMasonry>

@@ -17,13 +17,13 @@ export default function Header() {
             <div className={styles.header}>
                 <Link className={styles.title} href="/">
                     <Image
-                            src="/logo-text.png"
-                            alt="website logo"
-                            width="2981"
-                            height="1020"
-                            sizes="100vw"
-                            className={styles.title}
-                        />
+                        src="/logo-text.png"
+                        alt="website logo"
+                        width="2981"
+                        height="1020"
+                        sizes="100vw"
+                        className={styles.title}
+                    />
                     <p className={styles.tagline}>Photography</p>
                 </Link>
             </div>

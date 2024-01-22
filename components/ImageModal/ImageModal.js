@@ -15,7 +15,15 @@ export default function ImageModal({ data, page }) {
                     width="1386"
                     height="919"
                     sizes="100vw"
-                    className={page === 'Home' ? styles.imageHome : page === 'All' ? styles.imageAll :  page === 'Collections' ? styles.imageCollections : styles.image}
+                    className={
+                        page === 'Home'
+                            ? styles.imageHome
+                            : page === 'All'
+                              ? styles.imageAll
+                              : page === 'Collections'
+                                ? styles.imageCollections
+                                : styles.image
+                    }
                 />
                 <h5 className={styles.thumbnailTitle}>{data.title}</h5>
             </div>

@@ -17,15 +17,15 @@
 }
 
 .collButton {
-    color: #CC74B9;
+    color: #cc74b9;
     background-color: #f4f2de;
-    border: solid #CC74B9;
+    border: solid #cc74b9;
     margin: 0.1rem 1rem;
     transition: 0.6s;
 }
 
 .collButton:hover {
     color: #f4f2de;
-    background-color: #CC74B9;
-    border: solid #CC74B9;
+    background-color: #cc74b9;
+    border: solid #cc74b9;
 }

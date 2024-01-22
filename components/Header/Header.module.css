@@ -48,7 +48,6 @@
     font-size: xx-large;
     font-family: urbanistItalic;
     color: #7c9d96;
-    
 }
 
 .tagline:hover {
@@ -89,27 +88,27 @@
 
 .allLink:hover {
     color: #7c9d96;
-    text-shadow: 0.1rem 0.1rem 0.1rem #E98484;
+    text-shadow: 0.1rem 0.1rem 0.1rem #e98484;
 }
 
 .collLink:hover {
     color: #7c9d96;
-    text-shadow: 0.1rem 0.1rem 0.1rem #CC74B9;
+    text-shadow: 0.1rem 0.1rem 0.1rem #cc74b9;
 }
 
 .mapLink:hover {
     color: #7c9d96;
-    text-shadow: 0.1rem 0.1rem 0.1rem #3A5683;
+    text-shadow: 0.1rem 0.1rem 0.1rem #3a5683;
 }
 
 .allActive {
     text-decoration: none;
     color: #7c9d96;
     text-shadow:
-        -0.1rem -0.1rem 0 #E98484,
-        0.1rem -0.1rem 0 #E98484,
-        -0.1rem 0.1rem 0 #E98484,
-        0.1rem 0.1rem 0 #E98484;
+        -0.1rem -0.1rem 0 #e98484,
+        0.1rem -0.1rem 0 #e98484,
+        -0.1rem 0.1rem 0 #e98484,
+        0.1rem 0.1rem 0 #e98484;
     display: block;
     margin: 0rem 2rem;
 }
@@ -118,10 +117,10 @@
     text-decoration: none;
     color: #7c9d96;
     text-shadow:
-        -0.1rem -0.1rem 0 #CC74B9,
-        0.1rem -0.1rem 0 #CC74B9,
-        -0.1rem 0.1rem 0 #CC74B9,
-        0.1rem 0.1rem 0 #CC74B9;
+        -0.1rem -0.1rem 0 #cc74b9,
+        0.1rem -0.1rem 0 #cc74b9,
+        -0.1rem 0.1rem 0 #cc74b9,
+        0.1rem 0.1rem 0 #cc74b9;
     display: block;
     margin: 0rem 2rem;
 }
@@ -130,10 +129,10 @@
     text-decoration: none;
     color: #7c9d96;
     text-shadow:
-        -0.1rem -0.1rem 0 #3A5683,
-        0.1rem -0.1rem 0 #3A5683,
-        -0.1rem 0.1rem 0 #3A5683,
-        0.1rem 0.1rem 0 #3A5683;
+        -0.1rem -0.1rem 0 #3a5683,
+        0.1rem -0.1rem 0 #3a5683,
+        -0.1rem 0.1rem 0 #3a5683,
+        0.1rem 0.1rem 0 #3a5683;
     display: block;
     margin: 0rem 2rem;
 }

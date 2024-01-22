@@ -10,7 +10,7 @@
         "format": "prettier --check --ignore-path .gitignore .",
         "format:fix": "prettier --write --ignore-path .gitignore .",
         "postinstall": "prisma generate",
-        "prepare": "husky install\""
+        "prepare": "npx husky install"
     },
     "dependencies": {
         "@prisma/client": "^5.3.1",

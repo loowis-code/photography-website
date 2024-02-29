@@ -29,3 +29,7 @@
     background-color: #cc74b9;
     border: solid #cc74b9;
 }
+
+.checkbox {
+    user-select: none;
+}

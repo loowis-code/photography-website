@@ -7,6 +7,7 @@ import { XMasonry, XBlock } from 'react-xmasonry'
 import ImageModal from '../../components/ImageModal'
 import SortingButtons from '../../components/SortingButtons'
 
+
 export async function getStaticProps(context) {
     const images_in_collection =
         await prisma.collections_images_lookup.findMany({
@@ -47,34 +48,6 @@ function Collection({ images_data, collection_data }) {
     const [photos, setPhotos] = useState([])
     const [sortKey, setSortKey] = useState(0)
 
-    function SortBy(type) {
-        setSortKey((prevSortKey) => prevSortKey + 1)
-        const sortedPhotos = [...photos]
-        switch (type) {
-            case 'date-o-n':
-                sortedPhotos.sort((a, b) => {
-                    return a.date.localeCompare(b.date)
-                })
-                break
-            case 'date-n-o':
-                sortedPhotos.sort((a, b) => {
-                    return b.date.localeCompare(a.date)
-                })
-                break
-            case 'title-a-z':
-                sortedPhotos.sort((a, b) => {
-                    return a.title.localeCompare(b.title)
-                })
-                break
-            case 'title-z-a':
-                sortedPhotos.sort((a, b) => {
-                    return b.title.localeCompare(a.title)
-                })
-                break
-        }
-        setPhotos(sortedPhotos)
-    }
-
     function filterHidden(images_data) {
         const hiddenPhotos = images_data.filter((photo) => {
             return photo.hidden === false
@@ -93,7 +66,7 @@ function Collection({ images_data, collection_data }) {
             </Head>
             <section className={styles.container}>
                 <h1 className={styles.header}>{collection_data?.name}</h1>
-                <SortingButtons SortBy={SortBy} page="Collections" />
+                <SortingButtons photos={photos} setPhotos={setPhotos} setKey={setSortKey} page="Collections" />
                 <XMasonry key={sortKey} maxColumns="3" targetBlockWidth="550">
                     {photos?.map((d) => (
                         <XBlock key={d.id}>

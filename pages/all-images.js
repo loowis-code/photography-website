@@ -18,46 +18,6 @@ function AllImages({ data }) {
     const [photos, setPhotos] = useState([])
     const [sortKey, setSortKey] = useState(0)
 
-    function SortBy(type) {
-        setSortKey((prevSortKey) => prevSortKey + 1)
-        const sortedPhotos = [...photos]
-        switch (type) {
-            case 'date-o-n':
-                sortedPhotos.sort((a, b) => {
-                    if (a.date != null && b.date != null) {
-                        return a.date.localeCompare(b.date)
-                    } else if (a.date != null && b.date == null) {
-                        return 1
-                    } else if (a.date == null && b.date != null) {
-                        return -1
-                    }
-                })
-                break
-            case 'date-n-o':
-                sortedPhotos.sort((a, b) => {
-                    if (a.date != null && b.date != null) {
-                        return b.date.localeCompare(a.date)
-                    } else if (a.date != null && b.date == null) {
-                        return -1
-                    } else if (a.date == null && b.date != null) {
-                        return 1
-                    }
-                })
-                break
-            case 'title-a-z':
-                sortedPhotos.sort((a, b) => {
-                    return a.title.localeCompare(b.title)
-                })
-                break
-            case 'title-z-a':
-                sortedPhotos.sort((a, b) => {
-                    return b.title.localeCompare(a.title)
-                })
-                break
-        }
-        setPhotos(sortedPhotos)
-    }
-
     function filterHidden(data) {
         const hiddenPhotos = data.filter((photo) => {
             return photo.hidden === false
@@ -76,7 +36,7 @@ function AllImages({ data }) {
             </Head>
             <section className={styles.container}>
                 <h1 className={styles.header}>All Images</h1>
-                <SortingButtons SortBy={SortBy} />
+                <SortingButtons photos={photos} setPhotos={setPhotos} setKey={setSortKey}/>
                 <XMasonry key={sortKey} maxColumns="3" targetBlockWidth="550">
                     {photos.map((d) => (
                         <XBlock key={d.id}>

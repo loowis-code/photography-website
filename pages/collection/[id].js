@@ -7,7 +7,6 @@ import { XMasonry, XBlock } from 'react-xmasonry'
 import ImageModal from '../../components/ImageModal'
 import SortingButtons from '../../components/SortingButtons'
 
-
 export async function getStaticProps(context) {
     const images_in_collection =
         await prisma.collections_images_lookup.findMany({
@@ -46,6 +45,7 @@ export async function getStaticPaths() {
 
 function Collection({ images_data, collection_data }) {
     const [photos, setPhotos] = useState([])
+    const [filteredPhotos, setFilteredPhotos] = useState([])
     const [sortKey, setSortKey] = useState(0)
 
     function filterHidden(images_data) {
@@ -53,10 +53,12 @@ function Collection({ images_data, collection_data }) {
             return photo.hidden === false
         })
         setPhotos(hiddenPhotos)
+        setFilteredPhotos(hiddenPhotos)
     }
 
     useEffect(() => {
         filterHidden(images_data)
+        
     }, [images_data])
 
     return (
@@ -66,9 +68,14 @@ function Collection({ images_data, collection_data }) {
             </Head>
             <section className={styles.container}>
                 <h1 className={styles.header}>{collection_data?.name}</h1>
-                <SortingButtons photos={photos} setPhotos={setPhotos} setKey={setSortKey} page="Collections" />
+                <SortingButtons
+                    photos={photos}
+                    setPhotos={setFilteredPhotos}
+                    setKey={setSortKey}
+                    page="Collections"
+                />
                 <XMasonry key={sortKey} maxColumns="3" targetBlockWidth="550">
-                    {photos?.map((d) => (
+                    {filteredPhotos?.map((d) => (
                         <XBlock key={d.id}>
                             <ImageModal
                                 data={d}

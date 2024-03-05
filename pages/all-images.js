@@ -16,6 +16,7 @@ export async function getStaticProps() {
 
 function AllImages({ data }) {
     const [photos, setPhotos] = useState([])
+    const [filteredPhotos, setFilteredPhotos] = useState([])
     const [sortKey, setSortKey] = useState(0)
 
     function filterHidden(data) {
@@ -23,10 +24,12 @@ function AllImages({ data }) {
             return photo.hidden === false
         })
         setPhotos(hiddenPhotos)
+        setFilteredPhotos(hiddenPhotos)
     }
 
     useEffect(() => {
         filterHidden(data)
+        
     }, [data])
 
     return (
@@ -36,9 +39,13 @@ function AllImages({ data }) {
             </Head>
             <section className={styles.container}>
                 <h1 className={styles.header}>All Images</h1>
-                <SortingButtons photos={photos} setPhotos={setPhotos} setKey={setSortKey}/>
+                <SortingButtons
+                    photos={photos}
+                    setPhotos={setFilteredPhotos}
+                    setKey={setSortKey}
+                />
                 <XMasonry key={sortKey} maxColumns="3" targetBlockWidth="550">
-                    {photos.map((d) => (
+                    {filteredPhotos.map((d) => (
                         <XBlock key={d.id}>
                             <ImageModal data={d} key={d.id} page="All" />
                         </XBlock>

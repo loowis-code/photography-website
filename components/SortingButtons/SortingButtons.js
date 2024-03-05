@@ -1,7 +1,25 @@
 import styles from './SortingButtons.module.css'
 import { SortBy } from '../../helpers/SortBy'
+import { FilterBy } from '../../helpers/FilterBy'
+import { useState, useEffect } from 'react'
 
-export default function SortingButtons({ photos, setPhotos, setKey,  FilterBy, page }) {
+export default function SortingButtons({
+    photos,
+    setPhotos,
+    setKey,
+    page,
+}) {
+    const [checkboxState, setCheckboxState] = useState({film: true, digital: true})
+
+    function callFilterBy(value, checked) {
+        setCheckboxState({...checkboxState, [value]: checked})
+    }
+
+    useEffect(() => {
+        FilterBy(checkboxState, photos, setPhotos, setKey)
+    }
+    , [checkboxState])
+
     return (
         <div className={styles.sortingButtons}>
             <button
@@ -18,7 +36,7 @@ export default function SortingButtons({ photos, setPhotos, setKey,  FilterBy, p
                 className={
                     page === 'Collections' ? styles.collButton : styles.button
                 }
-                onClick={() => SortBy('date-n-o', photos, setPhotos, setKey) }
+                onClick={() => SortBy('date-n-o', photos, setPhotos, setKey)}
             >
                 Sort By Date (Newest to Oldest)
             </button>
@@ -41,14 +59,28 @@ export default function SortingButtons({ photos, setPhotos, setKey,  FilterBy, p
                 Sort By Title (Z-A)
             </button>
 
-            <div className={styles.checkbox}>
-                <input type='checkbox' id='film' value='film' checked onChange={(e) => FilterBy(e.target.checked, e.value)}></input>
-                <label for="film">Film</label>
+            <div className={
+                    page === 'Collections' ? styles.collCheckbox : styles.checkbox
+                }>
+                <input
+                    type="checkbox"
+                    id="film"
+                    defaultChecked
+                    onClick={(e) => callFilterBy(e.target.id, e.target.checked)}
+                ></input>
+                <label for="film">Show Film Photos</label>
             </div>
-            
-            <div className={styles.checkbox}>
-                <input type='checkbox' id='digital' value='digital' checked onChange={(e) => FilterBy(e.target.checked, e.value)}></input>
-                <label for="digital">Digital</label>
+
+            <div className={
+                    page === 'Collections' ? styles.collCheckbox : styles.checkbox
+                }>
+                <input
+                    type="checkbox"
+                    id="digital"
+                    defaultChecked 
+                    onClick={(e) => callFilterBy(e.target.id, e.target.checked)}
+                ></input>
+                <label for="digital">Show Digital Photos</label>
             </div>
         </div>
     )

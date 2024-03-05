@@ -58,7 +58,6 @@ function Collection({ images_data, collection_data }) {
 
     useEffect(() => {
         filterHidden(images_data)
-        
     }, [images_data])
 
     return (

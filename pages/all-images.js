@@ -29,7 +29,6 @@ function AllImages({ data }) {
 
     useEffect(() => {
         filterHidden(data)
-        
     }, [data])
 
     return (

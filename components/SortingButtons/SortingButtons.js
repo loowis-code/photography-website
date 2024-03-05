@@ -3,22 +3,19 @@ import { SortBy } from '../../helpers/SortBy'
 import { FilterBy } from '../../helpers/FilterBy'
 import { useState, useEffect } from 'react'
 
-export default function SortingButtons({
-    photos,
-    setPhotos,
-    setKey,
-    page,
-}) {
-    const [checkboxState, setCheckboxState] = useState({film: true, digital: true})
+export default function SortingButtons({ photos, setPhotos, setKey, page }) {
+    const [checkboxState, setCheckboxState] = useState({
+        film: true,
+        digital: true,
+    })
 
     function callFilterBy(value, checked) {
-        setCheckboxState({...checkboxState, [value]: checked})
+        setCheckboxState({ ...checkboxState, [value]: checked })
     }
 
     useEffect(() => {
         FilterBy(checkboxState, photos, setPhotos, setKey)
-    }
-    , [checkboxState])
+    }, [checkboxState])
 
     return (
         <div className={styles.sortingButtons}>
@@ -59,9 +56,13 @@ export default function SortingButtons({
                 Sort By Title (Z-A)
             </button>
 
-            <div className={
-                    page === 'Collections' ? styles.collCheckbox : styles.checkbox
-                }>
+            <div
+                className={
+                    page === 'Collections'
+                        ? styles.collCheckbox
+                        : styles.checkbox
+                }
+            >
                 <input
                     type="checkbox"
                     id="film"
@@ -71,13 +72,17 @@ export default function SortingButtons({
                 <label for="film">Show Film Photos</label>
             </div>
 
-            <div className={
-                    page === 'Collections' ? styles.collCheckbox : styles.checkbox
-                }>
+            <div
+                className={
+                    page === 'Collections'
+                        ? styles.collCheckbox
+                        : styles.checkbox
+                }
+            >
                 <input
                     type="checkbox"
                     id="digital"
-                    defaultChecked 
+                    defaultChecked
                     onClick={(e) => callFilterBy(e.target.id, e.target.checked)}
                 ></input>
                 <label for="digital">Show Digital Photos</label>

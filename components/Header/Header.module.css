@@ -250,14 +250,12 @@
 
     .allActive {
         -webkit-text-stroke: #e98484 0.04rem;
-
     }
-    
+
     .collActive {
         -webkit-text-stroke: #cc74b9 0.04rem;
-
     }
-    
+
     .mapActive {
         -webkit-text-stroke: #3a5683 0.04rem;
     }

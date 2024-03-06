@@ -1,11 +1,16 @@
 .sortingButtons {
     padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 .button {
     color: #e98484;
+    font-size: large;
     background-color: #f4f2de;
     border: solid #e98484;
+    border-radius: 50rem;
+    padding: 0 0.5rem;
     margin: 0.1rem 1rem;
     transition: 0.6s;
 }
@@ -14,4 +19,56 @@
     color: #f4f2de;
     background-color: #e98484;
     border: solid #e98484;
+}
+
+.collButton {
+    color: #cc74b9;
+    font-size: large;
+    background-color: #f4f2de;
+    border: solid #cc74b9;
+    border-radius: 50rem;
+    padding: 0 0.5rem;
+    margin: 0.1rem 1rem;
+    transition: 0.6s;
+}
+
+.collButton:hover {
+    color: #f4f2de;
+    background-color: #cc74b9;
+    border: solid #cc74b9;
+}
+
+.checkbox {
+    user-select: none;
+    color: #e98484;
+    font-size: large;
+    margin: 0.1rem 1rem;
+    transition: 0.6s;
+}
+
+.checkbox input {
+    accent-color: #e98484;
+    transform: scale(1.2);
+    margin-right: 0.5rem;
+}
+
+.collCheckbox {
+    user-select: none;
+    color: #cc74b9;
+    font-size: large;
+    margin: 0.1rem 1rem;
+    transition: 0.6s;
+}
+
+.collCheckbox input {
+    accent-color: #cc74b9;
+    transform: scale(1.2);
+    margin-right: 0.5rem;
+}
+
+@media only screen and (max-width: 1712px) {
+    .sortingButtons {
+        display: block;
+        /* justify-content: center; */
+    }
 }

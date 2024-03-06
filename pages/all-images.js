@@ -16,51 +16,37 @@ export async function getStaticProps() {
 
 function AllImages({ data }) {
     const [photos, setPhotos] = useState([])
+    const [filteredPhotos, setFilteredPhotos] = useState([])
     const [sortKey, setSortKey] = useState(0)
 
-    function SortBy(type) {
-        setSortKey((prevSortKey) => prevSortKey + 1)
-        const sortedPhotos = [...photos]
-        switch (type) {
-            case 'date-o-n':
-                sortedPhotos.sort((a, b) => {
-                    return a.date.localeCompare(b.date)
-                })
-                break
-            case 'date-n-o':
-                sortedPhotos.sort((a, b) => {
-                    return b.date.localeCompare(a.date)
-                })
-                break
-            case 'title-a-z':
-                sortedPhotos.sort((a, b) => {
-                    return a.title.localeCompare(b.title)
-                })
-                break
-            case 'title-z-a':
-                sortedPhotos.sort((a, b) => {
-                    return b.title.localeCompare(a.title)
-                })
-                break
-        }
-        setPhotos(sortedPhotos)
+    function filterHidden(data) {
+        const hiddenPhotos = data.filter((photo) => {
+            return photo.hidden === false
+        })
+        setPhotos(hiddenPhotos)
+        setFilteredPhotos(hiddenPhotos)
     }
 
     useEffect(() => {
-        setPhotos(data)
+        filterHidden(data)
     }, [data])
 
     return (
         <Layout>
             <Head>
-                <title>All Images | Lewis Inches Photography</title>
+                <title>All Images | Loowis Photography</title>
             </Head>
             <section className={styles.container}>
-                <SortingButtons SortBy={SortBy} />
+                <h1 className={styles.header}>All Images</h1>
+                <SortingButtons
+                    photos={photos}
+                    setPhotos={setFilteredPhotos}
+                    setKey={setSortKey}
+                />
                 <XMasonry key={sortKey} maxColumns="3" targetBlockWidth="550">
-                    {photos.map((d) => (
+                    {filteredPhotos.map((d) => (
                         <XBlock key={d.id}>
-                            <ImageModal data={d} key={d.id} />
+                            <ImageModal data={d} key={d.id} page="All" />
                         </XBlock>
                     ))}
                 </XMasonry>

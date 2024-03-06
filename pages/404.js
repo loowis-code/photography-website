@@ -23,7 +23,7 @@ function Custom404() {
     return (
         <Layout>
             <Head>
-                <title>404 | Lewis Inches Photography</title>
+                <title>404 | Loowis Photography</title>
             </Head>
             <section className={styles.container}>
                 <h1 className={styles.heading}>This page does not exist :/</h1>

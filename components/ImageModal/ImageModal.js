@@ -1,11 +1,19 @@
 import Image from 'next/image'
 import styles from './ImageModal.module.css'
 
-export default function ImageModal({ data }) {
+export default function ImageModal({ data, page }) {
     return (
         <div>
             <div
-                className={styles.photo}
+                className={
+                    page === 'Home'
+                        ? styles.photo
+                        : page === 'All'
+                          ? styles.photoAll
+                          : page === 'Collections'
+                            ? styles.photoCollections
+                            : styles.photo
+                }
                 data-bs-toggle="modal"
                 data-bs-target={'#Modal' + data.id}
             >
@@ -15,10 +23,15 @@ export default function ImageModal({ data }) {
                     width="1386"
                     height="919"
                     sizes="100vw"
-                    style={{
-                        width: '100%',
-                        height: 'auto',
-                    }}
+                    className={
+                        page === 'Home'
+                            ? styles.imageHome
+                            : page === 'All'
+                              ? styles.imageAll
+                              : page === 'Collections'
+                                ? styles.imageCollections
+                                : styles.image
+                    }
                 />
                 <h5 className={styles.thumbnailTitle}>{data.title}</h5>
             </div>

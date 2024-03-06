@@ -1,6 +1,91 @@
+@keyframes collNeonGlow {
+    0% {
+        box-shadow: #cc74b9 0 0 2.5px;
+    }
+    20% {
+        box-shadow: #cc74b9 0 0 5px;
+    }
+    40% {
+        box-shadow: #cc74b9 0 0 7.5px;
+    }
+    60% {
+        box-shadow: #cc74b9 0 0 10px;
+    }
+    80% {
+        box-shadow: #cc74b9 0 0 12.5px;
+    }
+    100% {
+        box-shadow: #cc74b9 0 0 15px;
+    }
+}
+
+@keyframes homeNeonGlow {
+    0% {
+        box-shadow: #e9b384 0 0 2.5px;
+    }
+    20% {
+        box-shadow: #e9b384 0 0 5px;
+    }
+    40% {
+        box-shadow: #e9b384 0 0 7.5px;
+    }
+    60% {
+        box-shadow: #e9b384 0 0 10px;
+    }
+    80% {
+        box-shadow: #e9b384 0 0 12.5px;
+    }
+    100% {
+        box-shadow: #e9b384 0 0 15px;
+    }
+}
+
+@keyframes allNeonGlow {
+    0% {
+        box-shadow: #e98484 0 0 2.5px;
+    }
+    20% {
+        box-shadow: #e98484 0 0 5px;
+    }
+    40% {
+        box-shadow: #e98484 0 0 7.5px;
+    }
+    60% {
+        box-shadow: #e98484 0 0 10px;
+    }
+    80% {
+        box-shadow: #e98484 0 0 12.5px;
+    }
+    100% {
+        box-shadow: #e98484 0 0 15px;
+    }
+}
+
 .photo {
     padding: 0 1%;
-    transition: 0.6s;
+    transition: 0.3s;
+}
+
+.photoCollections {
+    padding: 0 1%;
+    transition: 0.3s;
+}
+
+.photoAll {
+    padding: 0 1%;
+    transition: 0.3s;
+}
+
+.photo:hover {
+    text-shadow: 0.1rem 0.1rem 0.1rem #e9b384;
+}
+
+.photoCollections:hover {
+    text-shadow: 0.1rem 0.1rem 0.1rem #cc74b9;
+}
+
+.photoAll:hover {
+    text-shadow: 0.1rem 0.1rem 0.1rem #e98484;
 }
 
 .thumbnailTitle {
@@ -8,13 +93,43 @@
     font-family: urbanistBoldItalic;
 }
 
-.photo:hover {
-    text-shadow: 0.1rem 0.1rem 0.1rem #e9b384;
+.image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5%;
 }
 
-.photo > img {
+.imageHome {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5%;
+    border: #e9b384 0.25rem solid;
+}
+
+.imageHome:hover {
+    animation: homeNeonGlow 0.3s forwards;
+}
+
+.imageAll {
+    width: 100%;
+    height: auto;
     border-radius: 0.5%;
     border: #e98484 0.25rem solid;
+}
+
+.imageAll:hover {
+    animation: allNeonGlow 0.3s forwards;
+}
+
+.imageCollections {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5%;
+    border: #cc74b9 0.25rem solid;
+}
+
+.imageCollections:hover {
+    animation: collNeonGlow 0.3s forwards;
 }
 
 .imageTitle {

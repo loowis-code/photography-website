@@ -17,13 +17,13 @@ export default function Header() {
             <div className={styles.header}>
                 <Link className={styles.title} href="/">
                     <Image
-                            src="/logo-text.png"
-                            alt="website logo"
-                            width="2981"
-                            height="1020"
-                            sizes="100vw"
-                            className={styles.title}
-                        />
+                        src="/logo-text.png"
+                        alt="website logo"
+                        width="2981"
+                        height="1020"
+                        sizes="100vw"
+                        className={styles.title}
+                    />
                     <p className={styles.tagline}>Photography</p>
                 </Link>
             </div>
@@ -32,8 +32,8 @@ export default function Header() {
                 <Link
                     className={
                         pathnameRegex.test('/all-images')
-                            ? styles.active
-                            : styles.navlink
+                            ? styles.allActive
+                            : styles.allLink
                     }
                     href="/all-images"
                 >
@@ -42,8 +42,8 @@ export default function Header() {
                 <Link
                     className={
                         pathnameRegex.test('/collections')
-                            ? styles.active
-                            : styles.navlink
+                            ? styles.collActive
+                            : styles.collLink
                     }
                     href="/collections"
                 >
@@ -52,8 +52,8 @@ export default function Header() {
                 <Link
                     className={
                         pathnameRegex.test('/image-map')
-                            ? styles.active
-                            : styles.navlink
+                            ? styles.mapActive
+                            : styles.mapLink
                     }
                     href="/image-map"
                 >

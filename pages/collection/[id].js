@@ -45,54 +45,42 @@ export async function getStaticPaths() {
 
 function Collection({ images_data, collection_data }) {
     const [photos, setPhotos] = useState([])
+    const [filteredPhotos, setFilteredPhotos] = useState([])
     const [sortKey, setSortKey] = useState(0)
 
-    function SortBy(type) {
-        setSortKey((prevSortKey) => prevSortKey + 1)
-        const sortedPhotos = [...photos]
-        switch (type) {
-            case 'date-o-n':
-                sortedPhotos.sort((a, b) => {
-                    return a.date.localeCompare(b.date)
-                })
-                break
-            case 'date-n-o':
-                sortedPhotos.sort((a, b) => {
-                    return b.date.localeCompare(a.date)
-                })
-                break
-            case 'title-a-z':
-                sortedPhotos.sort((a, b) => {
-                    return a.title.localeCompare(b.title)
-                })
-                break
-            case 'title-z-a':
-                sortedPhotos.sort((a, b) => {
-                    return b.title.localeCompare(a.title)
-                })
-                break
-        }
-        setPhotos(sortedPhotos)
+    function filterHidden(images_data) {
+        const hiddenPhotos = images_data.filter((photo) => {
+            return photo.hidden === false
+        })
+        setPhotos(hiddenPhotos)
+        setFilteredPhotos(hiddenPhotos)
     }
 
     useEffect(() => {
-        setPhotos(images_data)
+        filterHidden(images_data)
     }, [images_data])
 
     return (
         <Layout>
             <Head>
-                <title>
-                    {collection_data?.name} | Lewis Inches - Photography
-                </title>
+                <title>{collection_data?.name} | Loowis Photography</title>
             </Head>
             <section className={styles.container}>
                 <h1 className={styles.header}>{collection_data?.name}</h1>
-                <SortingButtons SortBy={SortBy} />
+                <SortingButtons
+                    photos={photos}
+                    setPhotos={setFilteredPhotos}
+                    setKey={setSortKey}
+                    page="Collections"
+                />
                 <XMasonry key={sortKey} maxColumns="3" targetBlockWidth="550">
-                    {photos?.map((d) => (
+                    {filteredPhotos?.map((d) => (
                         <XBlock key={d.id}>
-                            <ImageModal data={d} key={d.id} />
+                            <ImageModal
+                                data={d}
+                                key={d.id}
+                                page="Collections"
+                            />
                         </XBlock>
                     ))}
                 </XMasonry>

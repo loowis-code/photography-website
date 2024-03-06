@@ -5,7 +5,15 @@ export default function ImageModal({ data, page }) {
     return (
         <div>
             <div
-                className={styles.photo}
+                className={
+                    page === 'Home'
+                        ? styles.photo
+                        : page === 'All'
+                          ? styles.photoAll
+                          : page === 'Collections'
+                            ? styles.photoCollections
+                            : styles.photo
+                }
                 data-bs-toggle="modal"
                 data-bs-target={'#Modal' + data.id}
             >

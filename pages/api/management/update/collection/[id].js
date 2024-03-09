@@ -1,4 +1,4 @@
-import prisma from '../../../../prisma/prisma'
+import prisma from '../../../../../prisma/prisma'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '../../../auth/[...nextauth]'
 

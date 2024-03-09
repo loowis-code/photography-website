@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import styles from '../../../css-modules/management/edit-photo.module.css'
 import Link from 'next/link'
+
 export default function Post() {
     const [photoData, setPhotoData] = useState([])
     const [cameraData, setCameraData] = useState([])

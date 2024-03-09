@@ -112,18 +112,19 @@ export default function Post() {
         }
     }
 
-    waitForElm('camera').then(() => {
-        selectCamera(photoData.camera)
-    })
-    waitForElm('film').then(() => {
-        selectFilm(photoData.film)
-    })
+    
 
     useEffect(() => {
         if (router.isReady) {
             getPhotoData()
             getFilmData()
             getCameraData()
+            waitForElm('camera').then(() => {
+                selectCamera(photoData.camera)
+            })
+            waitForElm('film').then(() => {
+                selectFilm(photoData.film)
+            })
         }
     }, [router.isReady])
 

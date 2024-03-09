@@ -8,7 +8,7 @@ function Custom404() {
     const [photo, setPhoto] = useState([])
 
     async function getAllImages() {
-        const req = await fetch('/api/getPhotos')
+        const req = await fetch('/api/management/read/photos')
         const photoData = await req.json()
         const randomPhoto =
             photoData[Math.floor(Math.random() * photoData.length)]

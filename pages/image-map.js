@@ -31,7 +31,7 @@ function ImageMap() {
     }
 
     async function getAllPhotos() {
-        const req = await fetch('/api/getPhotos')
+        const req = await fetch('/api/management/read/photos')
         const photoData = await req.json()
 
         var trimmedPhotoData = []

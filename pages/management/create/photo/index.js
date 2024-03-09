@@ -1,4 +1,4 @@
-import Layout from '@/components/Layout'
+import Layout from '../../../../components/Layout'
 import { useEffect, useState } from 'react'
 
 function AddNewPhoto() {
@@ -6,13 +6,13 @@ function AddNewPhoto() {
     const [filmData, setFilmData] = useState([])
 
     async function getCameraData() {
-        const req = await fetch(`/api/Get/GetCameraData`)
+        const req = await fetch(`/api/management/read/cameras`)
         const newCameraData = await req.json()
         setCameraData(newCameraData)
     }
 
     async function getFilmData() {
-        const req = await fetch(`/api/Get/GetFilmData`)
+        const req = await fetch(`/api/management/read/film`)
         const newFilmData = await req.json()
         setFilmData(newFilmData)
     }
@@ -53,7 +53,7 @@ function AddNewPhoto() {
             gps_long: gpsLong,
         }
 
-        const endpoint = '/api/Create/AddPhoto'
+        const endpoint = '/api/management/create/photo'
 
         const options = {
             method: 'POST',
@@ -66,7 +66,7 @@ function AddNewPhoto() {
         const response = await fetch(endpoint, options)
         await response.json()
         if (confirm('Photo created successfully!')) {
-            window.location.href = '/ViewExistingPhotos'
+            window.location.href = '/management'
         }
     }
 

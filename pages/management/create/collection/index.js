@@ -1,4 +1,4 @@
-import Layout from '@/components/Layout'
+import Layout from '../../../../components/Layout'
 
 function AddNewCollection() {
     const handleSubmit = async (event) => {
@@ -11,7 +11,7 @@ function AddNewCollection() {
             description: event.target.description.value,
         }
 
-        const endpoint = '/api/Create/AddCollection'
+        const endpoint = '/api/management/create/collection'
 
         const options = {
             method: 'POST',
@@ -24,7 +24,7 @@ function AddNewCollection() {
         const response = await fetch(endpoint, options)
         await response.json()
         if (confirm('Collection created successfully!')) {
-            window.location.href = '/ViewExistingCollections'
+            window.location.href = '/management'
         }
     }
 

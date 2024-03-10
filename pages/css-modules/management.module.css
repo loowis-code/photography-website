@@ -1,0 +1,109 @@
+.container {
+    margin-top: 1rem;
+}
+
+.profileInfo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.profilePicture {
+    border-radius: 50%;
+    margin: 1%;
+}
+
+.text {
+    margin: 1%;
+}
+
+.signOut {
+    white-space: nowrap;
+    background-color: #7c9d96;
+    border: none;
+    color: #f4f2de;
+    margin-right: 1%;
+    padding: 1%;
+    border-radius: 1rem;
+    border: #f4f2de solid 0.25rem;
+    transition-duration: 0.3s;
+}
+
+.signOut:hover {
+    background-color: #f4f2de;
+    color: #7c9d96;
+    border: #7c9d96 solid 0.25rem;
+}
+
+.signIn {
+    white-space: nowrap;
+    background-color: #7c9d96;
+    border: none;
+    color: #f4f2de;
+    margin: 1%;
+    padding: 1%;
+    border-radius: 1rem;
+    border: #f4f2de solid 0.25rem;
+    transition-duration: 0.3s;
+}
+
+.signIn:hover {
+    background-color: #f4f2de;
+    color: #7c9d96;
+    border: #7c9d96 solid 0.25rem;
+}
+
+.managementContainer {
+    display: flex;
+    width: 100%;
+    padding-top: 5%;
+}
+
+.list {
+    border: 0.25rem solid #a1ccd1;
+    border-radius: 1rem;
+    width: 25%;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+
+.listItem {
+    display: inline-block;
+    cursor: pointer;
+    padding: 2.5%;
+    margin: 2.5% 0;
+    width: 100%;
+    border-radius: 1rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.listItemActive {
+    display: inline-block;
+    cursor: pointer;
+    padding: 2.5%;
+    margin: 2.5% 0;
+    width: 100%;
+    border-radius: 1rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #a1ccd1;
+    color: #f4f2de;
+}
+
+.listItem:hover {
+    background-color: #a1ccd1;
+    color: #f4f2de;
+    transition: 0.3s;
+}
+
+.form {
+    margin-left: 2.5%;
+    width: 75%;
+}

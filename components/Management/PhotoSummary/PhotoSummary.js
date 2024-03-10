@@ -1,6 +1,11 @@
 import styles from './PhotoSummary.module.css'
 
-export default function PhotoSummary({ data }) {
+export default function PhotoSummary({ data, setter, switcher }) {
+    function switchForm() {
+        setter(data.id)
+        switcher('editPhoto')
+    }
+
     return (
         <tr className={styles.row}>
             <td className={styles.titleField}>
@@ -13,7 +18,7 @@ export default function PhotoSummary({ data }) {
                 <h6>{data.url}</h6>
             </td>
             <td className={styles.linkField}>
-                <a href={`management/update/photo/${data.id}`}>Edit</a>
+                <button onClick={() => switchForm()}>Edit</button>
             </td>
         </tr>
     )

@@ -7,6 +7,10 @@ import { useState } from 'react'
 import prisma from '../prisma/prisma'
 import PhotoSummary from '../components/Management/PhotoSummary'
 import CollectionSummary from '../components/Management/CollectionSummary'
+import PhotoCreator from '../components/Management/PhotoCreator'
+import CollectionCreator from '../components/Management/CollectionCreator'
+import PhotoEditor from '../components/Management/PhotoEditor'
+import CollectionEditor from '../components/Management/CollectionEditor'
 
 export async function getStaticProps() {
     const photoRes = await prisma.images.findMany()
@@ -21,7 +25,14 @@ export async function getStaticProps() {
 
 function Management({ photoData, collectionData }) {
     const { data: session } = useSession()
-    const [currentForm, setCurrentForm] = useState('editPhotos')
+    const [currentForm, setCurrentForm] = useState('seePhotos')
+
+    const [selectedPhoto, setSelectedPhoto] = useState(
+        'clmnyf0py002yvw8gn5dcohjv',
+    )
+    const [selectedCollection, setSelectedCollection] = useState(
+        'clmnyus2i0000vwq0tivs91n0',
+    )
 
     if (session) {
         return (
@@ -63,29 +74,55 @@ function Management({ photoData, collectionData }) {
                                 <p>Create Collection</p>
                             </div>
                             <div
-                                onClick={() => setCurrentForm('editPhoto')}
+                                onClick={() => setCurrentForm('seePhotos')}
                                 className={styles.listItem}
                             >
                                 <p>Edit Photo</p>
                             </div>
                             <div
-                                onClick={() => setCurrentForm('editCollection')}
+                                onClick={() => setCurrentForm('seeCollections')}
                                 className={styles.listItem}
                             >
                                 <p>Edit Collection</p>
                             </div>
                         </div>
 
-                        <table className={styles.form}>
-                            {currentForm === 'editPhoto' &&
-                                photoData.map((d) => (
-                                    <PhotoSummary key={d.id} data={d} />
-                                ))}
-                            {currentForm === 'editCollection' &&
-                                collectionData.map((d) => (
-                                    <CollectionSummary key={d.id} data={d} />
-                                ))}
-                        </table>
+                        <div className={styles.form}>
+                            {currentForm === 'createPhoto' && <PhotoCreator />}
+                            {currentForm === 'createCollection' && (
+                                <CollectionCreator />
+                            )}
+                            {currentForm === 'seePhotos' && (
+                                <table>
+                                    {photoData.map((d) => (
+                                        <PhotoSummary
+                                            key={d.id}
+                                            data={d}
+                                            setter={setSelectedPhoto}
+                                            switcher={setCurrentForm}
+                                        />
+                                    ))}
+                                </table>
+                            )}
+                            {currentForm === 'seeCollections' && (
+                                <table>
+                                    {collectionData.map((d) => (
+                                        <CollectionSummary
+                                            key={d.id}
+                                            data={d}
+                                            setter={setSelectedCollection}
+                                            switcher={setCurrentForm}
+                                        />
+                                    ))}
+                                </table>
+                            )}
+                            {currentForm === 'editPhoto' && (
+                                <PhotoEditor id={selectedPhoto} />
+                            )}
+                            {currentForm === 'editCollection' && (
+                                <CollectionEditor id={selectedCollection} />
+                            )}
+                        </div>
                     </div>
                 </section>
             </Layout>

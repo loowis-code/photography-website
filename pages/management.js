@@ -21,11 +21,15 @@ function Management() {
     const [selectedCollection, setSelectedCollection] = useState('')
 
     async function getPhotos() {
-        setPhotoData(await fetch('/api/management/read/photos'))
+        const req = await fetch('/api/management/read/photos')
+        const photoData = await req.json()
+        setPhotoData(photoData)
     }
 
     async function getCollections() {
-        setCollectionData(await fetch('/api/management/read/collection'))
+        const req = await fetch('/api/management/read/collections')
+        const collectionData = await req.json()
+        setCollectionData(collectionData)
     }
 
     useEffect(() => {

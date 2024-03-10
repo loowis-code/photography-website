@@ -24,6 +24,10 @@ export default function PhotoCreator() {
         const isoInt = parseInt(event.target.iso.value)
         const boolFeatured =
             event.target.featured.checked === 'on' ? true : false
+        const boolHidden =
+            event.target.hidden.checked === 'on' ? true : false
+        const boolDigital =
+            event.target.digital.checked === 'on' ? true : false
         var gpsLat = null
         var gpsLong = null
         if (
@@ -49,6 +53,8 @@ export default function PhotoCreator() {
             aperture: event.target.aperture.value,
             shutter_speed: event.target.shutter_speed.value,
             featured: boolFeatured,
+            hidden: boolHidden,
+            digital: boolDigital,
             gps_lat: gpsLat,
             gps_long: gpsLong,
         }
@@ -153,6 +159,12 @@ export default function PhotoCreator() {
             <label htmlFor="aperture">Aperture:</label>
             <input type="text" id="aperture" name="aperture" />
 
+            <label htmlFor="gps_lat">GPS Latitude:</label>
+            <input type="number" step={0.00001} id="gps_lat" name="gps_lat" />
+
+            <label htmlFor="gps_long">GPS Longitude:</label>
+            <input type="number" step={0.00001} id="gps_long" name="gps_long" />
+
             <div>
                 <label htmlFor="featured">Featured</label>
                 <input
@@ -163,11 +175,25 @@ export default function PhotoCreator() {
                 />
             </div>
 
-            <label htmlFor="gps_lat">GPS Latitude:</label>
-            <input type="number" step={0.00001} id="gps_lat" name="gps_lat" />
+            <div>
+                <label htmlFor="digital">Digital</label>
+                <input
+                    type="checkbox"
+                    role="switch"
+                    id="digital"
+                    name="digital"
+                />
+            </div>
 
-            <label htmlFor="gps_long">GPS Longitude:</label>
-            <input type="number" step={0.00001} id="gps_long" name="gps_long" />
+            <div>
+                <label htmlFor="hidden">Hidden</label>
+                <input
+                    type="checkbox"
+                    role="switch"
+                    id="hidden"
+                    name="hidden"
+                />
+            </div>
 
             <button type="submit">Submit</button>
         </form>

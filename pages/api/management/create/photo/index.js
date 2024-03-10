@@ -28,6 +28,8 @@ export default async function createImage(req, res) {
             aperture: photo_data.aperture,
             shutter_speed: photo_data.shutter_speed,
             featured: photo_data.featured,
+            digital: photo_data.digital,
+            hidden: photo_data.hidden,
             gps_lat: photo_data.gps_lat,
             gps_long: photo_data.gps_long,
         },

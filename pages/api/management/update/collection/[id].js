@@ -21,6 +21,7 @@ export default async function editCollection(req, res) {
             subtitle: collection_data.subtitle,
             description: collection_data.description,
             cover_url: collection_data.cover_url,
+            digital: collection_data.digital,
         },
     })
 

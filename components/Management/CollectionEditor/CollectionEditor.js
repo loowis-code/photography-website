@@ -51,14 +51,18 @@ export default function CollectionoEditor({ id }) {
     const handleSubmit = async (event) => {
         event.preventDefault()
 
+        const boolDigital =
+        event.target.digital.checked === 'on' ? true : false
+
         const data = {
             name: event.target.name.value,
             subtitle: event.target.subtitle.value,
             cover_url: event.target.cover_url.value,
             description: event.target.description.value,
+            digital: boolDigital,
         }
 
-        const endpoint = `/api/update/collection/${id}`
+        const endpoint = `/api/management/update/collection/${id}`
 
         const options = {
             method: 'POST',
@@ -147,6 +151,16 @@ export default function CollectionoEditor({ id }) {
                 name="description"
                 defaultValue={collectionData.description}
             />
+
+            <div>
+                <label htmlFor="digital">Digital</label>
+                <input
+                    type="checkbox"
+                    role="switch"
+                    id="digital"
+                    name="digital"
+                />
+            </div>
 
             <label htmlFor="collection_photo_ids">Photo IDs:</label>
             <Multiselect

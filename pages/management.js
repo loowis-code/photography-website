@@ -61,7 +61,11 @@ function Management({ photoData, collectionData }) {
                         <div className={styles.list}>
                             <div
                                 onClick={() => setCurrentForm('createPhoto')}
-                                className={styles.listItem}
+                                className={
+                                    currentForm === 'createPhoto'
+                                        ? styles.listItemActive
+                                        : styles.listItem
+                                }
                             >
                                 <p>Create Photo</p>
                             </div>
@@ -69,19 +73,31 @@ function Management({ photoData, collectionData }) {
                                 onClick={() =>
                                     setCurrentForm('createCollection')
                                 }
-                                className={styles.listItem}
+                                className={
+                                    currentForm === 'createCollection'
+                                        ? styles.listItemActive
+                                        : styles.listItem
+                                }
                             >
                                 <p>Create Collection</p>
                             </div>
                             <div
                                 onClick={() => setCurrentForm('seePhotos')}
-                                className={styles.listItem}
+                                className={
+                                    currentForm === 'seePhotos' || currentForm === 'editPhoto'
+                                        ? styles.listItemActive
+                                        : styles.listItem
+                                }
                             >
                                 <p>Edit Photo</p>
                             </div>
                             <div
                                 onClick={() => setCurrentForm('seeCollections')}
-                                className={styles.listItem}
+                                className={
+                                    currentForm === 'seeCollections' || currentForm === 'editCollection'
+                                        ? styles.listItemActive
+                                        : styles.listItem
+                                }
                             >
                                 <p>Edit Collection</p>
                             </div>

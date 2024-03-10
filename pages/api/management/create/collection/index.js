@@ -16,6 +16,7 @@ export default async function createCollection(req, res) {
             subtitle: collection_data.subtitle,
             description: collection_data.description,
             cover_url: collection_data.cover_url,
+            digital: collection_data.digital,
         },
     })
     res.json(collection)

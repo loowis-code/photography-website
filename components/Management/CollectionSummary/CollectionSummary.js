@@ -3,7 +3,7 @@ import styles from './CollectionSummary.module.css'
 export default function CollectionSummary({ data, setter, switcher }) {
     function switchForm() {
         setter(data.id)
-        switcher('editPhoto')
+        switcher('editCollection')
     }
 
     return (

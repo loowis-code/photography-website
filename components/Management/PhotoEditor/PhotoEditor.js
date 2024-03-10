@@ -42,7 +42,6 @@ export default function PhotoEditor({ id }) {
         const newPhotoData = await req.json()
         setDate(new Date(newPhotoData.date).toISOString().substring(0, 10))
         setPhotoData(newPhotoData)
-        console.log(newPhotoData)
     }
 
     async function getCameraData() {
@@ -61,6 +60,10 @@ export default function PhotoEditor({ id }) {
         const isoInt = parseInt(event.target.iso.value)
         const boolFeatured =
             event.target.featured.checked === 'on' ? true : false
+        const boolHidden =
+            event.target.hidden.checked === 'on' ? true : false
+        const boolDigital =
+            event.target.digital.checked === 'on' ? true : false
         var gpsLat = null
         var gpsLong = null
         if (
@@ -86,6 +89,8 @@ export default function PhotoEditor({ id }) {
             aperture: event.target.aperture.value,
             shutter_speed: event.target.shutter_speed.value,
             featured: boolFeatured,
+            hidden: boolHidden,
+            digital: boolDigital,
             gps_lat: gpsLat,
             gps_long: gpsLong,
         }
@@ -235,17 +240,6 @@ export default function PhotoEditor({ id }) {
                 defaultValue={photoData.aperture}
             />
 
-            <div>
-                <label htmlFor="featured">Featured</label>
-                <input
-                    type="checkbox"
-                    role="switch"
-                    id="featured"
-                    name="featured"
-                    defaultChecked={photoData.featured}
-                />
-            </div>
-
             <label htmlFor="gps_lat">GPS Latitude:</label>
             <input
                 type="number"
@@ -263,6 +257,39 @@ export default function PhotoEditor({ id }) {
                 name="gps_long"
                 defaultValue={photoData.gps_long}
             />
+
+            <div>
+                <label htmlFor="featured">Featured</label>
+                <input
+                    type="checkbox"
+                    role="switch"
+                    id="featured"
+                    name="featured"
+                    defaultChecked={photoData.featured}
+                />
+            </div>
+            <div>
+                <label htmlFor="digital">Digital</label>
+                <input
+                    type="checkbox"
+                    role="switch"
+                    id="digital"
+                    name="digital"
+                    defaultChecked={photoData.digital}
+                />
+            </div>
+
+            <div>
+                <label htmlFor="hidden">Hidden</label>
+                <input
+                    type="checkbox"
+                    role="switch"
+                    id="hidden"
+                    name="hidden"
+                    defaultChecked={photoData.hidden}
+                />
+            </div>
+
 
             <button type="submit">Submit</button>
         </form>

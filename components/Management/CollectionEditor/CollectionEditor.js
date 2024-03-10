@@ -97,7 +97,7 @@ export default function CollectionoEditor({ id }) {
             imagesId: selectedOptions[selectedOptions.length - 1].id,
         }
 
-        const endpoint = `/api/create/lookup`
+        const endpoint = `/api/management/create/lookup`
 
         const options = {
             method: 'POST',

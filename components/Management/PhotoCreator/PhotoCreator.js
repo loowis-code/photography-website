@@ -24,10 +24,8 @@ export default function PhotoCreator() {
         const isoInt = parseInt(event.target.iso.value)
         const boolFeatured =
             event.target.featured.checked === 'on' ? true : false
-        const boolHidden =
-            event.target.hidden.checked === 'on' ? true : false
-        const boolDigital =
-            event.target.digital.checked === 'on' ? true : false
+        const boolHidden = event.target.hidden.checked === 'on' ? true : false
+        const boolDigital = event.target.digital.checked === 'on' ? true : false
         var gpsLat = null
         var gpsLong = null
         if (

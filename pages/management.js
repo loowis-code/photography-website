@@ -4,7 +4,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { useEffect, useState } from 'react'
-import prisma from '../prisma/prisma'
 import PhotoSummary from '../components/Management/PhotoSummary'
 import CollectionSummary from '../components/Management/CollectionSummary'
 import PhotoCreator from '../components/Management/PhotoCreator'
@@ -12,28 +11,21 @@ import CollectionCreator from '../components/Management/CollectionCreator'
 import PhotoEditor from '../components/Management/PhotoEditor'
 import CollectionEditor from '../components/Management/CollectionEditor'
 
-
 function Management() {
     const { data: session } = useSession()
     const [currentForm, setCurrentForm] = useState('seePhotos')
     const [photoData, setPhotoData] = useState([])
     const [collectionData, setCollectionData] = useState([])
 
-    const [selectedPhoto, setSelectedPhoto] = useState(
-        '',
-    )
-    const [selectedCollection, setSelectedCollection] = useState(
-        '',
-    )
+    const [selectedPhoto, setSelectedPhoto] = useState('')
+    const [selectedCollection, setSelectedCollection] = useState('')
 
     async function getPhotos() {
-        setPhotoData(JSON.parse(JSON.stringify(await prisma.images.findMany())))
+        setPhotoData(await fetch('/api/management/read/photos'))
     }
 
-    function getCollections() {
-        setCollectionData(
-            JSON.parse(JSON.stringify(prisma.collections.findMany())),
-        )
+    async function getCollections() {
+        setCollectionData(await fetch('/api/management/read/collection'))
     }
 
     useEffect(() => {

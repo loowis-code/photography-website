@@ -60,10 +60,8 @@ export default function PhotoEditor({ id }) {
         const isoInt = parseInt(event.target.iso.value)
         const boolFeatured =
             event.target.featured.checked === 'on' ? true : false
-        const boolHidden =
-            event.target.hidden.checked === 'on' ? true : false
-        const boolDigital =
-            event.target.digital.checked === 'on' ? true : false
+        const boolHidden = event.target.hidden.checked === 'on' ? true : false
+        const boolDigital = event.target.digital.checked === 'on' ? true : false
         var gpsLat = null
         var gpsLong = null
         if (
@@ -289,7 +287,6 @@ export default function PhotoEditor({ id }) {
                     defaultChecked={photoData.hidden}
                 />
             </div>
-
 
             <button type="submit">Submit</button>
         </form>

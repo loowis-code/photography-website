@@ -51,8 +51,7 @@ export default function CollectionoEditor({ id }) {
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        const boolDigital =
-        event.target.digital.checked === 'on' ? true : false
+        const boolDigital = event.target.digital.checked === 'on' ? true : false
 
         const data = {
             name: event.target.name.value,

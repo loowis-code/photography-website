@@ -3,7 +3,7 @@ import styles from './css-modules/management.module.css'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useSession, signIn, signOut } from 'next-auth/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import prisma from '../prisma/prisma'
 import PhotoSummary from '../components/Management/PhotoSummary'
 import CollectionSummary from '../components/Management/CollectionSummary'
@@ -12,27 +12,34 @@ import CollectionCreator from '../components/Management/CollectionCreator'
 import PhotoEditor from '../components/Management/PhotoEditor'
 import CollectionEditor from '../components/Management/CollectionEditor'
 
-export async function getStaticProps() {
-    const photoRes = await prisma.images.findMany()
-    const collectionRes = await prisma.collections.findMany()
-    return {
-        props: {
-            photoData: JSON.parse(JSON.stringify(photoRes)),
-            collectionData: JSON.parse(JSON.stringify(collectionRes)),
-        },
-    }
-}
 
-function Management({ photoData, collectionData }) {
+function Management() {
     const { data: session } = useSession()
     const [currentForm, setCurrentForm] = useState('seePhotos')
+    const [photoData, setPhotoData] = useState([])
+    const [collectionData, setCollectionData] = useState([])
 
     const [selectedPhoto, setSelectedPhoto] = useState(
-        'clmnyf0py002yvw8gn5dcohjv',
+        '',
     )
     const [selectedCollection, setSelectedCollection] = useState(
-        'clmnyus2i0000vwq0tivs91n0',
+        '',
     )
+
+    async function getPhotos() {
+        setPhotoData(JSON.parse(JSON.stringify(await prisma.images.findMany())))
+    }
+
+    function getCollections() {
+        setCollectionData(
+            JSON.parse(JSON.stringify(prisma.collections.findMany())),
+        )
+    }
+
+    useEffect(() => {
+        getPhotos()
+        getCollections()
+    }, [])
 
     if (session) {
         return (
@@ -84,7 +91,8 @@ function Management({ photoData, collectionData }) {
                             <div
                                 onClick={() => setCurrentForm('seePhotos')}
                                 className={
-                                    currentForm === 'seePhotos' || currentForm === 'editPhoto'
+                                    currentForm === 'seePhotos' ||
+                                    currentForm === 'editPhoto'
                                         ? styles.listItemActive
                                         : styles.listItem
                                 }
@@ -94,7 +102,8 @@ function Management({ photoData, collectionData }) {
                             <div
                                 onClick={() => setCurrentForm('seeCollections')}
                                 className={
-                                    currentForm === 'seeCollections' || currentForm === 'editCollection'
+                                    currentForm === 'seeCollections' ||
+                                    currentForm === 'editCollection'
                                         ? styles.listItemActive
                                         : styles.listItem
                                 }

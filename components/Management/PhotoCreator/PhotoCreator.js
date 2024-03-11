@@ -22,10 +22,6 @@ export default function PhotoCreator() {
 
         const isoDate = new Date(event.target.date.value)
         const isoInt = parseInt(event.target.iso.value)
-        const boolFeatured =
-            event.target.featured.checked === 'on' ? true : false
-        const boolHidden = event.target.hidden.checked === 'on' ? true : false
-        const boolDigital = event.target.digital.checked === 'on' ? true : false
         var gpsLat = null
         var gpsLong = null
         if (
@@ -50,9 +46,9 @@ export default function PhotoCreator() {
             iso: isoInt,
             aperture: event.target.aperture.value,
             shutter_speed: event.target.shutter_speed.value,
-            featured: boolFeatured,
-            hidden: boolHidden,
-            digital: boolDigital,
+            featured: event.target.featured.checked,
+            hidden: event.target.hidden.checked,
+            digital: event.target.digital.checked,
             gps_lat: gpsLat,
             gps_long: gpsLong,
         }

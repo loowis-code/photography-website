@@ -46,22 +46,20 @@ export default function PhotoEditor({ id }) {
 
     async function getCameraData() {
         const req = await fetch(`/api/management/read/cameras`)
-        setCameraData(await req.json())
+        const newCameraData = await req.json()
+        setCameraData(newCameraData)
     }
 
     async function getFilmData() {
         const req = await fetch(`/api/management/read/film`)
-        setFilmData(await req.json())
+        const newFilmData = await req.json()
+        setFilmData(newFilmData)
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault()
         const isoDate = new Date(event.target.date.value)
         const isoInt = parseInt(event.target.iso.value)
-        const boolFeatured =
-            event.target.featured.checked === 'on' ? true : false
-        const boolHidden = event.target.hidden.checked === 'on' ? true : false
-        const boolDigital = event.target.digital.checked === 'on' ? true : false
         var gpsLat = null
         var gpsLong = null
         if (
@@ -86,9 +84,9 @@ export default function PhotoEditor({ id }) {
             iso: isoInt,
             aperture: event.target.aperture.value,
             shutter_speed: event.target.shutter_speed.value,
-            featured: boolFeatured,
-            hidden: boolHidden,
-            digital: boolDigital,
+            featured: event.target.featured.checked,
+            hidden: event.target.hidden.checked,
+            digital: event.target.digital.checked,
             gps_lat: gpsLat,
             gps_long: gpsLong,
         }
@@ -110,16 +108,17 @@ export default function PhotoEditor({ id }) {
         }
     }
 
+    waitForElm('camera').then(() => {
+        selectCamera(photoData.camera)
+    })
+    waitForElm('film').then(() => {
+        selectFilm(photoData.film)
+    })
+
     useEffect(() => {
         getPhotoData()
         getFilmData()
         getCameraData()
-        waitForElm('camera').then(() => {
-            selectCamera(photoData.camera)
-        })
-        waitForElm('film').then(() => {
-            selectFilm(photoData.film)
-        })
     }, [])
 
     return (

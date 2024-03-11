@@ -4,14 +4,12 @@ export default function CollectionCreator() {
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        const boolDigital = event.target.digital.checked === 'on' ? true : false
-
         const data = {
             name: event.target.name.value,
             subtitle: event.target.subtitle.value,
             cover_url: event.target.cover_url.value,
             description: event.target.description.value,
-            digital: boolDigital,
+            digital: event.target.digital.checked,
         }
 
         const endpoint = '/api/management/create/collection'

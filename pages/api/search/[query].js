@@ -18,7 +18,4 @@ export default async function getSearchResults(req, res) {
     } else {
         res.json(results)
     }
-
-   
-    
 }

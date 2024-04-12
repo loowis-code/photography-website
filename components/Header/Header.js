@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from './Header.module.css'
 import { usePathname } from 'next/navigation'
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 
 export default function Header() {
     const router = useRouter()
@@ -17,7 +17,12 @@ export default function Header() {
     function handleSearch(e) {
         e.preventDefault()
         const searchQuery = e.target.search.value
-        router.push("/search/" + searchQuery)
+        router.push('/search/' + sanitizeString(searchQuery))
+    }
+
+    function sanitizeString(str) {
+        str = str.replace(/[^a-z0-9áéíóúñü.,_-]/gim, '')
+        return str.trim()
     }
 
     return (
@@ -36,13 +41,33 @@ export default function Header() {
                 </Link>
 
                 <form className={styles.searchBar} onSubmit={handleSearch}>
-                    <input type="text" id="search" name="search" className={styles.searchBox} placeholder='Search...'></input>
-                    <button type='submit' className={styles.searchButton}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-play"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    <input
+                        required
+                        type="text"
+                        id="search"
+                        name="search"
+                        className={styles.searchBox}
+                        placeholder="Search..."
+                    ></input>
+                    <button type="submit" className={styles.searchButton}>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="feather feather-play"
+                        >
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
                     </button>
                 </form>
             </div>
-            
+
             <div className={styles.navs}>
                 <Link
                     className={

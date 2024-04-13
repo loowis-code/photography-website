@@ -39,7 +39,7 @@ export default function ImageModal({ data, page }) {
             <div
                 className="modal fade"
                 id={'Modal' + data.id}
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby={'Modal' + data.title}
                 aria-hidden="true"
             >

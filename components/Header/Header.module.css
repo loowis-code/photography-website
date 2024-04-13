@@ -43,6 +43,33 @@
     text-decoration: none;
 }
 
+.searchBar {
+    display: flex;
+    justify-content: center;
+}
+
+.searchBox {
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #f4f2de;
+    color: #7c9d96;
+    font-size: large;
+    padding-left: 5%;
+}
+
+.searchButton {
+    background-color: #1fe0;
+    color: #7c9d96;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+.searchButton:hover {
+    color: #e9b384;
+    filter: drop-shadow(0.1rem 0.1rem 0.5rem #e9b384);
+}
+
 .tagline {
     text-align: center;
     font-size: xx-large;
@@ -253,5 +280,9 @@
 
     .mapActive {
         -webkit-text-stroke: #3a5683 0.04rem;
+    }
+
+    .searchBar {
+        display: none;
     }
 }

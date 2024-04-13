@@ -3,6 +3,7 @@ module.exports = {
         domains: [
             'photography-website.s3.eu-west-2.amazonaws.com',
             'avatars.githubusercontent.com',
+            'fdf09946ba70e017d52e1805d4298d07@o4507076301029376.ingest.de.sentry.io/',
         ],
     },
 }

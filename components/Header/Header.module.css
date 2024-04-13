@@ -45,6 +45,7 @@
 
 .searchBar {
     display: flex;
+    justify-content: center;
 }
 
 .searchBox {
@@ -282,13 +283,6 @@
     }
 
     .searchBar {
-        font-size: medium;
-        justify-content: center;
-        margin: auto;
-        padding: 0%;
-    }
-
-    .searchBox {
-        padding: 0.5%;
+        display: none;
     }
 }

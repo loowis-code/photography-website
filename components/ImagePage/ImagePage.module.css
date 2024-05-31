@@ -41,52 +41,22 @@
     margin: 0;
 }
 
-/*
-
-
-
-
-.map {
-    height: 20vh;
-    width: 15vw;
-} */
-
 @media only screen and (max-width: 1712px) {
-    .singleImage {
-        width: 100vw;
-        display: block;
-        padding-top: 2.5vh;
-        position: absolute;
-        left: 0;
-    }
-
     .imagecontainer {
         width: fit-content;
         height: fit-content;
         max-height: 80vh;
-        width: 100%;
+        width: 100vw;
         display: block;
-        transform: translateY(0);
-        left: 45%;
+        left: 50%;
         transform: translateX(-50%);
-    }
-
-    .imagecontainer img {
-        max-height: 75vh;
-        max-width: 90vw;
-        object-fit: contain;
+        top: auto;
+        padding: 5%;
     }
 
     .imageDetails {
-        width: 90vw;
         margin: auto;
-        border: none;
-        margin: 0;
-        padding: 0;
-        transform: translateY(0);
-    }
-
-    .map {
-        display: none;
+        transform: translateY(5%);
+        margin-bottom: 5%;
     }
 }

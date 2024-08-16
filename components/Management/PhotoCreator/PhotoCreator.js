@@ -115,8 +115,6 @@ export default function PhotoCreator() {
                 ))}
             </select>
 
-
-
             <label htmlFor="date">Date:</label>
             <input
                 type="date"

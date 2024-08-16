@@ -38,7 +38,7 @@ export default function ImagePage({ data }) {
                 {data.camera ? (
                     <p className={styles.imageDetail}>Camera: {data.camera}</p>
                 ) : null}
-                {data.film ? (
+                {data.film != 'null' ? (
                     <p className={styles.imageDetail}>Film: {data.film}</p>
                 ) : null}
                 {data.author != 'Lewis Inches' ? (

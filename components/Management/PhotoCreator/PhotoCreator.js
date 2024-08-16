@@ -115,14 +115,7 @@ export default function PhotoCreator() {
                 ))}
             </select>
 
-            <label htmlFor="film">Film:</label>
-            <select id="film" name="film" aria-label="Select film">
-                {filmData.map((f) => (
-                    <option key={f.name} value={f.name}>
-                        {f.brand} {f.name}
-                    </option>
-                ))}
-            </select>
+
 
             <label htmlFor="date">Date:</label>
             <input
@@ -168,6 +161,16 @@ export default function PhotoCreator() {
                     name="featured"
                 />
             </div>
+
+            <label htmlFor="film">Film:</label>
+            <select id="film" name="film" aria-label="Select film">
+                <option>null</option>
+                {filmData.map((f) => (
+                    <option key={f.name} value={f.name}>
+                        {f.brand} {f.name}
+                    </option>
+                ))}
+            </select>
 
             <div>
                 <label htmlFor="digital">Digital</label>

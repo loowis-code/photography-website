@@ -87,9 +87,11 @@ export default function ImageModal({ data, page }) {
                             <p className={styles.imageCamera}>
                                 Camera: {data.camera}
                             </p>
-                            <p className={styles.imageFilm}>
-                                Film: {data.film}
-                            </p>
+                            {data.film != 'null' ? (
+                                <p className={styles.imageFilm}>
+                                    Film: {data.film}
+                                </p>
+                            ) : null}
                         </div>
                     </div>
                 </div>

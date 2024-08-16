@@ -4,16 +4,7 @@
 }
 
 .photoContainer {
-    justify-content: center;
     padding-top: 5%;
     margin: auto;
-    width: 50vw;
-}
-
-@media only screen and (max-width: 1712px) {
-    .photoContainer {
-        margin: 0;
-        padding: 1rem;
-        width: 100vw;
-    }
+    text-align: center;
 }

@@ -21,7 +21,6 @@ function Search() {
     useEffect(() => {
         setLoading(true)
         getSearchResults()
-        console.log(searchResults)
     }, [router.query.query])
 
     return (

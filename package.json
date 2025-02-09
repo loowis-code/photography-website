@@ -10,7 +10,7 @@
         "format": "prettier --check --ignore-path .gitignore .",
         "format:fix": "prettier --write --ignore-path .gitignore .",
         "postinstall": "prisma generate",
-        "prepare": "npx husky install"
+        "prepare": "husky"
     },
     "dependencies": {
         "@prisma/client": "^6.3.1",
@@ -18,11 +18,10 @@
         "@vercel/postgres": "^0.10.0",
         "faunadb": "^4.8.2",
         "husky": "^9.1.7",
-        "multiselect-react-dropdown": "^2.0.25",
         "next": "15.1.6",
         "next-auth": "^4.24.11",
-        "react": "18.3.1",
-        "react-dom": "18.3.1",
+        "react": "19.0.0",
+        "react-dom": "19.0.0",
         "sharp": "^0.33.5"
     },
     "devDependencies": {

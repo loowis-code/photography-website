@@ -3,8 +3,8 @@ import styles from './collection-editor.module.css'
 
 export default function CollectionoEditor({ id }) {
     const [collectionData, setCollectionData] = useState([])
-    const [selectedOptions, setSelectedOptions] = useState([])
-    const [photoData, setPhotoData] = useState([])
+    // const [selectedOptions, setSelectedOptions] = useState([])
+    // const [photoData, setPhotoData] = useState([])
 
     async function getLookups() {
         const req = await fetch(`/api/management/read/lookups`)
@@ -75,37 +75,37 @@ export default function CollectionoEditor({ id }) {
         }
     }
 
-    const handleDelete = async (removedItem) => {
-        const endpoint = `/api/management/delete/lookup/${removedItem.lookupId}`
+    // const handleDelete = async (removedItem) => {
+    //     const endpoint = `/api/management/delete/lookup/${removedItem.lookupId}`
 
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        }
-        const response = await fetch(endpoint, options)
-        await response.json()
-    }
+    //     const options = {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //     }
+    //     const response = await fetch(endpoint, options)
+    //     await response.json()
+    // }
 
-    const handleAdd = async (selectedOptions) => {
-        const data = {
-            collectionsId: id,
-            imagesId: selectedOptions[selectedOptions.length - 1].id,
-        }
+    // const handleAdd = async (selectedOptions) => {
+    //     const data = {
+    //         collectionsId: id,
+    //         imagesId: selectedOptions[selectedOptions.length - 1].id,
+    //     }
 
-        const endpoint = `/api/management/create/lookup`
+    //     const endpoint = `/api/management/create/lookup`
 
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        }
-        const response = await fetch(endpoint, options)
-        await response.json()
-    }
+    //     const options = {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(data),
+    //     }
+    //     const response = await fetch(endpoint, options)
+    //     await response.json()
+    // }
 
     useEffect(() => {
         getPhotoData()

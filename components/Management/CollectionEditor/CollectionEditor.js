@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import styles from './collection-editor.module.css'
-import Multiselect from 'multiselect-react-dropdown'
 
 export default function CollectionoEditor({ id }) {
     const [collectionData, setCollectionData] = useState([])
@@ -159,8 +158,10 @@ export default function CollectionoEditor({ id }) {
                 />
             </div>
 
+
+
             <label htmlFor="collection_photo_ids">Photo IDs:</label>
-            <Multiselect
+            {/* <Multiselect 
                 options={photoData}
                 selectedValues={selectedOptions}
                 displayValue="title"
@@ -175,7 +176,7 @@ export default function CollectionoEditor({ id }) {
                     setSelectedOptions(selectedOptions)
                     handleAdd(selectedOptions)
                 }}
-            />
+            />*/}
             <button type="submit">Submit</button>
         </form>
     )

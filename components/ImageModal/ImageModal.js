@@ -3,7 +3,7 @@ import styles from './ImageModal.module.css'
 
 export default function ImageModal({ data, page }) {
     return (
-        <div>
+        <div className={styles.imageContainer}>
             <div
                 className={
                     page === 'Home'
@@ -45,7 +45,6 @@ export default function ImageModal({ data, page }) {
             >
                 <div className="modal-dialog modal-xl modal-dialog-centered">
                     <div
-                        style={{ backgroundColor: '#f4f2de' }}
                         className="modal-content"
                     >
                         <div

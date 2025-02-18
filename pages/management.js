@@ -45,13 +45,13 @@ function Management() {
                 </Head>
                 <section className={styles.container}>
                     <div className={styles.profileInfo}>
-                        <Image
+                        {/* <Image
                             className={styles.profilePicture}
                             src={session.user.image}
                             alt="Profile Picture"
                             width={50}
                             height={50}
-                        />
+                        /> */}
                         <p className={styles.text}>{session.user.email} </p>
                         <button
                             className={styles.signOut}

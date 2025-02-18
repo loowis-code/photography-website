@@ -22,11 +22,11 @@ export default function CollectionoEditor({ id }) {
         getPhotosInCollection(filteredLookups)
     }
 
-    async function getPhotoData() {
-        const req = await fetch(`/api/management/read/photos`)
-        var photos = await req.json()
-        setPhotoData(photos)
-    }
+    // async function getPhotoData() {
+    //     const req = await fetch(`/api/management/read/photos`)
+    //     var photos = await req.json()
+    //     setPhotoData(photos)
+    // }
 
     async function getPhotosInCollection(filteredLookups) {
         var photos = []
@@ -108,8 +108,8 @@ export default function CollectionoEditor({ id }) {
     // }
 
     useEffect(() => {
-        getPhotoData()
-        getLookups()
+        // getPhotoData()
+        // getLookups()
         getCollectionData()
     }, [])
 

@@ -1,12 +1,18 @@
 .container {
-    margin-top: 1rem;
     text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    border: black 0.25rem solid;
+    border-top: none;
 }
 
-@media only screen and (max-width: 1712px) {
+.grid {
+    columns: 3;
+    line-break: strict;
+}
+
+@media only screen and (max-width: 1280px) {
     .container {
-        margin: 0;
-        padding: 1rem;
-        width: 100vw;
+        width: 100%;
     }
 }

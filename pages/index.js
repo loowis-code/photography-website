@@ -91,17 +91,14 @@ function Home({ data }) {
                                 : styles.digitalHide
                         }
                     >
-                        <XMasonry maxColumns="4" targetBlockWidth="500">
-                            {dFeatured.map((d) => (
-                                <XBlock key={d.id}>
-                                    <ImageModal
-                                        data={d}
-                                        key={d.id}
-                                        page="Home"
-                                    />
-                                </XBlock>
-                            ))}
-                        </XMasonry>
+                        {dFeatured.map((d) => (
+                            <ImageModal
+                                data={d}
+                                key={d.id}
+                                page="Home"
+                            />
+                        ))}
+
                     </div>
                     <div
                         className={
@@ -110,17 +107,13 @@ function Home({ data }) {
                                 : styles.filmHide
                         }
                     >
-                        <XMasonry maxColumns="4" targetBlockWidth="500">
                             {aFeatured.map((d) => (
-                                <XBlock key={d.id}>
-                                    <ImageModal
-                                        data={d}
-                                        key={d.id}
-                                        page="Home"
-                                    />
-                                </XBlock>
+                            <ImageModal
+                            data={d}
+                            key={d.id}
+                            page="Home"
+                        />
                             ))}
-                        </XMasonry>
                     </div>
                 </div>
             </section>

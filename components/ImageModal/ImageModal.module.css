@@ -1,64 +1,68 @@
 @keyframes collNeonGlow {
     0% {
-        box-shadow: #cc74b9 0 0 2.5px;
+        box-shadow: #c771a1 0 0 2.5px;
     }
     20% {
-        box-shadow: #cc74b9 0 0 5px;
+        box-shadow: #c771a1 0 0 5px;
     }
     40% {
-        box-shadow: #cc74b9 0 0 7.5px;
+        box-shadow: #c771a1 0 0 7.5px;
     }
     60% {
-        box-shadow: #cc74b9 0 0 10px;
+        box-shadow: #c771a1 0 0 10px;
     }
     80% {
-        box-shadow: #cc74b9 0 0 12.5px;
+        box-shadow: #c771a1 0 0 12.5px;
     }
     100% {
-        box-shadow: #cc74b9 0 0 15px;
+        box-shadow: #c771a1 0 0 15px;
     }
 }
 
 @keyframes homeNeonGlow {
     0% {
-        box-shadow: #e9b384 0 0 2.5px;
+        box-shadow: #db8525 0 0 2.5px;
     }
     20% {
-        box-shadow: #e9b384 0 0 5px;
+        box-shadow: #db8525 0 0 5px;
     }
     40% {
-        box-shadow: #e9b384 0 0 7.5px;
+        box-shadow: #db8525 0 0 7.5px;
     }
     60% {
-        box-shadow: #e9b384 0 0 10px;
+        box-shadow: #db8525 0 0 10px;
     }
     80% {
-        box-shadow: #e9b384 0 0 12.5px;
+        box-shadow: #db8525 0 0 12.5px;
     }
     100% {
-        box-shadow: #e9b384 0 0 15px;
+        box-shadow: #db8525 0 0 15px;
     }
 }
 
 @keyframes allNeonGlow {
     0% {
-        box-shadow: #e98484 0 0 2.5px;
+        box-shadow: #d95d5d 0 0 2.5px;
     }
     20% {
-        box-shadow: #e98484 0 0 5px;
+        box-shadow: #d95d5d 0 0 5px;
     }
     40% {
-        box-shadow: #e98484 0 0 7.5px;
+        box-shadow: #d95d5d 0 0 7.5px;
     }
     60% {
-        box-shadow: #e98484 0 0 10px;
+        box-shadow: #d95d5d 0 0 10px;
     }
     80% {
-        box-shadow: #e98484 0 0 12.5px;
+        box-shadow: #d95d5d 0 0 12.5px;
     }
     100% {
-        box-shadow: #e98484 0 0 15px;
+        box-shadow: #d95d5d 0 0 15px;
     }
+}
+
+.imageContainer {
+    break-inside: avoid;
 }
 
 .photo {
@@ -77,27 +81,27 @@
 }
 
 .photo:hover {
-    text-shadow: 0.1rem 0.1rem 0.1rem #e9b384;
+    text-shadow: 0.1rem 0.1rem 0.1rem #db8525;
 }
 
 .photoCollections:hover {
-    text-shadow: 0.1rem 0.1rem 0.1rem #cc74b9;
+    text-shadow: 0.1rem 0.1rem 0.1rem #c771a1;
 }
 
 .photoAll:hover {
-    text-shadow: 0.1rem 0.1rem 0.1rem #e98484;
+    text-shadow: 0.1rem 0.1rem 0.1rem #d95d5d;
 }
 
 .thumbnailTitle {
     font-size: larger;
-    font-family: urbanistBoldItalic;
+    font-family: josefin-bold-italic;
 }
 
 .imageHome {
     width: 100%;
     height: auto;
     border-radius: 0.5%;
-    border: #e9b384 0.25rem solid;
+    border: #db8525 0.25rem solid;
 }
 
 .imageHome:hover {
@@ -108,7 +112,7 @@
     width: 100%;
     height: auto;
     border-radius: 0.5%;
-    border: #e98484 0.25rem solid;
+    border: #d95d5d 0.25rem solid;
 }
 
 .imageAll:hover {
@@ -119,7 +123,7 @@
     width: 100%;
     height: auto;
     border-radius: 0.5%;
-    border: #cc74b9 0.25rem solid;
+    border: #c771a1 0.25rem solid;
 }
 
 .imageCollections:hover {
@@ -128,17 +132,17 @@
 
 .imageTitle {
     font-size: x-large;
-    font-family: urbanistBold;
+    font-family: josefin-bold;
 }
 
 .imageCamera {
     font-size: large;
-    font-family: urbanistBold;
+    font-family: josefin-bold;
 }
 
 .imageFilm {
     font-size: large;
-    font-family: urbanistBold;
+    font-family: josefin-bold;
 }
 
 .image {

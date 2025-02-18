@@ -43,13 +43,12 @@ function AllImages({ data }) {
                     setPhotos={setFilteredPhotos}
                     setKey={setSortKey}
                 />
-                <XMasonry key={sortKey} maxColumns="3" targetBlockWidth="550">
+                <div className={styles.grid}>
                     {filteredPhotos.map((d) => (
-                        <XBlock key={d.id}>
-                            <ImageModal data={d} key={d.id} page="All" />
-                        </XBlock>
+                        <ImageModal data={d} key={d.id} page="All" />
                     ))}
-                </XMasonry>
+                </div>
+
             </section>
         </Layout>
     )

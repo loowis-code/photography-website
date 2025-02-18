@@ -5,10 +5,10 @@
 }
 
 .button {
-    color: #e98484;
+    color: #d95d5d;
     font-size: large;
-    background-color: #f4f2de;
-    border: solid #e98484;
+    background-color: white;
+    border: solid #d95d5d;
     border-radius: 50rem;
     padding: 0 0.5rem;
     margin: 0.1rem 1rem;
@@ -16,16 +16,16 @@
 }
 
 .button:hover {
-    color: #f4f2de;
-    background-color: #e98484;
-    border: solid #e98484;
+    color: white;
+    background-color: #d95d5d;
+    border: solid #d95d5d;
 }
 
 .collButton {
-    color: #cc74b9;
+    color: #c771a1;
     font-size: large;
-    background-color: #f4f2de;
-    border: solid #cc74b9;
+    background-color: white;
+    border: solid #c771a1;
     border-radius: 50rem;
     padding: 0 0.5rem;
     margin: 0.1rem 1rem;
@@ -33,35 +33,35 @@
 }
 
 .collButton:hover {
-    color: #f4f2de;
-    background-color: #cc74b9;
-    border: solid #cc74b9;
+    color: white;
+    background-color: #c771a1;
+    border: solid #c771a1;
 }
 
 .checkbox {
     user-select: none;
-    color: #e98484;
+    color: #d95d5d;
     font-size: large;
     margin: 0.1rem 1rem;
     transition: 0.6s;
 }
 
 .checkbox input {
-    accent-color: #e98484;
+    accent-color: #d95d5d;
     transform: scale(1.2);
     margin-right: 0.5rem;
 }
 
 .collCheckbox {
     user-select: none;
-    color: #cc74b9;
+    color: #c771a1;
     font-size: large;
     margin: 0.1rem 1rem;
     transition: 0.6s;
 }
 
 .collCheckbox input {
-    accent-color: #cc74b9;
+    accent-color: #c771a1;
     transform: scale(1.2);
     margin-right: 0.5rem;
 }

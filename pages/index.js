@@ -1,7 +1,6 @@
 import Layout from '../components/Layout'
 import styles from './css-modules/index.module.css'
 import { useState, useEffect } from 'react'
-import { XMasonry, XBlock } from 'react-xmasonry'
 import ImageModal from '../components/ImageModal'
 import prisma from '../prisma/prisma'
 

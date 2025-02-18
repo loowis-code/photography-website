@@ -2,7 +2,6 @@ import Layout from '../components/Layout'
 import styles from './css-modules/all-images.module.css'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
-import { XMasonry, XBlock } from 'react-xmasonry'
 import ImageModal from '../components/ImageModal'
 import SortingButtons from '../components/SortingButtons'
 import prisma from '../prisma/prisma'
@@ -17,7 +16,7 @@ export async function getStaticProps() {
 function AllImages({ data }) {
     const [photos, setPhotos] = useState([])
     const [filteredPhotos, setFilteredPhotos] = useState([])
-    const [sortKey, setSortKey] = useState(0)
+    // const [sortKey, setSortKey] = useState(0)
 
     function filterHidden(data) {
         const hiddenPhotos = data.filter((photo) => {
@@ -41,7 +40,7 @@ function AllImages({ data }) {
                 <SortingButtons
                     photos={photos}
                     setPhotos={setFilteredPhotos}
-                    setKey={setSortKey}
+                    // setKey={setSortKey}
                 />
                 <div className={styles.grid}>
                     {filteredPhotos.map((d) => (

@@ -1,7 +1,7 @@
 import Layout from '../components/Layout'
 import styles from './css-modules/management.module.css'
 import Head from 'next/head'
-import Image from 'next/image'
+// import Image from 'next/image'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { useEffect, useState } from 'react'
 import PhotoSummary from '../components/Management/PhotoSummary'

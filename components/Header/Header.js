@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './Header.module.css'
 import { useEffect } from 'react';
 
@@ -17,17 +18,17 @@ export default function Header() {
     return (
         <div className={styles.headerContainer}>
             <div className={styles.name} id='name'>
-                <a className={styles.letter} href='/'>L</a>
-                <a className={styles.letter} href='/'>O</a>
-                <a className={styles.letter} href='/'>O</a>
-                <a className={styles.letter} href='/'>W</a>
-                <a className={styles.letter} href='/'>I</a>
-                <a className={styles.letter} href='/'>S</a>
+                <Link className={styles.letter} href='/'>L</Link>
+                <Link className={styles.letter} href='/'>O</Link>
+                <Link className={styles.letter} href='/'>O</Link>
+                <Link className={styles.letter} href='/'>W</Link>
+                <Link className={styles.letter} href='/'>I</Link>
+                <Link className={styles.letter} href='/'>S</Link>
             </div>
             <div className={styles.navTabs}>
-                <a href='/all-images' className={styles.navTab}>ALL IMAGES</a>
-                <a href='/collections' className={styles.navTab}>COLLECTIONS</a>
-                <a href='/image-map' className={styles.navTab}>IMAGE MAP</a>
+                <Link href='/all-images' className={styles.navTab}>ALL IMAGES</Link>
+                <Link href='/collections' className={styles.navTab}>COLLECTIONS</Link>
+                <Link href='/image-map' className={styles.navTab}>IMAGE MAP</Link>
             </div>
         </div>
     )

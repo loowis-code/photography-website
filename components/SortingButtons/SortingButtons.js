@@ -3,7 +3,7 @@ import { SortBy } from '../../helpers/SortBy'
 import { FilterBy } from '../../helpers/FilterBy'
 import { useState, useEffect } from 'react'
 
-export default function SortingButtons({ photos, setPhotos, setKey, page }) {
+export default function SortingButtons({ photos, setPhotos, page }) {
     const [checkboxState, setCheckboxState] = useState({
         film: true,
         digital: true,
@@ -14,7 +14,7 @@ export default function SortingButtons({ photos, setPhotos, setKey, page }) {
     }
 
     useEffect(() => {
-        FilterBy(checkboxState, photos, setPhotos, setKey)
+        FilterBy(checkboxState, photos, setPhotos)
     }, [checkboxState])
 
     return (
@@ -24,7 +24,7 @@ export default function SortingButtons({ photos, setPhotos, setKey, page }) {
                 className={
                     page === 'Collections' ? styles.collButton : styles.button
                 }
-                onClick={() => SortBy('date-o-n', photos, setPhotos, setKey)}
+                onClick={() => SortBy('date-o-n', photos, setPhotos)}
             >
                 Sort By Date (Oldest to Newest)
             </button>
@@ -33,7 +33,7 @@ export default function SortingButtons({ photos, setPhotos, setKey, page }) {
                 className={
                     page === 'Collections' ? styles.collButton : styles.button
                 }
-                onClick={() => SortBy('date-n-o', photos, setPhotos, setKey)}
+                onClick={() => SortBy('date-n-o', photos, setPhotos)}
             >
                 Sort By Date (Newest to Oldest)
             </button>
@@ -42,7 +42,7 @@ export default function SortingButtons({ photos, setPhotos, setKey, page }) {
                 className={
                     page === 'Collections' ? styles.collButton : styles.button
                 }
-                onClick={() => SortBy('title-a-z', photos, setPhotos, setKey)}
+                onClick={() => SortBy('title-a-z', photos, setPhotos)}
             >
                 Sort By Title (A-Z)
             </button>
@@ -51,7 +51,7 @@ export default function SortingButtons({ photos, setPhotos, setKey, page }) {
                 className={
                     page === 'Collections' ? styles.collButton : styles.button
                 }
-                onClick={() => SortBy('title-z-a', photos, setPhotos, setKey)}
+                onClick={() => SortBy('title-z-a', photos, setPhotos)}
             >
                 Sort By Title (Z-A)
             </button>

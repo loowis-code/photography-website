@@ -4,7 +4,6 @@ import styles from '../css-modules/search.module.css'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import ImageModal from '../../components/ImageModal'
-import { XMasonry, XBlock } from 'react-xmasonry'
 
 function Search() {
     const router = useRouter()
@@ -40,15 +39,14 @@ function Search() {
                 {!loading && !Array.isArray(searchResults) && (
                     <h2 className={styles.noResults}>💀 No images found</h2>
                 )}
-                {!loading && searchResults.length > 0 && (
-                    <XMasonry maxColumns="3" targetBlockWidth="550">
-                        {searchResults.map((d) => (
-                            <XBlock key={d.id}>
+                <div className={styles.grid}>
+                    {!loading && searchResults.length > 0 && (
+                        searchResults.map((d) => (
                                 <ImageModal data={d} key={d.id} page="All" />
-                            </XBlock>
-                        ))}
-                    </XMasonry>
-                )}
+                        ))
+                    )}
+                </div>
+
             </section>
         </Layout>
     )

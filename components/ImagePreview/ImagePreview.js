@@ -9,7 +9,7 @@ export default function ImagePreview({ title, filename, id }) {
                 <div className={styles.photo}>
                     <Image
                         src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${filename}`}
-                        alt={title}
+                        alt={data.alt_text}
                         width="1200"
                         height="1200"
                         sizes="100vw"

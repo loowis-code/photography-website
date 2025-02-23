@@ -17,19 +17,19 @@ export default function Header() {
 
     return (
         <div className={styles.headerContainer}>
-            <div className={styles.name} id='name'>
+            <h1 className={styles.name} id='name'>
                 <Link className={styles.letter} href='/'>L</Link>
                 <Link className={styles.letter} href='/'>O</Link>
                 <Link className={styles.letter} href='/'>O</Link>
                 <Link className={styles.letter} href='/'>W</Link>
                 <Link className={styles.letter} href='/'>I</Link>
                 <Link className={styles.letter} href='/'>S</Link>
-            </div>
-            <div className={styles.navTabs}>
+            </h1>
+            <nav className={styles.navTabs}>
                 <Link href='/all-images' className={styles.navTab}>ALL IMAGES</Link>
                 <Link href='/collections' className={styles.navTab}>COLLECTIONS</Link>
                 <Link href='/image-map' className={styles.navTab}>IMAGE MAP</Link>
-            </div>
+            </nav>
         </div>
     )
 }

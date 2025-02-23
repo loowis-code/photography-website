@@ -34,7 +34,7 @@
 }
 
 
-@media (width <= 1280px) {
+@media (width <= 1320px) {
     .imagecontainer {
         width: 100%;
     }

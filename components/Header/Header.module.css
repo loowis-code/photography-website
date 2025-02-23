@@ -65,7 +65,6 @@
 .navTab:hover {
     animation: 0.5s shiver;
     text-decoration: none;
-    /* background-color: black; */
     color: black;
     box-shadow: 0.25rem 0.25rem #d95d5d;
 }
@@ -77,21 +76,28 @@
     75% { transform: scale(0.95, 1.05); }
 }
 
-@media (width <= 1280px) {
+@media (width <= 1320px) {
     .headerContainer {
         width: 100%;
     }
 }
 
-@media (width <= 900px) {
+@media (width <= 1000px) {
     .headerContainer {
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+        display: block;
+    }
 
+    .navTabs {
+        justify-content: center;
+    }
+
+    .navTab {
+        font-size: smaller;
+        aspect-ratio: 2/1;
     }
 
     .name {
+        justify-content: center;
         width: fit-content;
         max-width: 100%;
         justify-content: center;
@@ -99,10 +105,7 @@
         text-align: center;
         border: #000 0.25rem solid;
         box-shadow: 0.25rem 0.25rem black;
-    }
-
-    .navTabs {
-        display: none;
+        margin: auto;
     }
 
     .letter {

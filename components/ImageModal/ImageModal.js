@@ -3,8 +3,8 @@ import styles from './ImageModal.module.css'
 
 export default function ImageModal({ data, page }) {
     return (
-        <div className={styles.imageContainer}>
-            <div
+        <article className={styles.imageContainer}>
+            <button
                 className={
                     page === 'Home'
                         ? styles.photo
@@ -19,7 +19,7 @@ export default function ImageModal({ data, page }) {
             >
                 <Image
                     src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
-                    alt={data.title}
+                    alt={data.alt_text}
                     width="1386"
                     height="919"
                     sizes="100vw"
@@ -34,12 +34,11 @@ export default function ImageModal({ data, page }) {
                     }
                 />
                 <h5 className={styles.thumbnailTitle}>{data.title}</h5>
-            </div>
+            </button>
 
             <div
                 className="modal fade"
                 id={'Modal' + data.id}
-                tabIndex="-1"
                 aria-labelledby={'Modal' + data.title}
                 aria-hidden="true"
             >
@@ -70,7 +69,7 @@ export default function ImageModal({ data, page }) {
                             <a href={`/images/${data.id}`}>
                                 <Image
                                     src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
-                                    alt={data.title}
+                                    alt={data.alt_text}
                                     width="1386"
                                     height="919"
                                     className={styles.image}
@@ -95,6 +94,6 @@ export default function ImageModal({ data, page }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </article>
     )
 }

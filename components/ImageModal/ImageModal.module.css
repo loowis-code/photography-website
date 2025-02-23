@@ -68,16 +68,22 @@
 .photo {
     padding: 0 1%;
     transition: 0.3s;
+    background-color: transparent;
+    border: none;
 }
 
 .photoCollections {
     padding: 0 1%;
     transition: 0.3s;
+    background-color: transparent;
+    border: none;
 }
 
 .photoAll {
     padding: 0 1%;
     transition: 0.3s;
+    background-color: transparent;
+    border: none;
 }
 
 .photo:hover {

@@ -11,8 +11,12 @@
     line-break: strict;
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1320px) {
     .container {
         width: 100%;
+    }
+
+    .grid {
+        columns: 1;
     }
 }

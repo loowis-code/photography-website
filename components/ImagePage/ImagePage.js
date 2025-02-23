@@ -6,7 +6,8 @@ export default function ImagePage({ data }) {
         <div className={styles.imagecontainer}>
             <Image
                 src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
-                alt={data.title}
+                alt={data.alt_text}
+                title={data.title}
                 className={styles.image}
                 width="1386"
                 height="919"

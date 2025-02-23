@@ -50,3 +50,9 @@
         height: 32px;
     }
 }
+
+@media only screen and (max-width: 1320px) {
+    .grid {
+        columns: 2;
+    }
+}

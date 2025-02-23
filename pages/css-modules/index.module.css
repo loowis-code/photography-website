@@ -56,8 +56,16 @@
     display: none;
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1320px) {
     .container {
         width: 100%;
+    }
+
+    .digitalShow {
+        columns: 1;
+    }
+
+    .filmShow {
+        columns: 1;
     }
 }

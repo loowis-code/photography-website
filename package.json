@@ -13,7 +13,7 @@
         "prepare": "husky"
     },
     "dependencies": {
-        "@prisma/client": "^6.3.1",
+        "@prisma/client": "^6.4.1",
         "@vercel/analytics": "^1.5.0",
         "@vercel/postgres": "^0.10.0",
         "faunadb": "^4.8.2",

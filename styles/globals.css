@@ -118,3 +118,9 @@ html {
 body {
     background-color: #f7efe0;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

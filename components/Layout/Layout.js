@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from '../Header'
+import Script from 'next/script'
 
 export default function Layout({ children }) {
     return (
@@ -48,8 +49,15 @@ export default function Layout({ children }) {
                         content="https://photography-website.s3.eu-west-2.amazonaws.com/images/2023-09-05/Kodak Pro Image 100/05-09-23_Kodak_Pro_Image_100_3.jpg"
                     />
                     <link rel="icon" href="favicon/favicon.ico" sizes="any" />
+                    <link
+                        rel="stylesheet"
+                        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+                        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+                        crossOrigin=""
+                    />
                 </Head>
                 <Header />
+                <Script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" />
                 {children}
             </div>
         </div>

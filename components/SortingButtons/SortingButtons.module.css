@@ -39,7 +39,6 @@
 }
 
 .checkbox {
-    user-select: none;
     color: #d95d5d;
     font-size: large;
     margin: 0.1rem 1rem;

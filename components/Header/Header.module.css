@@ -1,5 +1,4 @@
 .headerContainer {
-    background-color: white;
     padding: 1rem;
     text-decoration: none;
     display: flex;
@@ -8,6 +7,7 @@
     width: 75%;
     margin: 0 auto;
     border: black 0.25rem solid;
+    border-top: none;
 }
 
 .name {

@@ -1,21 +1,53 @@
 import Image from 'next/image'
+import ModalContent from './ModalContent'
 import styles from './ImageModal.module.css'
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom';
 
-export default function ImageModal({ data, page }) {
+export default function ImageModal({ data }) {
+    const [modalOpen, setModalOpen] = useState(false);
+
+    function assignHoverColors() {
+        let imageContainers = document.getElementsByClassName(styles.imageContainer);
+        let colors = ['#d95d5d', '#db8525', '#e8c43c', '#bed649', '#9ecbdb', '#c771a1'];
+
+        Array.from(imageContainers).forEach(container => {
+            let randomColor = colors[Math.floor(Math.random() * colors.length)];
+            container.style.backgroundColor = randomColor;
+            container.style.color = randomColor;
+        });
+    }
+
+    useEffect(() => {
+        assignHoverColors();
+    }, []);
+
+    useEffect(() => {
+        let modal = document.getElementById(data.url);
+        if (modalOpen && modal) {
+            modal.classList.add('active');
+        } else if (!modalOpen && modal) {
+            modal.classList.remove('active');
+        }
+    }
+    , [modalOpen])
+
     return (
         <article className={styles.imageContainer}>
+            <a className={styles.mobileLink} href={`/images/${data.id}`}>
+                <Image
+                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
+                    alt={data.alt_text}
+                    width="1386"
+                    height="919"
+                    sizes="100vw"
+                    className={styles.image}
+                />
+                <h5 className={styles.thumbnailTitle}>{data.title}</h5>
+            </a>
             <button
-                className={
-                    page === 'Home'
-                        ? styles.photo
-                        : page === 'All'
-                          ? styles.photoAll
-                          : page === 'Collections'
-                            ? styles.photoCollections
-                            : styles.photo
-                }
-                data-bs-toggle="modal"
-                data-bs-target={'#Modal' + data.id}
+                className={styles.photo}
+                onClick={() => setModalOpen(true)}
             >
                 <Image
                     src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
@@ -23,77 +55,15 @@ export default function ImageModal({ data, page }) {
                     width="1386"
                     height="919"
                     sizes="100vw"
-                    className={
-                        page === 'Home'
-                            ? styles.imageHome
-                            : page === 'All'
-                              ? styles.imageAll
-                              : page === 'Collections'
-                                ? styles.imageCollections
-                                : styles.image
-                    }
+                    className={styles.image}
                 />
                 <h5 className={styles.thumbnailTitle}>{data.title}</h5>
             </button>
-
-            <div
-                className="modal fade"
-                id={'Modal' + data.id}
-                aria-labelledby={'Modal' + data.title}
-                aria-hidden="true"
-            >
-                <div className="modal-dialog modal-xl modal-dialog-centered">
-                    <div
-                        className="modal-content"
-                    >
-                        <div
-                            style={{ paddingBottom: '0' }}
-                            className="modal-header"
-                        >
-                            <p className={styles.imageTitle}>
-                                {data.title}, {data.location}
-                            </p>
-                            <button
-                                style={{
-                                    right: '2%',
-                                    top: '2%',
-                                    position: 'absolute',
-                                }}
-                                type="button"
-                                className="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                            ></button>
-                        </div>
-                        <div style={{ padding: '0 1%' }} className="modal-body">
-                            <a href={`/images/${data.id}`}>
-                                <Image
-                                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
-                                    alt={data.alt_text}
-                                    width="1386"
-                                    height="919"
-                                    className={styles.image}
-                                    sizes="100vw"
-                                    style={{
-                                        width: '100%',
-                                        height: 'auto',
-                                    }}
-                                />
-                            </a>
-                        </div>
-                        <div className="modal-footer">
-                            <p className={styles.imageCamera}>
-                                Camera: {data.camera}
-                            </p>
-                            {data.film != 'null' ? (
-                                <p className={styles.imageFilm}>
-                                    Film: {data.film}
-                                </p>
-                            ) : null}
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {modalOpen && createPortal(
+                <ModalContent onClose={() => setModalOpen(false)} data={data}/>,
+                document.getElementById('modal-root')
+            )}
+            
         </article>
     )
 }

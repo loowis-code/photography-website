@@ -30,7 +30,7 @@ function Photo({ data }) {
     return (
         <Layout>
             <Head>
-                <title>{data.title} | Loowis Photography</title>
+                <title>{`${data.title} | Loowis Photography`}</title>
             </Head>
 
             <section className={styles.imagecontainer}>

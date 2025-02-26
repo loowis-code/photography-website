@@ -49,23 +49,9 @@ export default function Layout({ children }) {
                         name="twitter:image"
                         content="https://photography-website.s3.eu-west-2.amazonaws.com/images/2023-09-05/Kodak Pro Image 100/05-09-23_Kodak_Pro_Image_100_3.jpg"
                     />
-
-                    <link
-                        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-                        rel="stylesheet"
-                        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-                        crossOrigin="anonymous"
-                    ></link>
                     <link rel="icon" href="favicon/favicon.ico" sizes="any" />
-                    <link
-                        rel="stylesheet"
-                        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-                        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-                        crossOrigin=""
-                    />
                 </Head>
                 <Header />
-                {/* <Analytics /> */}
                 <Script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" />
                 <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" />
                 {children}

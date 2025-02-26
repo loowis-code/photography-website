@@ -6,6 +6,7 @@ import ImageModal from '../components/ImageModal'
 import SortingButtons from '../components/SortingButtons'
 import prisma from '../prisma/prisma'
 
+
 export async function getStaticProps() {
     const res = await prisma.images.findMany()
     return {
@@ -16,7 +17,6 @@ export async function getStaticProps() {
 function AllImages({ data }) {
     const [photos, setPhotos] = useState([])
     const [filteredPhotos, setFilteredPhotos] = useState([])
-    // const [sortKey, setSortKey] = useState(0)
 
     function filterHidden(data) {
         const hiddenPhotos = data.filter((photo) => {
@@ -40,7 +40,6 @@ function AllImages({ data }) {
                 <SortingButtons
                     photos={photos}
                     setPhotos={setFilteredPhotos}
-                    // setKey={setSortKey}
                 />
                 <div className={styles.grid}>
                     {filteredPhotos.map((d) => (

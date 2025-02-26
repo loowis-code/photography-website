@@ -6,6 +6,12 @@
     border-top: none;
 }
 
+.header {
+    font-size: xx-large;
+    font-family: josefin-bold-italic;
+    padding-top: 1rem;
+}
+
 .grid {
     columns: 3;
     line-break: strict;

@@ -11,7 +11,7 @@ export default function ImagePage({ data }) {
                 className={styles.image}
                 width="1386"
                 height="919"
-                sizes="100vw"
+                sizes="50vw"
                 style={{
                     width: '100%',
                     height: 'auto',

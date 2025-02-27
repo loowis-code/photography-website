@@ -4,8 +4,7 @@ import Script from 'next/script'
 
 export default function Layout({ children }) {
     return (
-        <div>
-            <div className="">
+            <>
                 <Head>
                     <title>Loowis Photography</title>
 
@@ -59,7 +58,6 @@ export default function Layout({ children }) {
                 <Header />
                 <Script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" />
                 {children}
-            </div>
-        </div>
+            </>
     )
 }

@@ -22,16 +22,6 @@ export default function ImageModal({ data }) {
         assignHoverColors();
     }, []);
 
-    useEffect(() => {
-        let modal = document.getElementById(data.url);
-        if (modalOpen && modal) {
-            modal.classList.add('active');
-        } else if (!modalOpen && modal) {
-            modal.classList.remove('active');
-        }
-    }
-    , [modalOpen])
-
     return (
         <article className={styles.imageContainer}>
             <a className={styles.mobileLink} href={`/images/${data.id}`}>
@@ -40,13 +30,13 @@ export default function ImageModal({ data }) {
                     alt={data.alt_text}
                     width="1386"
                     height="919"
-                    sizes="100vw"
+                    sizes="50vw"
                     className={styles.image}
                 />
                 <h5 className={styles.thumbnailTitle}>{data.title}</h5>
             </a>
             <button
-                className={styles.photo}
+                className={styles.modalButton}
                 onClick={() => setModalOpen(true)}
             >
                 <Image
@@ -54,7 +44,7 @@ export default function ImageModal({ data }) {
                     alt={data.alt_text}
                     width="1386"
                     height="919"
-                    sizes="100vw"
+                    sizes="50vw"
                     className={styles.image}
                 />
                 <h5 className={styles.thumbnailTitle}>{data.title}</h5>
@@ -63,7 +53,6 @@ export default function ImageModal({ data }) {
                 <ModalContent onClose={() => setModalOpen(false)} data={data}/>,
                 document.getElementById('modal-root')
             )}
-            
         </article>
     )
 }

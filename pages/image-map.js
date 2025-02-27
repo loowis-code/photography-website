@@ -5,7 +5,12 @@ import Head from 'next/head'
 
 function ImageMap() {
     function initaliseMap(trimmedPhotoData) {
-        var map = L.map('map').setView([54.12, 4.97], 6)
+        // if small window size
+        if (window.innerWidth < 600) {
+            var map = L.map('map').setView([54.12, 4.97], 4)
+        } else {
+            var map = L.map('map').setView([54.12, 4.97], 6)
+        }
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap',
         }).addTo(map)

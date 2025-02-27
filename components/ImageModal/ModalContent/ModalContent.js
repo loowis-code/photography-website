@@ -12,13 +12,13 @@ export default function ModalContent({ onClose, data}) {
                         <button className={styles.closeButton} type="button" onClick={() => onClose()}>X</button>
                     </div>
 
-                    <a href={`/images/${data.id}`}>
+                    <a href={`/images/${data.id}`} className={styles.modalImageLink}>
                         <Image
                             src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
                             alt={data.alt_text}
                             width="1386"
                             height="919"
-                            sizes="100vw"
+                            sizes="50vw"
                             className={styles.modalImage}
                         />
                     </a>

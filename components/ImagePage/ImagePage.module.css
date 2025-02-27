@@ -37,22 +37,20 @@
 
 @media (width <= 1320px) {
     .imagecontainer {
-        width: 100%;
-    }
-}
-
-@media only screen and (max-width: 1712px) {
-    .imagecontainer {
         display: block;
+        justify-content: center;
+        align-items: center;
+        
     }
 
     .image {
-        padding-bottom: 1rem;
+        width: auto;
+        max-height: 65vh;
     }
 
     .imageDetails {
-        margin: 1rem 0;
         width: 100%;
-        white-space: wrap;
+        margin: 1rem auto;
     }
+
 }

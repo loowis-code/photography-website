@@ -3,7 +3,6 @@ import styles from '../css-modules/all-images.module.css'
 import prisma from '../../prisma/prisma'
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
-import { XMasonry, XBlock } from 'react-xmasonry'
 import ImageModal from '../../components/ImageModal'
 import SortingButtons from '../../components/SortingButtons'
 
@@ -46,7 +45,7 @@ export async function getStaticPaths() {
 function Collection({ images_data, collection_data }) {
     const [photos, setPhotos] = useState([])
     const [filteredPhotos, setFilteredPhotos] = useState([])
-    const [sortKey, setSortKey] = useState(0)
+    // const [sortKey, setSortKey] = useState(0)
 
     function filterHidden(images_data) {
         const hiddenPhotos = images_data.filter((photo) => {
@@ -70,20 +69,20 @@ function Collection({ images_data, collection_data }) {
                 <SortingButtons
                     photos={photos}
                     setPhotos={setFilteredPhotos}
-                    setKey={setSortKey}
+                    // setKey={setSortKey}
                     page="Collections"
                 />
-                <XMasonry key={sortKey} maxColumns="3" targetBlockWidth="550">
+                <div className={styles.grid}>
                     {filteredPhotos?.map((d) => (
-                        <XBlock key={d.id}>
                             <ImageModal
-                                data={d}
-                                key={d.id}
-                                page="Collections"
-                            />
-                        </XBlock>
+                            data={d}
+                            key={d.id}
+                            page="Collections"
+                        />
                     ))}
-                </XMasonry>
+                </div>
+
+
             </section>
         </Layout>
     )

@@ -1,5 +1,4 @@
-export function SortBy(type, photos, setPhotos, setKey) {
-    setKey((prevKey) => prevKey + 1)
+export function SortBy(type, photos, setPhotos) {
     const sortedPhotos = [...photos]
     switch (type) {
         case 'date-o-n':

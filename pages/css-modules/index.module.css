@@ -1,5 +1,9 @@
 .container {
     text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    border: black 0.25rem solid;
+    border-top: none;
 }
 
 .formatSelection {
@@ -9,30 +13,33 @@
 
 .formatTitle {
     font-size: xx-large;
-    font-family: urbanistBoldItalic;
+    font-family: josefin-bold-italic;
     margin: 0 5%;
     transition: 0.3s;
     padding: 0 1rem;
     margin: 1rem 0;
-    border-bottom: solid 0.3rem #f4f2de;
+    border-bottom: solid 0.3rem #db862550;
 }
 
 .formatTitle:hover {
     cursor: pointer;
-    text-shadow: 0.1rem 0.1rem 0.1rem #7c9d96;
+    text-shadow: 0.1rem 0.1rem 0.1rem #db8525;
 }
 
 .formatTitleActive {
     font-size: xx-large;
-    font-family: urbanistBoldItalic;
+    font-family: josefin-bold-italic;
     margin: 0 5%;
     padding: 0 1rem;
     margin: 1rem 0;
-    border-bottom: solid 0.3rem #e9b384;
+    border-bottom: solid 0.3rem #db8525;
 }
 
 .digitalShow {
     display: block;
+    line-break: strict;
+    columns: 3;
+    margin: 1rem;
 }
 
 .digitalHide {
@@ -41,16 +48,24 @@
 
 .filmShow {
     display: block;
+    columns: 3;
+    margin: 1rem;
 }
 
 .filmHide {
     display: none;
 }
 
-@media only screen and (max-width: 1712px) {
+@media only screen and (max-width: 1320px) {
     .container {
-        margin-left: 0;
-        padding-top: 1vh;
-        padding-right: 0;
+        width: 100%;
+    }
+
+    .digitalShow {
+        columns: 1;
+    }
+
+    .filmShow {
+        columns: 1;
     }
 }

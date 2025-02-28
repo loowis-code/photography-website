@@ -1,82 +1,127 @@
+@font-face {
+    font-family: sono-regular;
+    src: url("../public/fonts/sono/Sono-Regular.ttf");
+}
+
+@font-face {
+    font-family: sono-bold;
+    src: url("../public/fonts/sono/Sono-Bold.ttf");
+}
+
+@font-face {
+    font-family: sono-extra-bold;
+    src: url("../public/fonts/sono/Sono-ExtraBold.ttf");
+}
+
+@font-face {
+    font-family: sono-extra-light;
+    src: url("../public/fonts/sono/Sono-ExtraLight.ttf");
+}
+
+@font-face {
+    font-family: sono-light;
+    src: url("../public/fonts/sono/Sono-Light.ttf");
+}
+
+@font-face {
+    font-family: sono-medium;
+    src: url("../public/fonts/sono/Sono-Medium.ttf");
+}
+
+@font-face {
+    font-family: sono-semi-bold;
+    src: url("../public/fonts/sono/Sono-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: josefin-bold;
+    src: url("../public/fonts/josefin/JosefinSans-Bold.ttf");
+}
+
+@font-face {
+    font-family: josefin-regular;
+    src: url("../public/fonts/josefin/JosefinSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: josefin-light;
+    src: url("../public/fonts/josefin/JosefinSans-Light.ttf");
+}
+
+@font-face {
+    font-family: josefin-thin;
+    src: url("../public/fonts/josefin/JosefinSans-Thin.ttf");
+}
+
+@font-face {
+    font-family: josefin-semi-bold;
+    src: url("../public/fonts/josefin/JosefinSans-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: josefin-medium;
+    src: url("../public/fonts/josefin/JosefinSans-Medium.ttf");
+}
+
+@font-face {
+    font-family: josefin-extra-light;
+    src: url("../public/fonts/josefin/JosefinSans-ExtraLight.ttf");
+}
+
+@font-face {
+    font-family: josefin-thin-italic;
+    src: url("../public/fonts/josefin/JosefinSans-ThinItalic.ttf");
+}
+
+@font-face {
+    font-family: josefin-light-italic;
+    src: url("../public/fonts/josefin/JosefinSans-LightItalic.ttf");
+}
+
+@font-face {
+    font-family: josefin-italic;
+    src: url("../public/fonts/josefin/JosefinSans-Italic.ttf");
+}
+
+@font-face {
+    font-family: josefin-bold-italic;
+    src: url("../public/fonts/josefin/JosefinSans-BoldItalic.ttf");
+}
+
+@font-face {
+    font-family: josefin-medium-italic;
+    src: url("../public/fonts/josefin/JosefinSans-MediumItalic.ttf");
+}
+
+@font-face {
+    font-family: josefin-semi-bold-italic;
+    src: url("../public/fonts/josefin/JosefinSans-SemiBoldItalic.ttf");
+}
+
+@font-face {
+    font-family: josefin-extra-light-italic;
+    src: url("../public/fonts/josefin/JosefinSans-ExtraLightItalic.ttf");
+}
+
+* {
+    margin: 0;
+    font-family: josefin-regular, sans-serif;
+}
+
+html {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-color: #f4f2de;
-    color: #7c9d96;
-    overflow-x: hidden;
+    background-color: #f7efe0;
+    height: 100vh;
 }
 
-section {
-    font-family: urbanist;
-    margin-left: 20vw;
-    padding: 0 2.5%;
-}
-
-:root {
-    --textPrimary: #7c9d96;
-    --bgPrimary: #f4f2de;
-    --bgSecondary: #a1ccd1;
-    --accentOne: #e9b384;
-    --accentTwo: #e98484;
-    --accentThree: #cc74b9;
-    --accentFour: #3a5683;
-}
-
-@media only screen and (max-width: 1712px) {
-    section {
-        margin-left: 0;
-    }
-}
-
-@font-face {
-    font-family: newspaper;
-    src: url(../public/Playfair/PlayfairDisplay-Black.ttf);
-}
-
-@font-face {
-    font-family: newspaperregular;
-    src: url(../public/Playfair/PlayfairDisplay-Regular.ttf);
-}
-
-@font-face {
-    font-family: newspapersemibold;
-    src: url(../public/Playfair/PlayfairDisplay-SemiBold.ttf);
-}
-
-@font-face {
-    font-family: newspapermedium;
-    src: url(../public/Playfair/PlayfairDisplay-Medium.ttf);
-}
-
-@font-face {
-    font-family: newspaperextrabold;
-    src: url(../public/Playfair/PlayfairDisplay-ExtraBold.ttf);
-}
-
-@font-face {
-    font-family: urbanist;
-    src: url(../public/Urbanist/Urbanist-Regular.ttf);
-}
-
-@font-face {
-    font-family: urbanistItalic;
-    src: url(../public/Urbanist/Urbanist-Italic.ttf);
-}
-
-@font-face {
-    font-family: urbanistBold;
-    src: url(../public/Urbanist/Urbanist-Bold.ttf);
-}
-
-@font-face {
-    font-family: urbanistBoldItalic;
-    src: url(../public/Urbanist/Urbanist-BoldItalic.ttf);
-}
-
-@font-face {
-    font-family: urbanistLight;
-    src: url(../public/Urbanist/Urbanist-Light.ttf);
-}
-
-@font-face {
-    font-family: urbanistLightItalic;
-    src: url(../public/Urbanist/Urbanist-LightItalic.ttf);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }

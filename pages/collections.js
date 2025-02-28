@@ -3,7 +3,6 @@ import CollectionPreview from '../components/CollectionPreview'
 import styles from './css-modules/collections.module.css'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
-import { XMasonry, XBlock } from 'react-xmasonry'
 import prisma from '../prisma/prisma'
 
 export async function getStaticProps() {
@@ -27,18 +26,17 @@ function Collections({ data }) {
             </Head>
             <section className={styles.container}>
                 <h1 className={styles.header}>Collections</h1>
-                <XMasonry maxColumns="3" targetBlockWidth="550">
+                <div className={styles.grid}>
                     {collections.map((d) => (
-                        <XBlock key={d.id}>
                             <CollectionPreview
-                                name={d.name}
-                                cover_image={d.cover_url}
-                                id={d.id}
-                                key={d.id}
-                            />
-                        </XBlock>
+                            name={d.name}
+                            cover_image={d.cover_url}
+                            id={d.id}
+                            key={d.id}
+                        />
                     ))}
-                </XMasonry>
+                </div>
+
             </section>
         </Layout>
     )

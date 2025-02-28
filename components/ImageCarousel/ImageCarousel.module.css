@@ -16,7 +16,6 @@
 .centerImage {
     position: relative;
     z-index: 2;
-    font-family: urbanistBoldItalic;
 }
 
 .leftImage,
@@ -27,7 +26,6 @@
     z-index: 1;
     position: absolute;
     width: 25%;
-    font-family: urbanistBoldItalic;
 }
 
 .rightImage {

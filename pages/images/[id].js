@@ -2,6 +2,7 @@ import Layout from '../../components/Layout'
 import PhotoBody from '../../components/ImagePage'
 import Head from 'next/head'
 import prisma from '../../prisma/prisma'
+import styles from '../css-modules/image.module.css'
 
 export async function getStaticProps(context) {
     const res = await prisma.images.findUnique({
@@ -29,10 +30,10 @@ function Photo({ data }) {
     return (
         <Layout>
             <Head>
-                <title>{data.title} | Loowis Photography</title>
+                <title>{`${data.title} | Loowis Photography`}</title>
             </Head>
 
-            <section>
+            <section className={styles.imagecontainer}>
                 <PhotoBody data={data} key={data.id} />
             </section>
         </Layout>

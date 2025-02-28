@@ -1,5 +1,5 @@
-export function FilterBy(checkboxState, photos, setPhotos, setKey) {
-    setKey((prevKey) => prevKey + 1)
+export function FilterBy(checkboxState, photos, setPhotos) {
+    // setKey((prevKey) => prevKey + 1)
     var sortedPhotos = [...photos]
     var filteredPhotos = []
 

@@ -6,40 +6,40 @@ export default function CollectionoEditor({ id }) {
     // const [selectedOptions, setSelectedOptions] = useState([])
     // const [photoData, setPhotoData] = useState([])
 
-    async function getLookups() {
-        const req = await fetch(`/api/management/read/lookups`)
-        var lookups = await req.json()
-        filterLookups(lookups)
-    }
+    // async function getLookups() {
+    //     const req = await fetch(`/api/management/read/lookups`)
+    //     var lookups = await req.json()
+    //     filterLookups(lookups)
+    // }
 
-    async function filterLookups(lookups) {
-        var filteredLookups = []
-        for (const lookup of lookups) {
-            if (lookup.collectionsId === id) {
-                filteredLookups.push(lookup)
-            }
-        }
-        getPhotosInCollection(filteredLookups)
-    }
+    // async function filterLookups(lookups) {
+    //     var filteredLookups = []
+    //     for (const lookup of lookups) {
+    //         if (lookup.collectionsId === id) {
+    //             filteredLookups.push(lookup)
+    //         }
+    //     }
+    //     getPhotosInCollection(filteredLookups)
+    // }
 
-    async function getPhotoData() {
-        const req = await fetch(`/api/management/read/photos`)
-        var photos = await req.json()
-        setPhotoData(photos)
-    }
+    // async function getPhotoData() {
+    //     const req = await fetch(`/api/management/read/photos`)
+    //     var photos = await req.json()
+    //     setPhotoData(photos)
+    // }
 
-    async function getPhotosInCollection(filteredLookups) {
-        var photos = []
-        for (const lookup of filteredLookups) {
-            const req = await fetch(
-                `/api/management/read/photo/${lookup.imagesId}`,
-            )
+    // async function getPhotosInCollection(filteredLookups) {
+    //     var photos = []
+    //     for (const lookup of filteredLookups) {
+    //         const req = await fetch(
+    //             `/api/management/read/photo/${lookup.imagesId}`,
+    //         )
 
-            var data = await req.json()
-            photos.push({ lookupId: lookup.id, title: data.title })
-        }
-        setSelectedOptions(photos)
-    }
+    //         var data = await req.json()
+    //         photos.push({ lookupId: lookup.id, title: data.title })
+    //     }
+    //     setSelectedOptions(photos)
+    // }
 
     async function getCollectionData() {
         const req = await fetch(`/api/management/read/collection/${id}`)
@@ -108,8 +108,8 @@ export default function CollectionoEditor({ id }) {
     // }
 
     useEffect(() => {
-        getPhotoData()
-        getLookups()
+        // getPhotoData()
+        // getLookups()
         getCollectionData()
     }, [])
 

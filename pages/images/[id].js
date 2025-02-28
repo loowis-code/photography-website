@@ -31,6 +31,7 @@ function Photo({ data }) {
         <Layout>
             <Head>
                 <title>{`${data.title} | Loowis Photography`}</title>
+                {/* <link rel="icon" href="favicon/favicon.ico" sizes="any" /> */}
             </Head>
 
             <section className={styles.imagecontainer}>

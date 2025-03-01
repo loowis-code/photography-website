@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Header from '../Header'
+import { Header } from 'loowis-component-library'
 import Script from 'next/script'
 
 export default function Layout({ children }) {

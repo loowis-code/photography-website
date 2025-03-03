@@ -51,7 +51,7 @@ export default function Layout({ children }) {
                         crossOrigin=""
                     />
                 </Head>
-                <Header navTabs={['ALL IMAHES','COLLECTIONS','IMAGE MAP']} navLinks={['/all-images', '/collections', '/image-map']}/>
+                <Header navTabs={['ALL IMAGES','COLLECTIONS','IMAGE MAP']} navLinks={['/all-images', '/collections', '/image-map']}/>
                 <Script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" />
                 {children}
             </>

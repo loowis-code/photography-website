@@ -43,7 +43,7 @@ export default function Layout({ children }) {
                         name="twitter:image"
                         content="https://photography-website.s3.eu-west-2.amazonaws.com/images/2023-09-05/Kodak Pro Image 100/05-09-23_Kodak_Pro_Image_100_3.jpg"
                     />
-                    <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
+                    <link rel="icon" href="/favicon/favicon.png" sizes="any" />
                     <link
                         rel="stylesheet"
                         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -51,7 +51,7 @@ export default function Layout({ children }) {
                         crossOrigin=""
                     />
                 </Head>
-                <Header />
+                <Header navTabs={['ALL IMAGES','COLLECTIONS','IMAGE MAP']} navLinks={['/all-images', '/collections', '/image-map']}/>
                 <Script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" />
                 {children}
             </>

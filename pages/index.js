@@ -55,7 +55,7 @@ function Home({ data }) {
 
     useEffect(() => {
         filterFeatured()
-    }, [])
+    })
 
     return (
         <Layout>

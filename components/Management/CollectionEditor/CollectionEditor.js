@@ -111,7 +111,7 @@ export default function CollectionoEditor({ id }) {
         // getPhotoData()
         // getLookups()
         getCollectionData()
-    }, [])
+    })
 
     return (
         <form onSubmit={handleSubmit} method="post" className={styles.form}>

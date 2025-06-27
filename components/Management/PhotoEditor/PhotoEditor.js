@@ -119,7 +119,7 @@ export default function PhotoEditor({ id }) {
         getPhotoData()
         getFilmData()
         getCameraData()
-    }, [])
+    })
 
     return (
         <form onSubmit={handleSubmit} method="post" className={styles.form}>

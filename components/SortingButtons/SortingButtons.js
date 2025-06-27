@@ -1,5 +1,4 @@
 import styles from './SortingButtons.module.css'
-import { SortBy } from '../../helpers/SortBy'
 import { FilterBy } from '../../helpers/FilterBy'
 import { useState, useEffect } from 'react'
 
@@ -24,7 +23,7 @@ export default function SortingButtons({ photos, setPhotos, page }) {
 
     useEffect(() => {
         FilterBy(activeTags, photos, setPhotos)
-    }, [activeTags]);
+    }, [activeTags, photos, setPhotos]);
 
 
     return (

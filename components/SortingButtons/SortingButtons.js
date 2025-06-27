@@ -4,18 +4,28 @@ import { FilterBy } from '../../helpers/FilterBy'
 import { useState, useEffect } from 'react'
 
 export default function SortingButtons({ photos, setPhotos, page }) {
-    const [checkboxState, setCheckboxState] = useState({
-        film: true,
-        digital: true,
-    })
+    const FilterType = {
+        FILM : 'film',
+        DIGITAL: 'digital',
+    }
+
+    const SortType = {
+        OTN: 'OTN', // Oldest to Newest
+        NTO: 'NTO', // Newest to Oldest
+        ATZ: 'ATZ', // A - Z
+        ZTA: 'ZTA', // Z - A
+    }
+
+    const [activeTags, setActiveTags] = useState({sort: SortType.NTO, [FilterType.FILM]: true, [FilterType.DIGITAL]: true})
 
     function callFilterBy(value, checked) {
-        setCheckboxState({ ...checkboxState, [value]: checked })
+        setActiveTags({ ...activeTags, [value]: checked })
     }
 
     useEffect(() => {
-        FilterBy(checkboxState, photos, setPhotos)
-    }, [checkboxState])
+        FilterBy(activeTags, photos, setPhotos)
+    }, [activeTags]);
+
 
     return (
         <div className={styles.sortingButtons}>
@@ -24,7 +34,7 @@ export default function SortingButtons({ photos, setPhotos, page }) {
                 className={
                     page === 'Collections' ? styles.collButton : styles.button
                 }
-                onClick={() => SortBy('date-o-n', photos, setPhotos)}
+                onClick={() => setActiveTags({ ...activeTags, sort: SortType.OTN })}
             >
                 Oldest to Newest
             </button>
@@ -33,7 +43,7 @@ export default function SortingButtons({ photos, setPhotos, page }) {
                 className={
                     page === 'Collections' ? styles.collButton : styles.button
                 }
-                onClick={() => SortBy('date-n-o', photos, setPhotos)}
+                onClick={() => setActiveTags({ ...activeTags, sort: SortType.NTO })}
             >
                 Newest to Oldest
             </button>
@@ -42,7 +52,7 @@ export default function SortingButtons({ photos, setPhotos, page }) {
                 className={
                     page === 'Collections' ? styles.collButton : styles.button
                 }
-                onClick={() => SortBy('title-a-z', photos, setPhotos)}
+                onClick={() => setActiveTags({ ...activeTags, sort: SortType.ATZ })}
             >
                 A - Z
             </button>
@@ -51,7 +61,7 @@ export default function SortingButtons({ photos, setPhotos, page }) {
                 className={
                     page === 'Collections' ? styles.collButton : styles.button
                 }
-                onClick={() => SortBy('title-z-a', photos, setPhotos)}
+                onClick={() => setActiveTags({ ...activeTags, sort: SortType.ZTA })}
             >
                 Z - A
             </button>
@@ -69,6 +79,7 @@ export default function SortingButtons({ photos, setPhotos, page }) {
                         defaultChecked
                         onClick={(e) => callFilterBy(e.target.id, e.target.checked)}
                     ></input>
+                    <span class="checkmark"></span>
                     <label htmlFor="film">Show Film Photos</label>
                 </div>
 
@@ -85,6 +96,7 @@ export default function SortingButtons({ photos, setPhotos, page }) {
                         defaultChecked
                         onClick={(e) => callFilterBy(e.target.id, e.target.checked)}
                     ></input>
+                    <span class="checkmark"></span>
                     <label htmlFor="digital">Show Digital Photos</label>
                 </div>
             </div>

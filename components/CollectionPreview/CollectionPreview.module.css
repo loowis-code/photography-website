@@ -11,6 +11,13 @@
     text-decoration: none;
     color: #7c9d96;
     opacity: 75%;
+    transition: 0.3s;
+}
+
+.collectionpreview > img {
+    border: #000 0.25rem solid;
+    box-shadow: .25rem .25rem #000;
+    transition: 0.3s;
 }
 
 .collectionpreview:hover {
@@ -19,9 +26,8 @@
     opacity: 100%;
 }
 
-.collectionpreview > img {
-    border-radius: 2.5%;
-    border: #cc74b9 0.25rem solid;
+.collectionpreview:hover > img {
+    box-shadow: .25rem .25rem #cc74b9;
 }
 
 .title {

@@ -8,11 +8,13 @@
     max-height: 70vh;
     object-fit: contain;
     border: black 0.25rem solid;
+        box-shadow: 0.25rem 0.25rem black;
 }
 
 .imageDetails {
-    border: #d95d5d 0.25rem solid;
-    border-radius: 0.5%;
+    border: #000 0.25rem solid;
+    box-shadow: 0.25rem 0.25rem black;
+    background-color: #d95d5d;
     margin: auto 1rem;
     padding: 1rem;
     width: fit-content;

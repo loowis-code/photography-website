@@ -1,21 +1,21 @@
-export function FilterBy(checkboxState, photos, setPhotos) {
-    // setKey((prevKey) => prevKey + 1)
-    var sortedPhotos = [...photos]
+import { SortBy } from './SortBy';
+
+export function FilterBy(activeTags, photos, setPhotos) {
     var filteredPhotos = []
 
-    if (checkboxState.digital && checkboxState.film) {
-        setPhotos(sortedPhotos)
-        return
+    if (activeTags.digital && activeTags.film) {
+        SortBy(activeTags.sort, photos, setPhotos);
+        return;
     }
-    if (checkboxState.digital) {
-        filteredPhotos = sortedPhotos.filter((photo) => {
+    if (activeTags.digital) {
+        filteredPhotos = photos.filter((photo) => {
             return photo.digital === true
         })
     }
-    if (checkboxState.film) {
-        filteredPhotos = sortedPhotos.filter((photo) => {
+    if (activeTags.film) {
+        filteredPhotos = photos.filter((photo) => {
             return photo.digital === false
         })
     }
-    setPhotos(filteredPhotos)
+    SortBy(activeTags.sort, filteredPhotos, setPhotos);
 }

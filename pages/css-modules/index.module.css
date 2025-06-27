@@ -4,21 +4,28 @@
     margin: 0 auto;
     border: black 0.25rem solid;
     border-top: none;
+    padding-top: 0.5rem;
 }
 
 .formatSelection {
     display: flex;
+    border: solid 0.25rem #000;
+    box-shadow: .25rem .25rem #000;
+    width: fit-content;
+    margin: auto;
+    padding: 0.5rem 1rem;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color:  #db862550;
 }
 
 .formatTitle {
     font-size: xx-large;
-    font-family: josefin-bold-italic;
-    margin: 0 5%;
-    transition: 0.3s;
-    padding: 0 1rem;
-    margin: 1rem 0;
-    border-bottom: solid 0.3rem #db862550;
+    font-family: josefin-bold;
+    border: solid 0.3rem #00000000;
+    padding: 0.25rem 1rem;
+    margin: 0.5rem;
 }
 
 .formatTitle:hover {
@@ -28,11 +35,12 @@
 
 .formatTitleActive {
     font-size: xx-large;
-    font-family: josefin-bold-italic;
-    margin: 0 5%;
-    padding: 0 1rem;
-    margin: 1rem 0;
-    border-bottom: solid 0.3rem #db8525;
+    font-family: josefin-bold;
+    background-color: #db8525;
+    border: solid 0.3rem #000;
+    padding: 0.25rem 1rem;
+    box-shadow: .25rem .25rem #000;
+    margin: 0.5rem;
 }
 
 .digitalShow {

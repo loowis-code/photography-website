@@ -37,24 +37,7 @@ export default function PhotoEditor({ id }) {
         })
     }
 
-    async function getPhotoData() {
-        const req = await fetch(`/api/management/read/photo/${id}`)
-        const newPhotoData = await req.json()
-        setDate(new Date(newPhotoData.date).toISOString().substring(0, 10))
-        setPhotoData(newPhotoData)
-    }
 
-    async function getCameraData() {
-        const req = await fetch(`/api/management/read/cameras`)
-        const newCameraData = await req.json()
-        setCameraData(newCameraData)
-    }
-
-    async function getFilmData() {
-        const req = await fetch(`/api/management/read/film`)
-        const newFilmData = await req.json()
-        setFilmData(newFilmData)
-    }
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -116,10 +99,29 @@ export default function PhotoEditor({ id }) {
     })
 
     useEffect(() => {
+        async function getPhotoData() {
+            const req = await fetch(`/api/management/read/photo/${id}`)
+            const newPhotoData = await req.json()
+            setDate(new Date(newPhotoData.date).toISOString().substring(0, 10))
+            setPhotoData(newPhotoData)
+        }
+
+        async function getCameraData() {
+            const req = await fetch(`/api/management/read/cameras`)
+            const newCameraData = await req.json()
+            setCameraData(newCameraData)
+        }
+
+        async function getFilmData() {
+            const req = await fetch(`/api/management/read/film`)
+            const newFilmData = await req.json()
+            setFilmData(newFilmData)
+        }
+        
         getPhotoData()
         getFilmData()
         getCameraData()
-    })
+    }, [id])
 
     return (
         <form onSubmit={handleSubmit} method="post" className={styles.form}>

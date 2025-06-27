@@ -16,7 +16,17 @@ function Home({ data }) {
     const [aFeatured, setAFeatured] = useState([])
     const [format, setFormat] = useState('film')
 
-    async function filterFeatured() {
+    function shuffle(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1))
+            var temp = array[i]
+            array[i] = array[j]
+            array[j] = temp
+        }
+        return array
+    }
+
+    useEffect(() => {
         let dFeatured = []
         let aFeatured = []
         data.forEach(function (photo) {
@@ -41,21 +51,7 @@ function Home({ data }) {
         setDFeatured(dFeatured)
         aFeatured.length = 18
         setAFeatured(aFeatured)
-    }
-
-    function shuffle(array) {
-        for (var i = array.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1))
-            var temp = array[i]
-            array[i] = array[j]
-            array[j] = temp
-        }
-        return array
-    }
-
-    useEffect(() => {
-        filterFeatured()
-    })
+    }, [data])
 
     return (
         <Layout>

@@ -41,11 +41,7 @@ export default function CollectionoEditor({ id }) {
     //     setSelectedOptions(photos)
     // }
 
-    async function getCollectionData() {
-        const req = await fetch(`/api/management/read/collection/${id}`)
-        var collection = await req.json()
-        setCollectionData(collection)
-    }
+
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -110,8 +106,13 @@ export default function CollectionoEditor({ id }) {
     useEffect(() => {
         // getPhotoData()
         // getLookups()
+        async function getCollectionData() {
+            const req = await fetch(`/api/management/read/collection/${id}`)
+            var collection = await req.json()
+            setCollectionData(collection)
+        }
         getCollectionData()
-    })
+    }, [id])
 
     return (
         <form onSubmit={handleSubmit} method="post" className={styles.form}>

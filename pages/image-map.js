@@ -55,7 +55,7 @@ function ImageMap() {
 
     useEffect(() => {
         getAllPhotos()
-    })
+    }, [])
 
     return (
         <Layout>

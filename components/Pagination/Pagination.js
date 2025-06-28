@@ -9,6 +9,7 @@ export default function Pagination({ setCurrentPage, displayPage, maxPage }) {
                 clickHandler={() => {
                     setCurrentPage((prevPage) => prevPage - 1)
                 }}
+                disabled={displayPage === 1}
             />
             <p className={styles.pageInfo}>
                 Page {displayPage} of {maxPage}
@@ -18,6 +19,7 @@ export default function Pagination({ setCurrentPage, displayPage, maxPage }) {
                 clickHandler={() => {
                     setCurrentPage((prevPage) => prevPage + 1)
                 }}
+                disabled={displayPage === maxPage || maxPage < 1}
             />
         </div>
     )

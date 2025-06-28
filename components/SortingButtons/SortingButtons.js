@@ -78,7 +78,6 @@ export default function SortingButtons({ photos, setPhotos, page }) {
                         defaultChecked
                         onClick={(e) => callFilterBy(e.target.id, e.target.checked)}
                     ></input>
-                    <span class="checkmark"></span>
                     <label htmlFor="film">Show Film Photos</label>
                 </div>
 
@@ -95,7 +94,6 @@ export default function SortingButtons({ photos, setPhotos, page }) {
                         defaultChecked
                         onClick={(e) => callFilterBy(e.target.id, e.target.checked)}
                     ></input>
-                    <span class="checkmark"></span>
                     <label htmlFor="digital">Show Digital Photos</label>
                 </div>
             </div>

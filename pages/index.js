@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
 import styles from './css-modules/index.module.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import ImageModal from '../components/ImageModal'
 import prisma from '../prisma/prisma'
 
@@ -12,46 +12,9 @@ export async function getStaticProps() {
 }
 
 function Home({ data }) {
-    const [dFeatured, setDFeatured] = useState([])
-    const [aFeatured, setAFeatured] = useState([])
+    const [dFeatured] =  useState(data.filter(photo => photo.featured === true && photo.digital === true && photo.hidden === false))
+    const [aFeatured] = useState(data.filter(photo => photo.featured === true && photo.digital === false && photo.hidden === false))
     const [format, setFormat] = useState('film')
-
-    function shuffle(array) {
-        for (var i = array.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1))
-            var temp = array[i]
-            array[i] = array[j]
-            array[j] = temp
-        }
-        return array
-    }
-
-    useEffect(() => {
-        let dFeatured = []
-        let aFeatured = []
-        data.forEach(function (photo) {
-            if (
-                photo.featured === true &&
-                photo.digital === true &&
-                photo.hidden === false
-            ) {
-                dFeatured.push(photo)
-            }
-            if (
-                photo.featured === true &&
-                photo.digital === false &&
-                photo.hidden === false
-            ) {
-                aFeatured.push(photo)
-            }
-        })
-        dFeatured = shuffle(dFeatured)
-        aFeatured = shuffle(aFeatured)
-        dFeatured.length = 18
-        setDFeatured(dFeatured)
-        aFeatured.length = 18
-        setAFeatured(aFeatured)
-    }, [data])
 
     return (
         <Layout>

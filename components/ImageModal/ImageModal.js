@@ -28,9 +28,9 @@ export default function ImageModal({ data }) {
                 <Image
                     src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
                     alt={data.alt_text}
-                    width="1386"
-                    height="919"
-                    sizes="50vw"
+                    width="0"
+                    height="0"
+                    quality={100}
                     className={styles.image}
                 />
                 <h5 className={styles.thumbnailTitle}>{data.title}</h5>
@@ -42,9 +42,10 @@ export default function ImageModal({ data }) {
                 <Image
                     src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
                     alt={data.alt_text}
-                    width="1386"
-                    height="919"
-                    sizes="50vw"
+                    width="0"
+                    height="0"
+                    sizes="25vw"
+                    quality={100}
                     className={styles.image}
                 />
                 <h5 className={styles.thumbnailTitle}>{data.title}</h5>

@@ -18,7 +18,8 @@ export default function ModalContent({ onClose, data}) {
                             alt={data.alt_text}
                             width="1386"
                             height="919"
-                            sizes="50vw"
+                            quality={100}
+                            sizes="33vw"
                             className={styles.modalImage}
                         />
                     </a>

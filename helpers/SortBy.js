@@ -1,7 +1,7 @@
 export function SortBy(type, photos, setPhotos) {
-    const sortedPhotos = [...photos]
+    let sortedPhotos = [...photos]
     switch (type) {
-        case 'date-o-n':
+        case 'OTN':
             sortedPhotos.sort((a, b) => {
                 if (a.date != null && b.date != null) {
                     return a.date.localeCompare(b.date)
@@ -12,7 +12,7 @@ export function SortBy(type, photos, setPhotos) {
                 }
             })
             break
-        case 'date-n-o':
+        case 'NTO':
             sortedPhotos.sort((a, b) => {
                 if (a.date != null && b.date != null) {
                     return b.date.localeCompare(a.date)
@@ -23,12 +23,12 @@ export function SortBy(type, photos, setPhotos) {
                 }
             })
             break
-        case 'title-a-z':
+        case 'ATZ':
             sortedPhotos.sort((a, b) => {
                 return a.title.localeCompare(b.title)
             })
             break
-        case 'title-z-a':
+        case 'ZTA':
             sortedPhotos.sort((a, b) => {
                 return b.title.localeCompare(a.title)
             })

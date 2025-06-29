@@ -5,7 +5,7 @@ import Head from 'next/head'
 import ImageModal from '../components/ImageModal'
 import SortingButtons from '../components/SortingButtons'
 import prisma from '../prisma/prisma'
-
+import Pagination from '../components/Pagination/Pagination'
 
 export async function getStaticProps() {
     const res = await prisma.images.findMany()
@@ -15,20 +15,33 @@ export async function getStaticProps() {
 }
 
 function AllImages({ data }) {
-    const [photos, setPhotos] = useState([])
-    const [filteredPhotos, setFilteredPhotos] = useState([])
+    const [filteredPhotos, setFilteredPhotos] = useState(data)
+    const [currentPhotos, setCurrentPhotos] = useState(filteredPhotos)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [displayPage, setDisplayPage] = useState(1)
+    const photosPerPage = 9
+    const maxPage = Math.ceil(filteredPhotos.length / photosPerPage)
 
-    function filterHidden(data) {
-        const hiddenPhotos = data.filter((photo) => {
-            return photo.hidden === false
-        })
-        setPhotos(hiddenPhotos)
-        setFilteredPhotos(hiddenPhotos)
+    const paginatePhotos = (photos, page) => {
+
+        const startIndex = (page - 1) * photosPerPage
+        const endIndex = startIndex + photosPerPage
+        return photos.slice(startIndex, endIndex)
     }
-
     useEffect(() => {
-        filterHidden(data)
-    }, [data])
+        let validPage = currentPage;
+        if (currentPage < 1) {
+            validPage = 1;
+        } else if (currentPage > maxPage) {
+            validPage = maxPage;
+        }
+        if (validPage !== currentPage) {
+            setCurrentPage(validPage);
+            return;
+        }
+        setCurrentPhotos(paginatePhotos(filteredPhotos, validPage));
+        setDisplayPage(validPage);
+    }, [currentPage, filteredPhotos, maxPage]);
 
     return (
         <Layout>
@@ -38,14 +51,17 @@ function AllImages({ data }) {
             <section className={styles.container}>
                 <h1 className={styles.header}>All Images</h1>
                 <SortingButtons
-                    photos={photos}
+                    photos={data}
                     setPhotos={setFilteredPhotos}
                 />
+
                 <div className={styles.grid}>
-                    {filteredPhotos.map((d) => (
+                    {currentPhotos.map((d) => (
                         <ImageModal data={d} key={d.id} page="All" />
                     ))}
                 </div>
+
+                <Pagination setCurrentPage={setCurrentPage} displayPage={displayPage} maxPage={maxPage}/>
 
             </section>
         </Layout>

@@ -1,11 +1,16 @@
 .container {
-    margin-top: 1rem;
     text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    border: black 0.25rem solid;
+    border-top: none;
+    padding-top: 0.5rem;
 }
 
 .grid {
+    display: block;
     columns: 3;
-    line-break: strict;
+    margin: 1rem;
 }
 
 .noResults {
@@ -37,7 +42,7 @@
 }
 .loader div:nth-child(3) {
     left: 56px;
-    animation-delay: 0;
+    animation-delay: 0.1s;
 }
 @keyframes loaderKeyframes {
     0% {

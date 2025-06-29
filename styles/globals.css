@@ -105,7 +105,6 @@
 
 * {
     margin: 0;
-    font-family: josefin-regular, sans-serif;
 }
 
 html {
@@ -113,6 +112,7 @@ html {
     height: 100vh;
     margin: 0;
     padding: 0;
+    font-family: josefin-regular;
 }
 
 body {

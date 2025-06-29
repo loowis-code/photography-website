@@ -10,17 +10,17 @@ function Search() {
     const [searchResults, setSearchResults] = useState([])
     const [loading, setLoading] = useState(true)
 
-    async function getSearchResults() {
-        const req = await fetch(`/api/search/${router.query.query}`)
-        const searchData = await req.json()
-        setSearchResults(searchData)
-        setLoading(false)
-    }
-
     useEffect(() => {
-        setLoading(true)
-        getSearchResults()
-    }, [router.query.query])
+        if (!router.query.query) return;
+        setLoading(true);
+        async function getSearchResults() {
+            const req = await fetch(`/api/search/${router.query.query}`);
+            const searchData = await req.json();
+            setSearchResults(searchData);
+            setLoading(false);
+        }
+        getSearchResults();
+    }, [router.query.query]);
 
     return (
         <Layout>
@@ -36,7 +36,7 @@ function Search() {
                         <div></div>
                     </div>
                 )}
-                {!loading && !Array.isArray(searchResults) && (
+                {!loading && searchResults.length === 0 && (
                     <h2 className={styles.noResults}>💀 No images found</h2>
                 )}
                 <div className={styles.grid}>

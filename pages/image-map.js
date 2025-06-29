@@ -63,7 +63,9 @@ function ImageMap() {
                 <title>Image Map | Lewis Inches - Photography</title>
             </Head>
             <section className={styles.container}>
-                <div id="map" className={styles.map}></div>
+                <div className={styles.mapContainer}>
+                    <div id="map" className={styles.map}></div>
+                </div>
             </section>
         </Layout>
     )

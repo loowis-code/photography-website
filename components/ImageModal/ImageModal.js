@@ -30,7 +30,7 @@ export default function ImageModal({ data }) {
                     alt={data.alt_text}
                     width="0"
                     height="0"
-                    quality={100}
+                    sizes="90vw"
                     className={styles.image}
                 />
                 <h5 className={styles.thumbnailTitle}>{data.title}</h5>

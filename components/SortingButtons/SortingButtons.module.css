@@ -14,6 +14,7 @@
     transition: 0.3s;
     aspect-ratio: 4/1;
     width: 10em;
+    font-family: josefin-regular;
 }
 
 .button:hover {
@@ -45,7 +46,7 @@
 
 .checkbox {
     font-size: large;
-    margin: 0.1rem 1rem;
+    margin: 0.5rem 1rem;
     transition: 0.3s;
 }
 
@@ -75,6 +76,9 @@
     .checkboxes {
         text-align: center;
         align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
     }
 
 }

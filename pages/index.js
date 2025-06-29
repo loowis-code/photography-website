@@ -65,13 +65,13 @@ function Home({ data }) {
                                 : styles.filmHide
                         }
                     >
-                            {aFeatured.map((d) => (
-                            <ImageModal
-                            data={d}
-                            key={d.id}
-                            page="Home"
-                        />
-                            ))}
+                        {aFeatured.map((d) => (
+                                <ImageModal
+                                data={d}
+                                key={d.id}
+                                page="Home"
+                            />
+                        ))}
                     </div>
                 </div>
             </section>

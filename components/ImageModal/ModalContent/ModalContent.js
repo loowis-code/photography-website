@@ -24,16 +24,17 @@ export default function ModalContent({ onClose, data}) {
                         />
                     </a>
 
-                    <>
-                        <p className={styles.imageCamera}>
-                            Camera: {data.camera}
-                        </p>
-                        {data.film != 'null' ? (
-                            <p className={styles.imageFilm}>
-                                Film: {data.film}
-                            </p>
+                    <div className={styles.imageDetails}>
+                        {data.camera != 'null' ? (
+                            <p> Camera: {data.camera}</p>
                         ) : null}
-                    </>
+                        {data.film != 'null' ? (
+                            <p>Film: {data.film}</p>
+                        ) : null}
+                        {data.date ? (
+                            <p>{new Date(data.date).toLocaleDateString('en-GB', {year: 'numeric',month: 'short',day: 'numeric', })}</p>
+                        ) : null}
+                    </div>
                 </div>
         </>
 

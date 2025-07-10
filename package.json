@@ -16,7 +16,7 @@
         "@prisma/client": "^6.10.1",
         "@vercel/postgres": "^0.10.0",
         "faunadb": "^4.8.2",
-        "loowis-component-library": "^4.2.1",
+        "loowis-component-library": "^4.4.0",
         "next": "15.3.4",
         "next-auth": "^4.24.11",
         "react": "19.0.0",

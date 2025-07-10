@@ -29,8 +29,9 @@
     position: absolute;
     left: 8px;
     width: 16px;
-    background: #7c9d96;
+    background: #d95d5d;
     animation: loaderKeyframes 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    box-shadow: .25rem .25rem #000;
 }
 .loader div:nth-child(1) {
     left: 8px;
@@ -57,7 +58,11 @@
 }
 
 @media only screen and (max-width: 1320px) {
+    .container {
+        width: 100%;
+    }
+
     .grid {
-        columns: 2;
+        columns: 1;
     }
 }

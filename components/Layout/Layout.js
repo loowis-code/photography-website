@@ -3,6 +3,15 @@ import { Header } from 'loowis-component-library'
 import Script from 'next/script'
 
 export default function Layout({ children }) {
+
+    function handleSearchEvent(term) {
+        if (!term) {
+            return;
+        } else {
+            window.location.href = `/search/${term}`;
+        }
+        
+    }
     return (
             <>
                 <Head>
@@ -51,7 +60,7 @@ export default function Layout({ children }) {
                         crossOrigin=""
                     />
                 </Head>
-                <Header navTabs={['ALL IMAGES','COLLECTIONS','IMAGE MAP']} navLinks={['/all-images', '/collections', '/image-map']}/>
+                <Header navTabs={['ALL IMAGES','COLLECTIONS','IMAGE MAP']} navLinks={['/all-images', '/collections', '/image-map']} handleSearch={handleSearchEvent}/>
                 <Script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" />
                 {children}
             </>

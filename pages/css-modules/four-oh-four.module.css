@@ -1,10 +1,19 @@
+.container {
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    border: black 0.25rem solid;
+    border-top: none;
+}
+
 .heading {
     text-align: center;
-    padding-top: 1%;
+    font-size: xx-large;
+    font-family: josefin-bold-italic;
+    padding-top: 1rem;
 }
 
 .photoContainer {
-    padding-top: 5%;
-    margin: auto;
-    text-align: center;
+    width: fit-content;
+    margin: 2.5rem auto;
 }

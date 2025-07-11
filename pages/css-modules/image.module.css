@@ -2,7 +2,6 @@
     display: flex;
     margin: 0 auto;
     width: 75%;
-    min-height: 100vh;
     border: black 0.25rem solid;
     border-top: none;
 }

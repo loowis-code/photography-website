@@ -6,3 +6,12 @@
     margin: 1rem;
     font-size: large;
 }
+
+@media (max-width: 600px) {
+    .pagination {
+        gap: 0;
+        margin: 0;
+        font-size: medium;
+        flex-direction: column;
+    }
+}

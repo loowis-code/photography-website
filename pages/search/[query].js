@@ -6,9 +6,7 @@ import { useRouter } from 'next/router'
 import ImageModal from '../../components/ImageModal'
 
 function sanitizeQuery(query) {
-    // Allow only alphanumeric characters and a few safe symbols (e.g., spaces, hyphens, underscores)
-    const validQuery = /^[a-zA-Z0-9 _-]+$/.test(query) ? query : null;
-    return validQuery;
+    return /^[a-zA-Z0-9 _-]+$/.test(query) ? query : null;
 }
 
 function Search() {

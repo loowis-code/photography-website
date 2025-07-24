@@ -1,7 +1,5 @@
 import Layout from '../components/Layout'
 import styles from './css-modules/management.module.css'
-import Head from 'next/head'
-// import Image from 'next/image'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { useEffect, useState } from 'react'
 import PhotoSummary from '../components/Management/PhotoSummary'
@@ -10,6 +8,7 @@ import PhotoCreator from '../components/Management/PhotoCreator'
 import CollectionCreator from '../components/Management/CollectionCreator'
 import PhotoEditor from '../components/Management/PhotoEditor'
 import CollectionEditor from '../components/Management/CollectionEditor'
+import { Button } from 'loowis-component-library'
 
 function Management() {
     const { data: session } = useSession()
@@ -40,34 +39,17 @@ function Management() {
     if (session) {
         return (
             <Layout>
-                <Head>
-                    <title>Management | Lewis Inches - Photography</title>
-                </Head>
                 <section className={styles.container}>
-                    <div className={styles.profileInfo}>
-                        {/* <Image
-                            className={styles.profilePicture}
-                            src={session.user.image}
-                            alt="Profile Picture"
-                            width={50}
-                            height={50}
-                        /> */}
-                        <p className={styles.text}>{session.user.email} </p>
-                        <button
-                            className={styles.signOut}
-                            onClick={() => signOut()}
-                        >
-                            Sign out
-                        </button>
-                    </div>
+                    <h1>Management</h1>
+
                     <div className={styles.managementContainer}>
-                        <div className={styles.list}>
+                        <div className={styles.secondaryNav}>
                             <div
                                 onClick={() => setCurrentForm('createPhoto')}
                                 className={
                                     currentForm === 'createPhoto'
-                                        ? styles.listItemActive
-                                        : styles.listItem
+                                        ? styles.secondaryNavItemActive
+                                        : styles.secondaryNavItem
                                 }
                             >
                                 <p>Create Photo</p>
@@ -78,8 +60,8 @@ function Management() {
                                 }
                                 className={
                                     currentForm === 'createCollection'
-                                        ? styles.listItemActive
-                                        : styles.listItem
+                                        ? styles.secondaryNavItemActive
+                                        : styles.secondaryNavItem
                                 }
                             >
                                 <p>Create Collection</p>
@@ -89,8 +71,8 @@ function Management() {
                                 className={
                                     currentForm === 'seePhotos' ||
                                     currentForm === 'editPhoto'
-                                        ? styles.listItemActive
-                                        : styles.listItem
+                                        ? styles.secondaryNavItemActive
+                                        : styles.secondaryNavItem
                                 }
                             >
                                 <p>Edit Photo</p>
@@ -100,8 +82,8 @@ function Management() {
                                 className={
                                     currentForm === 'seeCollections' ||
                                     currentForm === 'editCollection'
-                                        ? styles.listItemActive
-                                        : styles.listItem
+                                        ? styles.secondaryNavItemActive
+                                        : styles.secondaryNavItem
                                 }
                             >
                                 <p>Edit Collection</p>
@@ -114,7 +96,7 @@ function Management() {
                                 <CollectionCreator />
                             )}
                             {currentForm === 'seePhotos' && (
-                                <table>
+                                <div>
                                     {photoData.map((d) => (
                                         <PhotoSummary
                                             key={d.id}
@@ -123,7 +105,7 @@ function Management() {
                                             switcher={setCurrentForm}
                                         />
                                     ))}
-                                </table>
+                                </div>
                             )}
                             {currentForm === 'seeCollections' && (
                                 <table>
@@ -144,6 +126,10 @@ function Management() {
                                 <CollectionEditor id={selectedCollection} />
                             )}
                         </div>
+                        <div className={styles.profileInfo}>
+                            <p className={styles.email}>{session.user.email} </p>
+                            <Button buttonText={'Sign Out'} clickHandler={signOut}/>
+                        </div>
                     </div>
                 </section>
             </Layout>
@@ -151,13 +137,9 @@ function Management() {
     }
     return (
         <Layout>
-            <Head>
-                <title>Lewis Inches - Photography</title>
-            </Head>
             <section className={styles.container}>
-                <button className={styles.signIn} onClick={() => signIn()}>
-                    Sign in
-                </button>
+                <h1>Management</h1>
+                <Button buttonText={'Sign In'} clickHandler={signIn}/>
             </section>
         </Layout>
     )

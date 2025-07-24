@@ -7,19 +7,19 @@ export default function PhotoSummary({ data, setter, switcher }) {
     }
 
     return (
-        <tr className={styles.row}>
-            <td className={styles.titleField}>
+        <div className={styles.row}>
+            <div className={styles.titleField}>
                 <h5>{data.title}</h5>
-            </td>
-            <td className={styles.dateField}>
+            </div>
+            <div className={styles.dateField}>
                 <h6>{new Date(data.date).toISOString().substring(0, 10)}</h6>
-            </td>
-            <td className={styles.urlField}>
+            </div>
+            <div className={styles.urlField}>
                 <h6>{data.url}</h6>
-            </td>
-            <td className={styles.linkField}>
-                <button onClick={() => switchForm()}>Edit</button>
-            </td>
-        </tr>
+            </div>
+            <div className={styles.linkField}>
+                <button onClick={() => switchForm()} className={styles.button}>Edit</button>
+            </div>
+        </div>
     )
 }

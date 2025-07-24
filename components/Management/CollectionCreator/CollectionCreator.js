@@ -31,20 +31,23 @@ export default function CollectionCreator() {
 
     return (
         <form onSubmit={handleSubmit} method="post" className={styles.form}>
-            <h3 className={styles.header}>Create Collection</h3>
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" required />
-
-            <label htmlFor="subtitle">Subtitle:</label>
-            <input type="text" id="subtitle" name="subtitle" />
-
-            <label htmlFor="cover_url">Cover URL:</label>
-            <input type="text" id="cover_url" name="cover_url" />
-
-            <label htmlFor="description">Description:</label>
-            <input type="text" id="description" name="description" />
-
-            <div>
+            <div className={styles.formRow}>
+                <label htmlFor="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="subtitle">Subtitle:</label>
+                <input type="text" id="subtitle" name="subtitle" />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="cover_url">Cover URL:</label>
+                <input type="text" id="cover_url" name="cover_url" />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="description">Description:</label>
+                <input type="text" id="description" name="description" />
+            </div>
+            <div className={styles.formRow}>
                 <label htmlFor="digital">Digital</label>
                 <input
                     type="checkbox"
@@ -53,8 +56,7 @@ export default function CollectionCreator() {
                     name="digital"
                 />
             </div>
-
-            <button type="submit">Submit</button>
+            <button className={styles.button} type="submit">Submit</button>
         </form>
     )
 }

@@ -77,120 +77,96 @@ export default function PhotoCreator() {
 
     return (
         <form onSubmit={handleSubmit} method="post" className={styles.form}>
-            <h3 className={styles.header}>Create Photo</h3>
-            <label htmlFor="url">URL:</label>
-            <input type="text" id="url" name="url" required />
-
-            <label htmlFor="title">Title:</label>
-            <input type="text" id="title" name="title" required />
-
-            <label htmlFor="subtitle">Subtitle:</label>
-            <input type="text" id="subtitle" name="subtitle" />
-
-            <label htmlFor="description-long">Description - Long:</label>
-            <input type="text" id="description_long" name="description_long" />
-
-            <label htmlFor="description_short">Description - Short:</label>
-            <input
-                type="text"
-                id="description_short"
-                name="description_short"
-            />
-
-            <label htmlFor="alt_text">Alt Text:</label>
-            <input
-                type="text"
-                id="alt_text"
-                name="alt_text"
-                className="form-control"
-                required
-            />
-
-            <label htmlFor="camera">Camera:</label>
-            <select id="camera" name="camera" aria-label="Select camera">
-                {cameraData.map((c) => (
-                    <option key={c.model} value={c.brand + ' ' + c.model}>
-                        {c.brand + ' ' + c.model}
-                    </option>
-                ))}
-            </select>
-
-            <label htmlFor="date">Date:</label>
-            <input
-                type="date"
-                id="date"
-                name="date"
-                aria-describedby="dateHelp"
-                required
-            />
-
-            <label htmlFor="location">Location:</label>
-            <input type="text" id="location" name="location" />
-
-            <label htmlFor="author">Author:</label>
-            <input
-                type="text"
-                id="author"
-                name="author"
-                defaultValue="Lewis Inches"
-            />
-
-            <label htmlFor="iso">ISO:</label>
-            <input type="number" id="iso" name="iso" defaultValue={0} />
-
-            <label htmlFor="shutter_speed">Shutter Speed:</label>
-            <input type="text" id="shutter_speed" name="shutter_speed" />
-
-            <label htmlFor="aperture">Aperture:</label>
-            <input type="text" id="aperture" name="aperture" />
-
-            <label htmlFor="gps_lat">GPS Latitude:</label>
-            <input type="number" step={0.00001} id="gps_lat" name="gps_lat" />
-
-            <label htmlFor="gps_long">GPS Longitude:</label>
-            <input type="number" step={0.00001} id="gps_long" name="gps_long" />
-
-            <div>
-                <label htmlFor="featured">Featured</label>
-                <input
-                    type="checkbox"
-                    role="switch"
-                    id="featured"
-                    name="featured"
-                />
+            <div className={styles.formRow}>
+                <label htmlFor="url">URL:</label>
+                <input type="text" id="url" name="url" required />
             </div>
-
-            <label htmlFor="film">Film:</label>
-            <select id="film" name="film" aria-label="Select film">
-                <option>null</option>
-                {filmData.map((f) => (
-                    <option key={f.name} value={f.name}>
-                        {f.brand} {f.name}
-                    </option>
-                ))}
-            </select>
-
-            <div>
-                <label htmlFor="digital">Digital</label>
-                <input
-                    type="checkbox"
-                    role="switch"
-                    id="digital"
-                    name="digital"
-                />
+            <div className={styles.formRow}>
+                <label htmlFor="title">Title:</label>
+                <input type="text" id="title" name="title" required />
             </div>
-
-            <div>
-                <label htmlFor="hidden">Hidden</label>
-                <input
-                    type="checkbox"
-                    role="switch"
-                    id="hidden"
-                    name="hidden"
-                />
+            <div className={styles.formRow}>
+                <label htmlFor="subtitle">Subtitle:</label>
+                <input type="text" id="subtitle" name="subtitle" />
             </div>
-
-            <button type="submit">Submit</button>
+            <div className={styles.formRow}>
+                <label htmlFor="description-long">Description - Long:</label>
+                <input type="text" id="description_long" name="description_long" />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="description_short">Description - Short:</label>
+                <input type="text" id="description_short" name="description_short" />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="alt_text">Alt Text:</label>
+                <input type="text" id="alt_text" name="alt_text" className="form-control" required />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="camera">Camera:</label>
+                <select id="camera" name="camera" aria-label="Select camera">
+                    {cameraData.map((c) => (
+                        <option key={c.model} value={c.brand + ' ' + c.model}>
+                            {c.brand + ' ' + c.model}
+                        </option>
+                    ))}
+                </select>
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="date">Date:</label>
+                <input type="date" id="date" name="date" aria-describedby="dateHelp" required />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="location">Location:</label>
+                <input type="text" id="location" name="location" />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="author">Author:</label>
+                <input type="text" id="author" name="author" defaultValue="Lewis Inches" />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="iso">ISO:</label>
+                <input type="number" id="iso" name="iso" defaultValue={0} />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="shutter_speed">Shutter Speed:</label>
+                <input type="text" id="shutter_speed" name="shutter_speed" />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="aperture">Aperture:</label>
+                <input type="text" id="aperture" name="aperture" />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="gps_lat">GPS Latitude:</label>
+                <input type="number" step={0.00001} id="gps_lat" name="gps_lat" />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="gps_long">GPS Longitude:</label>
+                <input type="number" step={0.00001} id="gps_long" name="gps_long" />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="featured">Featured:</label>
+                <input type="checkbox" role="switch" id="featured" name="featured" />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="film">Film:</label>
+                <select id="film" name="film" aria-label="Select film">
+                    <option>null</option>
+                    {filmData.map((f) => (
+                        <option key={f.name} value={f.name}>
+                            {f.brand} {f.name}
+                        </option>
+                    ))}
+                </select>
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="digital">Digital:</label>
+                <input type="checkbox" role="switch" id="digital" name="digital" />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="hidden">Hidden:</label>
+                <input type="checkbox" role="switch" id="hidden" name="hidden" />
+            </div>
+            <button className={styles.button} type="submit">Submit</button>
         </form>
     )
 }

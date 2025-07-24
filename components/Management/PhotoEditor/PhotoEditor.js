@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import styles from './photo-editor.module.css'
+import styles from './PhotoEditor.module.css'
 
 export default function PhotoEditor({ id }) {
     const [photoData, setPhotoData] = useState([])
@@ -36,8 +36,6 @@ export default function PhotoEditor({ id }) {
             })
         })
     }
-
-
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -117,7 +115,6 @@ export default function PhotoEditor({ id }) {
             const newFilmData = await req.json()
             setFilmData(newFilmData)
         }
-        
         getPhotoData()
         getFilmData()
         getCameraData()
@@ -125,131 +122,151 @@ export default function PhotoEditor({ id }) {
 
     return (
         <form onSubmit={handleSubmit} method="post" className={styles.form}>
-            <label htmlFor="url">URL:</label>
-            <input
-                type="text"
-                id="url"
-                name="url"
-                defaultValue={photoData.url}
-                required
-            />
-
-            <label htmlFor="title">Title:</label>
-            <input
-                type="text"
-                id="title"
-                name="title"
-                defaultValue={photoData.title}
-                required
-            />
-
-            <label htmlFor="subtitle">Subtitle:</label>
-            <input type="text" id="subtitle" name="subtitle" />
-
-            <label htmlFor="description_long">Description - Long:</label>
-            <input
-                type="text"
-                id="description_long"
-                name="description_long"
-                defaultValue={photoData.description_long}
-            />
-
-            <label htmlFor="description_short">Description - Short:</label>
-            <input
-                type="text"
-                id="description_short"
-                name="description_short"
-                defaultValue={photoData.description_short}
-            />
-
-            <label htmlFor="alt_text">Alt Text:</label>
-            <input
-                type="text"
-                id="alt_text"
-                name="alt_text"
-                defaultValue={photoData.alt_text}
-                required
-            />
-
-            <label htmlFor="camera">Camera:</label>
-            <select id="camera" name="camera" aria-label="Select camera">
-                {cameraData.map((c) => (
-                    <option key={c.model} value={c.brand + ' ' + c.model}>
-                        {c.brand + ' ' + c.model}
-                    </option>
-                ))}
-            </select>
-
-            <label htmlFor="date">Date:</label>
-            <input
-                type="date"
-                id="date"
-                name="date"
-                aria-describedby="dateHelp"
-                defaultValue={date}
-                required
-            />
-
-            <label htmlFor="location">Location:</label>
-            <input
-                type="text"
-                id="location"
-                name="location"
-                defaultValue={photoData.location}
-            />
-
-            <label htmlFor="author">Author:</label>
-            <input
-                type="text"
-                id="author"
-                name="author"
-                defaultValue={photoData.author}
-            />
-
-            <label htmlFor="iso">ISO:</label>
-            <input
-                type="number"
-                id="iso"
-                name="iso"
-                defaultValue={photoData.iso}
-            />
-
-            <label htmlFor="shutter_speed">Shutter Speed:</label>
-            <input
-                type="text"
-                id="shutter_speed"
-                name="shutter_speed"
-                defaultValue={photoData.shutter_speed}
-            />
-
-            <label htmlFor="aperture">Aperture:</label>
-            <input
-                type="text"
-                id="aperture"
-                name="aperture"
-                defaultValue={photoData.aperture}
-            />
-
-            <label htmlFor="gps_lat">GPS Latitude:</label>
-            <input
-                type="number"
-                step={0.00001}
-                id="gps_lat"
-                name="gps_lat"
-                defaultValue={photoData.gps_lat}
-            />
-
-            <label htmlFor="gps_long">GPS Longitude:</label>
-            <input
-                type="number"
-                step={0.00001}
-                id="gps_long"
-                name="gps_long"
-                defaultValue={photoData.gps_long}
-            />
-
-            <div>
-                <label htmlFor="featured">Featured</label>
+            <div className={styles.formRow}>
+                <label htmlFor="url">URL:</label>
+                <input
+                    type="text"
+                    id="url"
+                    name="url"
+                    defaultValue={photoData.url}
+                    required
+                />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="title">Title:</label>
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    defaultValue={photoData.title}
+                    required
+                />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="subtitle">Subtitle:</label>
+                <input
+                    type="text"
+                    id="subtitle"
+                    name="subtitle"
+                    defaultValue={photoData.subtitle}
+                />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="description_long">Description - Long:</label>
+                <input
+                    type="text"
+                    id="description_long"
+                    name="description_long"
+                    defaultValue={photoData.description_long}
+                />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="description_short">Description - Short:</label>
+                <input
+                    type="text"
+                    id="description_short"
+                    name="description_short"
+                    defaultValue={photoData.description_short}
+                />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="alt_text">Alt Text:</label>
+                <input
+                    type="text"
+                    id="alt_text"
+                    name="alt_text"
+                    defaultValue={photoData.alt_text}
+                    required
+                />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="camera">Camera:</label>
+                <select id="camera" name="camera" aria-label="Select camera">
+                    {cameraData.map((c) => (
+                        <option key={c.model} value={c.brand + ' ' + c.model}>
+                            {c.brand + ' ' + c.model}
+                        </option>
+                    ))}
+                </select>
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="date">Date:</label>
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    aria-describedby="dateHelp"
+                    defaultValue={date}
+                    required
+                />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="location">Location:</label>
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    defaultValue={photoData.location}
+                />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="author">Author:</label>
+                <input
+                    type="text"
+                    id="author"
+                    name="author"
+                    defaultValue={photoData.author}
+                />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="iso">ISO:</label>
+                <input
+                    type="number"
+                    id="iso"
+                    name="iso"
+                    defaultValue={photoData.iso}
+                />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="shutter_speed">Shutter Speed:</label>
+                <input
+                    type="text"
+                    id="shutter_speed"
+                    name="shutter_speed"
+                    defaultValue={photoData.shutter_speed}
+                />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="aperture">Aperture:</label>
+                <input
+                    type="text"
+                    id="aperture"
+                    name="aperture"
+                    defaultValue={photoData.aperture}
+                />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="gps_lat">GPS Latitude:</label>
+                <input
+                    type="number"
+                    step={0.00001}
+                    id="gps_lat"
+                    name="gps_lat"
+                    defaultValue={photoData.gps_lat}
+                />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="gps_long">GPS Longitude:</label>
+                <input
+                    type="number"
+                    step={0.00001}
+                    id="gps_long"
+                    name="gps_long"
+                    defaultValue={photoData.gps_long}
+                />
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="featured">Featured:</label>
                 <input
                     type="checkbox"
                     role="switch"
@@ -258,19 +275,19 @@ export default function PhotoEditor({ id }) {
                     defaultChecked={photoData.featured}
                 />
             </div>
-
-            <label htmlFor="film">Film:</label>
-            <select id="film" name="film" aria-label="Select film">
-                <option>null</option>
-                {filmData.map((f) => (
-                    <option key={f.name} value={f.name}>
-                        {f.brand} {f.name}
-                    </option>
-                ))}
-            </select>
-
-            <div>
-                <label htmlFor="digital">Digital</label>
+            <div className={styles.formRow}>
+                <label htmlFor="film">Film:</label>
+                <select id="film" name="film" aria-label="Select film">
+                    <option>null</option>
+                    {filmData.map((f) => (
+                        <option key={f.name} value={f.name}>
+                            {f.brand} {f.name}
+                        </option>
+                    ))}
+                </select>
+            </div>
+            <div className={styles.formRow}>
+                <label htmlFor="digital">Digital:</label>
                 <input
                     type="checkbox"
                     role="switch"
@@ -279,9 +296,8 @@ export default function PhotoEditor({ id }) {
                     defaultChecked={photoData.digital}
                 />
             </div>
-
-            <div>
-                <label htmlFor="hidden">Hidden</label>
+            <div className={styles.formRow}>
+                <label htmlFor="hidden">Hidden:</label>
                 <input
                     type="checkbox"
                     role="switch"
@@ -290,8 +306,7 @@ export default function PhotoEditor({ id }) {
                     defaultChecked={photoData.hidden}
                 />
             </div>
-
-            <button type="submit">Submit</button>
+            <button className={styles.button} type="submit">Submit</button>
         </form>
     )
 }

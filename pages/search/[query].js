@@ -5,6 +5,10 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import ImageModal from '../../components/ImageModal'
 
+function sanitizeQuery(query) {
+    return /^[a-zA-Z0-9 _-]+$/.test(query) ? query : null;
+}
+
 function Search() {
     const router = useRouter()
     const [searchResults, setSearchResults] = useState([])
@@ -14,7 +18,13 @@ function Search() {
         if (!router.query.query) return;
         setLoading(true);
         async function getSearchResults() {
-            const req = await fetch(`/api/search/${router.query.query}`);
+            const sanitizedQuery = sanitizeQuery(router.query.query);
+            if (!sanitizedQuery) {
+                setSearchResults([]);
+                setLoading(false);
+                return;
+            }
+            const req = await fetch(`/api/search/${sanitizedQuery}`);
             const searchData = await req.json();
             setSearchResults(searchData);
             setLoading(false);

@@ -13,14 +13,17 @@
         "prepare": "husky"
     },
     "dependencies": {
+        "@neondatabase/serverless": "^1.0.2",
         "@prisma/client": "^6.11.1",
+        "@vercel/blob": "^2.0.0",
         "@vercel/postgres": "^0.10.0",
         "faunadb": "^4.8.2",
         "loowis-component-library": "^4.4.1",
         "next": "15.3.4",
         "next-auth": "^4.24.11",
         "react": "19.0.0",
-        "react-dom": "19.0.0"
+        "react-dom": "19.0.0",
+        "uuid": "^13.0.0"
     },
     "devDependencies": {
         "@eslint/css": "^0.9.0",

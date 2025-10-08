@@ -8,7 +8,8 @@ module.exports = {
                 port: '',
                 pathname: '/**',
                 search: '',
-            }
+            },
+            new URL('https://qcbkrcgtrfkj20sb.public.blob.vercel-storage.com/**'),
         ]
     },
 }

@@ -1,17 +1,20 @@
 import styles from './AdminNavbar.module.css'
 import { signOut } from 'next-auth/react'
 import { Button } from 'loowis-component-library'
+import Link from 'next/link'
 
 export default function AdminNavbar(){
     return (
-        <>
+        <div className={styles.container}>
             <nav className={styles.navbar}>
-                <a href="/admin">Dashboard</a>
-                <a href="/admin/new/image">Upload New Image</a>
-                <a href="/admin/new/collection">Create New Collection</a>
-                <a href="/admin/edit/collections">Edit Collections</a>
-                <Button buttonText={'Sign Out'} clickHandler={signOut}/>
+                <Link className={styles.link} href="/admin">Dashboard</Link>
+                <Link className={styles.link} href="/admin/new/image">Upload New Image</Link>
+                <Link className={styles.link} href="/admin/new/collection">Create New Collection</Link>
+                <Link className={styles.link} href="/admin/edit/collections">Edit Collections</Link>
             </nav>
-        </>
+            <div className={styles.signOut}>
+                <Button buttonText={'Sign Out'} clickHandler={signOut} />
+            </div>
+        </div>
     )
 }

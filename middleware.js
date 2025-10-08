@@ -1,4 +1,4 @@
-export { withAuth } from "next-auth/middleware"
+import { withAuth } from "next-auth/middleware"
 import GithubProvider from 'next-auth/providers/github'
 
 export const config = { matcher: "/admin/:path*" }

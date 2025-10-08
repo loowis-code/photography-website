@@ -5,8 +5,7 @@ import { Button } from 'loowis-component-library'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import AdminNavbar from '../../components/AdminNavbar/AdminNavbar'
-
-
+import Link from 'next/link'
 
 function Dashboard() {
     const [images, setImages] = useState([]);
@@ -32,7 +31,7 @@ function Dashboard() {
                     <AdminNavbar/>
                     <div className={styles.imagesContainer}>
                         {images.map((image) => (
-                            <a className={styles.imagePreview} href={`/admin/edit/image/${image.image_id}`} key={image.image_id}>
+                            <Link className={styles.imagePreview} href={`/admin/edit/image/${image.image_id}`} key={image.image_id}>
                                 <Image
                                     src={image.url}
                                     alt={image.alt_text}
@@ -40,10 +39,18 @@ function Dashboard() {
                                     height={image.height}
                                     className={styles.image}
                                 />
-                                <h5 className={styles.previewTitle}>{image.title}</h5>
-                            </a>
+                                <div>
+                                    <h2 className={styles.previewTitle}>{image.title}</h2>
+                                    <h3 className={styles.previewDetail}>{image.date_taken}</h3>
+                                    <h3 className={styles.previewDetail}>{image.location}</h3>
+                                    <h3 className={styles.previewDetail}>{String(image.visible)}</h3>
+                                    <h3 className={styles.previewDetail}>{String(image.featured)}</h3>
+                                </div>
+
+                            </Link>
                         ))}
                     </div>
+
                 </section>
             </Layout>
         )

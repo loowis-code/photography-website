@@ -1,10 +1,16 @@
 import { neon } from '@neondatabase/serverless';
 import { put, del } from '@vercel/blob';
 import { v4 as uuidv4 } from 'uuid';
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "../../../auth/[...nextauth]"
 
 const sql = neon(process.env.LOOWIS_DATABASE_URL);
 
 export default async function createImage(req, res) {
+    const session = await getServerSession(req, res, authOptions)
+    if (!session) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
     const photo_data = req.body
     if (photo_data.image) {
         const image = photo_data.image;

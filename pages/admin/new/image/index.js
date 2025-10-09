@@ -14,8 +14,9 @@ export default function NewImage() {
         visible: true,
         featured: false,
         digital: true,
-
+        camera: null,
     });
+    const [cameras, setCameras] = useState([{ camera_id: null, brand: 'None', model: '' }]);
 
     const [mapData, setMapData] = useState({lat: null, lng: null});
 
@@ -39,6 +40,7 @@ export default function NewImage() {
         data.featured = form.featured;
         data.digital = form.digital;
         data.visible = form.visible;
+        data.camera = form.camera;
         data.gps_lat = mapData.lat;
         data.gps_long = mapData.lng;
         const reader = new FileReader();
@@ -77,13 +79,14 @@ export default function NewImage() {
             visible: true,
             featured: false,
             digital: true,
+            camera: null,
         });
         setMapData({lat: null, lng: null});
         e.target.reset();
         alert('Image uploaded successfully!');
     };
     
-    useEffect(() => {
+    useEffect(async () => {
         var map
         setTimeout(() => {
             if (typeof window !== "undefined" && window.L && map == undefined) {
@@ -102,6 +105,9 @@ export default function NewImage() {
                 map.on('click', onMapClick);
             }
         }, 1000);
+        const res = await fetch('/api/admin/read/cameras');
+        const cameraData = await res.json();
+        setCameras([{ camera_id: null, brand: 'None', model: '' }].concat(cameraData));
     }, [])
 
     return (
@@ -164,6 +170,18 @@ export default function NewImage() {
                             value={form.location}
                             onChange={handleChange}
                         />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Camera:
+                        <select id="camera" name="camera" aria-label="Select camera" onChange={handleChange}>
+                            {cameras.map((camera) => (
+                                <option key={camera.brand + ' ' + camera.model} value={camera.camera_id}>
+                                    {camera.brand + ' ' + camera.model}
+                                </option>
+                            ))}
+                        </select>
                     </label>
                 </div>
                 <div>

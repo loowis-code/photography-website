@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Layout from '../../../../components/Layout'
 import styles from './image.module.css'
 import { useRouter } from 'next/router'
@@ -12,12 +12,14 @@ export default function EditImage() {
         alt_text: "",
         date_taken: "",
         location: "",
+        camera: null,
         visible: true,
         featured: false,
         digital: true,
     });
     const [mapData, setMapData] = useState({lat: null, lng: null});
-    const [imageUrl, setImageUrl] = useState('');
+    const [imageUrl, setImageUrl] = useState(null);
+    const [cameras, setCameras] = useState([{ camera_id: null, brand: 'None', model: '' }]);
     const [id, setId] = useState(null);
     const router = useRouter()
 
@@ -31,6 +33,7 @@ export default function EditImage() {
             alt_text: data.alt_text || "",
             date_taken: data.date_taken ? data.date_taken.split('T')[0] : "",
             location: data.location || "",
+            camera: data.camera || null,
             visible: data.visible,
             featured: data.featured,
             digital: data.digital,
@@ -49,6 +52,7 @@ export default function EditImage() {
     };
 
     const handleSubmit = async (e) => {
+        console.log(form);
         e.preventDefault();
         const data = {}
         data.title = form.title;
@@ -59,6 +63,7 @@ export default function EditImage() {
         data.featured = form.featured;
         data.digital = form.digital;
         data.visible = form.visible;
+        data.camera = form.camera;
         data.gps_lat = mapData.lat;
         data.gps_long = mapData.lng;
         data.url = imageUrl;
@@ -93,13 +98,23 @@ export default function EditImage() {
     };
 
     useEffect(() => {
+        console.log(form);
+    }, [form]);
+
+    useEffect(() => {
         if (!router.isReady) return;
         const { id } = router.query;
         setId(id);
         getImageData(id);
     }, [router]); 
 
-        useEffect(() => {
+    const getCameraData = async () => {
+        const res = await fetch('/api/admin/read/cameras');
+        const cameraData = await res.json();
+        setCameras([{ camera_id: null, brand: 'None', model: '' }].concat(cameraData));
+    }
+
+    useEffect(() => {
         var map
         setTimeout(() => {
             if (typeof window !== "undefined" && window.L && map == undefined) {
@@ -118,6 +133,7 @@ export default function EditImage() {
                 map.on('click', onMapClick);
             }
         }, 1000);
+        getCameraData();
     }, [])
 
     return (
@@ -180,6 +196,18 @@ export default function EditImage() {
                             value={form.location}
                             onChange={handleChange}
                         />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Camera:
+                        <select id="camera" name="camera" aria-label="Select camera" onChange={handleChange}>
+                            {cameras.map((camera) => (
+                                <option key={camera.brand + ' ' + camera.model} value={camera.camera_id}>
+                                    {camera.brand + ' ' + camera.model}
+                                </option>
+                            ))}
+                        </select>
                     </label>
                 </div>
                 <div>

@@ -67,7 +67,7 @@ export default function NewImage() {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data),
         });
-        const result = await res.json();
+        await res.json();
 
         setForm({
             title: "",
@@ -85,8 +85,14 @@ export default function NewImage() {
         e.target.reset();
         alert('Image uploaded successfully!');
     };
+
+    const getCameraData = async () => {
+        const res = await fetch('/api/admin/read/cameras');
+        const cameraData = await res.json();
+        setCameras([{ camera_id: null, brand: 'None', model: '' }].concat(cameraData));
+    }
     
-    useEffect(async () => {
+    useEffect(() => {
         var map
         setTimeout(() => {
             if (typeof window !== "undefined" && window.L && map == undefined) {
@@ -105,9 +111,7 @@ export default function NewImage() {
                 map.on('click', onMapClick);
             }
         }, 1000);
-        const res = await fetch('/api/admin/read/cameras');
-        const cameraData = await res.json();
-        setCameras([{ camera_id: null, brand: 'None', model: '' }].concat(cameraData));
+        getCameraData();
     }, [])
 
     return (

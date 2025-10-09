@@ -9,7 +9,7 @@ export default function EditCollection() {
         <section className={styles.container}>
             <h1>Edit Collection</h1>
             <AdminNavbar />
-            <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <form encType="multipart/form-data">
 
                 <button type="submit">Create</button>
             </form>

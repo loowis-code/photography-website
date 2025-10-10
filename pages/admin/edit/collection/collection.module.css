@@ -4,8 +4,40 @@
     margin: 0 auto;
     border: black 0.25rem solid;
     border-top: none;
+}
+
+.collectionsContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.collectionPreview {
+    display: flex;
+    text-decoration: none;
+    color: black;
+}
+
+.image {
+    width: 15rem;
+    height: 10rem;
+    object-fit: cover;
+    border: black 0.25rem solid;
+    margin: 0 1rem;
+}
+
+.previewTitle {
+    margin: 0.25rem 0;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: black;
+}
+
+.previewDetail {
+    margin: 0.25rem 0;
+    font-weight: normal;
+    font-size: 1rem;
+    color: gray;
 }

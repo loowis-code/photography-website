@@ -4,11 +4,8 @@
     margin: 0 auto;
     border: black 0.25rem solid;
     border-top: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
 }
+
 
 .currentImage {
     max-width: 300px;

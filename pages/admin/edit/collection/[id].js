@@ -11,7 +11,7 @@ export default function EditCollection() {
             <AdminNavbar />
             <form encType="multipart/form-data">
 
-                <button type="submit">Create</button>
+                <button type="submit">Submit</button>
             </form>
         </section>
         </Layout>

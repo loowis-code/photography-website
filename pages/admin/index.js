@@ -27,7 +27,7 @@ function Dashboard() {
         return(
             <Layout>
                 <section className={styles.container}>
-                    <h1>Dashboard</h1>
+                    <h1>Edit Images</h1>
                     <AdminNavbar/>
                     <div className={styles.imagesContainer}>
                         {images.map((image) => (

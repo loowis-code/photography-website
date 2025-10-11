@@ -12,6 +12,7 @@ export default async function updateCollection(req, res) {
         return res.status(401).json({ error: 'Unauthorized' });
     }
     const collection_data = req.body
+    let updatedCollection = null;
     if (collection_data.image) {
         const image = collection_data.image;
         let imageBuffer = null;
@@ -28,7 +29,7 @@ export default async function updateCollection(req, res) {
             addRandomSuffix: false,
             contentType: mimeType,
         });
-        const updatedCollection = await sql`
+        updatedCollection = await sql`
             UPDATE collections SET
             collection_name = ${collection_data.name},
             collection_description = ${collection_data.description},
@@ -38,19 +39,41 @@ export default async function updateCollection(req, res) {
             WHERE collection_id = ${req.query.collection}
             RETURNING *;
         `;
-        res.json(updatedCollection);
     } else {
         console.log("No image data provided, updating other fields only.");
-        const updatedCollection = await sql`
+        updatedCollection = await sql`
             UPDATE collections SET
             collection_name = ${collection_data.name},
             collection_description = ${collection_data.description}
             WHERE collection_id = ${req.query.collection}
             RETURNING *;
         `;
-        res.json(updatedCollection);
+        
+    }
+    if (collection_data.images) {
+        const previousSelections = await sql`
+            SELECT image FROM collections_lookup
+            WHERE collection = ${req.query.collection};
+        `;
+        const previousImageIds = previousSelections.map(item => item.image);
+        const imagesToAdd = collection_data.images.filter(id => !previousImageIds.includes(id));
+        const imagesToRemove = previousImageIds.filter(id => !collection_data.images.includes(id));
+        for (const imageId of imagesToAdd) {
+            await sql`
+                INSERT INTO collections_lookup (collection, image)
+                VALUES (${req.query.collection}, ${imageId});
+            `;
+        }
+        for (const imageId of imagesToRemove) {
+            console.log("Removing image ID:", imageId);
+            await sql`
+                DELETE FROM collections_lookup
+                WHERE collection = ${req.query.collection} AND image = ${imageId};
+            `;
+        }
     }
 
+    res.json(updatedCollection);
 }
 
 export const config = {

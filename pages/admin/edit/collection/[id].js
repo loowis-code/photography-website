@@ -6,6 +6,8 @@ import { useRouter } from 'next/router'
 
 export default function EditCollection() {
     const [imageUrl, setImageUrl] = useState(null);
+    const [allImages, setAllImages] = useState([]);
+    const [selectedImages, setSelectedImages] = useState(null);
     const [form, setForm] = useState({
             name: "",
             description: "",
@@ -23,6 +25,13 @@ export default function EditCollection() {
             file: null,
         });
         setImageUrl(data.cover_url);
+        setSelectedImages(data.images || []);
+    }
+
+    const getImageData = async () => {
+        const req = await fetch('/api/admin/read/images')
+        const imageData = await req.json()
+        setAllImages(imageData)
     }
     
     const handleChange = (e) => {
@@ -40,23 +49,26 @@ export default function EditCollection() {
         data.name = form.name;
         data.description = form.description;
         data.url = imageUrl; 
-        const reader = new FileReader();
-        await new Promise((resolve) => {
-            reader.onload = () => {
-                data.image = reader.result;
-                resolve();
-            };
-            reader.readAsDataURL(form.file);
-        });
-        const img = new Image();
-        await new Promise((resolve) => {
-            img.onload = () => {
-                data.width = img.width;
-                data.height = img.height;
-                resolve();
-            };
-            img.src = data.image;
-        });
+        data.images = selectedImages;
+        if (form.file) {
+            const reader = new FileReader();
+            await new Promise((resolve) => {
+                reader.onload = () => {
+                    data.image = reader.result;
+                    resolve();
+                };
+                reader.readAsDataURL(form.file);
+            });
+            const img = new Image();
+            await new Promise((resolve) => {
+                img.onload = () => {
+                    data.width = img.width;
+                    data.height = img.height;
+                    resolve();
+                };
+                img.src = data.image;
+            });
+        }
         const res = await fetch(`/api/admin/update/collection/${id}`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -73,6 +85,7 @@ export default function EditCollection() {
         const { id } = router.query;
         setId(id);
         getCollectionData(id);
+        getImageData();
     }, [router]); 
 
     return (
@@ -102,9 +115,32 @@ export default function EditCollection() {
                             id="image"
                             name="image"
                             accept="image/jpeg, image/png, image/webp"
-                            required
                             onChange={handleChange}
                         />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Images:
+                        <div className={styles.imageGrid}>
+                            {allImages.map((img) => (
+                                <div key={img.image_id} className={styles.imageItem}>
+                                    <img 
+                                        src={img.url} 
+                                        alt={img.title}
+                                        onClick={() => setSelectedImages(prev => {
+                                            if (prev && prev.includes(img.image_id)) {
+                                                return prev.filter(id => id !== img.image_id);
+                                            } 
+                                            return [...prev, img.image_id];
+                                        })}
+                                        className={selectedImages && selectedImages.includes(img.image_id) ? styles.selected : styles.image}
+                                    />
+                                    <p>{img.title}</p>
+                                </div>
+                            ))}
+                        </div>
+
                     </label>
                 </div>
 

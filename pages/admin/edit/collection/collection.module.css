@@ -28,6 +28,14 @@
     margin: 0 1rem;
 }
 
+.selected {
+    width: 15rem;
+    height: 10rem;
+    object-fit: cover;
+    border: red 0.25rem solid;
+    margin: 0 1rem;
+}
+
 .previewTitle {
     margin: 0.25rem 0;
     font-weight: bold;

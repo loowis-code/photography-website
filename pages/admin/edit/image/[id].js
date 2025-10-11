@@ -52,7 +52,6 @@ export default function EditImage() {
     };
 
     const handleSubmit = async (e) => {
-        console.log(form);
         e.preventDefault();
         const data = {}
         data.title = form.title;
@@ -96,10 +95,6 @@ export default function EditImage() {
 
         alert('Image updated successfully!');
     };
-
-    useEffect(() => {
-        console.log(form);
-    }, [form]);
 
     useEffect(() => {
         if (!router.isReady) return;

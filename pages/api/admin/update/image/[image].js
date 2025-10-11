@@ -48,7 +48,6 @@ export default async function createImage(req, res) {
         res.json(editedPhoto);
     } else {
         console.log("No image data provided, updating other fields only.");
-        console.log(photo_data);
         const editedPhoto = await sql`
             UPDATE images SET
             title = ${photo_data.title},

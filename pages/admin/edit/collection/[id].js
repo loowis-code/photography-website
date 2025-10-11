@@ -17,7 +17,6 @@ export default function EditCollection() {
     const getCollectionData = async (id) => {
         const res = await fetch(`/api/admin/read/collection/${id}`);
         const data = await res.json();
-        console.log(data)
         setForm({
             name: data.collection_name || "",
             description:data.collection_description || "",

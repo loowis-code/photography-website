@@ -306,7 +306,9 @@ export default function PhotoEditor({ id }) {
                     defaultChecked={photoData.hidden}
                 />
             </div>
-            <button className={styles.button} type="submit">Submit</button>
+            <button className={styles.button} type="submit">
+                Submit
+            </button>
         </form>
     )
 }

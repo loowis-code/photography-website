@@ -1,30 +1,30 @@
-import { neon } from '@neondatabase/serverless';
-import { put } from '@vercel/blob';
-import { v4 as uuidv4 } from 'uuid';
-import { getServerSession } from "next-auth/next"
-import { authOptions } from "../../auth/[...nextauth]"
+import { neon } from '@neondatabase/serverless'
+import { put } from '@vercel/blob'
+import { v4 as uuidv4 } from 'uuid'
+import { getServerSession } from 'next-auth/next'
+import { authOptions } from '../../auth/[...nextauth]'
 
-const sql = neon(process.env.LOOWIS_DATABASE_URL);
+const sql = neon(process.env.LOOWIS_DATABASE_URL)
 
 export default async function createImage(req, res) {
     const session = await getServerSession(req, res, authOptions)
     if (!session) {
-        return res.status(401).json({ error: 'Unauthorized' });
+        return res.status(401).json({ error: 'Unauthorized' })
     }
     const photo_data = req.body
 
-    const image = photo_data.image;
-    let imageBuffer = null;
-    const matches = image.match(/^data:(image\/jpeg|image\/png);base64,(.+)$/);
+    const image = photo_data.image
+    let imageBuffer = null
+    const matches = image.match(/^data:(image\/jpeg|image\/png);base64,(.+)$/)
     if (matches) {
-        var mimeType = matches[1];
-        imageBuffer = Buffer.from(matches[2], 'base64');
+        var mimeType = matches[1]
+        imageBuffer = Buffer.from(matches[2], 'base64')
     }
     const blob = await put(uuidv4(), imageBuffer, {
         access: 'public',
         addRandomSuffix: false,
         contentType: mimeType,
-    });
+    })
 
     const newPhoto = await sql`
         INSERT INTO images 
@@ -32,15 +32,14 @@ export default async function createImage(req, res) {
         VALUES 
         (${blob.url}, ${photo_data.title}, ${photo_data.width}, ${photo_data.height}, ${photo_data.description}, ${photo_data.alt_text}, ${photo_data.date}, ${photo_data.location}, ${photo_data.featured}, ${photo_data.digital}, ${photo_data.visible}, ${photo_data.gps_lat}, ${photo_data.gps_long})
         RETURNING *;
-    `;
-    res.json(newPhoto);
-    
+    `
+    res.json(newPhoto)
 }
 
 export const config = {
     api: {
         bodyParser: {
-            sizeLimit: '3mb' // Set desired value here
-        }
-    }
+            sizeLimit: '3mb', // Set desired value here
+        },
+    },
 }

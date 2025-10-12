@@ -5,7 +5,7 @@ export default function Pagination({ setCurrentPage, displayPage, maxPage }) {
     return (
         <div className={styles.pagination}>
             <Button
-                buttonText='Previous Page'
+                buttonText="Previous Page"
                 clickHandler={() => {
                     setCurrentPage((prevPage) => prevPage - 1)
                 }}
@@ -15,7 +15,7 @@ export default function Pagination({ setCurrentPage, displayPage, maxPage }) {
                 Page {displayPage} of {maxPage}
             </p>
             <Button
-                buttonText='Next Page'
+                buttonText="Next Page"
                 clickHandler={() => {
                     setCurrentPage((prevPage) => prevPage + 1)
                 }}

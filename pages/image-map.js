@@ -5,7 +5,7 @@ import Head from 'next/head'
 
 function ImageMap() {
     function initaliseMap(trimmedPhotoData) {
-        var map;
+        var map
         if (window.innerWidth < 600) {
             map = L.map('map').setView([54.12, 4.97], 4)
         } else {

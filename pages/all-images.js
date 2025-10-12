@@ -23,25 +23,24 @@ function AllImages({ data }) {
     const maxPage = Math.ceil(filteredPhotos.length / photosPerPage)
 
     const paginatePhotos = (photos, page) => {
-
         const startIndex = (page - 1) * photosPerPage
         const endIndex = startIndex + photosPerPage
         return photos.slice(startIndex, endIndex)
     }
     useEffect(() => {
-        let validPage = currentPage;
+        let validPage = currentPage
         if (currentPage < 1) {
-            validPage = 1;
+            validPage = 1
         } else if (currentPage > maxPage) {
-            validPage = maxPage;
+            validPage = maxPage
         }
         if (validPage !== currentPage) {
-            setCurrentPage(validPage);
-            return;
+            setCurrentPage(validPage)
+            return
         }
-        setCurrentPhotos(paginatePhotos(filteredPhotos, validPage));
-        setDisplayPage(validPage);
-    }, [currentPage, filteredPhotos, maxPage]);
+        setCurrentPhotos(paginatePhotos(filteredPhotos, validPage))
+        setDisplayPage(validPage)
+    }, [currentPage, filteredPhotos, maxPage])
 
     return (
         <Layout>
@@ -50,10 +49,7 @@ function AllImages({ data }) {
             </Head>
             <section className={styles.container}>
                 <h1 className={styles.header}>All Images</h1>
-                <SortingButtons
-                    photos={data}
-                    setPhotos={setFilteredPhotos}
-                />
+                <SortingButtons photos={data} setPhotos={setFilteredPhotos} />
 
                 <div className={styles.grid}>
                     {currentPhotos.map((d) => (
@@ -61,8 +57,11 @@ function AllImages({ data }) {
                     ))}
                 </div>
 
-                <Pagination setCurrentPage={setCurrentPage} displayPage={displayPage} maxPage={maxPage}/>
-
+                <Pagination
+                    setCurrentPage={setCurrentPage}
+                    displayPage={displayPage}
+                    maxPage={maxPage}
+                />
             </section>
         </Layout>
     )

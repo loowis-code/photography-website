@@ -89,7 +89,9 @@ export default function CollectionoEditor({ id }) {
                     defaultChecked={collectionData.digital}
                 />
             </div>
-            <button className={styles.button} type="submit">Submit</button>
+            <button className={styles.button} type="submit">
+                Submit
+            </button>
         </form>
     )
 }

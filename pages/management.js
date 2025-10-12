@@ -127,8 +127,13 @@ function Management() {
                             )}
                         </div>
                         <div className={styles.profileInfo}>
-                            <p className={styles.email}>{session.user.email} </p>
-                            <Button buttonText={'Sign Out'} clickHandler={signOut}/>
+                            <p className={styles.email}>
+                                {session.user.email}{' '}
+                            </p>
+                            <Button
+                                buttonText={'Sign Out'}
+                                clickHandler={signOut}
+                            />
                         </div>
                     </div>
                 </section>
@@ -139,7 +144,7 @@ function Management() {
         <Layout>
             <section className={styles.container}>
                 <h1>Management</h1>
-                <Button buttonText={'Sign In'} clickHandler={signIn}/>
+                <Button buttonText={'Sign In'} clickHandler={signIn} />
             </section>
         </Layout>
     )

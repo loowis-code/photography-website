@@ -74,15 +74,9 @@ function Collection({ images_data, collection_data }) {
                 />
                 <div className={styles.grid}>
                     {filteredPhotos?.map((d) => (
-                            <ImageModal
-                            data={d}
-                            key={d.id}
-                            page="Collections"
-                        />
+                        <ImageModal data={d} key={d.id} page="Collections" />
                     ))}
                 </div>
-
-
             </section>
         </Layout>
     )

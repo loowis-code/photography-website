@@ -91,15 +91,29 @@ export default function PhotoCreator() {
             </div>
             <div className={styles.formRow}>
                 <label htmlFor="description-long">Description - Long:</label>
-                <input type="text" id="description_long" name="description_long" />
+                <input
+                    type="text"
+                    id="description_long"
+                    name="description_long"
+                />
             </div>
             <div className={styles.formRow}>
                 <label htmlFor="description_short">Description - Short:</label>
-                <input type="text" id="description_short" name="description_short" />
+                <input
+                    type="text"
+                    id="description_short"
+                    name="description_short"
+                />
             </div>
             <div className={styles.formRow}>
                 <label htmlFor="alt_text">Alt Text:</label>
-                <input type="text" id="alt_text" name="alt_text" className="form-control" required />
+                <input
+                    type="text"
+                    id="alt_text"
+                    name="alt_text"
+                    className="form-control"
+                    required
+                />
             </div>
             <div className={styles.formRow}>
                 <label htmlFor="camera">Camera:</label>
@@ -113,7 +127,13 @@ export default function PhotoCreator() {
             </div>
             <div className={styles.formRow}>
                 <label htmlFor="date">Date:</label>
-                <input type="date" id="date" name="date" aria-describedby="dateHelp" required />
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    aria-describedby="dateHelp"
+                    required
+                />
             </div>
             <div className={styles.formRow}>
                 <label htmlFor="location">Location:</label>
@@ -121,7 +141,12 @@ export default function PhotoCreator() {
             </div>
             <div className={styles.formRow}>
                 <label htmlFor="author">Author:</label>
-                <input type="text" id="author" name="author" defaultValue="Lewis Inches" />
+                <input
+                    type="text"
+                    id="author"
+                    name="author"
+                    defaultValue="Lewis Inches"
+                />
             </div>
             <div className={styles.formRow}>
                 <label htmlFor="iso">ISO:</label>
@@ -137,15 +162,30 @@ export default function PhotoCreator() {
             </div>
             <div className={styles.formRow}>
                 <label htmlFor="gps_lat">GPS Latitude:</label>
-                <input type="number" step={0.00001} id="gps_lat" name="gps_lat" />
+                <input
+                    type="number"
+                    step={0.00001}
+                    id="gps_lat"
+                    name="gps_lat"
+                />
             </div>
             <div className={styles.formRow}>
                 <label htmlFor="gps_long">GPS Longitude:</label>
-                <input type="number" step={0.00001} id="gps_long" name="gps_long" />
+                <input
+                    type="number"
+                    step={0.00001}
+                    id="gps_long"
+                    name="gps_long"
+                />
             </div>
             <div className={styles.formRow}>
                 <label htmlFor="featured">Featured:</label>
-                <input type="checkbox" role="switch" id="featured" name="featured" />
+                <input
+                    type="checkbox"
+                    role="switch"
+                    id="featured"
+                    name="featured"
+                />
             </div>
             <div className={styles.formRow}>
                 <label htmlFor="film">Film:</label>
@@ -160,13 +200,25 @@ export default function PhotoCreator() {
             </div>
             <div className={styles.formRow}>
                 <label htmlFor="digital">Digital:</label>
-                <input type="checkbox" role="switch" id="digital" name="digital" />
+                <input
+                    type="checkbox"
+                    role="switch"
+                    id="digital"
+                    name="digital"
+                />
             </div>
             <div className={styles.formRow}>
                 <label htmlFor="hidden">Hidden:</label>
-                <input type="checkbox" role="switch" id="hidden" name="hidden" />
+                <input
+                    type="checkbox"
+                    role="switch"
+                    id="hidden"
+                    name="hidden"
+                />
             </div>
-            <button className={styles.button} type="submit">Submit</button>
+            <button className={styles.button} type="submit">
+                Submit
+            </button>
         </form>
     )
 }

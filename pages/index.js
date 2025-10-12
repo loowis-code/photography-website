@@ -12,8 +12,22 @@ export async function getStaticProps() {
 }
 
 function Home({ data }) {
-    const [dFeatured] =  useState(data.filter(photo => photo.featured === true && photo.digital === true && photo.hidden === false))
-    const [aFeatured] = useState(data.filter(photo => photo.featured === true && photo.digital === false && photo.hidden === false))
+    const [dFeatured] = useState(
+        data.filter(
+            (photo) =>
+                photo.featured === true &&
+                photo.digital === true &&
+                photo.hidden === false,
+        ),
+    )
+    const [aFeatured] = useState(
+        data.filter(
+            (photo) =>
+                photo.featured === true &&
+                photo.digital === false &&
+                photo.hidden === false,
+        ),
+    )
     const [format, setFormat] = useState('film')
 
     return (
@@ -50,13 +64,8 @@ function Home({ data }) {
                         }
                     >
                         {dFeatured.map((d) => (
-                            <ImageModal
-                                data={d}
-                                key={d.id}
-                                page="Home"
-                            />
+                            <ImageModal data={d} key={d.id} page="Home" />
                         ))}
-
                     </div>
                     <div
                         className={
@@ -66,11 +75,7 @@ function Home({ data }) {
                         }
                     >
                         {aFeatured.map((d) => (
-                                <ImageModal
-                                data={d}
-                                key={d.id}
-                                page="Home"
-                            />
+                            <ImageModal data={d} key={d.id} page="Home" />
                         ))}
                     </div>
                 </div>

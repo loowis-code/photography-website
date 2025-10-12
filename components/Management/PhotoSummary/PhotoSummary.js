@@ -18,7 +18,9 @@ export default function PhotoSummary({ data, setter, switcher }) {
                 <h6>{data.url}</h6>
             </div>
             <div className={styles.linkField}>
-                <button onClick={() => switchForm()} className={styles.button}>Edit</button>
+                <button onClick={() => switchForm()} className={styles.button}>
+                    Edit
+                </button>
             </div>
         </div>
     )

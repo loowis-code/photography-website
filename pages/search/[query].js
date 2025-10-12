@@ -11,16 +11,16 @@ function Search() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        if (!router.query.query) return;
-        setLoading(true);
+        if (!router.query.query) return
+        setLoading(true)
         async function getSearchResults() {
-            const req = await fetch(`/api/search/${router.query.query}`);
-            const searchData = await req.json();
-            setSearchResults(searchData);
-            setLoading(false);
+            const req = await fetch(`/api/search/${router.query.query}`)
+            const searchData = await req.json()
+            setSearchResults(searchData)
+            setLoading(false)
         }
-        getSearchResults();
-    }, [router.query.query]);
+        getSearchResults()
+    }, [router.query.query])
 
     return (
         <Layout>
@@ -40,13 +40,12 @@ function Search() {
                     <h2 className={styles.noResults}>💀 No images found</h2>
                 )}
                 <div className={styles.grid}>
-                    {!loading && searchResults.length > 0 && (
+                    {!loading &&
+                        searchResults.length > 0 &&
                         searchResults.map((d) => (
-                                <ImageModal data={d} key={d.id} page="All" />
-                        ))
-                    )}
+                            <ImageModal data={d} key={d.id} page="All" />
+                        ))}
                 </div>
-
             </section>
         </Layout>
     )

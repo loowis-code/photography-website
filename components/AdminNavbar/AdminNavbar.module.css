@@ -19,12 +19,16 @@
     text-decoration: none;
     color: black;
     font-weight: bold;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'josefin-bold-italic', sans-serif;
 }
 
-.signOut {
-    padding: 0.5rem 1rem;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+.link:hover {
+    background-color: transparent;
+    color: #ff5a36;
+    cursor: pointer;
+    text-decoration: underline;
 }

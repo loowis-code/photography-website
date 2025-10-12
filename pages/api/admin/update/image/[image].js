@@ -1,31 +1,33 @@
-import { neon } from '@neondatabase/serverless';
-import { put, del } from '@vercel/blob';
-import { v4 as uuidv4 } from 'uuid';
-import { getServerSession } from "next-auth/next"
-import { authOptions } from "../../../auth/[...nextauth]"
+import { neon } from '@neondatabase/serverless'
+import { put, del } from '@vercel/blob'
+import { v4 as uuidv4 } from 'uuid'
+import { getServerSession } from 'next-auth/next'
+import { authOptions } from '../../../auth/[...nextauth]'
 
-const sql = neon(process.env.LOOWIS_DATABASE_URL);
+const sql = neon(process.env.LOOWIS_DATABASE_URL)
 
 export default async function createImage(req, res) {
     const session = await getServerSession(req, res, authOptions)
     if (!session) {
-        return res.status(401).json({ error: 'Unauthorized' });
+        return res.status(401).json({ error: 'Unauthorized' })
     }
     const photo_data = req.body
     if (photo_data.image) {
-        const image = photo_data.image;
-        let imageBuffer = null;
-        const matches = image.match(/^data:(image\/jpeg|image\/png);base64,(.+)$/);
+        const image = photo_data.image
+        let imageBuffer = null
+        const matches = image.match(
+            /^data:(image\/jpeg|image\/png);base64,(.+)$/,
+        )
         if (matches) {
-            var mimeType = matches[1];
-            imageBuffer = Buffer.from(matches[2], 'base64');
+            var mimeType = matches[1]
+            imageBuffer = Buffer.from(matches[2], 'base64')
         }
         const blob = await put(uuidv4(), imageBuffer, {
             access: 'public',
             addRandomSuffix: false,
             contentType: mimeType,
-        });
-        await del(photo_data.url);
+        })
+        await del(photo_data.url)
         const editedPhoto = await sql`
             UPDATE images SET
             url = ${blob.url},
@@ -44,10 +46,10 @@ export default async function createImage(req, res) {
             longitude = ${photo_data.gps_long}
             WHERE image_id = ${req.query.image}
             RETURNING *;
-        `;
-        res.json(editedPhoto);
+        `
+        res.json(editedPhoto)
     } else {
-        console.log("No image data provided, updating other fields only.");
+        console.log('No image data provided, updating other fields only.')
         const editedPhoto = await sql`
             UPDATE images SET
             title = ${photo_data.title},
@@ -63,15 +65,15 @@ export default async function createImage(req, res) {
             longitude = ${photo_data.gps_long}
             WHERE image_id = ${req.query.image}
             RETURNING *;
-        `;
-        res.json(editedPhoto);
+        `
+        res.json(editedPhoto)
     }
 }
 
 export const config = {
     api: {
         bodyParser: {
-            sizeLimit: '3mb' // Set desired value here
-        }
-    }
+            sizeLimit: '3mb', // Set desired value here
+        },
+    },
 }

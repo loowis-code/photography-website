@@ -28,7 +28,7 @@ function Collections({ data }) {
                 <h1 className={styles.header}>Collections</h1>
                 <div className={styles.grid}>
                     {collections.map((d) => (
-                            <CollectionPreview
+                        <CollectionPreview
                             name={d.name}
                             cover_image={d.cover_url}
                             id={d.id}
@@ -36,7 +36,6 @@ function Collections({ data }) {
                         />
                     ))}
                 </div>
-
             </section>
         </Layout>
     )

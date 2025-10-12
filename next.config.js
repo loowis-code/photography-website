@@ -9,7 +9,9 @@ module.exports = {
                 pathname: '/**',
                 search: '',
             },
-            new URL('https://qcbkrcgtrfkj20sb.public.blob.vercel-storage.com/**'),
-        ]
+            new URL(
+                'https://qcbkrcgtrfkj20sb.public.blob.vercel-storage.com/**',
+            ),
+        ],
     },
 }

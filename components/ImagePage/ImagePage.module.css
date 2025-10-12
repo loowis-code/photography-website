@@ -36,7 +36,6 @@
     margin: 0;
 }
 
-
 @media (width <= 1320px) {
     .imagecontainer {
         flex-direction: column;
@@ -48,5 +47,4 @@
     .imageDetails {
         margin-top: 1rem;
     }
-
 }

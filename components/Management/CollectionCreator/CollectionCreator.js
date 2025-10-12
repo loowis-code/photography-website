@@ -56,7 +56,9 @@ export default function CollectionCreator() {
                     name="digital"
                 />
             </div>
-            <button className={styles.button} type="submit">Submit</button>
+            <button className={styles.button} type="submit">
+                Submit
+            </button>
         </form>
     )
 }

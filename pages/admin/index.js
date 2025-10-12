@@ -31,23 +31,35 @@ function Dashboard() {
                     <AdminNavbar/>
                     <div className={styles.imagesContainer}>
                         {images.map((image) => (
-                            <Link className={styles.imagePreview} href={`/admin/edit/image/${image.image_id}`} key={image.image_id}>
-                                <Image
-                                    src={image.url}
-                                    alt={image.alt_text}
-                                    width={image.width}
-                                    height={image.height}
-                                    className={styles.image}
-                                />
-                                <div>
-                                    <h2 className={styles.previewTitle}>{image.title}</h2>
-                                    <h3 className={styles.previewDetail}>{image.date_taken}</h3>
-                                    <h3 className={styles.previewDetail}>{image.location}</h3>
-                                    <h3 className={styles.previewDetail}>{String(image.visible)}</h3>
-                                    <h3 className={styles.previewDetail}>{String(image.featured)}</h3>
-                                </div>
+                            <>
+                                <Link className={styles.imagePreview} href={`/admin/edit/image/${image.image_id}`} key={image.image_id}>
+                                    <Image
+                                        src={image.url}
+                                        alt={image.alt_text}
+                                        width={image.width}
+                                        height={image.height}
+                                        className={styles.image}
+                                    />
+                                    <div>
+                                        <h2 className={styles.previewTitle}>{image.title}</h2>
+                                        <h3 className={styles.previewDetail}>{image.date_taken}</h3>
+                                        <h3 className={styles.previewDetail}>{image.location}</h3>
+                                        <h3 className={styles.previewDetail}>{String(image.visible)}</h3>
+                                        <h3 className={styles.previewDetail}>{String(image.featured)}</h3>
+                                    </div>
 
-                            </Link>
+                                </Link>
+                                <Button clickHandler={async () => {
+                                    const res = await fetch(`/api/admin/delete/image/${image.image_id}`, {
+                                        method: 'POST',
+                                        headers: {'Content-Type': 'application/json'},
+                                        body: JSON.stringify({ url: image.url }),
+                                    });
+                                    if (res.ok) {
+                                        getImageData();
+                                    }
+                                }} buttonText='Delete Image'/>
+                            </>
                         ))}
                     </div>
 

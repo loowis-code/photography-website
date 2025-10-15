@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { use, useEffect, useState } from 'react'
 import Layout from '../../../../components/Layout'
 import styles from './image.module.css'
 import { useRouter } from 'next/router'
@@ -114,9 +114,12 @@ export default function EditImage() {
     }
 
     useEffect(() => {
+        getCameraData()
+    }, [])
+
+    useEffect(() => {
         var map
-        setTimeout(() => {
-            if (typeof window !== 'undefined' && window.L && map == undefined) {
+        if (typeof window !== 'undefined' && window.L && !map) {
                 var popup = window.L.popup()
                 function onMapClick(e) {
                     popup
@@ -125,148 +128,174 @@ export default function EditImage() {
                         .openOn(map)
                     setMapData({ lat: e.latlng.lat, lng: e.latlng.lng })
                 }
-                map = window.L.map('map').setView([51.505, -0.09], 13)
+                map = window.L.map('map').setView(mapData.lat && mapData.lng ? [mapData.lat, mapData.lng] : [51.505, -0.09], 13)
                 window.L.tileLayer(
                     'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                     {
                         attribution: '© OpenStreetMap',
                     },
                 ).addTo(map)
+                popup
+                    .setLatLng(mapData.lat && mapData.lng ? [mapData.lat, mapData.lng] : [51.505, -0.09])
+                    .setContent(mapData.lat && mapData.lng ? `${mapData.lat}, ${mapData.lng}` : 'Click the map to set location')
+                    .openOn(map)
                 map.on('click', onMapClick)
             }
-        }, 1000)
-        getCameraData()
-    }, [])
+
+        return () => {
+            if (map) {
+                map.off()
+                map.remove()
+            }
+        }
+    }, [mapData])
 
     return (
         <Layout>
             <section className={styles.container}>
-                <h1>Edit Image</h1>
+                <h1 className={styles.heading}>Edit Image</h1>
                 <AdminNavbar />
-                <form onSubmit={handleSubmit} encType="multipart/form-data">
+                <form onSubmit={handleSubmit} className={styles.form}>
                     <div>
-                        <label>
+                        <label className={styles.label} htmlFor="title">
                             Title:
-                            <input
-                                type="text"
-                                name="title"
-                                value={form.title}
-                                onChange={handleChange}
-                                required
-                            />
                         </label>
+                        <input
+                            type="text"
+                            name="title"
+                            id="title"
+                            value={form.title}
+                            onChange={handleChange}
+                            required
+                            className={styles.input}
+                        />
                     </div>
                     <div>
-                        <label>
+                        <label className={styles.label} htmlFor="description">
                             Description:
-                            <textarea
-                                name="description"
-                                value={form.description}
-                                onChange={handleChange}
-                                rows={3}
-                            />
                         </label>
+                        <textarea
+                            name="description"
+                            id="description"
+                            value={form.description}
+                            onChange={handleChange}
+                            rows={3}
+                            className={styles.input}
+                        />
                     </div>
                     <div>
-                        <label>
+                        <label className={styles.label} htmlFor="alt_text">
                             Alt Text:
-                            <textarea
-                                name="alt_text"
-                                value={form.alt_text}
-                                onChange={handleChange}
-                                rows={3}
-                            />
                         </label>
+                        <textarea
+                            name="alt_text"
+                            id="alt_text"
+                            value={form.alt_text}
+                            onChange={handleChange}
+                            rows={3}
+                            className={styles.input}
+                        />
                     </div>
                     <div>
-                        <label>
+                        <label className={styles.label} htmlFor="date_taken">
                             Date Taken:
-                            <input
-                                type="date"
-                                name="date_taken"
-                                value={form.date_taken}
-                                onChange={handleChange}
-                            />
                         </label>
+                        <input
+                            type="date"
+                            name="date_taken"
+                            id="date_taken"
+                            value={form.date_taken}
+                            onChange={handleChange}
+                            className={styles.input}
+                        />
                     </div>
                     <div>
-                        <label>
+                        <label className={styles.label} htmlFor="location">
                             Location:
-                            <input
-                                type="text"
-                                name="location"
-                                value={form.location}
-                                onChange={handleChange}
-                            />
                         </label>
+                        <input
+                            type="text"
+                            name="location"
+                            id="location"
+                            value={form.location}
+                            onChange={handleChange}
+                            className={styles.input}
+                        />
                     </div>
                     <div>
-                        <label>
+                        <label className={styles.label} htmlFor="camera">
                             Camera:
-                            <select
-                                id="camera"
-                                name="camera"
-                                aria-label="Select camera"
-                                onChange={handleChange}
-                            >
-                                {cameras.map((camera) => (
-                                    <option
-                                        key={camera.brand + ' ' + camera.model}
-                                        value={camera.camera_id}
-                                    >
-                                        {camera.brand + ' ' + camera.model}
-                                    </option>
-                                ))}
-                            </select>
                         </label>
+                        <select
+                            id="camera"
+                            name="camera"
+                            aria-label="Select camera"
+                            onChange={handleChange}
+                            className={styles.input}
+                        >
+                            {cameras.map((camera) => (
+                                <option
+                                    key={camera.brand + ' ' + camera.model}
+                                    value={camera.camera_id}
+                                >
+                                    {camera.brand + ' ' + camera.model}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                     <div>
-                        <label>
+                        <label className={styles.label} htmlFor="visible">
                             Visible:
-                            <input
-                                type="checkbox"
-                                name="visible"
-                                checked={form.visible}
-                                onChange={(e) =>
-                                    setForm({
-                                        ...form,
-                                        visible: e.target.checked,
-                                    })
-                                }
-                            />
                         </label>
+                        <input
+                            type="checkbox"
+                            name="visible"
+                            id="visible"
+                            checked={form.visible}
+                            onChange={(e) =>
+                                setForm({
+                                    ...form,
+                                    visible: e.target.checked,
+                                })
+                            }
+                            className={styles.checkbox}
+                        />
                     </div>
                     <div>
-                        <label>
+                        <label className={styles.label} htmlFor="featured">
                             Featured:
-                            <input
-                                type="checkbox"
-                                name="featured"
-                                checked={form.featured}
-                                onChange={(e) =>
-                                    setForm({
-                                        ...form,
-                                        featured: e.target.checked,
-                                    })
-                                }
-                            />
                         </label>
+                        <input
+                            type="checkbox"
+                            name="featured"
+                            id="featured"
+                            checked={form.featured}
+                            onChange={(e) =>
+                                setForm({
+                                    ...form,
+                                    featured: e.target.checked,
+                                })
+                            }
+                            className={styles.checkbox}
+                        />
                     </div>
                     <div>
-                        <label>
+                        <label className={styles.label} htmlFor="digital">
                             Digital:
-                            <input
-                                type="checkbox"
-                                name="digital"
-                                checked={form.digital}
-                                onChange={(e) =>
-                                    setForm({
-                                        ...form,
-                                        digital: e.target.checked,
-                                    })
-                                }
-                            />
                         </label>
+                        <input
+                            type="checkbox"
+                            name="digital"
+                            id="digital"
+                            checked={form.digital}
+                            onChange={(e) =>
+                                setForm({
+                                    ...form,
+                                    digital: e.target.checked,
+                                })
+                            }
+                            className={styles.checkbox}
+                        />
                     </div>
                     <div>
                         <img
@@ -274,19 +303,22 @@ export default function EditImage() {
                             alt="Current Image"
                             className={styles.currentImage}
                         />
-                        <label>
+                        <label className={styles.label} htmlFor="image">
                             Image File:
-                            <input
-                                type="file"
-                                id="image"
-                                name="image"
-                                accept="image/jpeg, image/png, image/webp"
-                                onChange={handleChange}
-                            />
                         </label>
+                        <input
+                            type="file"
+                            id="image"
+                            name="image"
+                            accept="image/jpeg, image/png, image/webp"
+                            onChange={handleChange}
+                            className={styles.fileInput}
+                        />
                     </div>
                     <div id="map" className={styles.map}></div>
-                    <button type="submit">Upload</button>
+                    <button type="submit" className={styles.button}>
+                        Submit
+                    </button>
                 </form>
             </section>
         </Layout>

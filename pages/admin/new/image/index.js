@@ -4,7 +4,6 @@ import AdminNavbar from '../../../../components/AdminNavbar/AdminNavbar'
 import PhotoForm from '../../../../components/PhotoForm/PhotoForm'
 
 export default function NewImage() {
-
     const handleSubmit = async (data) => {
         const res = await fetch('/api/admin/create/image', {
             method: 'POST',

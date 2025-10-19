@@ -17,14 +17,14 @@ export default function EditImage() {
     }
 
     const handleSubmit = async (data) => {
-    const res = await fetch(`/api/admin/update/image/${id}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-    })
-    await res.json()
-    alert('Image updated successfully!')
-}
+        const res = await fetch(`/api/admin/update/image/${id}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        })
+        await res.json()
+        alert('Image updated successfully!')
+    }
 
     useEffect(() => {
         if (!router.isReady) return
@@ -43,8 +43,14 @@ export default function EditImage() {
             <section className={styles.container}>
                 <h1 className={styles.heading}>Edit Image</h1>
                 <AdminNavbar />
-                {!imageData ? <div>Loading...</div> : (
-                    <PhotoForm mode="edit" onSubmit={handleSubmit} initialData={imageData} />
+                {!imageData ? (
+                    <div>Loading...</div>
+                ) : (
+                    <PhotoForm
+                        mode="edit"
+                        onSubmit={handleSubmit}
+                        initialData={imageData}
+                    />
                 )}
             </section>
         </Layout>

@@ -7,7 +7,7 @@ export default function CollectionForm({
     onSubmit,
 }) {
     const [selectedImages, setSelectedImages] = useState(
-        initialData?.images ?? []
+        initialData?.images ?? [],
     )
     const [form, setForm] = useState({
         name: initialData?.name ?? '',
@@ -132,20 +132,14 @@ export default function CollectionForm({
                                             setSelectedImages((prev) => {
                                                 if (
                                                     prev &&
-                                                    prev.includes(
-                                                        img.image_id,
-                                                    )
+                                                    prev.includes(img.image_id)
                                                 ) {
                                                     return prev.filter(
                                                         (id) =>
-                                                            id !==
-                                                            img.image_id,
+                                                            id !== img.image_id,
                                                     )
                                                 }
-                                                return [
-                                                    ...prev,
-                                                    img.image_id,
-                                                ]
+                                                return [...prev, img.image_id]
                                             })
                                         }
                                         className={
@@ -163,7 +157,6 @@ export default function CollectionForm({
                         </div>
                     </label>
                 </div>
-                
             )}
             <div>
                 <label className={styles.label} htmlFor="image">

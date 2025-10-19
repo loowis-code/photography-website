@@ -30,27 +30,25 @@ export default function EditCollections() {
                 <AdminNavbar />
                 <div className={styles.collectionsContainer}>
                     {collections.map((collection) => (
-                        <>
-                            <Link
-                                className={styles.collectionPreview}
-                                href={`/admin/edit/collection/${collection.collection_id}`}
-                                key={collection.collection_id}
-                            >
-                                <Image
-                                    src={collection.cover_url}
-                                    width={collection.width}
-                                    height={collection.height}
-                                    className={styles.image}
-                                />
-                                <div>
-                                    <h2 className={styles.previewTitle}>
-                                        {collection.collection_name}
-                                    </h2>
-                                    <h3 className={styles.previewDetail}>
-                                        {collection.collection_description}
-                                    </h3>
-                                </div>
-                            </Link>
+                        <Link
+                            className={styles.collectionPreview}
+                            href={`/admin/edit/collection/${collection.collection_id}`}
+                            key={collection.collection_id}
+                        >
+                            <Image
+                                src={collection.cover_url}
+                                width={collection.width}
+                                height={collection.height}
+                                className={styles.image}
+                            />
+                            <div>
+                                <h2 className={styles.previewTitle}>
+                                    {collection.collection_name}
+                                </h2>
+                                <h3 className={styles.previewDetail}>
+                                    {collection.collection_description}
+                                </h3>
+                            </div>
                             <Button
                                 clickHandler={async () => {
                                     const res = await fetch(
@@ -72,7 +70,7 @@ export default function EditCollections() {
                                 }}
                                 buttonText="Delete Collection"
                             />
-                        </>
+                        </Link>
                     ))}
                 </div>
             </section>

@@ -16,10 +16,7 @@ export const authOptions = {
             if (user.email && user.email == process.env.ADMIN_EMAIL) {
                 return true
             } else {
-                // Return false to display a default error message
                 return false
-                // Or you can return a URL to redirect to:
-                // return '/unauthorized'
             }
         },
     },

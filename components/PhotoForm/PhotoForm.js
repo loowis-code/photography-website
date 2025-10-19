@@ -92,6 +92,7 @@ export default function PhotoForm({
             camera: form.camera,
             gps_lat: clickLocation.lat,
             gps_long: clickLocation.lng,
+            url: imageUrl,
         }
         if (form.file) {
             const reader = new window.FileReader()

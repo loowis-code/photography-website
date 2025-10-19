@@ -10,7 +10,7 @@ export default function EditImage() {
     const [id, setId] = useState(null)
     const router = useRouter()
 
-    const getImageData = async (id) => {
+    const getImageData = async () => {
         const res = await fetch(`/api/admin/read/image/${id}`)
         const data = await res.json()
         setImageData(data)
@@ -24,6 +24,7 @@ export default function EditImage() {
         })
         await res.json()
         alert('Image updated successfully!')
+        getImageData
     }
 
     useEffect(() => {
@@ -34,7 +35,7 @@ export default function EditImage() {
 
     useEffect(() => {
         if (id) {
-            getImageData(id)
+            getImageData()
         }
     }, [id])
 

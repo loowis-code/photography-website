@@ -28,9 +28,9 @@ export default async function createImage(req, res) {
 
     const newPhoto = await sql`
         INSERT INTO images 
-        (url, title, width, height, description, alt_text, date_taken, location, featured, digital, visible, latitude, longitude) 
+        (url, title, width, height, description, alt_text, date_taken, location, featured, digital, visible, latitude, longitude, camera, film) 
         VALUES 
-        (${blob.url}, ${photo_data.title}, ${photo_data.width}, ${photo_data.height}, ${photo_data.description}, ${photo_data.alt_text}, ${photo_data.date}, ${photo_data.location}, ${photo_data.featured}, ${photo_data.digital}, ${photo_data.visible}, ${photo_data.gps_lat}, ${photo_data.gps_long})
+        (${blob.url}, ${photo_data.title}, ${photo_data.width}, ${photo_data.height}, ${photo_data.description}, ${photo_data.alt_text}, ${photo_data.date}, ${photo_data.location}, ${photo_data.featured}, ${photo_data.digital}, ${photo_data.visible}, ${photo_data.gps_lat}, ${photo_data.gps_long}, ${photo_data.camera}, ${photo_data.film})
         RETURNING *;
     `
     res.json(newPhoto)
@@ -39,7 +39,7 @@ export default async function createImage(req, res) {
 export const config = {
     api: {
         bodyParser: {
-            sizeLimit: '3mb', // Set desired value here
+            sizeLimit: '10mb', // Set desired value here
         },
     },
 }

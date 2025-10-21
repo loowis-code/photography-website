@@ -40,6 +40,7 @@ export default async function createImage(req, res) {
             location = ${photo_data.location},
             featured = ${photo_data.featured},
             camera = ${photo_data.camera},
+            film = ${photo_data.film},
             digital = ${photo_data.digital},
             visible = ${photo_data.visible},
             latitude = ${photo_data.gps_lat},
@@ -59,6 +60,7 @@ export default async function createImage(req, res) {
             location = ${photo_data.location},
             featured = ${photo_data.featured},
             camera = ${photo_data.camera},
+            film = ${photo_data.film},
             digital = ${photo_data.digital},
             visible = ${photo_data.visible},
             latitude = ${photo_data.gps_lat},
@@ -73,7 +75,7 @@ export default async function createImage(req, res) {
 export const config = {
     api: {
         bodyParser: {
-            sizeLimit: '3mb', // Set desired value here
+            sizeLimit: '10mb', // Set desired value here
         },
     },
 }

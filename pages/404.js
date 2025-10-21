@@ -27,7 +27,7 @@ function Custom404() {
             <section className={styles.container}>
                 <h1 className={styles.heading}>This page does not exist :/</h1>
                 <div className={styles.photoContainer}>
-                    {photo && photo.url && (
+                    {photo.url && (
                         <img
                             src={photo.url}
                             alt={photo.title || 'Random Photo'}

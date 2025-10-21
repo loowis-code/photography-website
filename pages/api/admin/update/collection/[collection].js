@@ -84,7 +84,7 @@ export default async function updateCollection(req, res) {
 export const config = {
     api: {
         bodyParser: {
-            sizeLimit: '3mb', // Set desired value here
+            sizeLimit: '10mb', // Set desired value here
         },
     },
 }

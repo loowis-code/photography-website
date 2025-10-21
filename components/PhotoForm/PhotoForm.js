@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import styles from './PhotoForm.module.css'
+import { Router } from 'next/router'
 
 export default function PhotoForm({
     mode = 'create',
@@ -17,6 +18,7 @@ export default function PhotoForm({
         featured: initialData?.featured ?? false,
         digital: initialData?.digital ?? true,
         camera: initialData?.camera ?? null,
+        film: initialData?.film ?? null,
     })
     const [mapData, setMapData] = useState({
         lat: initialData?.gps_lat ?? null,
@@ -28,19 +30,27 @@ export default function PhotoForm({
     })
     const [imageUrl, setImageUrl] = useState(initialData?.url ?? null)
     const [cameras, setCameras] = useState([
-        { camera_id: null, brand: 'None', model: '' },
+        { camera_id: null, brand: '', model: '' },
     ])
+    const [films, setFilms] = useState([{ film_id: null, brand: '', type: '' }])
 
     const getCameraData = async () => {
         const res = await fetch('/api/admin/read/cameras')
         const cameraData = await res.json()
         setCameras(
-            [{ camera_id: null, brand: 'None', model: '' }].concat(cameraData),
+            [{ camera_id: null, brand: '', model: '' }].concat(cameraData),
         )
+    }
+
+    const getFilmData = async () => {
+        const res = await fetch('/api/admin/read/films')
+        const filmData = await res.json()
+        setFilms([{ film_id: null, brand: '', name: '' }].concat(filmData))
     }
 
     useEffect(() => {
         getCameraData()
+        getFilmData()
     }, [])
 
     useEffect(() => {
@@ -56,6 +66,7 @@ export default function PhotoForm({
             featured: initialData.featured ?? false,
             digital: initialData.digital ?? true,
             camera: initialData.camera ?? null,
+            film: initialData.film ?? null,
         })
         setMapData({
             lat: initialData.latitude ?? null,
@@ -69,6 +80,7 @@ export default function PhotoForm({
         if (name === 'image') {
             setForm({ ...form, file: files[0] })
         } else {
+            console.log(name, value)
             setForm({ ...form, [name]: value })
         }
     }
@@ -80,6 +92,7 @@ export default function PhotoForm({
 
     const handleFormSubmit = async (e) => {
         e.preventDefault()
+        console.log('Submitting form with data:', clickLocation)
         const data = {
             title: form.title,
             description: form.description,
@@ -90,8 +103,9 @@ export default function PhotoForm({
             digital: form.digital,
             visible: form.visible,
             camera: form.camera,
-            gps_lat: clickLocation.lat,
-            gps_long: clickLocation.lng,
+            film: form.film,
+            gps_lat: clickLocation.lat ?? mapData.lat,
+            gps_long: clickLocation.lng ?? mapData.lng,
             url: imageUrl,
         }
         if (form.file) {
@@ -119,21 +133,7 @@ export default function PhotoForm({
             await onSubmit(data)
         }
         if (mode === 'create') {
-            setForm({
-                title: '',
-                description: '',
-                file: null,
-                alt_text: '',
-                date_taken: '',
-                location: '',
-                visible: true,
-                featured: false,
-                digital: true,
-                camera: null,
-            })
-            setMapData({ lat: null, lng: null })
-            setImageUrl(null)
-            e.target.reset()
+            Router.push('/admin')
         }
     }
 
@@ -273,17 +273,28 @@ export default function PhotoForm({
                     onChange={handleChange}
                     className={styles.input}
                 >
-                    {(cameras.length
-                        ? cameras
-                        : [{ camera_id: null, brand: 'None', model: '' }]
-                    ).map((camera) => (
-                        <option
-                            key={
-                                camera.camera_id || camera.brand + camera.model
-                            }
-                            value={camera.camera_id}
-                        >
+                    {cameras.map((camera) => (
+                        <option key={camera.camera_id} value={camera.camera_id}>
                             {camera.brand + ' ' + camera.model}
+                        </option>
+                    ))}
+                </select>
+            </div>
+            <div>
+                <label className={styles.label} htmlFor="film">
+                    Film:
+                </label>
+                <select
+                    id="film"
+                    name="film"
+                    aria-label="Select film"
+                    value={form.film}
+                    onChange={handleChange}
+                    className={styles.input}
+                >
+                    {films.map((film) => (
+                        <option key={film.film_id} value={film.film_id}>
+                            {film.brand + ' ' + film.name}
                         </option>
                     ))}
                 </select>

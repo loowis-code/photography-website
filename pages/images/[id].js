@@ -1,23 +1,34 @@
 import Layout from '../../components/Layout'
 import PhotoBody from '../../components/ImagePage'
 import Head from 'next/head'
-import prisma from '../../prisma/prisma'
+import { neon } from '@neondatabase/serverless'
 import styles from '../css-modules/image.module.css'
 
 export async function getStaticProps(context) {
-    const res = await prisma.images.findUnique({
-        where: { id: context.params.id },
+    const sql = neon(process.env.LOOWIS_DATABASE_URL)
+    const image =
+        await sql`SELECT image_id, url, width, height, title, description, alt_text, date_taken, location, visible, featured, digital, latitude, longitude, film, camera FROM images WHERE image_id = ${context.params.id}`
+    const cameras = await sql`SELECT * FROM cameras`
+    const films = await sql`SELECT * FROM films`
+    image.forEach((img) => {
+        const camera = cameras.find((camera) => camera.camera_id === img.camera)
+        const film = films.find((film) => film.film_id === img.film)
+        img.camera = camera ? `${camera.brand + ' ' + camera.model}` : null
+        img.film = film ? `${film.brand + ' ' + film.name}` : null
     })
+
+
     return {
-        props: { data: JSON.parse(JSON.stringify(res)) },
+        props: { data: image[0] },
     }
 }
 
 export async function getStaticPaths() {
-    const res = await prisma.images.findMany()
-    const paths = res.map((d) => {
+    const sql = neon(process.env.LOOWIS_DATABASE_URL)
+    const response = await sql`SELECT * FROM images`
+    const paths = response.map((d) => {
         return {
-            params: { id: d.id.toString() },
+            params: { id: d.image_id.toString() },
         }
     })
     return {
@@ -31,11 +42,10 @@ function Photo({ data }) {
         <Layout>
             <Head>
                 <title>{`${data.title} | Loowis Photography`}</title>
-                {/* <link rel="icon" href="favicon/favicon.ico" sizes="any" /> */}
             </Head>
 
             <section className={styles.imagecontainer}>
-                <PhotoBody data={data} key={data.id} />
+                <PhotoBody data={data} key={data.image_id} />
             </section>
         </Layout>
     )

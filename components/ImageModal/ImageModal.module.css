@@ -63,12 +63,11 @@
     border: 0.25rem solid black;
     border-radius: 0.5%;
     box-shadow: 0.25rem 0.25rem black;
-    width: fit-content;
-    height: fit-content;
-    max-height: 90vh;
     z-index: 999999;
     opacity: 0;
     animation: fadeIn 0.5s forwards;
+    max-height: 90vh;
+    max-width: 75vw;
 }
 
 @keyframes fadeIn {
@@ -112,15 +111,10 @@
     color: #f8f8f8;
 }
 
-.modalImageLink {
-    max-height: 70vh;
-    width: fit-content;
-}
-
 .modalImage {
-    object-fit: contain;
-    height: 100%;
-    width: auto;
+    border: black 0.25rem solid;
+    width: 100%;
+    max-height: 70vh;
 }
 
 .imageDetails {

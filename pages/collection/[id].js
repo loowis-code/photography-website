@@ -1,39 +1,56 @@
 import Layout from '../../components/Layout'
 import styles from '../css-modules/all-images.module.css'
-import prisma from '../../prisma/prisma'
+import { neon } from '@neondatabase/serverless'
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import ImageModal from '../../components/ImageModal'
 import SortingButtons from '../../components/SortingButtons'
 
 export async function getStaticProps(context) {
-    const images_in_collection =
-        await prisma.collections_images_lookup.findMany({
-            where: { collectionsId: context.params.id },
-        })
-    const collection_data = await prisma.collections.findUnique({
-        where: { id: context.params.id },
+    const sql = neon(process.env.LOOWIS_DATABASE_URL)
+    const collection =
+        await sql`SELECT * FROM collections WHERE collection_id = ${context.params.id}`
+
+    const imagesInCollection =
+        await sql`SELECT * FROM collections_lookup WHERE collection = ${context.params.id}`
+    const imageData =
+        await sql`SELECT image_id, url, width, height, title, description, alt_text, date_taken, location, visible, featured, digital, latitude, longitude, film, camera FROM images`
+    const cameras = await sql`SELECT * FROM cameras`
+    const films = await sql`SELECT * FROM films`
+
+    const imagesWithData = imagesInCollection.map((img) => {
+        const imageDetails = imageData.find(
+            (image) => image.image_id === img.image,
+        )
+        if (imageDetails) {
+            const camera = cameras.find(
+                (camera) => camera.camera_id === imageDetails.camera,
+            )
+            const film = films.find(
+                (film) => film.film_id === imageDetails.film,
+            )
+            imageDetails.camera = camera
+                ? `${camera.brand + ' ' + camera.model}`
+                : null
+            imageDetails.film = film ? `${film.brand + ' ' + film.name}` : null
+            return { ...img, ...imageDetails }
+        }
+        return img
     })
-    const res = []
-    for (const image of images_in_collection) {
-        const image_data = await prisma.images.findUnique({
-            where: { id: image.imagesId },
-        })
-        res.push(image_data)
-    }
     return {
         props: {
-            images_data: JSON.parse(JSON.stringify(res)),
-            collection_data: JSON.parse(JSON.stringify(collection_data)),
+            images_data: imagesWithData,
+            collection_data: collection[0],
         },
     }
 }
 
 export async function getStaticPaths() {
-    const res = await prisma.collections.findMany()
-    const paths = res.map((d) => {
+    const sql = neon(process.env.LOOWIS_DATABASE_URL)
+    const response = await sql`SELECT * FROM collections`
+    const paths = response.map((d) => {
         return {
-            params: { id: d.id.toString() },
+            params: { id: d.collection_id.toString() },
         }
     })
     return {
@@ -45,11 +62,10 @@ export async function getStaticPaths() {
 function Collection({ images_data, collection_data }) {
     const [photos, setPhotos] = useState([])
     const [filteredPhotos, setFilteredPhotos] = useState([])
-    // const [sortKey, setSortKey] = useState(0)
 
     function filterHidden(images_data) {
         const hiddenPhotos = images_data.filter((photo) => {
-            return photo.hidden === false
+            return photo.visible === true
         })
         setPhotos(hiddenPhotos)
         setFilteredPhotos(hiddenPhotos)
@@ -69,12 +85,15 @@ function Collection({ images_data, collection_data }) {
                 <SortingButtons
                     photos={photos}
                     setPhotos={setFilteredPhotos}
-                    // setKey={setSortKey}
                     page="Collections"
                 />
                 <div className={styles.grid}>
                     {filteredPhotos?.map((d) => (
-                        <ImageModal data={d} key={d.id} page="Collections" />
+                        <ImageModal
+                            data={d}
+                            key={d.image_id}
+                            page="Collections"
+                        />
                     ))}
                 </div>
             </section>

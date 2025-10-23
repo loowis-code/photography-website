@@ -20,16 +20,14 @@ export default function ModalContent({ onClose, data }) {
                 </div>
 
                 <a
-                    href={`/images/${data.id}`}
+                    href={`/images/${data.image_id}`}
                     className={styles.modalImageLink}
                 >
                     <Image
-                        src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
+                        src={data.url}
                         alt={data.alt_text}
-                        width="1386"
-                        height="919"
-                        quality={100}
-                        sizes="33vw"
+                        width={data.width}
+                        height={data.height}
                         className={styles.modalImage}
                     />
                 </a>
@@ -39,13 +37,16 @@ export default function ModalContent({ onClose, data }) {
                         <p> Camera: {data.camera}</p>
                     ) : null}
                     {data.film != 'null' ? <p>Film: {data.film}</p> : null}
-                    {data.date ? (
+                    {data.date_taken ? (
                         <p>
-                            {new Date(data.date).toLocaleDateString('en-GB', {
-                                year: 'numeric',
-                                month: 'short',
-                                day: 'numeric',
-                            })}
+                            {new Date(data.date_taken).toLocaleDateString(
+                                'en-GB',
+                                {
+                                    year: 'numeric',
+                                    month: 'short',
+                                    day: 'numeric',
+                                },
+                            )}
                         </p>
                     ) : null}
                 </div>

@@ -33,12 +33,12 @@ export default function ImageModal({ data }) {
 
     return (
         <article className={styles.imageContainer}>
-            <a className={styles.mobileLink} href={`/images/${data.id}`}>
+            <a className={styles.mobileLink} href={`/images/${data.image_id}`}>
                 <Image
-                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
+                    src={data.url}
                     alt={data.alt_text}
-                    width="0"
-                    height="0"
+                    width={data.width}
+                    height={data.height}
                     sizes="90vw"
                     className={styles.image}
                 />
@@ -49,10 +49,10 @@ export default function ImageModal({ data }) {
                 onClick={() => setModalOpen(true)}
             >
                 <Image
-                    src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
+                    src={data.url}
                     alt={data.alt_text}
-                    width="0"
-                    height="0"
+                    width={data.width}
+                    height={data.height}
                     sizes="25vw"
                     quality={100}
                     className={styles.image}

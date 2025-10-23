@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from 'loowis-component-library'
 
 export default function EditCollections() {
     const [collections, setCollections] = useState([])

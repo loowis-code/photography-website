@@ -43,7 +43,7 @@ function Search() {
                     {!loading &&
                         searchResults.length > 0 &&
                         searchResults.map((d) => (
-                            <ImageModal data={d} key={d.id} page="All" />
+                            <ImageModal data={d} key={d.image_id} page="All" />
                         ))}
                 </div>
             </section>

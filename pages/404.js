@@ -2,6 +2,7 @@ import Layout from '../components/Layout'
 import styles from './css-modules/four-oh-four.module.css'
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 function Custom404() {
     const [photo, setPhoto] = useState([])
@@ -28,10 +29,19 @@ function Custom404() {
                 <h1 className={styles.heading}>This page does not exist :/</h1>
                 <div className={styles.photoContainer}>
                     {photo.url && (
-                        <img
+                        <Image
+                            title={photo.title}
+                            className={styles.image}
                             src={photo.url}
-                            alt={photo.title || 'Random Photo'}
-                            className={styles.photo}
+                            alt={photo.alt_text}
+                            width={photo.width}
+                            height={photo.height}
+                            sizes="25vw"
+                            quality={100}
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                            }}
                         />
                     )}
                 </div>

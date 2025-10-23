@@ -1,11 +1,11 @@
-import { SortBy } from './SortBy';
+import { SortBy } from './SortBy'
 
 export function FilterBy(activeTags, photos, setPhotos) {
     var filteredPhotos = []
 
     if (activeTags.digital && activeTags.film) {
-        SortBy(activeTags.sort, photos, setPhotos);
-        return;
+        SortBy(activeTags.sort, photos, setPhotos)
+        return
     }
     if (activeTags.digital) {
         filteredPhotos = photos.filter((photo) => {
@@ -17,5 +17,5 @@ export function FilterBy(activeTags, photos, setPhotos) {
             return photo.digital === false
         })
     }
-    SortBy(activeTags.sort, filteredPhotos, setPhotos);
+    SortBy(activeTags.sort, filteredPhotos, setPhotos)
 }

@@ -4,13 +4,30 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import ImageModal from '../components/ImageModal'
 import SortingButtons from '../components/SortingButtons'
-import prisma from '../prisma/prisma'
+import { neon } from '@neondatabase/serverless'
 import Pagination from '../components/Pagination/Pagination'
 
 export async function getStaticProps() {
-    const res = await prisma.images.findMany()
+    const sql = neon(process.env.DATABASE_URL)
+    const images =
+        await sql`SELECT image_id, url, width, height, title, description, alt_text, date_taken, location, visible, featured, digital, latitude, longitude, film, camera FROM images`
+    let filteredImages = images.filter((image) => image.url !== null)
+    filteredImages = filteredImages.filter((image) => image.visible === true)
+    const cameras = await sql`SELECT * FROM cameras`
+    const films = await sql`SELECT * FROM films`
+    filteredImages.forEach((image) => {
+        const camera = cameras.find(
+            (camera) => camera.camera_id === image.camera,
+        )
+        const film = films.find((film) => film.film_id === image.film)
+        image.camera = camera ? `${camera.brand + ' ' + camera.model}` : null
+        image.film = film ? `${film.brand + ' ' + film.name}` : null
+    })
+
     return {
-        props: { data: JSON.parse(JSON.stringify(res)) },
+        props: {
+            data: filteredImages,
+        },
     }
 }
 
@@ -23,25 +40,24 @@ function AllImages({ data }) {
     const maxPage = Math.ceil(filteredPhotos.length / photosPerPage)
 
     const paginatePhotos = (photos, page) => {
-
         const startIndex = (page - 1) * photosPerPage
         const endIndex = startIndex + photosPerPage
         return photos.slice(startIndex, endIndex)
     }
     useEffect(() => {
-        let validPage = currentPage;
+        let validPage = currentPage
         if (currentPage < 1) {
-            validPage = 1;
+            validPage = 1
         } else if (currentPage > maxPage) {
-            validPage = maxPage;
+            validPage = maxPage
         }
         if (validPage !== currentPage) {
-            setCurrentPage(validPage);
-            return;
+            setCurrentPage(validPage)
+            return
         }
-        setCurrentPhotos(paginatePhotos(filteredPhotos, validPage));
-        setDisplayPage(validPage);
-    }, [currentPage, filteredPhotos, maxPage]);
+        setCurrentPhotos(paginatePhotos(filteredPhotos, validPage))
+        setDisplayPage(validPage)
+    }, [currentPage, filteredPhotos, maxPage])
 
     return (
         <Layout>
@@ -50,19 +66,19 @@ function AllImages({ data }) {
             </Head>
             <section className={styles.container}>
                 <h1 className={styles.header}>All Images</h1>
-                <SortingButtons
-                    photos={data}
-                    setPhotos={setFilteredPhotos}
-                />
+                <SortingButtons photos={data} setPhotos={setFilteredPhotos} />
 
                 <div className={styles.grid}>
                     {currentPhotos.map((d) => (
-                        <ImageModal data={d} key={d.id} page="All" />
+                        <ImageModal data={d} key={d.image_id} page="All" />
                     ))}
                 </div>
 
-                <Pagination setCurrentPage={setCurrentPage} displayPage={displayPage} maxPage={maxPage}/>
-
+                <Pagination
+                    setCurrentPage={setCurrentPage}
+                    displayPage={displayPage}
+                    maxPage={maxPage}
+                />
             </section>
         </Layout>
     )

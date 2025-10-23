@@ -1,22 +1,22 @@
-import { defineConfig } from "eslint/config";
-import css from "@eslint/css";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
-import react from "eslint-plugin-react";
+import { defineConfig } from 'eslint/config'
+import css from '@eslint/css'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import js from '@eslint/js'
+import { FlatCompat } from '@eslint/eslintrc'
+import react from 'eslint-plugin-react'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({
     baseDirectory: __dirname,
     recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
-});
+    allConfig: js.configs.all,
+})
 
 export default defineConfig([
     {
-        files: ["**/*.{js,jsx,ts,tsx}"], // Only JS/TS files
+        files: ['**/*.{js,jsx,ts,tsx}'], // Only JS/TS files
         plugins: { react },
         languageOptions: {
             parserOptions: {
@@ -28,21 +28,26 @@ export default defineConfig([
         },
     },
     {
-        extends: compat.extends("plugin:@next/next/recommended", "prettier", "next/core-web-vitals", "eslint:recommended"),
-        files: ["**/*.{js,jsx,ts,tsx}"], // Only JS/TS files
+        extends: compat.extends(
+            'plugin:@next/next/recommended',
+            'prettier',
+            'next/core-web-vitals',
+            'eslint:recommended',
+        ),
+        files: ['**/*.{js,jsx,ts,tsx}'], // Only JS/TS files
         languageOptions: {
             globals: {
-                JSX: "readonly",
+                JSX: 'readonly',
             },
         },
         rules: {
-            "no-undef": "off",
+            'no-undef': 'off',
         },
     },
     {
-        files: ["**/*.css"], // Only CSS files
-        language: "css/css",
+        files: ['**/*.css'], // Only CSS files
+        language: 'css/css',
         plugins: { css },
-        extends: ["css/recommended"]
+        extends: ['css/recommended'],
     },
-]);
+])

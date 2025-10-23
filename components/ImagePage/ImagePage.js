@@ -5,13 +5,14 @@ export default function ImagePage({ data }) {
     return (
         <div className={styles.imagecontainer}>
             <Image
-                src={`https://photography-website.s3.eu-west-2.amazonaws.com/images/${data.url}`}
-                alt={data.alt_text}
                 title={data.title}
                 className={styles.image}
-                width="1386"
-                height="919"
-                sizes="50vw"
+                src={data.url}
+                alt={data.alt_text}
+                width={data.width}
+                height={data.height}
+                sizes="25vw"
+                quality={100}
                 style={{
                     width: '100%',
                     height: 'auto',
@@ -27,9 +28,9 @@ export default function ImagePage({ data }) {
                 ) : data.location ? (
                     <p className={styles.imageHeader}>{data.location}</p>
                 ) : null}
-                {data.date ? (
+                {data.date_taken ? (
                     <p className={styles.imageDate}>
-                        {new Date(data.date).toLocaleDateString('en-GB', {
+                        {new Date(data.date_taken).toLocaleDateString('en-GB', {
                             year: 'numeric',
                             month: 'short',
                             day: 'numeric',
@@ -41,9 +42,6 @@ export default function ImagePage({ data }) {
                 ) : null}
                 {data.film != 'null' ? (
                     <p className={styles.imageDetail}>Film: {data.film}</p>
-                ) : null}
-                {data.author != 'Lewis Inches' ? (
-                    <p className={styles.imageDetail}>Author: {data.author}</p>
                 ) : null}
             </div>
         </div>

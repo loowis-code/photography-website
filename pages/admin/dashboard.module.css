@@ -1,0 +1,59 @@
+.container {
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    border: black 0.25rem solid;
+    border-top: none;
+}
+
+.imagesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+    justify-items: center;
+    padding: 2rem 0;
+}
+
+.imagePreview {
+    display: flex;
+    text-decoration: none;
+    color: black;
+}
+
+.image {
+    width: 15rem;
+    height: 10rem;
+    object-fit: cover;
+    border: black 0.25rem solid;
+    box-shadow: 0.25rem 0.25rem black;
+    margin: 0 1rem;
+}
+
+.previewTitle {
+    margin: 0.25rem 0;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: black;
+}
+
+.previewDetail {
+    margin: 0.25rem 0;
+    font-weight: normal;
+    font-size: 1rem;
+    color: gray;
+}
+
+.deleteButton {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1320px) {
+    .container {
+        width: 100%;
+    }
+}

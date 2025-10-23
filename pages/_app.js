@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import 'loowis-component-library/dist/index.css';
+import 'loowis-component-library/dist/index.css'
 import { SessionProvider } from 'next-auth/react'
 
 function MyApp({ Component, pageProps }) {

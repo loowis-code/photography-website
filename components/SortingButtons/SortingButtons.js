@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 export default function SortingButtons({ photos, setPhotos, page }) {
     const FilterType = {
-        FILM : 'film',
+        FILM: 'film',
         DIGITAL: 'digital',
     }
 
@@ -15,7 +15,11 @@ export default function SortingButtons({ photos, setPhotos, page }) {
         ZTA: 'ZTA', // Z - A
     }
 
-    const [activeTags, setActiveTags] = useState({sort: SortType.NTO, [FilterType.FILM]: true, [FilterType.DIGITAL]: true})
+    const [activeTags, setActiveTags] = useState({
+        sort: SortType.NTO,
+        [FilterType.FILM]: true,
+        [FilterType.DIGITAL]: true,
+    })
 
     function callFilterBy(value, checked) {
         setActiveTags({ ...activeTags, [value]: checked })
@@ -23,8 +27,7 @@ export default function SortingButtons({ photos, setPhotos, page }) {
 
     useEffect(() => {
         FilterBy(activeTags, photos, setPhotos)
-    }, [activeTags, photos, setPhotos]);
-
+    }, [activeTags, photos, setPhotos])
 
     return (
         <div className={styles.sortingButtons}>
@@ -33,7 +36,9 @@ export default function SortingButtons({ photos, setPhotos, page }) {
                 className={
                     page === 'Collections' ? styles.collButton : styles.button
                 }
-                onClick={() => setActiveTags({ ...activeTags, sort: SortType.OTN })}
+                onClick={() =>
+                    setActiveTags({ ...activeTags, sort: SortType.OTN })
+                }
             >
                 Oldest to Newest
             </button>
@@ -42,7 +47,9 @@ export default function SortingButtons({ photos, setPhotos, page }) {
                 className={
                     page === 'Collections' ? styles.collButton : styles.button
                 }
-                onClick={() => setActiveTags({ ...activeTags, sort: SortType.NTO })}
+                onClick={() =>
+                    setActiveTags({ ...activeTags, sort: SortType.NTO })
+                }
             >
                 Newest to Oldest
             </button>
@@ -51,7 +58,9 @@ export default function SortingButtons({ photos, setPhotos, page }) {
                 className={
                     page === 'Collections' ? styles.collButton : styles.button
                 }
-                onClick={() => setActiveTags({ ...activeTags, sort: SortType.ATZ })}
+                onClick={() =>
+                    setActiveTags({ ...activeTags, sort: SortType.ATZ })
+                }
             >
                 A - Z
             </button>
@@ -60,7 +69,9 @@ export default function SortingButtons({ photos, setPhotos, page }) {
                 className={
                     page === 'Collections' ? styles.collButton : styles.button
                 }
-                onClick={() => setActiveTags({ ...activeTags, sort: SortType.ZTA })}
+                onClick={() =>
+                    setActiveTags({ ...activeTags, sort: SortType.ZTA })
+                }
             >
                 Z - A
             </button>
@@ -76,7 +87,9 @@ export default function SortingButtons({ photos, setPhotos, page }) {
                         type="checkbox"
                         id="film"
                         defaultChecked
-                        onClick={(e) => callFilterBy(e.target.id, e.target.checked)}
+                        onClick={(e) =>
+                            callFilterBy(e.target.id, e.target.checked)
+                        }
                     ></input>
                     <label htmlFor="film">Show Film Photos</label>
                 </div>
@@ -92,12 +105,13 @@ export default function SortingButtons({ photos, setPhotos, page }) {
                         type="checkbox"
                         id="digital"
                         defaultChecked
-                        onClick={(e) => callFilterBy(e.target.id, e.target.checked)}
+                        onClick={(e) =>
+                            callFilterBy(e.target.id, e.target.checked)
+                        }
                     ></input>
                     <label htmlFor="digital">Show Digital Photos</label>
                 </div>
             </div>
-
         </div>
     )
 }

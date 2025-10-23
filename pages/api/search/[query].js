@@ -1,18 +1,17 @@
-import prisma from '../../../prisma/prisma'
+import { neon } from '@neondatabase/serverless'
 
 export default async function getSearchResults(req, res) {
     const query = req.query.query
-    const results = await prisma.images.findMany({
-        where: {
-            OR: [
-                { title: { contains: query, mode: 'insensitive' } },
-                { location: { contains: query, mode: 'insensitive' } },
-                { camera: { contains: query, mode: 'insensitive' } },
-                { film: { contains: query, mode: 'insensitive' } },
-            ],
-        },
-    })
+    // strip query of any special characters to prevent SQL injection
+    const safeQuery = query.replace(/[^a-zA-Z0-9 ]/g, '')
+    const sql = neon(process.env.DATABASE_URL)
 
+    const results = await sql`
+        SELECT * FROM images
+        WHERE title ILIKE ${'%' + safeQuery + '%'}
+        OR description ILIKE ${'%' + safeQuery + '%'}
+        OR location ILIKE ${'%' + safeQuery + '%'}
+    `
     if (results.length === 0) {
         res.json({ error: 'No results found' })
     } else {

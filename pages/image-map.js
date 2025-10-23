@@ -2,10 +2,35 @@ import Layout from '../components/Layout'
 import styles from './css-modules/image-map.module.css'
 import { useEffect } from 'react'
 import Head from 'next/head'
+import { neon } from '@neondatabase/serverless'
 
-function ImageMap() {
-    function initaliseMap(trimmedPhotoData) {
-        var map;
+export async function getStaticProps() {
+    const sql = neon(process.env.DATABASE_URL)
+    const images =
+        await sql`SELECT image_id, url, width, height, title, description, alt_text, date_taken, location, visible, featured, digital, latitude, longitude, film, camera FROM images`
+    let filteredImages = images.filter((image) => image.url !== null)
+    filteredImages = filteredImages.filter((image) => image.visible === true)
+    const cameras = await sql`SELECT * FROM cameras`
+    const films = await sql`SELECT * FROM films`
+    filteredImages.forEach((image) => {
+        const camera = cameras.find(
+            (camera) => camera.camera_id === image.camera,
+        )
+        const film = films.find((film) => film.film_id === image.film)
+        image.camera = camera ? `${camera.brand + ' ' + camera.model}` : null
+        image.film = film ? `${film.brand + ' ' + film.name}` : null
+    })
+
+    return {
+        props: {
+            data: filteredImages,
+        },
+    }
+}
+
+function ImageMap({ data }) {
+    function initaliseMap() {
+        var map
         if (window.innerWidth < 600) {
             map = L.map('map').setView([54.12, 4.97], 4)
         } else {
@@ -15,46 +40,40 @@ function ImageMap() {
             attribution: '© OpenStreetMap',
         }).addTo(map)
 
-        for (var i = 0; i < trimmedPhotoData.length; i++) {
+        for (var i = 0; i < data.length; i++) {
             if (
-                trimmedPhotoData[i].lat != undefined &&
-                trimmedPhotoData[i].long != undefined
+                data[i].latitude != undefined &&
+                data[i].longitude != undefined
             ) {
                 var marker = L.marker([
-                    trimmedPhotoData[i].lat,
-                    trimmedPhotoData[i].long,
+                    data[i].latitude,
+                    data[i].longitude,
                 ]).addTo(map)
                 marker.bindPopup(
                     '<a href=/images/' +
-                        trimmedPhotoData[i].id +
+                        data[i].image_id +
                         '>' +
-                        trimmedPhotoData[i].title +
+                        data[i].title +
                         '</a>',
                 )
             }
         }
     }
 
-    async function getAllPhotos() {
-        const req = await fetch('/api/management/read/photos')
-        const photoData = await req.json()
-
-        var trimmedPhotoData = []
-        for (var i = 0; i < photoData.length; i++) {
-            if (photoData[i].gps_lat != null && photoData[i].hidden === false) {
-                trimmedPhotoData.push({
-                    lat: photoData[i].gps_lat,
-                    long: photoData[i].gps_long,
-                    title: photoData[i].title,
-                    id: photoData[i].id,
-                })
+    useEffect(() => {
+        function tryInitMap() {
+            if (
+                typeof window !== 'undefined' &&
+                window.L !== undefined &&
+                document.getElementById('map') &&
+                !window._imageMapInitialized
+            ) {
+                initaliseMap()
+                window._imageMapInitialized = true
             }
         }
-        initaliseMap(trimmedPhotoData)
-    }
-
-    useEffect(() => {
-        getAllPhotos()
+        const timeout = setTimeout(tryInitMap, 100)
+        return () => clearTimeout(timeout)
     }, [])
 
     return (

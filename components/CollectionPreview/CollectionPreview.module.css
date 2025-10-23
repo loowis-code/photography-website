@@ -16,7 +16,7 @@
 
 .collectionpreview > img {
     border: #000 0.25rem solid;
-    box-shadow: .25rem .25rem #000;
+    box-shadow: 0.25rem 0.25rem #000;
     transition: 0.3s;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .collectionpreview:hover > img {
-    box-shadow: .25rem .25rem #cc74b9;
+    box-shadow: 0.25rem 0.25rem #cc74b9;
 }
 
 .title {

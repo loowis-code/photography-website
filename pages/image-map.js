@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { neon } from '@neondatabase/serverless'
 
 export async function getStaticProps() {
-    const sql = neon(process.env.LOOWIS_DATABASE_URL)
+    const sql = neon(process.env.DATABASE_URL)
     const images =
         await sql`SELECT image_id, url, width, height, title, description, alt_text, date_taken, location, visible, featured, digital, latitude, longitude, film, camera FROM images`
     let filteredImages = images.filter((image) => image.url !== null)

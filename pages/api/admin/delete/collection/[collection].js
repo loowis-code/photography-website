@@ -3,7 +3,7 @@ import { authOptions } from '../../../auth/[...nextauth]'
 import { neon } from '@neondatabase/serverless'
 import { del } from '@vercel/blob'
 
-const sql = neon(process.env.LOOWIS_DATABASE_URL)
+const sql = neon(process.env.DATABASE_URL)
 
 export default async function deleteCollection(req, res) {
     const session = await getServerSession(req, res, authOptions)

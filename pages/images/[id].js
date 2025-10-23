@@ -5,7 +5,7 @@ import { neon } from '@neondatabase/serverless'
 import styles from '../css-modules/image.module.css'
 
 export async function getStaticProps(context) {
-    const sql = neon(process.env.LOOWIS_DATABASE_URL)
+    const sql = neon(process.env.DATABASE_URL)
     const image =
         await sql`SELECT image_id, url, width, height, title, description, alt_text, date_taken, location, visible, featured, digital, latitude, longitude, film, camera FROM images WHERE image_id = ${context.params.id}`
     const cameras = await sql`SELECT * FROM cameras`
@@ -17,14 +17,13 @@ export async function getStaticProps(context) {
         img.film = film ? `${film.brand + ' ' + film.name}` : null
     })
 
-
     return {
         props: { data: image[0] },
     }
 }
 
 export async function getStaticPaths() {
-    const sql = neon(process.env.LOOWIS_DATABASE_URL)
+    const sql = neon(process.env.DATABASE_URL)
     const response = await sql`SELECT * FROM images`
     const paths = response.map((d) => {
         return {

@@ -7,7 +7,7 @@ import ImageModal from '../../components/ImageModal'
 import SortingButtons from '../../components/SortingButtons'
 
 export async function getStaticProps(context) {
-    const sql = neon(process.env.LOOWIS_DATABASE_URL)
+    const sql = neon(process.env.DATABASE_URL)
     const collection =
         await sql`SELECT * FROM collections WHERE collection_id = ${context.params.id}`
 
@@ -46,7 +46,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-    const sql = neon(process.env.LOOWIS_DATABASE_URL)
+    const sql = neon(process.env.DATABASE_URL)
     const response = await sql`SELECT * FROM collections`
     const paths = response.map((d) => {
         return {

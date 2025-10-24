@@ -13,7 +13,10 @@ function Dashboard() {
 
     const getImageData = async () => {
         const req = await fetch('/api/admin/read/images')
-        const imageData = await req.json()
+        var imageData = await req.json()
+        imageData.sort((a, b) => {
+            return new Date(b.created_at) - new Date(a.created_at)
+        })
         setImages(imageData)
     }
 

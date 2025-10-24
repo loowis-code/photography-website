@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import styles from './PhotoForm.module.css'
-import { Router } from 'next/router'
+import { useRouter } from 'next/router'
 
 export default function PhotoForm({
     mode = 'create',
     initialData = null,
     onSubmit,
 }) {
+    const router = useRouter();
     const [form, setForm] = useState({
         title: initialData?.title ?? '',
         description: initialData?.description ?? '',
@@ -133,7 +134,7 @@ export default function PhotoForm({
             await onSubmit(data)
         }
         if (mode === 'create') {
-            Router.push('/admin')
+            router.push('/admin')
         }
     }
 

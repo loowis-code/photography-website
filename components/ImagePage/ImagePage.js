@@ -11,8 +11,6 @@ export default function ImagePage({ data }) {
                 alt={data.alt_text}
                 width={data.width}
                 height={data.height}
-                sizes="25vw"
-                quality={100}
                 style={{
                     width: '100%',
                     height: 'auto',

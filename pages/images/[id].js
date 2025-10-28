@@ -41,6 +41,37 @@ function Photo({ data }) {
         <Layout>
             <Head>
                 <title>{`${data.title} | Loowis Photography`}</title>
+                <meta
+                    property="og:image"
+                    content={data.url}
+                />
+                <meta
+                    property="og:url"
+                    content='pictures.loowis.co.uk'
+                />
+                <meta property="og:title" content="Loowis Photography" />
+                <meta
+                    property="og:description"
+                    content="A photography portfolio website featuring images taken by Lewis Inches, mainly in Edinburgh using an Olympus OM40 and Canon EOS 550D."
+                />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta
+                    property="twitter:domain"
+                    content="lewisinches.pictures"
+                />
+                <meta
+                    property="twitter:url"
+                    content='pictures.loowis.co.uk'
+                />
+                <meta name="twitter:title" content="Loowis Photography" />
+                <meta
+                    name="twitter:description"
+                    content="A photography portfolio website featuring images taken by Lewis Inches, mainly in Edinburgh using an Olympus OM40 and Canon EOS 550D."
+                />
+                <meta
+                    name="twitter:image"
+                    content={data.url}
+                />
             </Head>
 
             <section className={styles.imagecontainer}>

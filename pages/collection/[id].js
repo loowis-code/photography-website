@@ -10,7 +10,6 @@ export async function getStaticProps(context) {
     const sql = neon(process.env.DATABASE_URL)
     const collection =
         await sql`SELECT * FROM collections WHERE collection_id = ${context.params.id}`
-
     const imagesInCollection =
         await sql`SELECT * FROM collections_lookup WHERE collection = ${context.params.id}`
     const imageData =
@@ -63,16 +62,9 @@ function Collection({ images_data, collection_data }) {
     const [photos, setPhotos] = useState([])
     const [filteredPhotos, setFilteredPhotos] = useState([])
 
-    function filterHidden(images_data) {
-        const hiddenPhotos = images_data.filter((photo) => {
-            return photo.visible === true
-        })
-        setPhotos(hiddenPhotos)
-        setFilteredPhotos(hiddenPhotos)
-    }
-
     useEffect(() => {
-        filterHidden(images_data)
+        setPhotos(images_data)
+        setFilteredPhotos(images_data)
     }, [images_data])
 
     return (

@@ -3,6 +3,13 @@ import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 
 export default function AdminNavbar() {
+
+    const redploy = async () => {
+        await fetch('https://api.vercel.com/v1/integrations/deploy/prj_Nrvsadz7O3FJh6RheMVU6Tjc7ptO/qvzhPzV5bR', {
+            method: 'GET',
+        })
+    }
+
     return (
         <div className={styles.container}>
             <nav className={styles.navbar}>
@@ -20,6 +27,9 @@ export default function AdminNavbar() {
                 </Link>
                 <button className={styles.link} onClick={signOut}>
                     Sign Out
+                </button>
+                <button className={styles.link} onClick={redploy}>
+                    Redeploy
                 </button>
             </nav>
         </div>

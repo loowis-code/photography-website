@@ -24,6 +24,7 @@ export default function CollectionForm({
             file: null,
         })
         setImageUrl(initialData.cover_url ?? null)
+        setSelectedImages(initialData.images ?? [])
     }, [initialData])
 
     const handleChange = (e) => {

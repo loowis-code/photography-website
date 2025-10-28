@@ -5,10 +5,14 @@
 }
 
 .image {
-    max-height: 70vh;
     object-fit: contain;
     border: black 0.25rem solid;
     box-shadow: 0.25rem 0.25rem black;
+    width: auto;
+    max-width: 75%;
+    height: auto;
+    max-height: 80vh;
+    margin: 0 auto;
 }
 
 .imageDetails {
@@ -36,15 +40,33 @@
     margin: 0;
 }
 
+.map {
+    height: 250px;
+    width: 250px;
+    border-radius: 0.25rem;
+    margin-top: 1rem;
+}
+
 @media (width <= 1320px) {
     .imagecontainer {
         flex-direction: column;
         align-items: center;
         width: 100%;
-        padding: 1rem 0.55rem;
+        padding: 1rem 0.25rem;
+        margin: 0;
+    }
+
+    .image {
+        margin: 0;
+        max-width: 95%;
     }
 
     .imageDetails {
         margin-top: 1rem;
+    }
+
+    .map {
+        height: 250px;
+        width: 250px;
     }
 }

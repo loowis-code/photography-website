@@ -10,7 +10,7 @@ import Pagination from '../components/Pagination/Pagination'
 export async function getStaticProps() {
     const sql = neon(process.env.DATABASE_URL)
     const images =
-        await sql`SELECT image_id, url, width, height, title, description, alt_text, date_taken, location, visible, featured, digital, latitude, longitude, film, camera FROM images`
+        await sql`SELECT image_id, url, width, height, title, description, alt_text, date_taken, location, visible, featured, digital, latitude, longitude, film, camera FROM images ORDER BY date_taken DESC`
     let filteredImages = images.filter((image) => image.url !== null)
     filteredImages = filteredImages.filter((image) => image.visible === true)
     const cameras = await sql`SELECT * FROM cameras`

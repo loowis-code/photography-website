@@ -81,7 +81,6 @@ export default function PhotoForm({
         if (name === 'image') {
             setForm({ ...form, file: files[0] })
         } else {
-            console.log(name, value)
             setForm({ ...form, [name]: value })
         }
     }
@@ -93,7 +92,6 @@ export default function PhotoForm({
 
     const handleFormSubmit = async (e) => {
         e.preventDefault()
-        console.log('Submitting form with data:', clickLocation)
         const data = {
             title: form.title,
             description: form.description,

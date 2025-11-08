@@ -39,6 +39,7 @@ function ImageMap({ data }) {
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap',
         }).addTo(map)
+        var markers = []
 
         for (var i = 0; i < data.length; i++) {
             if (
@@ -49,6 +50,7 @@ function ImageMap({ data }) {
                     data[i].latitude,
                     data[i].longitude,
                 ]).addTo(map)
+                markers.push(marker)
                 marker.bindPopup(
                     '<a href=/images/' +
                         data[i].image_id +
@@ -58,6 +60,8 @@ function ImageMap({ data }) {
                 )
             }
         }
+        var group = L.featureGroup(markers)
+        map.fitBounds(group.getBounds());
     }
 
     useEffect(() => {

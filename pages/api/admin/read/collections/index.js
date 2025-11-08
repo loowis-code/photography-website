@@ -9,6 +9,6 @@ export default async function getCollections(req, res) {
     if (!session) {
         return res.status(401).json({ error: 'Unauthorized' })
     }
-    const response = await sql`SELECT * FROM collections`
+    const response = await sql`SELECT * FROM collections ORDER BY collection_name ASC`
     res.status(200).json(response)
 }

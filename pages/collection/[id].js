@@ -13,7 +13,7 @@ export async function getStaticProps(context) {
     const imagesInCollection =
         await sql`SELECT * FROM collections_lookup WHERE collection = ${context.params.id}`
     const imageData =
-        await sql`SELECT image_id, url, width, height, title, description, alt_text, date_taken, location, visible, featured, digital, latitude, longitude, film, camera FROM images`
+        await sql`SELECT image_id, url, width, height, title, description, alt_text, date_taken, location, visible, featured, digital, latitude, longitude, film, camera FROM images  ORDER BY date_taken DESC`
     const cameras = await sql`SELECT * FROM cameras`
     const films = await sql`SELECT * FROM films`
 
@@ -70,10 +70,10 @@ function Collection({ images_data, collection_data }) {
     return (
         <Layout>
             <Head>
-                <title>{collection_data?.name} | Loowis Photography</title>
+                <title>{collection_data?.collection_name} | Loowis Photography</title>
             </Head>
             <section className={styles.container}>
-                <h1 className={styles.header}>{collection_data?.name}</h1>
+                <h1 className={styles.header}>{collection_data?.collection_name}</h1>
                 <SortingButtons
                     photos={photos}
                     setPhotos={setFilteredPhotos}

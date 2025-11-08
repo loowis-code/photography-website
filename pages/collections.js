@@ -7,7 +7,7 @@ import { neon } from '@neondatabase/serverless'
 
 export async function getStaticProps() {
     const sql = neon(process.env.DATABASE_URL)
-    const collections = await sql`SELECT * FROM collections`
+    const collections = await sql`SELECT * FROM collections ORDER BY collection_name ASC`
     return {
         props: {
             data: collections,

@@ -4,7 +4,7 @@ export function SortBy(type, photos, setPhotos) {
         case 'OTN':
             sortedPhotos.sort((a, b) => {
                 if (a.date_taken != null && b.date_taken != null) {
-                    return a.date_taken.localeCompare(b.date)
+                    return a.date_taken.localeCompare(b.date_taken)
                 } else if (a.date_taken != null && b.date_taken == null) {
                     return 1
                 } else if (a.date_taken == null && b.date_taken != null) {

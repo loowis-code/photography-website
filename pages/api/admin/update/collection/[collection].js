@@ -42,7 +42,6 @@ export default async function updateCollection(req, res) {
             RETURNING *;
         `
     } else {
-        console.log('No image data provided, updating other fields only.')
         updatedCollection = await sql`
             UPDATE collections SET
             collection_name = ${collection_data.name},
@@ -70,7 +69,6 @@ export default async function updateCollection(req, res) {
             `
         }
         for (const imageId of imagesToRemove) {
-            console.log('Removing image ID:', imageId)
             await sql`
                 DELETE FROM collections_lookup
                 WHERE collection = ${req.query.collection} AND image = ${imageId};

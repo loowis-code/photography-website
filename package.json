@@ -18,7 +18,7 @@
         "faunadb": "^4.8.2",
         "loowis-component-library": "^4.4.1",
         "next": "15.5.2",
-        "next-auth": "^4.24.11",
+        "next-auth": "^4.24.12",
         "react": "19.0.0",
         "react-dom": "19.0.0",
         "uuid": "^13.0.0"

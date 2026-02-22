@@ -1,6 +1,19 @@
 import GitHub from '@auth/core/providers/github'
 import type { StartAuthJSConfig } from 'start-authjs'
 
+const requiredAuthVars = [
+    'AUTH_SECRET',
+    'AUTH_GITHUB_ID',
+    'AUTH_GITHUB_SECRET',
+    'ADMIN_EMAIL',
+] as const
+const missingAuthVars = requiredAuthVars.filter((key) => !process.env[key])
+if (missingAuthVars.length > 0) {
+    throw new Error(
+        `Missing auth environment variables: ${missingAuthVars.join(', ')}`,
+    )
+}
+
 export const authConfig: StartAuthJSConfig = {
     secret: process.env.AUTH_SECRET,
     providers: [

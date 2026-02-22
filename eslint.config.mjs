@@ -16,7 +16,7 @@ const compat = new FlatCompat({
 
 export default defineConfig([
     {
-        files: ['**/*.{js,jsx,ts,tsx}'], // Only JS/TS files
+        files: ['**/*.{js,jsx,ts,tsx}'],
         plugins: { react },
         languageOptions: {
             parserOptions: {
@@ -25,16 +25,12 @@ export default defineConfig([
         },
         rules: {
             ...react.configs.recommended.rules,
+            'react/react-in-jsx-scope': 'off',
         },
     },
     {
-        extends: compat.extends(
-            'plugin:@next/next/recommended',
-            'prettier',
-            'next/core-web-vitals',
-            'eslint:recommended',
-        ),
-        files: ['**/*.{js,jsx,ts,tsx}'], // Only JS/TS files
+        extends: compat.extends('prettier', 'eslint:recommended'),
+        files: ['**/*.{js,jsx,ts,tsx}'],
         languageOptions: {
             globals: {
                 JSX: 'readonly',
@@ -45,7 +41,7 @@ export default defineConfig([
         },
     },
     {
-        files: ['**/*.css'], // Only CSS files
+        files: ['**/*.css'],
         language: 'css/css',
         plugins: { css },
         extends: ['css/recommended'],

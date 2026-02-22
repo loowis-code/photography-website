@@ -22,6 +22,14 @@ function ImageMap() {
             const mapEl = document.getElementById('map')
             if (!mapEl) return
 
+            // Fix default marker icons broken by Vite bundling
+            delete (L.Icon.Default.prototype as any)._getIconUrl
+            L.Icon.Default.mergeOptions({
+                iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+                iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+                shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+            })
+
             if (window.innerWidth < 600) {
                 map = L.map('map').setView([54.12, 4.97], 4)
             } else {

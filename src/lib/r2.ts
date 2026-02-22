@@ -6,6 +6,20 @@ import {
 import { v4 as uuidv4 } from 'uuid'
 
 function getR2Client() {
+    const required = [
+        'R2_ENDPOINT',
+        'R2_ACCESS_KEY_ID',
+        'R2_SECRET_ACCESS_KEY',
+        'R2_BUCKET_NAME',
+        'R2_PUBLIC_URL',
+    ] as const
+    const missing = required.filter((key) => !process.env[key])
+    if (missing.length > 0) {
+        throw new Error(
+            `Missing R2 environment variables: ${missing.join(', ')}`,
+        )
+    }
+
     return new S3Client({
         region: 'auto',
         endpoint: process.env.R2_ENDPOINT!,

@@ -24,6 +24,8 @@
     font-size: xx-large;
     font-family: josefin-bold;
     border: solid 0.3rem #00000000;
+    background: none;
+    cursor: pointer;
     padding: 0.25rem 1rem;
     margin: 0.5rem;
 }

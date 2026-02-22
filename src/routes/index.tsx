@@ -38,7 +38,8 @@ function Home() {
             <section>
                 <div className={styles.container}>
                     <div className={styles.formatSelection}>
-                        <div
+                        <button
+                            type="button"
                             onClick={() => setFormat('film')}
                             className={
                                 format === 'film'
@@ -47,8 +48,9 @@ function Home() {
                             }
                         >
                             Film
-                        </div>
-                        <div
+                        </button>
+                        <button
+                            type="button"
                             onClick={() => setFormat('digital')}
                             className={
                                 format === 'digital'
@@ -57,7 +59,7 @@ function Home() {
                             }
                         >
                             Digital
-                        </div>
+                        </button>
                     </div>
                     <div
                         className={

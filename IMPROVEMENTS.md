@@ -24,7 +24,7 @@ Ordered by effort/impact ratio (best bang for buck first).
 - [x] **1. Add try/catch to all server functions** (~2 hrs) — `src/lib/server/admin-images.ts`, `admin-collections.ts`, `images.ts`, `collections.ts`, `search.ts`, `reference.ts`
 - ~~**2. Add `loading="lazy"` to images below the fold**~~ — Cancelled: CSS columns layout prevents effective lazy loading, and switching to CSS Grid creates visual gaps
 - [x] **3. Replace `<div onClick>` with `<button>` for Film/Digital toggle** (~30 min) — `src/routes/index.tsx:41-60`
-- [ ] **4. Add file upload size validation** (~30 min) — `src/lib/r2.ts`
+- [x] **4. Add file upload size validation** (~30 min) — `src/lib/r2.ts`
 - [ ] **5. Add env var validation at startup** (~30 min) — `src/lib/db.ts`, `src/lib/r2.ts`, `src/lib/auth.ts`
 - [ ] **6. Create CSS custom properties for colours** (~1 hr) — `src/styles/globals.css` + CSS modules
 - [ ] **7. Update patch-level dependencies** (~30 min) — React 19.0.0 → 19.2.x, TypeScript, TanStack minor bumps

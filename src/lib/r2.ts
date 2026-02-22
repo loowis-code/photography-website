@@ -16,6 +16,8 @@ function getR2Client() {
     })
 }
 
+const MAX_FILE_SIZE = 20 * 1024 * 1024 // 20MB
+
 export async function uploadToR2(base64Data: string) {
     const matches = base64Data.match(
         /^data:(image\/jpeg|image\/png|image\/webp);base64,(.+)$/,
@@ -25,6 +27,13 @@ export async function uploadToR2(base64Data: string) {
     }
     const mimeType = matches[1]
     const buffer = Buffer.from(matches[2], 'base64')
+
+    if (buffer.byteLength > MAX_FILE_SIZE) {
+        throw new Error(
+            `File too large (${Math.round(buffer.byteLength / 1024 / 1024)}MB). Maximum size is 20MB.`,
+        )
+    }
+
     const key = uuidv4()
 
     const client = getR2Client()

@@ -13,8 +13,9 @@
 }
 
 .grid {
-    columns: 3;
-    line-break: strict;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
 }
 
 @media only screen and (max-width: 1320px) {
@@ -23,6 +24,6 @@
     }
 
     .grid {
-        columns: 1;
+        grid-template-columns: 1fr;
     }
 }

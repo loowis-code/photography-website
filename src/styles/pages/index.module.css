@@ -44,9 +44,9 @@
 }
 
 .digitalShow {
-    display: block;
-    line-break: strict;
-    columns: 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
     margin: 1rem;
 }
 
@@ -55,8 +55,9 @@
 }
 
 .filmShow {
-    display: block;
-    columns: 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
     margin: 1rem;
 }
 
@@ -70,10 +71,10 @@
     }
 
     .digitalShow {
-        columns: 1;
+        grid-template-columns: 1fr;
     }
 
     .filmShow {
-        columns: 1;
+        grid-template-columns: 1fr;
     }
 }

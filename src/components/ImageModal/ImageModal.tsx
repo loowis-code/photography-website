@@ -44,6 +44,7 @@ export default function ImageModal({ data }: ImageModalProps) {
                     alt={data.alt_text ?? ''}
                     width={data.width}
                     height={data.height}
+                    loading="lazy"
                     className={styles.image}
                 />
                 <h5 className={styles.thumbnailTitle}>{data.title}</h5>
@@ -57,6 +58,7 @@ export default function ImageModal({ data }: ImageModalProps) {
                     alt={data.alt_text ?? ''}
                     width={data.width}
                     height={data.height}
+                    loading="lazy"
                     className={styles.image}
                 />
                 <h5 className={styles.thumbnailTitle}>{data.title}</h5>

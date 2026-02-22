@@ -27,7 +27,7 @@ npm install
 npm run dev
 ```
 
-Runs at http://localhost:3000. Requires a `.env.local` file — see `.env` for the required variables.
+Runs at http://localhost:3000.
 
 ## Deployment
 

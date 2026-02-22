@@ -46,7 +46,7 @@ Ordered by effort/impact ratio (best bang for buck first).
 ## Tier 3 — Medium Effort, Medium Impact
 
 - [ ] **15. Add responsive images with `srcset`** (~4 hrs) — `src/components/ImageModal/ImageModal.tsx`, `ImagePage/ImagePage.tsx`
-- [ ] **16. Server-side pagination for `/all-images`** (~3 hrs) — `src/lib/server/images.ts`, `src/routes/all-images.tsx`
+- [ ] **16. Server-side pagination for `/all-images` and `/collection/$id`** (~4 hrs) — `src/lib/server/images.ts`, `src/lib/server/collections.ts`, `src/routes/all-images.tsx`, `src/routes/collection/$id.tsx`
 - [ ] **17. Add canonical tags to all pages** (~1 hr) — Route `head()` functions
 - [ ] **18. Add structured data (JSON-LD)** (~3 hrs) — `src/routes/images/$id.tsx`, `src/routes/collections/$id.tsx`
 - [ ] **19. Add more responsive breakpoints** (~4 hrs) — CSS modules throughout

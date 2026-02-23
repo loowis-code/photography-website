@@ -35,9 +35,7 @@ function Collection() {
     return (
         <Layout>
             <section className={styles.container}>
-                <h1 className={styles.header}>
-                    {collection?.collection_name}
-                </h1>
+                <h1 className={styles.header}>{collection?.collection_name}</h1>
                 <SortingButtons
                     photos={photos}
                     setPhotos={setFilteredPhotos}

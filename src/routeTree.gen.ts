@@ -27,370 +27,370 @@ import { Route as AdminEditImageIdRouteImport } from './routes/admin/edit/image/
 import { Route as AdminEditCollectionIdRouteImport } from './routes/admin/edit/collection/$id'
 
 const ImageMapRoute = ImageMapRouteImport.update({
-  id: '/image-map',
-  path: '/image-map',
-  getParentRoute: () => rootRouteImport,
+    id: '/image-map',
+    path: '/image-map',
+    getParentRoute: () => rootRouteImport,
 } as any)
 const CollectionsRoute = CollectionsRouteImport.update({
-  id: '/collections',
-  path: '/collections',
-  getParentRoute: () => rootRouteImport,
+    id: '/collections',
+    path: '/collections',
+    getParentRoute: () => rootRouteImport,
 } as any)
 const AllImagesRoute = AllImagesRouteImport.update({
-  id: '/all-images',
-  path: '/all-images',
-  getParentRoute: () => rootRouteImport,
+    id: '/all-images',
+    path: '/all-images',
+    getParentRoute: () => rootRouteImport,
 } as any)
 const SplatRoute = SplatRouteImport.update({
-  id: '/$',
-  path: '/$',
-  getParentRoute: () => rootRouteImport,
+    id: '/$',
+    path: '/$',
+    getParentRoute: () => rootRouteImport,
 } as any)
 const AdminRouteRoute = AdminRouteRouteImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => rootRouteImport,
+    id: '/admin',
+    path: '/admin',
+    getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
+    id: '/',
+    path: '/',
+    getParentRoute: () => rootRouteImport,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AdminRouteRoute,
+    id: '/',
+    path: '/',
+    getParentRoute: () => AdminRouteRoute,
 } as any)
 const SearchQueryRoute = SearchQueryRouteImport.update({
-  id: '/search/$query',
-  path: '/search/$query',
-  getParentRoute: () => rootRouteImport,
+    id: '/search/$query',
+    path: '/search/$query',
+    getParentRoute: () => rootRouteImport,
 } as any)
 const ImagesIdRoute = ImagesIdRouteImport.update({
-  id: '/images/$id',
-  path: '/images/$id',
-  getParentRoute: () => rootRouteImport,
+    id: '/images/$id',
+    path: '/images/$id',
+    getParentRoute: () => rootRouteImport,
 } as any)
 const CollectionIdRoute = CollectionIdRouteImport.update({
-  id: '/collection/$id',
-  path: '/collection/$id',
-  getParentRoute: () => rootRouteImport,
+    id: '/collection/$id',
+    path: '/collection/$id',
+    getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
-  id: '/api/auth/$',
-  path: '/api/auth/$',
-  getParentRoute: () => rootRouteImport,
+    id: '/api/auth/$',
+    path: '/api/auth/$',
+    getParentRoute: () => rootRouteImport,
 } as any)
 const AdminNewImageRoute = AdminNewImageRouteImport.update({
-  id: '/new/image',
-  path: '/new/image',
-  getParentRoute: () => AdminRouteRoute,
+    id: '/new/image',
+    path: '/new/image',
+    getParentRoute: () => AdminRouteRoute,
 } as any)
 const AdminNewCollectionRoute = AdminNewCollectionRouteImport.update({
-  id: '/new/collection',
-  path: '/new/collection',
-  getParentRoute: () => AdminRouteRoute,
+    id: '/new/collection',
+    path: '/new/collection',
+    getParentRoute: () => AdminRouteRoute,
 } as any)
 const AdminEditCollectionIndexRoute =
-  AdminEditCollectionIndexRouteImport.update({
-    id: '/edit/collection/',
-    path: '/edit/collection/',
-    getParentRoute: () => AdminRouteRoute,
-  } as any)
+    AdminEditCollectionIndexRouteImport.update({
+        id: '/edit/collection/',
+        path: '/edit/collection/',
+        getParentRoute: () => AdminRouteRoute,
+    } as any)
 const AdminEditImageIdRoute = AdminEditImageIdRouteImport.update({
-  id: '/edit/image/$id',
-  path: '/edit/image/$id',
-  getParentRoute: () => AdminRouteRoute,
+    id: '/edit/image/$id',
+    path: '/edit/image/$id',
+    getParentRoute: () => AdminRouteRoute,
 } as any)
 const AdminEditCollectionIdRoute = AdminEditCollectionIdRouteImport.update({
-  id: '/edit/collection/$id',
-  path: '/edit/collection/$id',
-  getParentRoute: () => AdminRouteRoute,
+    id: '/edit/collection/$id',
+    path: '/edit/collection/$id',
+    getParentRoute: () => AdminRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/admin': typeof AdminRouteRouteWithChildren
-  '/$': typeof SplatRoute
-  '/all-images': typeof AllImagesRoute
-  '/collections': typeof CollectionsRoute
-  '/image-map': typeof ImageMapRoute
-  '/collection/$id': typeof CollectionIdRoute
-  '/images/$id': typeof ImagesIdRoute
-  '/search/$query': typeof SearchQueryRoute
-  '/admin/': typeof AdminIndexRoute
-  '/admin/new/collection': typeof AdminNewCollectionRoute
-  '/admin/new/image': typeof AdminNewImageRoute
-  '/api/auth/$': typeof ApiAuthSplatRoute
-  '/admin/edit/collection/$id': typeof AdminEditCollectionIdRoute
-  '/admin/edit/image/$id': typeof AdminEditImageIdRoute
-  '/admin/edit/collection/': typeof AdminEditCollectionIndexRoute
+    '/': typeof IndexRoute
+    '/admin': typeof AdminRouteRouteWithChildren
+    '/$': typeof SplatRoute
+    '/all-images': typeof AllImagesRoute
+    '/collections': typeof CollectionsRoute
+    '/image-map': typeof ImageMapRoute
+    '/collection/$id': typeof CollectionIdRoute
+    '/images/$id': typeof ImagesIdRoute
+    '/search/$query': typeof SearchQueryRoute
+    '/admin/': typeof AdminIndexRoute
+    '/admin/new/collection': typeof AdminNewCollectionRoute
+    '/admin/new/image': typeof AdminNewImageRoute
+    '/api/auth/$': typeof ApiAuthSplatRoute
+    '/admin/edit/collection/$id': typeof AdminEditCollectionIdRoute
+    '/admin/edit/image/$id': typeof AdminEditImageIdRoute
+    '/admin/edit/collection/': typeof AdminEditCollectionIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/$': typeof SplatRoute
-  '/all-images': typeof AllImagesRoute
-  '/collections': typeof CollectionsRoute
-  '/image-map': typeof ImageMapRoute
-  '/collection/$id': typeof CollectionIdRoute
-  '/images/$id': typeof ImagesIdRoute
-  '/search/$query': typeof SearchQueryRoute
-  '/admin': typeof AdminIndexRoute
-  '/admin/new/collection': typeof AdminNewCollectionRoute
-  '/admin/new/image': typeof AdminNewImageRoute
-  '/api/auth/$': typeof ApiAuthSplatRoute
-  '/admin/edit/collection/$id': typeof AdminEditCollectionIdRoute
-  '/admin/edit/image/$id': typeof AdminEditImageIdRoute
-  '/admin/edit/collection': typeof AdminEditCollectionIndexRoute
+    '/': typeof IndexRoute
+    '/$': typeof SplatRoute
+    '/all-images': typeof AllImagesRoute
+    '/collections': typeof CollectionsRoute
+    '/image-map': typeof ImageMapRoute
+    '/collection/$id': typeof CollectionIdRoute
+    '/images/$id': typeof ImagesIdRoute
+    '/search/$query': typeof SearchQueryRoute
+    '/admin': typeof AdminIndexRoute
+    '/admin/new/collection': typeof AdminNewCollectionRoute
+    '/admin/new/image': typeof AdminNewImageRoute
+    '/api/auth/$': typeof ApiAuthSplatRoute
+    '/admin/edit/collection/$id': typeof AdminEditCollectionIdRoute
+    '/admin/edit/image/$id': typeof AdminEditImageIdRoute
+    '/admin/edit/collection': typeof AdminEditCollectionIndexRoute
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/admin': typeof AdminRouteRouteWithChildren
-  '/$': typeof SplatRoute
-  '/all-images': typeof AllImagesRoute
-  '/collections': typeof CollectionsRoute
-  '/image-map': typeof ImageMapRoute
-  '/collection/$id': typeof CollectionIdRoute
-  '/images/$id': typeof ImagesIdRoute
-  '/search/$query': typeof SearchQueryRoute
-  '/admin/': typeof AdminIndexRoute
-  '/admin/new/collection': typeof AdminNewCollectionRoute
-  '/admin/new/image': typeof AdminNewImageRoute
-  '/api/auth/$': typeof ApiAuthSplatRoute
-  '/admin/edit/collection/$id': typeof AdminEditCollectionIdRoute
-  '/admin/edit/image/$id': typeof AdminEditImageIdRoute
-  '/admin/edit/collection/': typeof AdminEditCollectionIndexRoute
+    __root__: typeof rootRouteImport
+    '/': typeof IndexRoute
+    '/admin': typeof AdminRouteRouteWithChildren
+    '/$': typeof SplatRoute
+    '/all-images': typeof AllImagesRoute
+    '/collections': typeof CollectionsRoute
+    '/image-map': typeof ImageMapRoute
+    '/collection/$id': typeof CollectionIdRoute
+    '/images/$id': typeof ImagesIdRoute
+    '/search/$query': typeof SearchQueryRoute
+    '/admin/': typeof AdminIndexRoute
+    '/admin/new/collection': typeof AdminNewCollectionRoute
+    '/admin/new/image': typeof AdminNewImageRoute
+    '/api/auth/$': typeof ApiAuthSplatRoute
+    '/admin/edit/collection/$id': typeof AdminEditCollectionIdRoute
+    '/admin/edit/image/$id': typeof AdminEditImageIdRoute
+    '/admin/edit/collection/': typeof AdminEditCollectionIndexRoute
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/admin'
-    | '/$'
-    | '/all-images'
-    | '/collections'
-    | '/image-map'
-    | '/collection/$id'
-    | '/images/$id'
-    | '/search/$query'
-    | '/admin/'
-    | '/admin/new/collection'
-    | '/admin/new/image'
-    | '/api/auth/$'
-    | '/admin/edit/collection/$id'
-    | '/admin/edit/image/$id'
-    | '/admin/edit/collection/'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/$'
-    | '/all-images'
-    | '/collections'
-    | '/image-map'
-    | '/collection/$id'
-    | '/images/$id'
-    | '/search/$query'
-    | '/admin'
-    | '/admin/new/collection'
-    | '/admin/new/image'
-    | '/api/auth/$'
-    | '/admin/edit/collection/$id'
-    | '/admin/edit/image/$id'
-    | '/admin/edit/collection'
-  id:
-    | '__root__'
-    | '/'
-    | '/admin'
-    | '/$'
-    | '/all-images'
-    | '/collections'
-    | '/image-map'
-    | '/collection/$id'
-    | '/images/$id'
-    | '/search/$query'
-    | '/admin/'
-    | '/admin/new/collection'
-    | '/admin/new/image'
-    | '/api/auth/$'
-    | '/admin/edit/collection/$id'
-    | '/admin/edit/image/$id'
-    | '/admin/edit/collection/'
-  fileRoutesById: FileRoutesById
+    fileRoutesByFullPath: FileRoutesByFullPath
+    fullPaths:
+        | '/'
+        | '/admin'
+        | '/$'
+        | '/all-images'
+        | '/collections'
+        | '/image-map'
+        | '/collection/$id'
+        | '/images/$id'
+        | '/search/$query'
+        | '/admin/'
+        | '/admin/new/collection'
+        | '/admin/new/image'
+        | '/api/auth/$'
+        | '/admin/edit/collection/$id'
+        | '/admin/edit/image/$id'
+        | '/admin/edit/collection/'
+    fileRoutesByTo: FileRoutesByTo
+    to:
+        | '/'
+        | '/$'
+        | '/all-images'
+        | '/collections'
+        | '/image-map'
+        | '/collection/$id'
+        | '/images/$id'
+        | '/search/$query'
+        | '/admin'
+        | '/admin/new/collection'
+        | '/admin/new/image'
+        | '/api/auth/$'
+        | '/admin/edit/collection/$id'
+        | '/admin/edit/image/$id'
+        | '/admin/edit/collection'
+    id:
+        | '__root__'
+        | '/'
+        | '/admin'
+        | '/$'
+        | '/all-images'
+        | '/collections'
+        | '/image-map'
+        | '/collection/$id'
+        | '/images/$id'
+        | '/search/$query'
+        | '/admin/'
+        | '/admin/new/collection'
+        | '/admin/new/image'
+        | '/api/auth/$'
+        | '/admin/edit/collection/$id'
+        | '/admin/edit/image/$id'
+        | '/admin/edit/collection/'
+    fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AdminRouteRoute: typeof AdminRouteRouteWithChildren
-  SplatRoute: typeof SplatRoute
-  AllImagesRoute: typeof AllImagesRoute
-  CollectionsRoute: typeof CollectionsRoute
-  ImageMapRoute: typeof ImageMapRoute
-  CollectionIdRoute: typeof CollectionIdRoute
-  ImagesIdRoute: typeof ImagesIdRoute
-  SearchQueryRoute: typeof SearchQueryRoute
-  ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+    IndexRoute: typeof IndexRoute
+    AdminRouteRoute: typeof AdminRouteRouteWithChildren
+    SplatRoute: typeof SplatRoute
+    AllImagesRoute: typeof AllImagesRoute
+    CollectionsRoute: typeof CollectionsRoute
+    ImageMapRoute: typeof ImageMapRoute
+    CollectionIdRoute: typeof CollectionIdRoute
+    ImagesIdRoute: typeof ImagesIdRoute
+    SearchQueryRoute: typeof SearchQueryRoute
+    ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/image-map': {
-      id: '/image-map'
-      path: '/image-map'
-      fullPath: '/image-map'
-      preLoaderRoute: typeof ImageMapRouteImport
-      parentRoute: typeof rootRouteImport
+    interface FileRoutesByPath {
+        '/image-map': {
+            id: '/image-map'
+            path: '/image-map'
+            fullPath: '/image-map'
+            preLoaderRoute: typeof ImageMapRouteImport
+            parentRoute: typeof rootRouteImport
+        }
+        '/collections': {
+            id: '/collections'
+            path: '/collections'
+            fullPath: '/collections'
+            preLoaderRoute: typeof CollectionsRouteImport
+            parentRoute: typeof rootRouteImport
+        }
+        '/all-images': {
+            id: '/all-images'
+            path: '/all-images'
+            fullPath: '/all-images'
+            preLoaderRoute: typeof AllImagesRouteImport
+            parentRoute: typeof rootRouteImport
+        }
+        '/$': {
+            id: '/$'
+            path: '/$'
+            fullPath: '/$'
+            preLoaderRoute: typeof SplatRouteImport
+            parentRoute: typeof rootRouteImport
+        }
+        '/admin': {
+            id: '/admin'
+            path: '/admin'
+            fullPath: '/admin'
+            preLoaderRoute: typeof AdminRouteRouteImport
+            parentRoute: typeof rootRouteImport
+        }
+        '/': {
+            id: '/'
+            path: '/'
+            fullPath: '/'
+            preLoaderRoute: typeof IndexRouteImport
+            parentRoute: typeof rootRouteImport
+        }
+        '/admin/': {
+            id: '/admin/'
+            path: '/'
+            fullPath: '/admin/'
+            preLoaderRoute: typeof AdminIndexRouteImport
+            parentRoute: typeof AdminRouteRoute
+        }
+        '/search/$query': {
+            id: '/search/$query'
+            path: '/search/$query'
+            fullPath: '/search/$query'
+            preLoaderRoute: typeof SearchQueryRouteImport
+            parentRoute: typeof rootRouteImport
+        }
+        '/images/$id': {
+            id: '/images/$id'
+            path: '/images/$id'
+            fullPath: '/images/$id'
+            preLoaderRoute: typeof ImagesIdRouteImport
+            parentRoute: typeof rootRouteImport
+        }
+        '/collection/$id': {
+            id: '/collection/$id'
+            path: '/collection/$id'
+            fullPath: '/collection/$id'
+            preLoaderRoute: typeof CollectionIdRouteImport
+            parentRoute: typeof rootRouteImport
+        }
+        '/api/auth/$': {
+            id: '/api/auth/$'
+            path: '/api/auth/$'
+            fullPath: '/api/auth/$'
+            preLoaderRoute: typeof ApiAuthSplatRouteImport
+            parentRoute: typeof rootRouteImport
+        }
+        '/admin/new/image': {
+            id: '/admin/new/image'
+            path: '/new/image'
+            fullPath: '/admin/new/image'
+            preLoaderRoute: typeof AdminNewImageRouteImport
+            parentRoute: typeof AdminRouteRoute
+        }
+        '/admin/new/collection': {
+            id: '/admin/new/collection'
+            path: '/new/collection'
+            fullPath: '/admin/new/collection'
+            preLoaderRoute: typeof AdminNewCollectionRouteImport
+            parentRoute: typeof AdminRouteRoute
+        }
+        '/admin/edit/collection/': {
+            id: '/admin/edit/collection/'
+            path: '/edit/collection'
+            fullPath: '/admin/edit/collection/'
+            preLoaderRoute: typeof AdminEditCollectionIndexRouteImport
+            parentRoute: typeof AdminRouteRoute
+        }
+        '/admin/edit/image/$id': {
+            id: '/admin/edit/image/$id'
+            path: '/edit/image/$id'
+            fullPath: '/admin/edit/image/$id'
+            preLoaderRoute: typeof AdminEditImageIdRouteImport
+            parentRoute: typeof AdminRouteRoute
+        }
+        '/admin/edit/collection/$id': {
+            id: '/admin/edit/collection/$id'
+            path: '/edit/collection/$id'
+            fullPath: '/admin/edit/collection/$id'
+            preLoaderRoute: typeof AdminEditCollectionIdRouteImport
+            parentRoute: typeof AdminRouteRoute
+        }
     }
-    '/collections': {
-      id: '/collections'
-      path: '/collections'
-      fullPath: '/collections'
-      preLoaderRoute: typeof CollectionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/all-images': {
-      id: '/all-images'
-      path: '/all-images'
-      fullPath: '/all-images'
-      preLoaderRoute: typeof AllImagesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/$': {
-      id: '/$'
-      path: '/$'
-      fullPath: '/$'
-      preLoaderRoute: typeof SplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin/': {
-      id: '/admin/'
-      path: '/'
-      fullPath: '/admin/'
-      preLoaderRoute: typeof AdminIndexRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/search/$query': {
-      id: '/search/$query'
-      path: '/search/$query'
-      fullPath: '/search/$query'
-      preLoaderRoute: typeof SearchQueryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/images/$id': {
-      id: '/images/$id'
-      path: '/images/$id'
-      fullPath: '/images/$id'
-      preLoaderRoute: typeof ImagesIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/collection/$id': {
-      id: '/collection/$id'
-      path: '/collection/$id'
-      fullPath: '/collection/$id'
-      preLoaderRoute: typeof CollectionIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/auth/$': {
-      id: '/api/auth/$'
-      path: '/api/auth/$'
-      fullPath: '/api/auth/$'
-      preLoaderRoute: typeof ApiAuthSplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin/new/image': {
-      id: '/admin/new/image'
-      path: '/new/image'
-      fullPath: '/admin/new/image'
-      preLoaderRoute: typeof AdminNewImageRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/admin/new/collection': {
-      id: '/admin/new/collection'
-      path: '/new/collection'
-      fullPath: '/admin/new/collection'
-      preLoaderRoute: typeof AdminNewCollectionRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/admin/edit/collection/': {
-      id: '/admin/edit/collection/'
-      path: '/edit/collection'
-      fullPath: '/admin/edit/collection/'
-      preLoaderRoute: typeof AdminEditCollectionIndexRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/admin/edit/image/$id': {
-      id: '/admin/edit/image/$id'
-      path: '/edit/image/$id'
-      fullPath: '/admin/edit/image/$id'
-      preLoaderRoute: typeof AdminEditImageIdRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/admin/edit/collection/$id': {
-      id: '/admin/edit/collection/$id'
-      path: '/edit/collection/$id'
-      fullPath: '/admin/edit/collection/$id'
-      preLoaderRoute: typeof AdminEditCollectionIdRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-  }
 }
 
 interface AdminRouteRouteChildren {
-  AdminIndexRoute: typeof AdminIndexRoute
-  AdminNewCollectionRoute: typeof AdminNewCollectionRoute
-  AdminNewImageRoute: typeof AdminNewImageRoute
-  AdminEditCollectionIdRoute: typeof AdminEditCollectionIdRoute
-  AdminEditImageIdRoute: typeof AdminEditImageIdRoute
-  AdminEditCollectionIndexRoute: typeof AdminEditCollectionIndexRoute
+    AdminIndexRoute: typeof AdminIndexRoute
+    AdminNewCollectionRoute: typeof AdminNewCollectionRoute
+    AdminNewImageRoute: typeof AdminNewImageRoute
+    AdminEditCollectionIdRoute: typeof AdminEditCollectionIdRoute
+    AdminEditImageIdRoute: typeof AdminEditImageIdRoute
+    AdminEditCollectionIndexRoute: typeof AdminEditCollectionIndexRoute
 }
 
 const AdminRouteRouteChildren: AdminRouteRouteChildren = {
-  AdminIndexRoute: AdminIndexRoute,
-  AdminNewCollectionRoute: AdminNewCollectionRoute,
-  AdminNewImageRoute: AdminNewImageRoute,
-  AdminEditCollectionIdRoute: AdminEditCollectionIdRoute,
-  AdminEditImageIdRoute: AdminEditImageIdRoute,
-  AdminEditCollectionIndexRoute: AdminEditCollectionIndexRoute,
+    AdminIndexRoute: AdminIndexRoute,
+    AdminNewCollectionRoute: AdminNewCollectionRoute,
+    AdminNewImageRoute: AdminNewImageRoute,
+    AdminEditCollectionIdRoute: AdminEditCollectionIdRoute,
+    AdminEditImageIdRoute: AdminEditImageIdRoute,
+    AdminEditCollectionIndexRoute: AdminEditCollectionIndexRoute,
 }
 
 const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
-  AdminRouteRouteChildren,
+    AdminRouteRouteChildren,
 )
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AdminRouteRoute: AdminRouteRouteWithChildren,
-  SplatRoute: SplatRoute,
-  AllImagesRoute: AllImagesRoute,
-  CollectionsRoute: CollectionsRoute,
-  ImageMapRoute: ImageMapRoute,
-  CollectionIdRoute: CollectionIdRoute,
-  ImagesIdRoute: ImagesIdRoute,
-  SearchQueryRoute: SearchQueryRoute,
-  ApiAuthSplatRoute: ApiAuthSplatRoute,
+    IndexRoute: IndexRoute,
+    AdminRouteRoute: AdminRouteRouteWithChildren,
+    SplatRoute: SplatRoute,
+    AllImagesRoute: AllImagesRoute,
+    CollectionsRoute: CollectionsRoute,
+    ImageMapRoute: ImageMapRoute,
+    CollectionIdRoute: CollectionIdRoute,
+    ImagesIdRoute: ImagesIdRoute,
+    SearchQueryRoute: SearchQueryRoute,
+    ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport
-  ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+    ._addFileChildren(rootRouteChildren)
+    ._addFileTypes<FileRouteTypes>()
 
 import type { getRouter } from './router.tsx'
 import type { createStart } from '@tanstack/react-start'
 declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
+    interface Register {
+        ssr: true
+        router: Awaited<ReturnType<typeof getRouter>>
+    }
 }

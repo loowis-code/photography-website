@@ -4,18 +4,18 @@ Ordered by priority — quick wins first, then CI/testing foundation, then every
 
 ## Scores
 
-| Area                   | Score | Notes                                                        |
-| ---------------------- | ----- | ------------------------------------------------------------ |
-| Architecture           | 8/10  | Clean file-based routing, good separation of concerns        |
-| TypeScript             | 8/10  | Strict mode, well-defined types, minimal `any`               |
-| CSS/Styling            | 7.5/10 | Consistent CSS Modules, hardcoded colors, limited breakpoints |
-| Performance            | 6/10  | No image optimisation, inefficient queries, no lazy loading  |
-| Security               | 6/10  | Auth guard solid, missing upload validation and sanitisation  |
-| SEO                    | 5/10  | Basic meta/OG tags, no sitemap or structured data            |
-| Accessibility          | 5/10  | Some alt text, missing focus states and keyboard nav         |
-| Error Handling         | 3/10  | No try/catch, no error boundaries, `alert()` for feedback    |
-| CI/CD                  | 3/10  | Dependabot only, no CI pipeline, empty Husky hooks           |
-| Testing                | 0/10  | No tests                                                     |
+| Area           | Score  | Notes                                                         |
+| -------------- | ------ | ------------------------------------------------------------- |
+| Architecture   | 8/10   | Clean file-based routing, good separation of concerns         |
+| TypeScript     | 8/10   | Strict mode, well-defined types, minimal `any`                |
+| CSS/Styling    | 7.5/10 | Consistent CSS Modules, hardcoded colors, limited breakpoints |
+| Performance    | 6/10   | No image optimisation, inefficient queries, no lazy loading   |
+| Security       | 6/10   | Auth guard solid, missing upload validation and sanitisation  |
+| SEO            | 5/10   | Basic meta/OG tags, no sitemap or structured data             |
+| Accessibility  | 5/10   | Some alt text, missing focus states and keyboard nav          |
+| Error Handling | 3/10   | No try/catch, no error boundaries, `alert()` for feedback     |
+| CI/CD          | 3/10   | Dependabot only, no CI pipeline, empty Husky hooks            |
+| Testing        | 0/10   | No tests                                                      |
 
 ---
 
@@ -38,7 +38,7 @@ Ordered by priority — quick wins first, then CI/testing foundation, then every
 
 ## CI & Testing Foundation
 
-- [ ] **8. Add GitHub Actions CI pipeline** (~2 hrs) — `.github/workflows/ci.yml` — lint, type-check, build on PRs
+- [x] **8. Add GitHub Actions CI pipeline** (~2 hrs) — `.github/workflows/ci.yml` — lint, type-check, build on PRs
 - [ ] **9. Activate Husky pre-commit hooks** (~1 hr) — `.husky/pre-commit`, `package.json` (add `lint-staged`)
 - [ ] **10. Add test suite (Vitest)** (~1-2 days) — Server function unit tests, component rendering tests
 - [ ] **11. Add E2E tests (Playwright)** (~2-3 days) — Auth flow, image upload, CRUD, search

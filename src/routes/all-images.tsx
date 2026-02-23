@@ -24,10 +24,7 @@ function AllImages() {
     const photosPerPage = 9
     const maxPage = Math.ceil(filteredPhotos.length / photosPerPage)
 
-    const paginatePhotos = (
-        photos: typeof data,
-        page: number,
-    ) => {
+    const paginatePhotos = (photos: typeof data, page: number) => {
         const startIndex = (page - 1) * photosPerPage
         const endIndex = startIndex + photosPerPage
         return photos.slice(startIndex, endIndex)

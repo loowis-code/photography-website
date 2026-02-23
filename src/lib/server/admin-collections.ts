@@ -38,9 +38,7 @@ export const getAdminCollection = createServerFn({ method: 'POST' })
 
             const imagesInCollection =
                 await sql`SELECT * FROM collections_lookup WHERE collection = ${id}`
-            const images = imagesInCollection.map(
-                (img) => img.image as number,
-            )
+            const images = imagesInCollection.map((img) => img.image as number)
 
             return {
                 ...collection[0],

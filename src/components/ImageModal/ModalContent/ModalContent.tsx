@@ -38,9 +38,7 @@ export default function ModalContent({ onClose, data }: ModalContentProps) {
                 </a>
 
                 <div className={styles.imageDetails}>
-                    {data.camera != null ? (
-                        <p> Camera: {data.camera}</p>
-                    ) : null}
+                    {data.camera != null ? <p> Camera: {data.camera}</p> : null}
                     {data.film != null ? <p>Film: {data.film}</p> : null}
                     {data.date_taken ? (
                         <p>

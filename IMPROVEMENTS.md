@@ -1,6 +1,6 @@
 # Photography Website — Improvement Plan
 
-Ordered by effort/impact ratio (best bang for buck first).
+Ordered by priority — quick wins first, then CI/testing foundation, then everything else.
 
 ## Scores
 
@@ -19,7 +19,7 @@ Ordered by effort/impact ratio (best bang for buck first).
 
 ---
 
-## Tier 1 — Low Effort, High Impact
+## Done
 
 - [x] **1. Add try/catch to all server functions** (~2 hrs) — `src/lib/server/admin-images.ts`, `admin-collections.ts`, `images.ts`, `collections.ts`, `search.ts`, `reference.ts`
 - ~~**2. Add `loading="lazy"` to images below the fold**~~ — Cancelled: CSS columns layout prevents effective lazy loading, and switching to CSS Grid creates visual gaps
@@ -27,45 +27,60 @@ Ordered by effort/impact ratio (best bang for buck first).
 - [x] **4. Add file upload size validation** (~30 min) — `src/lib/r2.ts`
 - [x] **5. Add env var validation at startup** (~30 min) — `src/lib/db.ts`, `src/lib/r2.ts`, `src/lib/auth.ts`
 - [x] **6. Create CSS custom properties for colours** (~1 hr) — `src/styles/globals.css` + CSS modules
+
+---
+
+## Up Next — Quick Wins
+
 - [ ] **7. Update patch-level dependencies** (~30 min) — React 19.0.0 → 19.2.x, TypeScript, TanStack minor bumps
 
 ---
 
-## Tier 2 — Medium Effort, High Impact
+## CI & Testing Foundation
 
-- [ ] **8. Add GitHub Actions CI pipeline** (~2 hrs) — `.github/workflows/ci.yml`
-- [ ] **9. Add React Error Boundaries** (~2 hrs) — `src/routes/__root.tsx`
-- [ ] **10. Replace `alert()` with inline form feedback** (~3 hrs) — Admin route files
-- [ ] **11. Optimise `getCollectionWithImages` queries** (~2 hrs) — `src/lib/server/collections.ts:12-54`
-- [ ] **12. Activate Husky pre-commit hooks** (~1 hr) — `.husky/pre-commit`, `package.json`
-- [ ] **13. Add ARIA roles to image modals** (~3 hrs) — `src/components/ImageModal/ModalContent/ModalContent.tsx`
-- [ ] **14. Add `sitemap.xml` and `robots.txt`** (~3 hrs)
+- [ ] **8. Add GitHub Actions CI pipeline** (~2 hrs) — `.github/workflows/ci.yml` — lint, type-check, build on PRs
+- [ ] **9. Activate Husky pre-commit hooks** (~1 hr) — `.husky/pre-commit`, `package.json` (add `lint-staged`)
+- [ ] **10. Add test suite (Vitest)** (~1-2 days) — Server function unit tests, component rendering tests
+- [ ] **11. Add E2E tests (Playwright)** (~2-3 days) — Auth flow, image upload, CRUD, search
 
 ---
 
-## Tier 3 — Medium Effort, Medium Impact
+## Error Handling & UX
 
-- [ ] **15. Add responsive images with `srcset`** (~4 hrs) — `src/components/ImageModal/ImageModal.tsx`, `ImagePage/ImagePage.tsx`
+- [ ] **12. Add React Error Boundaries** (~2 hrs) — `src/routes/__root.tsx`
+- [ ] **13. Replace `alert()` with inline form feedback** (~3 hrs) — Admin route files
+- [ ] **14. Error logging integration** (~2 hrs) — Sentry or similar
+
+---
+
+## Performance
+
+- [ ] **15. Optimise `getCollectionWithImages` queries** (~2 hrs) — `src/lib/server/collections.ts:12-54`
 - [ ] **16. Server-side pagination for `/all-images` and `/collection/$id`** (~4 hrs) — `src/lib/server/images.ts`, `src/lib/server/collections.ts`, `src/routes/all-images.tsx`, `src/routes/collection/$id.tsx`
-- [ ] **17. Add canonical tags to all pages** (~1 hr) — Route `head()` functions
-- [ ] **18. Add structured data (JSON-LD)** (~3 hrs) — `src/routes/images/$id.tsx`, `src/routes/collections/$id.tsx`
-- [ ] **19. Add more responsive breakpoints** (~4 hrs) — CSS modules throughout
-- [ ] **20. Add OG tags to collection pages** (~1 hr) — `src/routes/collection/$id.tsx`
+- [ ] **17. Image optimisation pipeline** (~1-2 days) — WebP/AVIF variants, multiple sizes on upload
+- [ ] **18. Add responsive images with `srcset`** (~4 hrs) — `src/components/ImageModal/ImageModal.tsx`, `ImagePage/ImagePage.tsx`
 
 ---
 
-## Tier 4 — High Effort, High Impact
+## SEO
 
-- [ ] **21. Add test suite (Vitest)** (~1-2 days) — Server function unit tests, component rendering tests
-- [ ] **22. Image optimisation pipeline** (~1-2 days) — WebP/AVIF variants, multiple sizes on upload
-- [ ] **23. Add E2E tests (Playwright)** (~2-3 days) — Auth flow, image upload, CRUD, search
-- [ ] **24. Remove `next` transitive dependency** (varies) — `loowis-component-library` pulls in `next@15.5.7`
+- [ ] **19. Add `sitemap.xml` and `robots.txt`** (~3 hrs)
+- [ ] **20. Add canonical tags to all pages** (~1 hr) — Route `head()` functions
+- [ ] **21. Add structured data (JSON-LD)** (~3 hrs) — `src/routes/images/$id.tsx`, `src/routes/collections/$id.tsx`
+- [ ] **22. Add OG tags to collection pages** (~1 hr) — `src/routes/collection/$id.tsx`
 
 ---
 
-## Tier 5 — Low Priority
+## Accessibility
 
-- [ ] **25. Add auto-deploy workflow** (~2 hrs) — `.github/workflows/deploy.yml`
-- [ ] **26. Error logging integration** (~2 hrs) — Sentry or similar
-- [ ] **27. Add visible focus states to all interactive elements** (~2 hrs) — CSS modules throughout
+- [ ] **23. Add ARIA roles to image modals** (~3 hrs) — `src/components/ImageModal/ModalContent/ModalContent.tsx`
+- [ ] **24. Add more responsive breakpoints** (~4 hrs) — CSS modules throughout
+- [ ] **25. Add visible focus states to all interactive elements** (~2 hrs) — CSS modules throughout
+
+---
+
+## Infrastructure
+
+- [ ] **26. Migrate Neon database away from Vercel hosting** (varies) — Currently hosted through Vercel, should be moved to standalone Neon project since the app is on Cloudflare
+- [ ] **27. Remove `next` transitive dependency** (varies) — `loowis-component-library` pulls in `next@15.5.7`
 - [ ] **28. Document infrastructure setup in README** (~2 hrs) — Neon DB, R2, OAuth, Cloudflare setup

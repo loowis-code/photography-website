@@ -103,6 +103,38 @@
     src: url('/fonts/josefin/JosefinSans-ExtraLightItalic.ttf');
 }
 
+:root {
+    /* Base */
+    --color-black: #000000;
+    --color-dark: #222222;
+    --color-white: #ffffff;
+    --color-gray: #808080;
+    --color-danger: #ff0000;
+    --color-overlay: #000000b3;
+
+    /* Backgrounds */
+    --color-bg: #f7efe0;
+    --color-bg-modal: #f8f8f8;
+    --color-bg-input: #f7f7f7;
+    --color-bg-admin: #fffbe6;
+    --color-bg-disabled: #e0e0e0;
+
+    /* Accents */
+    --color-accent-red: #d95d5d;
+    --color-accent-orange: #db8525;
+    --color-accent-orange-faded: #db862550;
+    --color-accent-yellow: #e8c43c;
+    --color-accent-lime: #bed649;
+    --color-accent-blue: #9ecbdb;
+    --color-accent-pink: #c771a1;
+    --color-accent-teal: #7c9d96;
+    --color-accent-tan: #e9b384;
+    --color-accent-admin: #ff5a36;
+
+    /* Borders */
+    --color-border-light: #cccccc;
+}
+
 * {
     margin: 0;
 }
@@ -116,7 +148,7 @@ html {
 }
 
 body {
-    background-color: #f7efe0;
+    background-color: var(--color-bg);
     height: 100vh;
 }
 

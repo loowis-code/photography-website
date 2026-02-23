@@ -17,7 +17,7 @@
 
 .link {
     text-decoration: none;
-    color: black;
+    color: var(--color-black);
     font-weight: bold;
     background-color: transparent;
     border: none;
@@ -28,7 +28,7 @@
 
 .link:hover {
     background-color: transparent;
-    color: #ff5a36;
+    color: var(--color-accent-admin);
     cursor: pointer;
     text-decoration: underline;
 }

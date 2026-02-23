@@ -2,7 +2,7 @@
     text-align: center;
     width: 75%;
     margin: 0 auto;
-    border: black 0.25rem solid;
+    border: var(--color-black) 0.25rem solid;
     border-top: none;
     padding-top: 0.5rem;
 }
@@ -29,9 +29,9 @@
     position: absolute;
     left: 8px;
     width: 16px;
-    background: #d95d5d;
+    background: var(--color-accent-red);
     animation: loaderKeyframes 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-    box-shadow: 0.25rem 0.25rem #000;
+    box-shadow: 0.25rem 0.25rem var(--color-black);
 }
 .loader div:nth-child(1) {
     left: 8px;

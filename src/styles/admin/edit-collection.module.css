@@ -2,7 +2,7 @@
     text-align: center;
     width: 75%;
     margin: 0 auto;
-    border: black 0.25rem solid;
+    border: var(--color-black) 0.25rem solid;
     border-top: none;
 }
 
@@ -16,15 +16,15 @@
 .collectionPreview {
     display: flex;
     text-decoration: none;
-    color: black;
+    color: var(--color-black);
 }
 
 .image {
     width: 15rem;
     height: 10rem;
     object-fit: cover;
-    border: black 0.25rem solid;
-    box-shadow: 0.25rem 0.25rem black;
+    border: var(--color-black) 0.25rem solid;
+    box-shadow: 0.25rem 0.25rem var(--color-black);
     margin: 0 1rem;
 }
 
@@ -32,7 +32,7 @@
     width: 15rem;
     height: 10rem;
     object-fit: cover;
-    border: red 0.25rem solid;
+    border: var(--color-danger) 0.25rem solid;
     margin: 0 1rem;
 }
 
@@ -40,28 +40,28 @@
     margin: 0.25rem 0;
     font-weight: bold;
     font-size: 1.25rem;
-    color: black;
+    color: var(--color-black);
 }
 
 .previewDetail {
     margin: 0.25rem 0;
     font-weight: normal;
     font-size: 1rem;
-    color: gray;
+    color: var(--color-gray);
 }
 
 .currentImage {
     max-width: 300px;
     max-height: 300px;
     margin-bottom: 1rem;
-    border: 0.1rem solid #ccc;
+    border: 0.1rem solid var(--color-border-light);
 }
 
 .deleteButton {
     margin-top: 0.5rem;
     padding: 0.5rem 1rem;
-    background-color: red;
-    color: white;
+    background-color: var(--color-danger);
+    color: var(--color-white);
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;

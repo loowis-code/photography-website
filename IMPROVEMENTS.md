@@ -32,7 +32,7 @@ Ordered by priority — quick wins first, then CI/testing foundation, then every
 
 ## Up Next — Quick Wins
 
-- [ ] **7. Update patch-level dependencies** (~30 min) — React 19.0.0 → 19.2.x, TypeScript, TanStack minor bumps
+- [x] **7. Update patch-level dependencies** (~30 min) — React 19.0.0 → 19.2.4
 
 ---
 

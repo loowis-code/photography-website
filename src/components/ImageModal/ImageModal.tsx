@@ -15,13 +15,14 @@ export default function ImageModal({ data }: ImageModalProps) {
         const imageContainers = document.getElementsByClassName(
             styles.imageContainer,
         )
+        const root = getComputedStyle(document.documentElement)
         const colors = [
-            '#d95d5d',
-            '#db8525',
-            '#e8c43c',
-            '#bed649',
-            '#9ecbdb',
-            '#c771a1',
+            root.getPropertyValue('--color-accent-red'),
+            root.getPropertyValue('--color-accent-orange'),
+            root.getPropertyValue('--color-accent-yellow'),
+            root.getPropertyValue('--color-accent-lime'),
+            root.getPropertyValue('--color-accent-blue'),
+            root.getPropertyValue('--color-accent-pink'),
         ]
 
         Array.from(imageContainers).forEach((container) => {

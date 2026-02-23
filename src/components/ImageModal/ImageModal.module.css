@@ -59,7 +59,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #f8f8f8;
+    background-color: var(--color-bg-modal);
     border: 0.25rem solid black;
     border-radius: 0.5%;
     box-shadow: 0.25rem 0.25rem black;
@@ -108,7 +108,7 @@
 
 .closeButton:hover {
     background-color: black;
-    color: #f8f8f8;
+    color: var(--color-bg-modal);
 }
 
 .modalImage {

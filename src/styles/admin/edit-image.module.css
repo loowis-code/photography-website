@@ -2,7 +2,7 @@
     width: 75%;
     margin: 2em auto;
     padding: 2em;
-    background: #fffbe6;
+    background: var(--color-bg-admin);
     border: 0.25em solid #222;
     border-radius: 0.75em;
     box-shadow: 0.5em 0.5em 0 #222;
@@ -36,7 +36,7 @@
 }
 
 .input {
-    background: #f7f7f7;
+    background: var(--color-bg-input);
     border: 0.2em solid #222;
     border-radius: 0.4em;
     padding: 0.7em;
@@ -47,11 +47,11 @@
 }
 
 .input:focus {
-    border-color: #ff5a36;
+    border-color: var(--color-accent-admin);
 }
 
 .checkbox {
-    accent-color: #ff5a36;
+    accent-color: var(--color-accent-admin);
     width: 1.2em;
     height: 1.2em;
     border: 0.15em solid #222;
@@ -66,7 +66,7 @@
 }
 
 .button {
-    background: #ff5a36;
+    background: var(--color-accent-admin);
     color: #fff;
     font-weight: 900;
     border: 0.2em solid #222;
@@ -82,8 +82,8 @@
 
 .button:hover {
     background: #222;
-    color: #ff5a36;
-    box-shadow: 0.15em 0.15em 0 #ff5a36;
+    color: var(--color-accent-admin);
+    box-shadow: 0.15em 0.15em 0 var(--color-accent-admin);
 }
 
 .currentImage {
@@ -92,7 +92,7 @@
     margin-bottom: 2rem;
     border: 0.3rem solid #000;
     box-shadow: 0.4rem 0.4rem 0 0 #000;
-    background: #e0e0e0;
+    background: var(--color-bg-disabled);
     border-radius: 0.25rem;
     object-fit: cover;
     transition: box-shadow 0.2s;
@@ -107,7 +107,7 @@
     height: 40em;
     border: 0.25em solid #222;
     border-radius: 0.5em;
-    background: #e0e0e0;
+    background: var(--color-bg-disabled);
     margin-bottom: 1em;
     box-shadow: 0.3em 0.3em 0 #222;
 }

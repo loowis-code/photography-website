@@ -31,14 +31,22 @@ export default function PhotoForm({
         film: (initialData?.film as number | string | null) ?? null,
     })
     const [mapData, setMapData] = useState({
-        lat: ((initialData?.gps_lat ?? initialData?.latitude) as number | null) ?? null,
-        lng: ((initialData?.gps_long ?? initialData?.longitude) as number | null) ?? null,
+        lat:
+            ((initialData?.gps_lat ?? initialData?.latitude) as
+                | number
+                | null) ?? null,
+        lng:
+            ((initialData?.gps_long ?? initialData?.longitude) as
+                | number
+                | null) ?? null,
     })
     const [clickLocation, setClickLocation] = useState({
         lat: null as number | null,
         lng: null as number | null,
     })
-    const [imageUrl, setImageUrl] = useState((initialData?.url as string | null) ?? null)
+    const [imageUrl, setImageUrl] = useState(
+        (initialData?.url as string | null) ?? null,
+    )
     const [cameras, setCameras] = useState<Camera[]>([
         { camera_id: 0, brand: '', model: '' },
     ])
@@ -71,8 +79,14 @@ export default function PhotoForm({
             film: (initialData.film as number | string | null) ?? null,
         })
         setMapData({
-            lat: ((initialData.latitude ?? initialData.gps_lat) as number | null) ?? null,
-            lng: ((initialData.longitude ?? initialData.gps_long) as number | null) ?? null,
+            lat:
+                ((initialData.latitude ?? initialData.gps_lat) as
+                    | number
+                    | null) ?? null,
+            lng:
+                ((initialData.longitude ?? initialData.gps_long) as
+                    | number
+                    | null) ?? null,
         })
         setImageUrl((initialData.url as string | null) ?? null)
     }, [initialData])
@@ -158,10 +172,9 @@ export default function PhotoForm({
                     : [51.505, -0.09]
             mapRef.current = leaflet.map('map').setView(initialCoords, 13)
             leaflet
-                .tileLayer(
-                    'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                    { attribution: '&copy; OpenStreetMap' },
-                )
+                .tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; OpenStreetMap',
+                })
                 .addTo(mapRef.current)
 
             leaflet
@@ -275,10 +288,7 @@ export default function PhotoForm({
                     className={styles.input}
                 >
                     {cameras.map((camera) => (
-                        <option
-                            key={camera.camera_id}
-                            value={camera.camera_id}
-                        >
+                        <option key={camera.camera_id} value={camera.camera_id}>
                             {camera.brand + ' ' + camera.model}
                         </option>
                     ))}

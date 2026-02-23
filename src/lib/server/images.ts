@@ -29,11 +29,7 @@ export const getAllImages = createServerFn().handler(async () => {
         const filtered = (images as Image[]).filter(
             (img) => img.url !== null && img.visible === true,
         )
-        return resolveImageRefs(
-            filtered,
-            cameras as Camera[],
-            films as Film[],
-        )
+        return resolveImageRefs(filtered, cameras as Camera[], films as Film[])
     } catch (error) {
         console.error('Failed to fetch images:', error)
         throw new Error('Failed to load images')

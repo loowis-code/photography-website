@@ -21,8 +21,7 @@ export const Route = createFileRoute('/images/$id')({
             },
             {
                 name: 'og:description',
-                content:
-                    loaderData?.description || 'Photography by Loowis',
+                content: loaderData?.description || 'Photography by Loowis',
             },
             { name: 'og:image', content: loaderData?.url ?? '' },
             { name: 'og:url', content: 'pictures.loowis.co.uk' },

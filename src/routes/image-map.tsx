@@ -23,9 +23,12 @@ function ImageMap() {
             if (!mapEl) return
 
             const icon = L.icon({
-                iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-                iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-                shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+                iconUrl:
+                    'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+                iconRetinaUrl:
+                    'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+                shadowUrl:
+                    'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
                 iconSize: [25, 41],
                 iconAnchor: [12, 41],
                 popupAnchor: [1, -34],
@@ -43,14 +46,11 @@ function ImageMap() {
 
             const markers: L.Marker[] = []
             for (let i = 0; i < data.length; i++) {
-                if (
-                    data[i].latitude != null &&
-                    data[i].longitude != null
-                ) {
-                    const marker = L.marker([
-                        data[i].latitude!,
-                        data[i].longitude!,
-                    ], { icon }).addTo(map!)
+                if (data[i].latitude != null && data[i].longitude != null) {
+                    const marker = L.marker(
+                        [data[i].latitude!, data[i].longitude!],
+                        { icon },
+                    ).addTo(map!)
                     markers.push(marker)
                     marker.bindPopup(
                         `<a href="/images/${data[i].image_id}">${data[i].title}</a>`,

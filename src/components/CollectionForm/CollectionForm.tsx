@@ -116,60 +116,66 @@ export default function CollectionForm({
                     className={styles.input}
                 />
             </div>
-            {mode === 'edit' && imageUrl && Array.isArray(initialData?.allImages) && (
-                <div>
-                    <img
-                        src={imageUrl}
-                        alt="Current Cover"
-                        className={styles.currentImage}
-                    />
-                    <label>
-                        Images:
-                        <div className={styles.imageGrid}>
-                            {(initialData.allImages as Image[]).map((img) => (
-                                <div
-                                    key={img.image_id}
-                                    className={styles.imageItem}
-                                >
-                                    <img
-                                        src={img.url}
-                                        alt={img.title}
-                                        onClick={() =>
-                                            setSelectedImages((prev) => {
-                                                if (
-                                                    prev &&
-                                                    prev.includes(
-                                                        img.image_id,
-                                                    )
-                                                ) {
-                                                    return prev.filter(
-                                                        (id) =>
-                                                            id !==
-                                                            img.image_id,
+            {mode === 'edit' &&
+                imageUrl &&
+                Array.isArray(initialData?.allImages) && (
+                    <div>
+                        <img
+                            src={imageUrl}
+                            alt="Current Cover"
+                            className={styles.currentImage}
+                        />
+                        <label>
+                            Images:
+                            <div className={styles.imageGrid}>
+                                {(initialData.allImages as Image[]).map(
+                                    (img) => (
+                                        <div
+                                            key={img.image_id}
+                                            className={styles.imageItem}
+                                        >
+                                            <img
+                                                src={img.url}
+                                                alt={img.title}
+                                                onClick={() =>
+                                                    setSelectedImages(
+                                                        (prev) => {
+                                                            if (
+                                                                prev &&
+                                                                prev.includes(
+                                                                    img.image_id,
+                                                                )
+                                                            ) {
+                                                                return prev.filter(
+                                                                    (id) =>
+                                                                        id !==
+                                                                        img.image_id,
+                                                                )
+                                                            }
+                                                            return [
+                                                                ...prev,
+                                                                img.image_id,
+                                                            ]
+                                                        },
                                                     )
                                                 }
-                                                return [
-                                                    ...prev,
-                                                    img.image_id,
-                                                ]
-                                            })
-                                        }
-                                        className={
-                                            selectedImages &&
-                                            selectedImages.includes(
-                                                img.image_id,
-                                            )
-                                                ? styles.selected
-                                                : styles.image
-                                        }
-                                    />
-                                    <p>{img.title}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </label>
-                </div>
-            )}
+                                                className={
+                                                    selectedImages &&
+                                                    selectedImages.includes(
+                                                        img.image_id,
+                                                    )
+                                                        ? styles.selected
+                                                        : styles.image
+                                                }
+                                            />
+                                            <p>{img.title}</p>
+                                        </div>
+                                    ),
+                                )}
+                            </div>
+                        </label>
+                    </div>
+                )}
             <div>
                 <label className={styles.label} htmlFor="image">
                     Image File:

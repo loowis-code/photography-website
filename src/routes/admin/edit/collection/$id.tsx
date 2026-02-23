@@ -24,9 +24,7 @@ function EditCollection() {
     const { collection: initialCollection, allImages } = Route.useLoaderData()
     const { id } = Route.useParams()
     const [collectionData, setCollectionData] = useState(
-        initialCollection
-            ? { ...initialCollection, allImages }
-            : null,
+        initialCollection ? { ...initialCollection, allImages } : null,
     )
 
     useEffect(() => {
@@ -63,7 +61,9 @@ function EditCollection() {
                 <h1>Edit Collection</h1>
                 <CollectionForm
                     mode="edit"
-                    initialData={collectionData as Record<string, unknown> | null}
+                    initialData={
+                        collectionData as Record<string, unknown> | null
+                    }
                     onSubmit={handleSubmit}
                 />
             </section>

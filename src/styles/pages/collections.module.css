@@ -2,7 +2,7 @@
     text-align: center;
     width: 75%;
     margin: 0 auto;
-    border: black 0.25rem solid;
+    border: var(--color-black) 0.25rem solid;
     border-top: none;
 }
 

@@ -7,8 +7,8 @@
 .button {
     font-size: large;
     background-color: var(--color-bg);
-    border: solid #000;
-    box-shadow: 0.25rem 0.25rem #000;
+    border: solid var(--color-black);
+    box-shadow: 0.25rem 0.25rem var(--color-black);
     padding: 0 0.5rem;
     margin: 0.1rem 1rem;
     transition: 0.3s;
@@ -18,15 +18,15 @@
 }
 
 .button:hover {
-    color: white;
+    color: var(--color-white);
     background-color: var(--color-accent-red);
 }
 
 .collButton {
     font-size: large;
     background-color: var(--color-bg);
-    border: solid #000;
-    box-shadow: 0.25rem 0.25rem #000;
+    border: solid var(--color-black);
+    box-shadow: 0.25rem 0.25rem var(--color-black);
     padding: 0 0.5rem;
     margin: 0.1rem 1rem;
     transition: 0.3s;
@@ -35,7 +35,7 @@
 }
 
 .collButton:hover {
-    color: white;
+    color: var(--color-white);
     background-color: var(--color-accent-pink);
 }
 

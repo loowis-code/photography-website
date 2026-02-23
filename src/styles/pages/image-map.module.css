@@ -4,13 +4,13 @@
     width: 75%;
     margin: 0 auto;
     padding: 1rem;
-    border: black 0.25rem solid;
+    border: var(--color-black) 0.25rem solid;
     border-top: none;
 }
 
 .mapContainer {
-    border: #000 0.25rem solid;
-    box-shadow: 0.25rem 0.25rem #000;
+    border: var(--color-black) 0.25rem solid;
+    box-shadow: 0.25rem 0.25rem var(--color-black);
     background-color: var(--color-accent-blue);
     width: fit-content;
     margin: 0 auto;

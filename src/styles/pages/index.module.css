@@ -2,15 +2,15 @@
     text-align: center;
     width: 75%;
     margin: 0 auto;
-    border: black 0.25rem solid;
+    border: var(--color-black) 0.25rem solid;
     border-top: none;
     padding-top: 0.5rem;
 }
 
 .formatSelection {
     display: flex;
-    border: solid 0.25rem #000;
-    box-shadow: 0.25rem 0.25rem #000;
+    border: solid 0.25rem var(--color-black);
+    box-shadow: 0.25rem 0.25rem var(--color-black);
     width: fit-content;
     margin: auto;
     padding: 0.5rem 1rem;
@@ -23,7 +23,7 @@
 .formatTitle {
     font-size: xx-large;
     font-family: josefin-bold;
-    border: solid 0.3rem #00000000;
+    border: solid 0.3rem transparent;
     background: none;
     cursor: pointer;
     padding: 0.25rem 1rem;
@@ -39,9 +39,9 @@
     font-size: xx-large;
     font-family: josefin-bold;
     background-color: var(--color-accent-orange);
-    border: solid 0.3rem #000;
+    border: solid 0.3rem var(--color-black);
     padding: 0.25rem 1rem;
-    box-shadow: 0.25rem 0.25rem #000;
+    box-shadow: 0.25rem 0.25rem var(--color-black);
     margin: 0.5rem;
 }
 

@@ -17,7 +17,7 @@
 
 .link {
     text-decoration: none;
-    color: black;
+    color: var(--color-black);
     font-weight: bold;
     background-color: transparent;
     border: none;

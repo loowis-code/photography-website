@@ -6,8 +6,8 @@
 
 .image {
     object-fit: contain;
-    border: black 0.25rem solid;
-    box-shadow: 0.25rem 0.25rem black;
+    border: var(--color-black) 0.25rem solid;
+    box-shadow: 0.25rem 0.25rem var(--color-black);
     width: auto;
     max-width: 75%;
     height: auto;
@@ -16,8 +16,8 @@
 }
 
 .imageDetails {
-    border: #000 0.25rem solid;
-    box-shadow: 0.25rem 0.25rem black;
+    border: var(--color-black) 0.25rem solid;
+    box-shadow: 0.25rem 0.25rem var(--color-black);
     background-color: var(--color-accent-red);
     margin: auto 1rem;
     padding: 1rem;

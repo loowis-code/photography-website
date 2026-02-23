@@ -2,7 +2,7 @@
     text-align: center;
     width: 75%;
     margin: 0 auto;
-    border: black 0.25rem solid;
+    border: var(--color-black) 0.25rem solid;
     border-top: none;
 }
 
@@ -19,6 +19,6 @@
 }
 
 .image {
-    border: black 0.25rem solid;
-    box-shadow: 0.25rem 0.25rem black;
+    border: var(--color-black) 0.25rem solid;
+    box-shadow: 0.25rem 0.25rem var(--color-black);
 }

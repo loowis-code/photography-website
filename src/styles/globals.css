@@ -104,6 +104,14 @@
 }
 
 :root {
+    /* Base */
+    --color-black: #000000;
+    --color-dark: #222222;
+    --color-white: #ffffff;
+    --color-gray: #808080;
+    --color-danger: #ff0000;
+    --color-overlay: #000000b3;
+
     /* Backgrounds */
     --color-bg: #f7efe0;
     --color-bg-modal: #f8f8f8;
@@ -124,7 +132,7 @@
     --color-accent-admin: #ff5a36;
 
     /* Borders */
-    --color-border-light: #ccc;
+    --color-border-light: #cccccc;
 }
 
 * {

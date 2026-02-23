@@ -15,8 +15,8 @@
 }
 
 .collectionpreview > img {
-    border: #000 0.25rem solid;
-    box-shadow: 0.25rem 0.25rem #000;
+    border: var(--color-black) 0.25rem solid;
+    box-shadow: 0.25rem 0.25rem var(--color-black);
     transition: 0.3s;
 }
 
@@ -37,9 +37,9 @@
     transform: translate(-50%, -50%);
     font-size: xx-large;
     text-shadow:
-        -0.1rem -0.1rem 0 black,
-        0.1rem -0.1rem 0 black,
-        -0.1rem 0.1rem 0 black,
-        0.1rem 0.1rem 0 black;
+        -0.1rem -0.1rem 0 var(--color-black),
+        0.1rem -0.1rem 0 var(--color-black),
+        -0.1rem 0.1rem 0 var(--color-black),
+        0.1rem 0.1rem 0 var(--color-black);
     padding: 1%;
 }

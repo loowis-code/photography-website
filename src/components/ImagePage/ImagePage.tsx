@@ -16,12 +16,14 @@ export default function ImagePage({ data }: ImagePageProps) {
             const mapEl = document.getElementById('map')
             if (!mapEl) return
 
-            // Fix default marker icons broken by Vite bundling
-            delete (L.Icon.Default.prototype as any)._getIconUrl
-            L.Icon.Default.mergeOptions({
+            const icon = L.icon({
                 iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
                 iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
                 shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41],
             })
 
             map = L.map('map', { minZoom: 12, maxZoom: 16 }).setView(
@@ -32,7 +34,7 @@ export default function ImagePage({ data }: ImagePageProps) {
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; OpenStreetMap',
             }).addTo(map)
-            L.marker([data.latitude!, data.longitude!]).addTo(map)
+            L.marker([data.latitude!, data.longitude!], { icon }).addTo(map)
         })
 
         return () => {

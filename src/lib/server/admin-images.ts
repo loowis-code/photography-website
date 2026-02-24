@@ -7,6 +7,9 @@ import { uploadToR2, deleteFromR2 } from '~/lib/r2'
 import type { Image } from '~/lib/types'
 
 async function requireAuth() {
+    if (__E2E_TEST_MODE__) {
+        return { user: { email: 'test@test.com' } }
+    }
     const request = getRequest()
     const session = await getSession(request, authConfig)
     if (!session?.user) throw new Error('Unauthorized')

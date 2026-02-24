@@ -6,6 +6,9 @@ import AdminNavbar from '~/components/AdminNavbar/AdminNavbar'
 import { createServerFn } from '@tanstack/react-start'
 
 const getAuthSession = createServerFn().handler(async () => {
+    if (__E2E_TEST_MODE__) {
+        return { user: { email: 'test@test.com' } }
+    }
     const request = getRequest()
     const session = await getSession(request, authConfig)
     return session

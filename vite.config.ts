@@ -5,6 +5,9 @@ import tsConfigPaths from 'vite-tsconfig-paths'
 import viteReact from '@vitejs/plugin-react'
 
 export default defineConfig({
+    define: {
+        __E2E_TEST_MODE__: JSON.stringify(process.env.E2E_TEST_MODE === 'true'),
+    },
     server: {
         port: 3000,
     },

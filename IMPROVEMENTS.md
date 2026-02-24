@@ -41,7 +41,7 @@ Ordered by priority — quick wins first, then CI/testing foundation, then every
 - [x] **8. Add GitHub Actions CI pipeline** (~2 hrs) — `.github/workflows/ci.yml` — lint, type-check, build on PRs
 - [x] **9. Activate Husky pre-commit hooks** (~1 hr) — `.husky/pre-commit`, `package.json` (add `lint-staged`)
 - [x] **10. Add test suite (Vitest)** (~1-2 days) — Server function unit tests, component rendering tests
-- [ ] **11. Add E2E tests (Playwright)** (~2-3 days) — Auth flow, image upload, CRUD, search
+- [x] **11. Add E2E tests (Playwright)** (~2-3 days) — Auth flow, image upload, CRUD, search
 
 ---
 

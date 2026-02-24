@@ -32,9 +32,10 @@ describe('auth config', () => {
         vi.stubEnv('AUTH_GITHUB_SECRET', 'ghsecret')
         vi.stubEnv('ADMIN_EMAIL', 'admin@example.com')
         const { authConfig } = await import('./auth')
-        const result = await authConfig.callbacks!.signIn!({
+        const signIn = authConfig.callbacks!.signIn!
+        const result = await signIn({
             user: { email: 'admin@example.com' },
-        } as Parameters<NonNullable<typeof authConfig.callbacks.signIn>>[0])
+        } as Parameters<typeof signIn>[0])
         expect(result).toBe(true)
     })
 
@@ -44,9 +45,10 @@ describe('auth config', () => {
         vi.stubEnv('AUTH_GITHUB_SECRET', 'ghsecret')
         vi.stubEnv('ADMIN_EMAIL', 'admin@example.com')
         const { authConfig } = await import('./auth')
-        const result = await authConfig.callbacks!.signIn!({
+        const signIn = authConfig.callbacks!.signIn!
+        const result = await signIn({
             user: { email: 'hacker@evil.com' },
-        } as Parameters<NonNullable<typeof authConfig.callbacks.signIn>>[0])
+        } as Parameters<typeof signIn>[0])
         expect(result).toBe(false)
     })
 })

@@ -112,6 +112,11 @@ describe('getR2Client env validation', () => {
     })
 
     it('throws when R2 env vars are missing', async () => {
+        vi.stubEnv('R2_ENDPOINT', '')
+        vi.stubEnv('R2_ACCESS_KEY_ID', '')
+        vi.stubEnv('R2_SECRET_ACCESS_KEY', '')
+        vi.stubEnv('R2_BUCKET_NAME', '')
+        vi.stubEnv('R2_PUBLIC_URL', '')
         const uploadToR2 = (await import('./r2')).uploadToR2
         const smallData = Buffer.alloc(100).toString('base64')
         await expect(

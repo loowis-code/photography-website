@@ -11,6 +11,10 @@ describe('auth config', () => {
     })
 
     it('throws when auth env vars are missing', async () => {
+        vi.stubEnv('AUTH_SECRET', '')
+        vi.stubEnv('AUTH_GITHUB_ID', '')
+        vi.stubEnv('AUTH_GITHUB_SECRET', '')
+        vi.stubEnv('ADMIN_EMAIL', '')
         await expect(import('./auth')).rejects.toThrow(
             'Missing auth environment variables',
         )

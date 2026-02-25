@@ -36,6 +36,9 @@ jobs:
             - name: Install Playwright
               run: npx playwright install chromium --with-deps
 
+            - name: Create .env.local for worker runtime
+              run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env.local
+
             - name: E2E tests
               run: npm run test:e2e
               env:

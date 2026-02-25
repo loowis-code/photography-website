@@ -1,7 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { getRequest } from '@tanstack/react-start/server'
 import { getSession } from 'start-authjs'
-import { authConfig } from '~/lib/auth'
+import { getAuthConfig } from '~/lib/auth'
 import { getDb } from '~/lib/db'
 import { uploadToR2, deleteFromR2 } from '~/lib/r2'
 import type { Image } from '~/lib/types'
@@ -11,7 +11,7 @@ async function requireAuth() {
         return { user: { email: 'test@test.com' } }
     }
     const request = getRequest()
-    const session = await getSession(request, authConfig)
+    const session = await getSession(request, getAuthConfig())
     if (!session?.user) throw new Error('Unauthorized')
     return session
 }

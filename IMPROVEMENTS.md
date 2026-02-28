@@ -55,7 +55,7 @@ Ordered by priority — quick wins first, then CI/testing foundation, then every
 
 ## Performance
 
-- [ ] **15. Optimise `getCollectionWithImages` queries** (~2 hrs) — `src/lib/server/collections.ts:12-54`
+- [x] **15. Optimise `getCollectionWithImages` queries** (~2 hrs) — `src/lib/server/collections.ts:12-54`
 - [ ] **16. Server-side pagination for `/all-images` and `/collection/$id`** (~4 hrs) — `src/lib/server/images.ts`, `src/lib/server/collections.ts`, `src/routes/all-images.tsx`, `src/routes/collection/$id.tsx`
 - [ ] **17. Image optimisation pipeline** (~1-2 days) — WebP/AVIF variants, multiple sizes on upload
 - [ ] **18. Add responsive images with `srcset`** (~4 hrs) — `src/components/ImageModal/ImageModal.tsx`, `ImagePage/ImagePage.tsx`

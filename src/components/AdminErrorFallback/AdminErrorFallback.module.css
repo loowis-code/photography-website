@@ -1,0 +1,62 @@
+.container {
+    text-align: center;
+    width: 75%;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 0.25rem solid var(--color-accent-admin);
+    background-color: var(--color-bg-admin);
+}
+
+.heading {
+    font-size: xx-large;
+    font-family: josefin-bold-italic;
+    color: var(--color-accent-admin);
+    margin-bottom: 1rem;
+}
+
+.message {
+    font-family: josefin-regular;
+    font-size: 1.125rem;
+    color: var(--color-dark);
+    margin-bottom: 1.5rem;
+}
+
+.stack {
+    text-align: left;
+    font-size: 0.75rem;
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    border-radius: 0.25rem;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.retryButton {
+    padding: 0.75rem 1.5rem;
+    font-family: josefin-bold;
+    font-size: 1rem;
+    background-color: var(--color-accent-admin);
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+}
+
+.retryButton:hover {
+    opacity: 0.85;
+}
+
+.homeLink {
+    padding: 0.75rem 1.5rem;
+    font-family: josefin-bold;
+    font-size: 1rem;
+    color: var(--color-accent-admin);
+    text-decoration: underline;
+}

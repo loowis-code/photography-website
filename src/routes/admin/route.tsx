@@ -4,6 +4,7 @@ import { getSession } from 'start-authjs'
 import { getAuthConfig } from '~/lib/auth'
 import AdminNavbar from '~/components/AdminNavbar/AdminNavbar'
 import { createServerFn } from '@tanstack/react-start'
+import AdminErrorFallback from '~/components/AdminErrorFallback/AdminErrorFallback'
 
 const getAuthSession = createServerFn().handler(async () => {
     if (__E2E_TEST_MODE__) {
@@ -23,6 +24,7 @@ export const Route = createFileRoute('/admin')({
         return { session }
     },
     component: AdminLayout,
+    errorComponent: AdminErrorFallback,
 })
 
 function AdminLayout() {

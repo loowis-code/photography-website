@@ -1,35 +1,27 @@
 import { createServerFn } from '@tanstack/react-start'
 import { getDb } from '~/lib/db'
-import type { Image, Camera, Film } from '~/lib/types'
-
-function resolveImageRefs(
-    images: Image[],
-    cameras: Camera[],
-    films: Film[],
-): Image[] {
-    return images.map((image) => {
-        const camera = cameras.find((c) => c.camera_id === image.camera)
-        const film = films.find((f) => f.film_id === image.film)
-        return {
-            ...image,
-            camera: camera ? `${camera.brand} ${camera.model}` : null,
-            film: film ? `${film.brand} ${film.name}` : null,
-        }
-    })
-}
+import type { Image } from '~/lib/types'
 
 export const getAllImages = createServerFn().handler(async () => {
     try {
         const sql = getDb()
-        const images =
-            await sql`SELECT image_id, url, width, height, title, description, alt_text, date_taken, location, visible, featured, digital, latitude, longitude, film, camera FROM images`
-        const cameras = await sql`SELECT * FROM cameras`
-        const films = await sql`SELECT * FROM films`
-
-        const filtered = (images as Image[]).filter(
-            (img) => img.url !== null && img.visible === true,
-        )
-        return resolveImageRefs(filtered, cameras as Camera[], films as Film[])
+        const images = await sql`
+            SELECT i.image_id, i.url, i.width, i.height, i.title,
+                   i.description, i.alt_text, i.date_taken, i.location,
+                   i.visible, i.featured, i.digital, i.latitude, i.longitude,
+                   CASE WHEN c.camera_id IS NOT NULL
+                        THEN c.brand || ' ' || c.model
+                        ELSE NULL END AS camera,
+                   CASE WHEN f.film_id IS NOT NULL
+                        THEN f.brand || ' ' || f.name
+                        ELSE NULL END AS film
+            FROM images i
+            LEFT JOIN cameras c ON c.camera_id = i.camera
+            LEFT JOIN films f ON f.film_id = i.film
+            WHERE i.visible = true AND i.url IS NOT NULL
+            ORDER BY i.date_taken DESC NULLS LAST, i.image_id ASC
+        `
+        return images as Image[]
     } catch (error) {
         console.error('Failed to fetch images:', error)
         throw new Error('Failed to load images')
@@ -41,17 +33,23 @@ export const getImageById = createServerFn({ method: 'POST' })
     .handler(async ({ data: id }) => {
         try {
             const sql = getDb()
-            const images =
-                await sql`SELECT image_id, url, width, height, title, description, alt_text, date_taken, location, visible, featured, digital, latitude, longitude, film, camera FROM images WHERE image_id = ${id}`
+            const images = await sql`
+                SELECT i.image_id, i.url, i.width, i.height, i.title,
+                       i.description, i.alt_text, i.date_taken, i.location,
+                       i.visible, i.featured, i.digital, i.latitude, i.longitude,
+                       CASE WHEN c.camera_id IS NOT NULL
+                            THEN c.brand || ' ' || c.model
+                            ELSE NULL END AS camera,
+                       CASE WHEN f.film_id IS NOT NULL
+                            THEN f.brand || ' ' || f.name
+                            ELSE NULL END AS film
+                FROM images i
+                LEFT JOIN cameras c ON c.camera_id = i.camera
+                LEFT JOIN films f ON f.film_id = i.film
+                WHERE i.image_id = ${id}
+            `
             if (images.length === 0) return null
-
-            const cameras = await sql`SELECT * FROM cameras`
-            const films = await sql`SELECT * FROM films`
-            return resolveImageRefs(
-                images as Image[],
-                cameras as Camera[],
-                films as Film[],
-            )[0]
+            return (images as Image[])[0]
         } catch (error) {
             console.error(`Failed to fetch image ${id}:`, error)
             throw new Error('Failed to load image')

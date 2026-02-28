@@ -1,6 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { getDb } from '~/lib/db'
-import type { Collection, Image, Camera, Film } from '~/lib/types'
+import type { Collection, Image } from '~/lib/types'
 
 export const getAllCollections = createServerFn().handler(async () => {
     try {
@@ -23,39 +23,29 @@ export const getCollectionWithImages = createServerFn({ method: 'POST' })
                 await sql`SELECT * FROM collections WHERE collection_id = ${id}`
             if (collection.length === 0) return null
 
-            const imagesInCollection =
-                await sql`SELECT * FROM collections_lookup WHERE collection = ${id}`
-            const imageData =
-                await sql`SELECT image_id, url, width, height, title, description, alt_text, date_taken, location, visible, featured, digital, latitude, longitude, film, camera FROM images ORDER BY date_taken DESC`
-            const cameras = await sql`SELECT * FROM cameras`
-            const films = await sql`SELECT * FROM films`
-
-            const imagesWithData = imagesInCollection.map((img) => {
-                const imageDetails = (imageData as Image[]).find(
-                    (image) => image.image_id === img.image,
-                )
-                if (imageDetails) {
-                    const camera = (cameras as Camera[]).find(
-                        (c) => c.camera_id === imageDetails.camera,
-                    )
-                    const film = (films as Film[]).find(
-                        (f) => f.film_id === imageDetails.film,
-                    )
-                    return {
-                        ...img,
-                        ...imageDetails,
-                        camera: camera
-                            ? `${camera.brand} ${camera.model}`
-                            : null,
-                        film: film ? `${film.brand} ${film.name}` : null,
-                    }
-                }
-                return img
-            })
+            const images = await sql`
+                SELECT i.image_id, i.url, i.width, i.height, i.title,
+                       i.description, i.alt_text, i.date_taken, i.location,
+                       i.visible, i.featured, i.digital, i.latitude, i.longitude,
+                       CASE WHEN c.camera_id IS NOT NULL
+                            THEN c.brand || ' ' || c.model
+                            ELSE NULL END AS camera,
+                       CASE WHEN f.film_id IS NOT NULL
+                            THEN f.brand || ' ' || f.name
+                            ELSE NULL END AS film
+                FROM collections_lookup cl
+                JOIN images i ON i.image_id = cl.image
+                LEFT JOIN cameras c ON c.camera_id = i.camera
+                LEFT JOIN films f ON f.film_id = i.film
+                WHERE cl.collection = ${id}
+                  AND i.visible = true
+                  AND i.url IS NOT NULL
+                ORDER BY i.date_taken DESC NULLS LAST, i.image_id ASC
+            `
 
             return {
                 collection: collection[0] as Collection,
-                images: imagesWithData as Image[],
+                images: images as Image[],
             }
         } catch (error) {
             console.error(`Failed to fetch collection ${id}:`, error)

@@ -10,25 +10,27 @@ export function SortBy(
         case 'OTN':
             sortedPhotos.sort((a, b) => {
                 if (a.date_taken != null && b.date_taken != null) {
-                    return a.date_taken.localeCompare(b.date_taken)
+                    const cmp = a.date_taken.localeCompare(b.date_taken)
+                    return cmp !== 0 ? cmp : a.image_id - b.image_id
                 } else if (a.date_taken != null && b.date_taken == null) {
                     return 1
                 } else if (a.date_taken == null && b.date_taken != null) {
                     return -1
                 }
-                return 0
+                return a.image_id - b.image_id
             })
             break
         case 'NTO':
             sortedPhotos.sort((a, b) => {
                 if (a.date_taken != null && b.date_taken != null) {
-                    return b.date_taken.localeCompare(a.date_taken)
+                    const cmp = b.date_taken.localeCompare(a.date_taken)
+                    return cmp !== 0 ? cmp : a.image_id - b.image_id
                 } else if (a.date_taken != null && b.date_taken == null) {
                     return -1
                 } else if (a.date_taken == null && b.date_taken != null) {
                     return 1
                 }
-                return 0
+                return a.image_id - b.image_id
             })
             break
         case 'ATZ':

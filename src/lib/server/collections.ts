@@ -38,7 +38,7 @@ export const getCollectionWithImages = createServerFn({ method: 'POST' })
                 LEFT JOIN cameras c ON c.camera_id = i.camera
                 LEFT JOIN films f ON f.film_id = i.film
                 WHERE cl.collection = ${id}
-                ORDER BY i.date_taken DESC
+                ORDER BY i.date_taken DESC NULLS LAST, i.image_id ASC
             `
 
             return {

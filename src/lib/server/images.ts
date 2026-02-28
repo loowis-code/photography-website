@@ -19,6 +19,7 @@ export const getAllImages = createServerFn().handler(async () => {
             LEFT JOIN cameras c ON c.camera_id = i.camera
             LEFT JOIN films f ON f.film_id = i.film
             WHERE i.visible = true AND i.url IS NOT NULL
+            ORDER BY i.date_taken DESC NULLS LAST, i.image_id ASC
         `
         return images as Image[]
     } catch (error) {

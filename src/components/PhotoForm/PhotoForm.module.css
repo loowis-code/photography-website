@@ -80,10 +80,36 @@
         box-shadow 0.2s;
 }
 
-.button:hover {
+.button:hover:not(:disabled) {
     background: var(--color-dark);
     color: var(--color-accent-admin);
     box-shadow: 0.15em 0.15em 0 var(--color-accent-admin);
+}
+
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.feedbackSuccess {
+    padding: 0.8em 1em;
+    border-radius: 0.4em;
+    font-weight: 700;
+    font-size: 0.95em;
+    border: 0.15em solid #1a7a1a;
+    background: #e6f9e6;
+    color: #1a7a1a;
+}
+
+.feedbackError {
+    padding: 0.8em 1em;
+    border-radius: 0.4em;
+    font-weight: 700;
+    font-size: 0.95em;
+    border: 0.15em solid var(--color-danger);
+    background: #ffe6e6;
+    color: var(--color-danger);
 }
 
 .currentImage {

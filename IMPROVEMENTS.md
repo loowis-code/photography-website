@@ -48,7 +48,7 @@ Ordered by priority — quick wins first, then CI/testing foundation, then every
 ## Error Handling & UX
 
 - [x] **12. Add React Error Boundaries** (~2 hrs) — `src/routes/__root.tsx`
-- [ ] **13. Replace `alert()` with inline form feedback** (~3 hrs) — Admin route files
+- [x] **13. Replace `alert()` with inline form feedback** (~3 hrs) — Admin route files
 - [ ] **14. Error logging integration** (~2 hrs) — Sentry or similar
 
 ---

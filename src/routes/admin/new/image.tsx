@@ -29,7 +29,6 @@ function NewImage() {
                 film: (data.film as number) ?? null,
             },
         })
-        alert('Image uploaded successfully!')
     }
 
     return (

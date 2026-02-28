@@ -11,6 +11,7 @@ describe('getDb', () => {
     })
 
     it('throws when DATABASE_URL is missing', async () => {
+        vi.stubEnv('DATABASE_URL', '')
         const { getDb } = await import('./db')
         expect(() => getDb()).toThrow(
             'Missing DATABASE_URL environment variable',

@@ -1,0 +1,49 @@
+.container {
+    text-align: center;
+    width: 75%;
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    border: var(--color-black) 0.25rem solid;
+}
+
+.heading {
+    font-size: xx-large;
+    font-family: josefin-bold-italic;
+    margin-bottom: 1rem;
+}
+
+.message {
+    font-family: josefin-regular;
+    font-size: 1.125rem;
+    color: var(--color-gray);
+    margin-bottom: 2rem;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.retryButton {
+    padding: 0.75rem 1.5rem;
+    font-family: josefin-bold;
+    font-size: 1rem;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+}
+
+.retryButton:hover {
+    background-color: var(--color-dark);
+}
+
+.homeLink {
+    padding: 0.75rem 1.5rem;
+    font-family: josefin-bold;
+    font-size: 1rem;
+    color: var(--color-black);
+    text-decoration: underline;
+}

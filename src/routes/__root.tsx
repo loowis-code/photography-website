@@ -6,6 +6,7 @@ import {
     createRootRoute,
 } from '@tanstack/react-router'
 import * as React from 'react'
+import ErrorFallback from '~/components/ErrorFallback/ErrorFallback'
 import globalsCss from '~/styles/globals.css?url'
 import componentLibCss from 'loowis-component-library/dist/index.css?url'
 import leafletCss from 'leaflet/dist/leaflet.css?url'
@@ -34,6 +35,7 @@ export const Route = createRootRoute({
     }),
     shellComponent: RootDocument,
     component: RootComponent,
+    errorComponent: ErrorFallback,
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {

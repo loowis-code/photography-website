@@ -19,7 +19,6 @@ function NewCollection() {
                 description: data.description as string,
             },
         })
-        alert('Collection created successfully!')
     }
 
     return (

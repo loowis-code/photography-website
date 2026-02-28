@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import styles from './CollectionForm.module.css'
+import { useFormFeedback } from '~/hooks/useFormFeedback'
 import type { Image } from '~/lib/types'
 
 interface CollectionFormProps {
@@ -48,43 +49,52 @@ export default function CollectionForm({
         }
     }
 
+    const {
+        feedback,
+        isSubmitting,
+        handleSubmit: wrapSubmit,
+    } = useFormFeedback()
+
     const handleFormSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        const data: Record<string, unknown> = {
-            name: form.name,
-            description: form.description,
-            images: selectedImages,
-        }
-        if (form.file) {
-            const reader = new window.FileReader()
-            await new Promise<void>((resolve) => {
-                reader.onload = () => {
-                    data.image = reader.result
-                    resolve()
-                }
-                reader.readAsDataURL(form.file!)
-            })
-            const img = new window.Image()
-            await new Promise<void>((resolve) => {
-                img.onload = () => {
-                    data.width = img.width
-                    data.height = img.height
-                    resolve()
-                }
-                img.src = data.image as string
-            })
-        } else if (imageUrl) {
-            data.cover_url = imageUrl
-        }
-        if (onSubmit) {
-            await onSubmit(data)
-        }
-        if (mode === 'create') {
-            setForm({ name: '', description: '', file: null })
-            ;(e.target as HTMLFormElement).reset()
-        } else if (mode === 'edit') {
-            setForm({ ...form, file: null })
-        }
+        const formElement = e.target as HTMLFormElement
+        await wrapSubmit(async () => {
+            const data: Record<string, unknown> = {
+                name: form.name,
+                description: form.description,
+                images: selectedImages,
+            }
+            if (form.file) {
+                const reader = new window.FileReader()
+                await new Promise<void>((resolve) => {
+                    reader.onload = () => {
+                        data.image = reader.result
+                        resolve()
+                    }
+                    reader.readAsDataURL(form.file!)
+                })
+                const img = new window.Image()
+                await new Promise<void>((resolve) => {
+                    img.onload = () => {
+                        data.width = img.width
+                        data.height = img.height
+                        resolve()
+                    }
+                    img.src = data.image as string
+                })
+            } else if (imageUrl) {
+                data.cover_url = imageUrl
+            }
+            if (onSubmit) {
+                await onSubmit(data)
+            }
+            if (mode === 'create') {
+                setForm({ name: '', description: '', file: null })
+                formElement.reset()
+            } else if (mode === 'edit') {
+                setForm({ ...form, file: null })
+            }
+        })
     }
 
     return (
@@ -190,8 +200,28 @@ export default function CollectionForm({
                     {...(mode === 'create' ? { required: true } : {})}
                 />
             </div>
-            <button type="submit" className={styles.button}>
-                {mode === 'edit' ? 'Update' : 'Create'}
+            {feedback.message && (
+                <div
+                    className={
+                        feedback.type === 'success'
+                            ? styles.feedbackSuccess
+                            : styles.feedbackError
+                    }
+                    role={feedback.type === 'error' ? 'alert' : 'status'}
+                >
+                    {feedback.message}
+                </div>
+            )}
+            <button
+                type="submit"
+                className={styles.button}
+                disabled={isSubmitting}
+            >
+                {isSubmitting
+                    ? 'Saving...'
+                    : mode === 'edit'
+                      ? 'Update'
+                      : 'Create'}
             </button>
         </form>
     )

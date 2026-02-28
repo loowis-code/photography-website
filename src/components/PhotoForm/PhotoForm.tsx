@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import styles from './PhotoForm.module.css'
 import { useNavigate } from '@tanstack/react-router'
 import { getCameras, getFilms } from '~/lib/server/reference'
+import { useFormFeedback } from '~/hooks/useFormFeedback'
 import type { Camera, Film } from '~/lib/types'
 import type L from 'leaflet'
 
@@ -110,50 +111,58 @@ export default function PhotoForm({
         setForm({ ...form, [name]: checked })
     }
 
+    const {
+        feedback,
+        isSubmitting,
+        handleSubmit: wrapSubmit,
+    } = useFormFeedback()
+
     const handleFormSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        const data: Record<string, unknown> = {
-            title: form.title,
-            description: form.description,
-            alt_text: form.alt_text,
-            date: form.date_taken,
-            location: form.location,
-            featured: form.featured,
-            digital: form.digital,
-            visible: form.visible,
-            camera: form.camera,
-            film: form.film,
-            gps_lat: clickLocation.lat ?? mapData.lat,
-            gps_long: clickLocation.lng ?? mapData.lng,
-            url: imageUrl,
-        }
-        if (form.file) {
-            const reader = new window.FileReader()
-            await new Promise<void>((resolve) => {
-                reader.onload = () => {
-                    data.image = reader.result
-                    resolve()
-                }
-                reader.readAsDataURL(form.file!)
-            })
-            const img = new window.Image()
-            await new Promise<void>((resolve) => {
-                img.onload = () => {
-                    data.width = img.width
-                    data.height = img.height
-                    resolve()
-                }
-                img.src = data.image as string
-            })
-        } else if (imageUrl) {
-            data.url = imageUrl
-        }
-        if (onSubmit) {
-            await onSubmit(data)
-        }
-        if (mode === 'create') {
-            navigate({ to: '/admin' })
-        }
+        await wrapSubmit(async () => {
+            const data: Record<string, unknown> = {
+                title: form.title,
+                description: form.description,
+                alt_text: form.alt_text,
+                date: form.date_taken,
+                location: form.location,
+                featured: form.featured,
+                digital: form.digital,
+                visible: form.visible,
+                camera: form.camera,
+                film: form.film,
+                gps_lat: clickLocation.lat ?? mapData.lat,
+                gps_long: clickLocation.lng ?? mapData.lng,
+                url: imageUrl,
+            }
+            if (form.file) {
+                const reader = new window.FileReader()
+                await new Promise<void>((resolve) => {
+                    reader.onload = () => {
+                        data.image = reader.result
+                        resolve()
+                    }
+                    reader.readAsDataURL(form.file!)
+                })
+                const img = new window.Image()
+                await new Promise<void>((resolve) => {
+                    img.onload = () => {
+                        data.width = img.width
+                        data.height = img.height
+                        resolve()
+                    }
+                    img.src = data.image as string
+                })
+            } else if (imageUrl) {
+                data.url = imageUrl
+            }
+            if (onSubmit) {
+                await onSubmit(data)
+            }
+            if (mode === 'create') {
+                navigate({ to: '/admin' })
+            }
+        })
     }
 
     const mapRef = useRef<L.Map | null>(null)
@@ -376,8 +385,28 @@ export default function PhotoForm({
                 />
             </div>
             <div id="map" className={styles.map}></div>
-            <button type="submit" className={styles.button}>
-                {mode === 'edit' ? 'Update' : 'Upload'}
+            {feedback.message && (
+                <div
+                    className={
+                        feedback.type === 'success'
+                            ? styles.feedbackSuccess
+                            : styles.feedbackError
+                    }
+                    role={feedback.type === 'error' ? 'alert' : 'status'}
+                >
+                    {feedback.message}
+                </div>
+            )}
+            <button
+                type="submit"
+                className={styles.button}
+                disabled={isSubmitting}
+            >
+                {isSubmitting
+                    ? 'Saving...'
+                    : mode === 'edit'
+                      ? 'Update'
+                      : 'Upload'}
             </button>
         </form>
     )

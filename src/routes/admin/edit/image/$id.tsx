@@ -43,7 +43,6 @@ function EditImage() {
                 },
             },
         })
-        alert('Image updated successfully!')
         const refreshed = await getAdminImage({ data: id })
         if (refreshed) setImageData(refreshed)
     }

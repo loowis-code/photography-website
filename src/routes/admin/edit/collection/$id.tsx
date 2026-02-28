@@ -48,7 +48,6 @@ function EditCollection() {
                 },
             },
         })
-        alert('Collection updated successfully!')
         const refreshed = await getAdminCollection({ data: id })
         if (refreshed) {
             setCollectionData({ ...refreshed, allImages })

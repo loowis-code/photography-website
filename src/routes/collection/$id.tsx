@@ -1,14 +1,19 @@
-import { createFileRoute, notFound } from '@tanstack/react-router'
-import { useState, useEffect } from 'react'
+import { createFileRoute, notFound, useNavigate } from '@tanstack/react-router'
 import Layout from '~/components/Layout/Layout'
 import ImageModal from '~/components/ImageModal/ImageModal'
 import SortingButtons from '~/components/SortingButtons/SortingButtons'
+import Pagination from '~/components/Pagination/Pagination'
 import { getCollectionWithImages } from '~/lib/server/collections'
+import { validateImageSearch } from '~/lib/search-params'
 import styles from '~/styles/pages/all-images.module.css'
 
 export const Route = createFileRoute('/collection/$id')({
-    loader: async ({ params: { id } }) => {
-        const result = await getCollectionWithImages({ data: id })
+    validateSearch: validateImageSearch,
+    loaderDeps: ({ search }) => search,
+    loader: async ({ params: { id }, deps: { page, sort, filter } }) => {
+        const result = await getCollectionWithImages({
+            data: { id, page, sort, filter },
+        })
         if (!result) throw notFound()
         return result
     },
@@ -23,29 +28,42 @@ export const Route = createFileRoute('/collection/$id')({
 })
 
 function Collection() {
-    const { collection, images } = Route.useLoaderData()
-    const [photos, setPhotos] = useState(images)
-    const [filteredPhotos, setFilteredPhotos] = useState(images)
+    const { collection, images, page, totalPages } = Route.useLoaderData()
+    const search = Route.useSearch()
+    const navigate = useNavigate({ from: Route.fullPath })
 
-    useEffect(() => {
-        setPhotos(images)
-        setFilteredPhotos(images)
-    }, [images])
+    const updateSearch = (updates: Partial<typeof search>) => {
+        navigate({
+            search: (prev) => ({ ...prev, ...updates }),
+        })
+    }
 
     return (
         <Layout>
             <section className={styles.container}>
                 <h1 className={styles.header}>{collection?.collection_name}</h1>
                 <SortingButtons
-                    photos={photos}
-                    setPhotos={setFilteredPhotos}
+                    filter={search.filter}
+                    onSortChange={(sort) => updateSearch({ sort, page: 1 })}
+                    onFilterChange={(filter) =>
+                        updateSearch({ filter, page: 1 })
+                    }
                     page="Collections"
                 />
                 <div className={styles.grid}>
-                    {filteredPhotos?.map((d) => (
+                    {images.map((d) => (
                         <ImageModal data={d} key={d.image_id} />
                     ))}
                 </div>
+                {totalPages > 1 && (
+                    <Pagination
+                        currentPage={page}
+                        totalPages={totalPages}
+                        onPageChange={(newPage) =>
+                            updateSearch({ page: newPage })
+                        }
+                    />
+                )}
             </section>
         </Layout>
     )

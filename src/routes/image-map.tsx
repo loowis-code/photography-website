@@ -1,11 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import Layout from '~/components/Layout/Layout'
-import { getAllImages } from '~/lib/server/images'
+import { getImagesForMap } from '~/lib/server/images'
 import styles from '~/styles/pages/image-map.module.css'
 
 export const Route = createFileRoute('/image-map')({
-    loader: () => getAllImages(),
+    loader: () => getImagesForMap(),
     head: () => ({
         meta: [{ title: 'Image Map | Lewis Inches - Photography' }],
     }),
@@ -46,16 +46,14 @@ function ImageMap() {
 
             const markers: L.Marker[] = []
             for (let i = 0; i < data.length; i++) {
-                if (data[i].latitude != null && data[i].longitude != null) {
-                    const marker = L.marker(
-                        [data[i].latitude!, data[i].longitude!],
-                        { icon },
-                    ).addTo(map!)
-                    markers.push(marker)
-                    marker.bindPopup(
-                        `<a href="/images/${data[i].image_id}">${data[i].title}</a>`,
-                    )
-                }
+                const img = data[i]
+                const marker = L.marker([img.latitude!, img.longitude!], {
+                    icon,
+                }).addTo(map!)
+                markers.push(marker)
+                marker.bindPopup(
+                    `<a href="/images/${img.image_id}">${img.title}</a>`,
+                )
             }
             if (markers.length > 0) {
                 const group = L.featureGroup(markers)

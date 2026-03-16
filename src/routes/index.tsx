@@ -2,11 +2,11 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
 import Layout from '~/components/Layout/Layout'
 import ImageModal from '~/components/ImageModal/ImageModal'
-import { getAllImages } from '~/lib/server/images'
+import { getFeaturedImages } from '~/lib/server/images'
 import styles from '~/styles/pages/index.module.css'
 
 export const Route = createFileRoute('/')({
-    loader: () => getAllImages(),
+    loader: () => getFeaturedImages(),
     head: () => ({
         meta: [{ title: 'Loowis Photography' }],
     }),
@@ -15,21 +15,9 @@ export const Route = createFileRoute('/')({
 
 function Home() {
     const data = Route.useLoaderData()
-    const [dFeatured] = useState(
-        data.filter(
-            (photo) =>
-                photo.featured === true &&
-                photo.digital === true &&
-                photo.visible === true,
-        ),
-    )
+    const [dFeatured] = useState(data.filter((photo) => photo.digital === true))
     const [aFeatured] = useState(
-        data.filter(
-            (photo) =>
-                photo.featured === true &&
-                photo.digital === false &&
-                photo.visible === true,
-        ),
+        data.filter((photo) => photo.digital === false),
     )
     const [format, setFormat] = useState('film')
 

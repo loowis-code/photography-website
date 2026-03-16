@@ -44,3 +44,14 @@ export interface CollectionWithImages extends Collection {
     images: number[]
     allImages?: Image[]
 }
+
+export type SortOrder = 'date-desc' | 'date-asc' | 'title-asc' | 'title-desc'
+export type FilterType = 'all' | 'film' | 'digital'
+
+export interface PaginatedResult<T> {
+    items: T[]
+    totalCount: number
+    page: number
+    pageSize: number
+    totalPages: number
+}

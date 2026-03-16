@@ -91,6 +91,7 @@ test.describe('All Images', () => {
         const nextButton = page.getByRole('button', { name: 'Next Page' })
         if (await nextButton.isEnabled()) {
             await nextButton.click()
+            await expect(page).toHaveURL(/page=2/)
             await expect(pageInfo).toContainText('Page 2 of')
         }
     })

@@ -22,6 +22,7 @@ export default function CollectionPreview({
                 className={styles.collectionpreview}
                 to="/collection/$id"
                 params={{ id: String(id) }}
+                search={{ page: 1, sort: 'date-desc', filter: 'all' }}
             >
                 <img
                     src={cover_url}

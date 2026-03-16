@@ -41,7 +41,6 @@ export const getCollectionWithImages = createServerFn({ method: 'POST' })
                 FROM collections_lookup cl
                 JOIN images i ON i.image_id = cl.image
                 WHERE cl.collection = ${id}
-                  AND i.visible = true
                   AND i.url IS NOT NULL
                   ${sql.unsafe(filterClause)}`
             const totalCount = parseInt(countResult[0].count as string, 10)
@@ -64,7 +63,6 @@ export const getCollectionWithImages = createServerFn({ method: 'POST' })
                 LEFT JOIN cameras c ON c.camera_id = i.camera
                 LEFT JOIN films f ON f.film_id = i.film
                 WHERE cl.collection = ${id}
-                  AND i.visible = true
                   AND i.url IS NOT NULL
                   ${sql.unsafe(filterClause)}
                 ORDER BY ${sql.unsafe(orderBy)}

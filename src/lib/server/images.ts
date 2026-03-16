@@ -120,7 +120,7 @@ export const getImagesForMap = createServerFn().handler(async () => {
             SELECT image_id, url, width, height, title, alt_text,
                    latitude, longitude
             FROM images
-            WHERE visible = true AND url IS NOT NULL
+            WHERE url IS NOT NULL
               AND latitude IS NOT NULL AND longitude IS NOT NULL
         `
         return images as Pick<

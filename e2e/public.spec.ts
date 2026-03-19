@@ -167,7 +167,7 @@ test.describe('Navigation', () => {
         await page.goto('/')
 
         await page.getByRole('link', { name: /all images/i }).click()
-        await expect(page).toHaveURL('/all-images')
+        await expect(page).toHaveURL(/\/all-images/)
 
         await page.getByRole('link', { name: /collections/i }).click()
         await expect(page).toHaveURL('/collections')

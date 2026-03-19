@@ -23,6 +23,22 @@ export const Route = createFileRoute('/collection/$id')({
             {
                 title: `${loaderData?.collection?.collection_name ?? 'Collection'} | Loowis Photography`,
             },
+            {
+                name: 'og:title',
+                content: `${loaderData?.collection?.collection_name ?? 'Collection'} | Loowis Photography`,
+            },
+            {
+                name: 'og:description',
+                content:
+                    loaderData?.collection?.collection_description ||
+                    'Photography by Loowis',
+            },
+            {
+                name: 'og:image',
+                content: loaderData?.collection?.cover_url ?? '',
+            },
+            { name: 'og:url', content: `${BASE_URL}${match.pathname}` },
+            { name: 'og:type', content: 'website' },
         ],
         links: [{ rel: 'canonical', href: `${BASE_URL}${match.pathname}` }],
     }),

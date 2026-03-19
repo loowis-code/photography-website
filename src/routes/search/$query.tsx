@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { BASE_URL } from '~/lib/constants'
 import Layout from '~/components/Layout/Layout'
 import ImageModal from '~/components/ImageModal/ImageModal'
 import { searchImages } from '~/lib/server/search'
@@ -6,8 +7,9 @@ import styles from '~/styles/pages/search.module.css'
 
 export const Route = createFileRoute('/search/$query')({
     loader: ({ params: { query } }) => searchImages({ data: query }),
-    head: () => ({
+    head: ({ match }) => ({
         meta: [{ title: 'Search Results | Lewis Inches - Photography' }],
+        links: [{ rel: 'canonical', href: `${BASE_URL}${match.pathname}` }],
     }),
     component: Search,
 })

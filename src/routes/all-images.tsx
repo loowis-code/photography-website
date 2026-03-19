@@ -1,4 +1,5 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import { BASE_URL } from '~/lib/constants'
 import Layout from '~/components/Layout/Layout'
 import ImageModal from '~/components/ImageModal/ImageModal'
 import SortingButtons from '~/components/SortingButtons/SortingButtons'
@@ -12,8 +13,9 @@ export const Route = createFileRoute('/all-images')({
     loaderDeps: ({ search }) => search,
     loader: ({ deps: { page, sort, filter } }) =>
         getAllImages({ data: { page, sort, filter } }),
-    head: () => ({
+    head: ({ match }) => ({
         meta: [{ title: 'All Images | Loowis Photography' }],
+        links: [{ rel: 'canonical', href: `${BASE_URL}${match.pathname}` }],
     }),
     component: AllImages,
 })

@@ -1,4 +1,5 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
+import { BASE_URL } from '~/lib/constants'
 import Layout from '~/components/Layout/Layout'
 import ImagePage from '~/components/ImagePage/ImagePage'
 import { getImageById } from '~/lib/server/images'
@@ -10,7 +11,7 @@ export const Route = createFileRoute('/images/$id')({
         if (!image) throw notFound()
         return image
     },
-    head: ({ loaderData }) => ({
+    head: ({ loaderData, match }) => ({
         meta: [
             {
                 title: `${loaderData?.title ?? 'Image'} | Loowis Photography`,
@@ -24,9 +25,10 @@ export const Route = createFileRoute('/images/$id')({
                 content: loaderData?.description || 'Photography by Loowis',
             },
             { name: 'og:image', content: loaderData?.url ?? '' },
-            { name: 'og:url', content: 'pictures.loowis.co.uk' },
+            { name: 'og:url', content: `${BASE_URL}${match.pathname}` },
             { name: 'og:type', content: 'website' },
         ],
+        links: [{ rel: 'canonical', href: `${BASE_URL}${match.pathname}` }],
     }),
     component: Photo,
 })

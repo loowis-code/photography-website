@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { BASE_URL } from '~/lib/constants'
 import { useState } from 'react'
 import Layout from '~/components/Layout/Layout'
 import ImageModal from '~/components/ImageModal/ImageModal'
@@ -7,8 +8,9 @@ import styles from '~/styles/pages/index.module.css'
 
 export const Route = createFileRoute('/')({
     loader: () => getFeaturedImages(),
-    head: () => ({
+    head: ({ match }) => ({
         meta: [{ title: 'Loowis Photography' }],
+        links: [{ rel: 'canonical', href: `${BASE_URL}${match.pathname}` }],
     }),
     component: Home,
 })

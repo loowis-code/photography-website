@@ -1,4 +1,5 @@
 import { createFileRoute, notFound, useNavigate } from '@tanstack/react-router'
+import { BASE_URL } from '~/lib/constants'
 import Layout from '~/components/Layout/Layout'
 import ImageModal from '~/components/ImageModal/ImageModal'
 import SortingButtons from '~/components/SortingButtons/SortingButtons'
@@ -17,12 +18,13 @@ export const Route = createFileRoute('/collection/$id')({
         if (!result) throw notFound()
         return result
     },
-    head: ({ loaderData }) => ({
+    head: ({ loaderData, match }) => ({
         meta: [
             {
                 title: `${loaderData?.collection?.collection_name ?? 'Collection'} | Loowis Photography`,
             },
         ],
+        links: [{ rel: 'canonical', href: `${BASE_URL}${match.pathname}` }],
     }),
     component: Collection,
 })

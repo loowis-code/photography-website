@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { BASE_URL } from '~/lib/constants'
 import Layout from '~/components/Layout/Layout'
 import CollectionPreview from '~/components/CollectionPreview/CollectionPreview'
 import { getAllCollections } from '~/lib/server/collections'
@@ -6,8 +7,9 @@ import styles from '~/styles/pages/collections.module.css'
 
 export const Route = createFileRoute('/collections')({
     loader: () => getAllCollections(),
-    head: () => ({
+    head: ({ match }) => ({
         meta: [{ title: 'Collections | Loowis Photography' }],
+        links: [{ rel: 'canonical', href: `${BASE_URL}${match.pathname}` }],
     }),
     component: Collections,
 })

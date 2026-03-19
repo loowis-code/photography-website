@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { BASE_URL } from '~/lib/constants'
 import { useEffect } from 'react'
 import Layout from '~/components/Layout/Layout'
 import { getImagesForMap } from '~/lib/server/images'
@@ -6,8 +7,9 @@ import styles from '~/styles/pages/image-map.module.css'
 
 export const Route = createFileRoute('/image-map')({
     loader: () => getImagesForMap(),
-    head: () => ({
+    head: ({ match }) => ({
         meta: [{ title: 'Image Map | Lewis Inches - Photography' }],
+        links: [{ rel: 'canonical', href: `${BASE_URL}${match.pathname}` }],
     }),
     component: ImageMap,
 })

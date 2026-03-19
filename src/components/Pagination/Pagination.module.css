@@ -7,6 +7,32 @@
     font-size: large;
 }
 
+.disabledButton {
+    width: 10rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    aspect-ratio: 4/1;
+    text-wrap: nowrap;
+    padding: 1.75rem 5.5rem;
+    margin: 0.5rem;
+    border: var(--color-black) 0.25rem solid;
+    font-weight: 700;
+    font-size: 0.75rem;
+    box-shadow: 0.25rem 0.25rem var(--color-black);
+    font-family: josefin-regular;
+    background-color: transparent;
+    color: var(--color-gray);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.pageInfo {
+    font-family: josefin-regular;
+    margin: 0;
+}
+
 @media (max-width: 600px) {
     .pagination {
         gap: 0;

@@ -49,14 +49,14 @@ Ordered by priority — quick wins first, then CI/testing foundation, then every
 
 - [x] **12. Add React Error Boundaries** (~2 hrs) — `src/routes/__root.tsx`
 - [x] **13. Replace `alert()` with inline form feedback** (~3 hrs) — Admin route files
-- [ ] **14. Error logging integration** (~2 hrs) — Sentry or similar
+- ~~**14. Error logging integration**~~ — Skipped
 
 ---
 
 ## Performance
 
 - [x] **15. Optimise `getCollectionWithImages` queries** (~2 hrs) — `src/lib/server/collections.ts:12-54`
-- [ ] **16. Server-side pagination for `/all-images` and `/collection/$id`** (~4 hrs) — `src/lib/server/images.ts`, `src/lib/server/collections.ts`, `src/routes/all-images.tsx`, `src/routes/collection/$id.tsx`
+- [x] **16. Server-side pagination for `/all-images` and `/collection/$id`** (~4 hrs) — `src/lib/server/images.ts`, `src/lib/server/collections.ts`, `src/routes/all-images.tsx`, `src/routes/collection/$id.tsx`
 - [ ] **17. Image optimisation pipeline** (~1-2 days) — WebP/AVIF variants, multiple sizes on upload
 - [ ] **18. Add responsive images with `srcset`** (~4 hrs) — `src/components/ImageModal/ImageModal.tsx`, `ImagePage/ImagePage.tsx`
 

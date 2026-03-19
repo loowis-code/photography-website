@@ -2,24 +2,22 @@ import styles from './Pagination.module.css'
 import { Button } from 'loowis-component-library'
 
 interface PaginationProps {
-    setCurrentPage: (fn: (prev: number) => number) => void
-    displayPage: number
-    maxPage: number
+    currentPage: number
+    totalPages: number
+    onPageChange: (page: number) => void
 }
 
 export default function Pagination({
-    setCurrentPage,
-    displayPage,
-    maxPage,
+    currentPage,
+    totalPages,
+    onPageChange,
 }: PaginationProps) {
     return (
         <div className={styles.pagination}>
-            {displayPage > 1 ? (
+            {currentPage > 1 ? (
                 <Button
                     buttonText="Previous Page"
-                    clickHandler={() => {
-                        setCurrentPage((prevPage: number) => prevPage - 1)
-                    }}
+                    clickHandler={() => onPageChange(currentPage - 1)}
                 />
             ) : (
                 <button className={styles.disabledButton} disabled>
@@ -27,14 +25,12 @@ export default function Pagination({
                 </button>
             )}
             <p className={styles.pageInfo}>
-                Page {displayPage} of {maxPage}
+                Page {currentPage} of {totalPages}
             </p>
-            {displayPage < maxPage && maxPage >= 1 ? (
+            {currentPage < totalPages ? (
                 <Button
                     buttonText="Next Page"
-                    clickHandler={() => {
-                        setCurrentPage((prevPage: number) => prevPage + 1)
-                    }}
+                    clickHandler={() => onPageChange(currentPage + 1)}
                 />
             ) : (
                 <button className={styles.disabledButton} disabled>

@@ -19,6 +19,7 @@ import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as SearchQueryRouteImport } from './routes/search/$query'
 import { Route as ImagesIdRouteImport } from './routes/images/$id'
 import { Route as CollectionIdRouteImport } from './routes/collection/$id'
+import { Route as ApiSitemapRouteImport } from './routes/api/sitemap'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as AdminNewImageRouteImport } from './routes/admin/new/image'
 import { Route as AdminNewCollectionRouteImport } from './routes/admin/new/collection'
@@ -76,6 +77,11 @@ const CollectionIdRoute = CollectionIdRouteImport.update({
   path: '/collection/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiSitemapRoute = ApiSitemapRouteImport.update({
+  id: '/api/sitemap',
+  path: '/api/sitemap',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
@@ -115,6 +121,7 @@ export interface FileRoutesByFullPath {
   '/all-images': typeof AllImagesRoute
   '/collections': typeof CollectionsRoute
   '/image-map': typeof ImageMapRoute
+  '/api/sitemap': typeof ApiSitemapRoute
   '/collection/$id': typeof CollectionIdRoute
   '/images/$id': typeof ImagesIdRoute
   '/search/$query': typeof SearchQueryRoute
@@ -132,6 +139,7 @@ export interface FileRoutesByTo {
   '/all-images': typeof AllImagesRoute
   '/collections': typeof CollectionsRoute
   '/image-map': typeof ImageMapRoute
+  '/api/sitemap': typeof ApiSitemapRoute
   '/collection/$id': typeof CollectionIdRoute
   '/images/$id': typeof ImagesIdRoute
   '/search/$query': typeof SearchQueryRoute
@@ -151,6 +159,7 @@ export interface FileRoutesById {
   '/all-images': typeof AllImagesRoute
   '/collections': typeof CollectionsRoute
   '/image-map': typeof ImageMapRoute
+  '/api/sitemap': typeof ApiSitemapRoute
   '/collection/$id': typeof CollectionIdRoute
   '/images/$id': typeof ImagesIdRoute
   '/search/$query': typeof SearchQueryRoute
@@ -171,6 +180,7 @@ export interface FileRouteTypes {
     | '/all-images'
     | '/collections'
     | '/image-map'
+    | '/api/sitemap'
     | '/collection/$id'
     | '/images/$id'
     | '/search/$query'
@@ -188,6 +198,7 @@ export interface FileRouteTypes {
     | '/all-images'
     | '/collections'
     | '/image-map'
+    | '/api/sitemap'
     | '/collection/$id'
     | '/images/$id'
     | '/search/$query'
@@ -206,6 +217,7 @@ export interface FileRouteTypes {
     | '/all-images'
     | '/collections'
     | '/image-map'
+    | '/api/sitemap'
     | '/collection/$id'
     | '/images/$id'
     | '/search/$query'
@@ -225,6 +237,7 @@ export interface RootRouteChildren {
   AllImagesRoute: typeof AllImagesRoute
   CollectionsRoute: typeof CollectionsRoute
   ImageMapRoute: typeof ImageMapRoute
+  ApiSitemapRoute: typeof ApiSitemapRoute
   CollectionIdRoute: typeof CollectionIdRoute
   ImagesIdRoute: typeof ImagesIdRoute
   SearchQueryRoute: typeof SearchQueryRoute
@@ -303,6 +316,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CollectionIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/sitemap': {
+      id: '/api/sitemap'
+      path: '/api/sitemap'
+      fullPath: '/api/sitemap'
+      preLoaderRoute: typeof ApiSitemapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -377,6 +397,7 @@ const rootRouteChildren: RootRouteChildren = {
   AllImagesRoute: AllImagesRoute,
   CollectionsRoute: CollectionsRoute,
   ImageMapRoute: ImageMapRoute,
+  ApiSitemapRoute: ApiSitemapRoute,
   CollectionIdRoute: CollectionIdRoute,
   ImagesIdRoute: ImagesIdRoute,
   SearchQueryRoute: SearchQueryRoute,

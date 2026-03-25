@@ -22,7 +22,7 @@ export const Route = createFileRoute('/images/$id')({
                   url: `${BASE_URL}${match.pathname}`,
                   author: {
                       '@type': 'Person',
-                      name: 'Lewis Inches',
+                      name: 'Loowis',
                   },
                   ...(loaderData.description && {
                       description: loaderData.description,

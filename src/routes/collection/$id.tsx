@@ -30,7 +30,7 @@ export const Route = createFileRoute('/collection/$id')({
                   image: collection.cover_url,
                   author: {
                       '@type': 'Person',
-                      name: 'Lewis Inches',
+                      name: 'Loowis',
                   },
                   ...(collection.collection_description && {
                       description: collection.collection_description,

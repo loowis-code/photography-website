@@ -66,7 +66,7 @@ Ordered by priority — quick wins first, then CI/testing foundation, then every
 
 - [x] **19. Add `sitemap.xml` and `robots.txt`** (~3 hrs) — `public/robots.txt`, `src/routes/api/sitemap.ts`
 - [x] **20. Add canonical tags to all pages** (~1 hr) — Route `head()` functions
-- [ ] **21. Add structured data (JSON-LD)** (~3 hrs) — `src/routes/images/$id.tsx`, `src/routes/collections/$id.tsx`
+- [x] **21. Add structured data (JSON-LD)** (~3 hrs) — `src/routes/images/$id.tsx`, `src/routes/collection/$id.tsx`
 - [x] **22. Add OG tags to collection pages** (~1 hr) — `src/routes/collection/$id.tsx`
 
 ---

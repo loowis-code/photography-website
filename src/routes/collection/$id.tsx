@@ -18,30 +18,54 @@ export const Route = createFileRoute('/collection/$id')({
         if (!result) throw notFound()
         return result
     },
-    head: ({ loaderData, match }) => ({
-        meta: [
-            {
-                title: `${loaderData?.collection?.collection_name ?? 'Collection'} | Loowis Photography`,
-            },
-            {
-                name: 'og:title',
-                content: `${loaderData?.collection?.collection_name ?? 'Collection'} | Loowis Photography`,
-            },
-            {
-                name: 'og:description',
-                content:
-                    loaderData?.collection?.collection_description ||
-                    'Photography by Loowis',
-            },
-            {
-                name: 'og:image',
-                content: loaderData?.collection?.cover_url ?? '',
-            },
-            { name: 'og:url', content: `${BASE_URL}${match.pathname}` },
-            { name: 'og:type', content: 'website' },
-        ],
-        links: [{ rel: 'canonical', href: `${BASE_URL}${match.pathname}` }],
-    }),
+    head: ({ loaderData, match }) => {
+        const collection = loaderData?.collection
+        const title = `${collection?.collection_name ?? 'Collection'} | Loowis Photography`
+        const jsonLd = collection
+            ? {
+                  '@context': 'https://schema.org',
+                  '@type': 'ImageGallery',
+                  name: collection.collection_name,
+                  url: `${BASE_URL}${match.pathname}`,
+                  image: collection.cover_url,
+                  author: {
+                      '@type': 'Person',
+                      name: 'Lewis Inches',
+                  },
+                  ...(collection.collection_description && {
+                      description: collection.collection_description,
+                  }),
+              }
+            : null
+
+        return {
+            meta: [
+                { title },
+                { name: 'og:title', content: title },
+                {
+                    name: 'og:description',
+                    content:
+                        collection?.collection_description ||
+                        'Photography by Loowis',
+                },
+                {
+                    name: 'og:image',
+                    content: collection?.cover_url ?? '',
+                },
+                { name: 'og:url', content: `${BASE_URL}${match.pathname}` },
+                { name: 'og:type', content: 'website' },
+            ],
+            links: [{ rel: 'canonical', href: `${BASE_URL}${match.pathname}` }],
+            scripts: jsonLd
+                ? [
+                      {
+                          type: 'application/ld+json',
+                          children: JSON.stringify(jsonLd),
+                      },
+                  ]
+                : [],
+        }
+    },
     component: Collection,
 })
 

@@ -15,10 +15,9 @@ export default function ImageModal({ data }: ImageModalProps) {
     useEffect(() => {
         if (!modalOpen) return
 
-        const appContent = document.getElementById('modal-root')
-            ?.previousElementSibling as HTMLElement | null
-
+        const appContent = document.getElementById('app-content')
         if (appContent) appContent.inert = true
+        document.body.style.overflow = 'hidden'
 
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape') {
@@ -30,6 +29,7 @@ export default function ImageModal({ data }: ImageModalProps) {
 
         return () => {
             if (appContent) appContent.inert = false
+            document.body.style.overflow = ''
             document.removeEventListener('keydown', handleKeyDown)
         }
     }, [modalOpen])

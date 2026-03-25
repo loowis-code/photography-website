@@ -45,7 +45,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 <HeadContent />
             </head>
             <body>
-                {children}
+                <div id="app-content">{children}</div>
                 <div id="modal-root"></div>
                 <Scripts />
             </body>

@@ -22,6 +22,11 @@
     background-color: var(--color-accent-red);
 }
 
+.button:focus-visible {
+    outline: 0.2rem solid var(--color-accent-blue);
+    outline-offset: 0.15rem;
+}
+
 .collButton {
     font-size: large;
     background-color: var(--color-bg);
@@ -37,6 +42,11 @@
 .collButton:hover {
     color: var(--color-white);
     background-color: var(--color-accent-pink);
+}
+
+.collButton:focus-visible {
+    outline: 0.2rem solid var(--color-accent-blue);
+    outline-offset: 0.15rem;
 }
 
 .checkboxes {

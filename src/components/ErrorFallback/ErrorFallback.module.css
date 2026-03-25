@@ -40,10 +40,20 @@
     background-color: var(--color-dark);
 }
 
+.retryButton:focus-visible {
+    outline: 0.2rem solid var(--color-accent-blue);
+    outline-offset: 0.15rem;
+}
+
 .homeLink {
     padding: 0.75rem 1.5rem;
     font-family: josefin-bold;
     font-size: 1rem;
     color: var(--color-black);
     text-decoration: underline;
+}
+
+.homeLink:focus-visible {
+    outline: 0.2rem solid var(--color-accent-blue);
+    outline-offset: 0.15rem;
 }

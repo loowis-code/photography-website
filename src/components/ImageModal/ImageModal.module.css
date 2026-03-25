@@ -25,6 +25,11 @@
     position: relative;
 }
 
+.modalButton:focus-visible {
+    outline: 0.2rem solid var(--color-accent-blue);
+    outline-offset: 0.15rem;
+}
+
 .image {
     width: 100%;
     height: auto;

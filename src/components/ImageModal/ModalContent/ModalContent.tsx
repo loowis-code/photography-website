@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import styles from '../ImageModal.module.css'
 import type { Image } from '~/lib/types'
 
@@ -7,18 +8,38 @@ interface ModalContentProps {
 }
 
 export default function ModalContent({ onClose, data }: ModalContentProps) {
+    const closeRef = useRef<HTMLButtonElement>(null)
+
+    useEffect(() => {
+        closeRef.current?.focus()
+    }, [])
+
     return (
         <>
-            <div className={styles.overlay} onClick={() => onClose()} />
-            <div className={styles.modalContent} id={data.url}>
+            <div
+                className={styles.overlay}
+                onClick={() => onClose()}
+                aria-hidden="true"
+            />
+            <div
+                className={styles.modalContent}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby={`modal-title-${data.image_id}`}
+            >
                 <div className={styles.modalHeader}>
-                    <p className={styles.imageTitle}>
+                    <p
+                        className={styles.imageTitle}
+                        id={`modal-title-${data.image_id}`}
+                    >
                         {data.title}, {data.location}
                     </p>
                     <button
+                        ref={closeRef}
                         className={styles.closeButton}
                         type="button"
                         onClick={() => onClose()}
+                        aria-label="Close modal"
                     >
                         X
                     </button>
@@ -27,6 +48,7 @@ export default function ModalContent({ onClose, data }: ModalContentProps) {
                 <a
                     href={`/images/${data.image_id}`}
                     className={styles.modalImageLink}
+                    aria-label={`View full details for ${data.title}`}
                 >
                     <img
                         src={data.url}

@@ -111,6 +111,16 @@
     color: var(--color-bg-modal);
 }
 
+.closeButton:focus-visible {
+    outline: 0.2rem solid var(--color-accent-blue);
+    outline-offset: 0.15rem;
+}
+
+.modalImageLink:focus-visible {
+    outline: 0.2rem solid var(--color-accent-blue);
+    outline-offset: 0.15rem;
+}
+
 .modalImage {
     border: var(--color-black) 0.25rem solid;
     width: 100%;

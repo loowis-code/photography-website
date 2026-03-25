@@ -1,6 +1,6 @@
 import ModalContent from './ModalContent/ModalContent'
 import styles from './ImageModal.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import type { Image } from '~/lib/types'
 
@@ -10,6 +10,27 @@ interface ImageModalProps {
 
 export default function ImageModal({ data }: ImageModalProps) {
     const [modalOpen, setModalOpen] = useState(false)
+    const triggerRef = useRef<HTMLButtonElement>(null)
+
+    useEffect(() => {
+        if (!modalOpen) return
+
+        const appContent = document.getElementById('app-content')
+        if (appContent) appContent.inert = true
+        document.body.style.overflow = 'hidden'
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') setModalOpen(false)
+        }
+        document.addEventListener('keydown', handleKeyDown)
+
+        return () => {
+            if (appContent) appContent.inert = false
+            document.body.style.overflow = ''
+            document.removeEventListener('keydown', handleKeyDown)
+            triggerRef.current?.focus()
+        }
+    }, [modalOpen])
 
     function assignHoverColors() {
         const imageContainers = document.getElementsByClassName(
@@ -50,8 +71,10 @@ export default function ImageModal({ data }: ImageModalProps) {
                 <h5 className={styles.thumbnailTitle}>{data.title}</h5>
             </a>
             <button
+                ref={triggerRef}
                 className={styles.modalButton}
                 onClick={() => setModalOpen(true)}
+                aria-label={`View ${data.title} in full size`}
             >
                 <img
                     src={data.url}

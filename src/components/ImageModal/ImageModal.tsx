@@ -20,10 +20,7 @@ export default function ImageModal({ data }: ImageModalProps) {
         document.body.style.overflow = 'hidden'
 
         const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') {
-                setModalOpen(false)
-                triggerRef.current?.focus()
-            }
+            if (e.key === 'Escape') setModalOpen(false)
         }
         document.addEventListener('keydown', handleKeyDown)
 
@@ -31,6 +28,7 @@ export default function ImageModal({ data }: ImageModalProps) {
             if (appContent) appContent.inert = false
             document.body.style.overflow = ''
             document.removeEventListener('keydown', handleKeyDown)
+            triggerRef.current?.focus()
         }
     }, [modalOpen])
 
@@ -90,10 +88,7 @@ export default function ImageModal({ data }: ImageModalProps) {
             {modalOpen &&
                 createPortal(
                     <ModalContent
-                        onClose={() => {
-                            setModalOpen(false)
-                            triggerRef.current?.focus()
-                        }}
+                        onClose={() => setModalOpen(false)}
                         data={data}
                     />,
                     document.getElementById('modal-root')!,

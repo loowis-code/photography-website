@@ -48,6 +48,7 @@ export default function ModalContent({ onClose, data }: ModalContentProps) {
                 <a
                     href={`/images/${data.image_id}`}
                     className={styles.modalImageLink}
+                    aria-label={`View full details for ${data.title}`}
                 >
                     <img
                         src={data.url}

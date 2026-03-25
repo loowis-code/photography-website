@@ -73,7 +73,7 @@ Ordered by priority — quick wins first, then CI/testing foundation, then every
 
 ## Accessibility
 
-- [x] **23. Add ARIA roles to image modals** (~3 hrs) — `src/components/ImageModal/ModalContent/ModalContent.tsx`, `ImageModal.tsx`, `ImageModal.module.css`
+- [x] **23. Add ARIA roles to image modals** (~3 hrs) — `src/components/ImageModal/ModalContent/ModalContent.tsx`, `src/components/ImageModal/ImageModal.tsx`, `src/components/ImageModal/ImageModal.module.css`
 - [ ] **24. Add more responsive breakpoints** (~4 hrs) — CSS modules throughout
 - [ ] **25. Add visible focus states to all interactive elements** (~2 hrs) — CSS modules throughout
 

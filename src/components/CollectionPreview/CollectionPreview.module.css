@@ -26,6 +26,11 @@
     opacity: 100%;
 }
 
+.collectionpreview:focus-visible {
+    outline: 0.2rem solid var(--color-accent-blue);
+    outline-offset: 0.15rem;
+}
+
 .collectionpreview:hover > img {
     box-shadow: 0.25rem 0.25rem var(--color-accent-pink);
 }

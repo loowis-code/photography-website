@@ -11,7 +11,6 @@
 }
 
 .mobileLink {
-    display: none;
     color: var(--color-black);
     text-decoration: none;
 }
@@ -135,14 +134,4 @@
     font-family: josefin-bold;
     font-size: large;
     width: 100%;
-}
-
-@media (width <= 1320px) {
-    .mobileLink {
-        display: block;
-    }
-
-    .modalButton {
-        display: none;
-    }
 }

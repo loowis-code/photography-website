@@ -28,6 +28,8 @@ CI (`.github/workflows/ci.yml`) runs on every PR into `main`, in order: lint →
 ## Workflow
 
 - No direct pushes to `main` — all changes go through a PR, and CI must be green before merging.
+- One PR per discrete piece of work. Don't bundle unrelated fixes into a single branch/PR, even small ones — split them so each PR is independently reviewable and revertable.
+- Improvements and known issues are tracked as GitHub issues, not in a markdown backlog file in the repo. Reference the issue number in the PR that resolves it.
 - Husky + lint-staged run ESLint/Prettier on staged files at commit time.
 
 ## Architecture

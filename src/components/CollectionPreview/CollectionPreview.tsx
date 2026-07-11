@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import styles from './CollectionPreview.module.css'
+import { getResizedImageUrl } from '~/lib/images'
 
 interface CollectionPreviewProps {
     name: string
@@ -25,7 +26,7 @@ export default function CollectionPreview({
                 search={{ page: 1, sort: 'date-desc', filter: 'all' }}
             >
                 <img
-                    src={cover_url}
+                    src={getResizedImageUrl(cover_url, 'thumbnail')}
                     alt={name}
                     width={width}
                     height={height}

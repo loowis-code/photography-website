@@ -5,6 +5,7 @@ import {
     getAdminCollections,
     deleteCollection,
 } from '~/lib/server/admin-collections'
+import { getResizedImageUrl } from '~/lib/images'
 import styles from '~/styles/admin/edit-collection.module.css'
 
 export const Route = createFileRoute('/admin/edit/collection/')({
@@ -40,7 +41,10 @@ function EditCollections() {
                                 }}
                             >
                                 <img
-                                    src={collection.cover_url}
+                                    src={getResizedImageUrl(
+                                        collection.cover_url,
+                                        'thumbnail',
+                                    )}
                                     width={collection.width}
                                     height={collection.height}
                                     className={styles.image}

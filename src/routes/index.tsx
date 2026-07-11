@@ -26,6 +26,7 @@ function Home() {
     return (
         <Layout>
             <section>
+                <h1 className={styles.visuallyHidden}>Loowis Photography</h1>
                 <div className={styles.container}>
                     <div className={styles.formatSelection}>
                         <button

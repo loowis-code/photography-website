@@ -8,9 +8,27 @@ interface ImageModalProps {
     data: Image
 }
 
+const MOBILE_MEDIA_QUERY = '(width <= 1320px)'
+
+function useIsMobile() {
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia(MOBILE_MEDIA_QUERY)
+        setIsMobile(mediaQuery.matches)
+
+        const handleChange = (e: MediaQueryListEvent) => setIsMobile(e.matches)
+        mediaQuery.addEventListener('change', handleChange)
+        return () => mediaQuery.removeEventListener('change', handleChange)
+    }, [])
+
+    return isMobile
+}
+
 export default function ImageModal({ data }: ImageModalProps) {
     const [modalOpen, setModalOpen] = useState(false)
     const triggerRef = useRef<HTMLButtonElement>(null)
+    const isMobile = useIsMobile()
 
     useEffect(() => {
         if (!modalOpen) return
@@ -60,31 +78,37 @@ export default function ImageModal({ data }: ImageModalProps) {
 
     return (
         <article className={styles.imageContainer}>
-            <a className={styles.mobileLink} href={`/images/${data.image_id}`}>
-                <img
-                    src={data.url}
-                    alt={data.alt_text ?? ''}
-                    width={data.width}
-                    height={data.height}
-                    className={styles.image}
-                />
-                <h5 className={styles.thumbnailTitle}>{data.title}</h5>
-            </a>
-            <button
-                ref={triggerRef}
-                className={styles.modalButton}
-                onClick={() => setModalOpen(true)}
-                aria-label={`View ${data.title} in full size`}
-            >
-                <img
-                    src={data.url}
-                    alt={data.alt_text ?? ''}
-                    width={data.width}
-                    height={data.height}
-                    className={styles.image}
-                />
-                <h5 className={styles.thumbnailTitle}>{data.title}</h5>
-            </button>
+            {isMobile ? (
+                <a
+                    className={styles.mobileLink}
+                    href={`/images/${data.image_id}`}
+                >
+                    <img
+                        src={data.url}
+                        alt={data.alt_text ?? ''}
+                        width={data.width}
+                        height={data.height}
+                        className={styles.image}
+                    />
+                    <h5 className={styles.thumbnailTitle}>{data.title}</h5>
+                </a>
+            ) : (
+                <button
+                    ref={triggerRef}
+                    className={styles.modalButton}
+                    onClick={() => setModalOpen(true)}
+                    aria-label={`View ${data.title} in full size`}
+                >
+                    <img
+                        src={data.url}
+                        alt={data.alt_text ?? ''}
+                        width={data.width}
+                        height={data.height}
+                        className={styles.image}
+                    />
+                    <h5 className={styles.thumbnailTitle}>{data.title}</h5>
+                </button>
+            )}
             {modalOpen &&
                 createPortal(
                     <ModalContent

@@ -89,6 +89,8 @@ export default function ImageModal({ data }: ImageModalProps) {
                         width={data.width}
                         height={data.height}
                         className={styles.image}
+                        loading="lazy"
+                        decoding="async"
                     />
                     <h5 className={styles.thumbnailTitle}>{data.title}</h5>
                 </a>
@@ -105,6 +107,8 @@ export default function ImageModal({ data }: ImageModalProps) {
                         width={data.width}
                         height={data.height}
                         className={styles.image}
+                        loading="lazy"
+                        decoding="async"
                     />
                     <h5 className={styles.thumbnailTitle}>{data.title}</h5>
                 </button>

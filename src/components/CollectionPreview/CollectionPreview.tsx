@@ -29,6 +29,8 @@ export default function CollectionPreview({
                     alt={name}
                     width={width}
                     height={height}
+                    loading="lazy"
+                    decoding="async"
                     style={{
                         width: '100%',
                         height: 'auto',

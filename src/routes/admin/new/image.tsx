@@ -3,8 +3,12 @@ import Layout from '~/components/Layout/Layout'
 import PhotoForm from '~/components/PhotoForm/PhotoForm'
 import { createImage } from '~/lib/server/admin-images'
 import styles from '~/styles/admin/new-image.module.css'
+import leafletCss from 'leaflet/dist/leaflet.css?url'
 
 export const Route = createFileRoute('/admin/new/image')({
+    head: () => ({
+        links: [{ rel: 'stylesheet', href: leafletCss }],
+    }),
     component: NewImage,
 })
 

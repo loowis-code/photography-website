@@ -4,9 +4,13 @@ import Layout from '~/components/Layout/Layout'
 import PhotoForm from '~/components/PhotoForm/PhotoForm'
 import { getAdminImage, updateImage } from '~/lib/server/admin-images'
 import styles from '~/styles/admin/edit-image.module.css'
+import leafletCss from 'leaflet/dist/leaflet.css?url'
 
 export const Route = createFileRoute('/admin/edit/image/$id')({
     loader: ({ params: { id } }) => getAdminImage({ data: id }),
+    head: () => ({
+        links: [{ rel: 'stylesheet', href: leafletCss }],
+    }),
     component: EditImage,
 })
 

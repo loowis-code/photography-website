@@ -1,12 +1,13 @@
 import { createServerFn } from '@tanstack/react-start'
 import { getDb } from '~/lib/db'
 import type { Image } from '~/lib/types'
+import { escapeLikeWildcards } from '~/lib/server/search-utils'
 
 export const searchImages = createServerFn({ method: 'POST' })
     .inputValidator((d: string) => d)
     .handler(async ({ data: query }) => {
         try {
-            const safeQuery = query.replace(/[^a-zA-Z0-9 ]/g, '')
+            const safeQuery = escapeLikeWildcards(query)
             const sql = getDb()
             const results = await sql`
                 SELECT * FROM images

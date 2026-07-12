@@ -16,7 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 navLinks={['/all-images', '/collections', '/image-map']}
                 handleSearch={handleSearchEvent}
             />
-            {children}
+            <main>{children}</main>
         </>
     )
 }

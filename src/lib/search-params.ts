@@ -26,3 +26,20 @@ export function validateImageSearch(
         : 'all'
     return { page, sort, filter }
 }
+
+export type HomeFormat = 'film' | 'digital'
+
+const VALID_HOME_FORMATS: HomeFormat[] = ['film', 'digital']
+
+export interface HomeSearchParams {
+    format: HomeFormat
+}
+
+export function validateHomeSearch(
+    search: Record<string, unknown>,
+): HomeSearchParams {
+    const format = VALID_HOME_FORMATS.includes(search.format as HomeFormat)
+        ? (search.format as HomeFormat)
+        : 'film'
+    return { format }
+}

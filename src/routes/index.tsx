@@ -1,12 +1,14 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { BASE_URL } from '~/lib/constants'
-import { useState } from 'react'
+import { useMemo } from 'react'
 import Layout from '~/components/Layout/Layout'
 import ImageModal from '~/components/ImageModal/ImageModal'
 import { getFeaturedImages } from '~/lib/server/images'
+import { validateHomeSearch } from '~/lib/search-params'
 import styles from '~/styles/pages/index.module.css'
 
 export const Route = createFileRoute('/')({
+    validateSearch: validateHomeSearch,
     loader: () => getFeaturedImages(),
     head: ({ match }) => ({
         meta: [{ title: 'Loowis Photography' }],
@@ -17,11 +19,13 @@ export const Route = createFileRoute('/')({
 
 function Home() {
     const data = Route.useLoaderData()
-    const [dFeatured] = useState(data.filter((photo) => photo.digital === true))
-    const [aFeatured] = useState(
-        data.filter((photo) => photo.digital === false),
+    const { format } = Route.useSearch()
+    const navigate = useNavigate({ from: Route.fullPath })
+
+    const images = useMemo(
+        () => data.filter((photo) => photo.digital === (format === 'digital')),
+        [data, format],
     )
-    const [format, setFormat] = useState('film')
 
     return (
         <Layout>
@@ -30,7 +34,9 @@ function Home() {
                     <div className={styles.formatSelection}>
                         <button
                             type="button"
-                            onClick={() => setFormat('film')}
+                            onClick={() =>
+                                navigate({ search: { format: 'film' } })
+                            }
                             className={
                                 format === 'film'
                                     ? styles.formatTitleActive
@@ -41,7 +47,9 @@ function Home() {
                         </button>
                         <button
                             type="button"
-                            onClick={() => setFormat('digital')}
+                            onClick={() =>
+                                navigate({ search: { format: 'digital' } })
+                            }
                             className={
                                 format === 'digital'
                                     ? styles.formatTitleActive
@@ -51,25 +59,8 @@ function Home() {
                             Digital
                         </button>
                     </div>
-                    <div
-                        className={
-                            format === 'digital'
-                                ? styles.digitalShow
-                                : styles.digitalHide
-                        }
-                    >
-                        {dFeatured.map((d) => (
-                            <ImageModal data={d} key={d.image_id} />
-                        ))}
-                    </div>
-                    <div
-                        className={
-                            format === 'film'
-                                ? styles.filmShow
-                                : styles.filmHide
-                        }
-                    >
-                        {aFeatured.map((d) => (
+                    <div className={styles.gallery}>
+                        {images.map((d) => (
                             <ImageModal data={d} key={d.image_id} />
                         ))}
                     </div>

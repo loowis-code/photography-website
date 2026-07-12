@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { validateImageSearch } from './search-params'
+import { validateImageSearch, validateHomeSearch } from './search-params'
 
 describe('validateImageSearch', () => {
     it('returns defaults for empty search', () => {
@@ -46,5 +46,23 @@ describe('validateImageSearch', () => {
 
     it('defaults invalid filter to all', () => {
         expect(validateImageSearch({ filter: 'invalid' }).filter).toBe('all')
+    })
+})
+
+describe('validateHomeSearch', () => {
+    it('defaults to film for empty search', () => {
+        expect(validateHomeSearch({})).toEqual({ format: 'film' })
+    })
+
+    it('parses a valid format', () => {
+        expect(validateHomeSearch({ format: 'digital' })).toEqual({
+            format: 'digital',
+        })
+    })
+
+    it('defaults invalid format to film', () => {
+        expect(validateHomeSearch({ format: 'invalid' })).toEqual({
+            format: 'film',
+        })
     })
 })

@@ -45,25 +45,11 @@
     margin: 0.5rem;
 }
 
-.digitalShow {
+.gallery {
     display: block;
     line-break: strict;
     columns: 3;
     margin: 1rem;
-}
-
-.digitalHide {
-    display: none;
-}
-
-.filmShow {
-    display: block;
-    columns: 3;
-    margin: 1rem;
-}
-
-.filmHide {
-    display: none;
 }
 
 @media only screen and (max-width: 1320px) {
@@ -71,11 +57,7 @@
         width: 100%;
     }
 
-    .digitalShow {
-        columns: 1;
-    }
-
-    .filmShow {
+    .gallery {
         columns: 1;
     }
 }

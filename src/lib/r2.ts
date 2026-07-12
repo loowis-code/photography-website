@@ -26,7 +26,10 @@ export async function uploadToR2(base64Data: string) {
     const key = uuidv4()
 
     await env.R2_BUCKET.put(key, buffer, {
-        httpMetadata: { contentType: mimeType },
+        httpMetadata: {
+            contentType: mimeType,
+            cacheControl: 'public, max-age=31536000, immutable',
+        },
     })
 
     return { url: `${process.env.R2_PUBLIC_URL}/${key}` }

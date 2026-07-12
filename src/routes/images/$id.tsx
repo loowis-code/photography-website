@@ -4,6 +4,7 @@ import Layout from '~/components/Layout/Layout'
 import ImagePage from '~/components/ImagePage/ImagePage'
 import { getImageById } from '~/lib/server/images'
 import styles from '~/styles/pages/image.module.css'
+import leafletCss from 'leaflet/dist/leaflet.css?url'
 
 export const Route = createFileRoute('/images/$id')({
     loader: async ({ params: { id } }) => {
@@ -51,7 +52,10 @@ export const Route = createFileRoute('/images/$id')({
                 { name: 'og:url', content: `${BASE_URL}${match.pathname}` },
                 { name: 'og:type', content: 'website' },
             ],
-            links: [{ rel: 'canonical', href: `${BASE_URL}${match.pathname}` }],
+            links: [
+                { rel: 'canonical', href: `${BASE_URL}${match.pathname}` },
+                { rel: 'stylesheet', href: leafletCss },
+            ],
             scripts: jsonLd
                 ? [
                       {

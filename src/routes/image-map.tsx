@@ -4,12 +4,16 @@ import { useEffect } from 'react'
 import Layout from '~/components/Layout/Layout'
 import { getImagesForMap } from '~/lib/server/images'
 import styles from '~/styles/pages/image-map.module.css'
+import leafletCss from 'leaflet/dist/leaflet.css?url'
 
 export const Route = createFileRoute('/image-map')({
     loader: () => getImagesForMap(),
     head: ({ match }) => ({
         meta: [{ title: 'Image Map | Lewis Inches - Photography' }],
-        links: [{ rel: 'canonical', href: `${BASE_URL}${match.pathname}` }],
+        links: [
+            { rel: 'canonical', href: `${BASE_URL}${match.pathname}` },
+            { rel: 'stylesheet', href: leafletCss },
+        ],
     }),
     component: ImageMap,
 })

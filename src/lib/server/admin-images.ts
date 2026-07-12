@@ -5,6 +5,7 @@ import { getAuthConfig } from '~/lib/auth'
 import { getDb } from '~/lib/db'
 import { uploadToR2, deleteFromR2 } from '~/lib/r2'
 import type { Image } from '~/lib/types'
+import { reportError } from './monitoring'
 
 async function requireAuth() {
     if (__E2E_TEST_MODE__) {
@@ -23,7 +24,7 @@ export const getAdminImages = createServerFn().handler(async () => {
         const images = await sql`SELECT * FROM images`
         return (images as Image[]).filter((img) => img.url !== null)
     } catch (error) {
-        console.error('Failed to fetch admin images:', error)
+        reportError('Failed to fetch admin images:', error)
         throw new Error('Failed to load images')
     }
 })
@@ -38,7 +39,7 @@ export const getAdminImage = createServerFn({ method: 'POST' })
                 await sql`SELECT * FROM images WHERE image_id = ${id}`
             return (images as Image[])[0] ?? null
         } catch (error) {
-            console.error(`Failed to fetch admin image ${id}:`, error)
+            reportError(`Failed to fetch admin image ${id}:`, error)
             throw new Error('Failed to load image')
         }
     })
@@ -77,7 +78,7 @@ export const createImage = createServerFn({ method: 'POST' })
             `
             return result[0] as Image
         } catch (error) {
-            console.error('Failed to create image:', error)
+            reportError('Failed to create image:', error)
             throw new Error('Failed to create image')
         }
     })
@@ -153,7 +154,7 @@ export const updateImage = createServerFn({ method: 'POST' })
             `
             return result[0] as Image
         } catch (error) {
-            console.error(`Failed to update image ${id}:`, error)
+            reportError(`Failed to update image ${id}:`, error)
             throw new Error('Failed to update image')
         }
     })
@@ -168,7 +169,7 @@ export const deleteImage = createServerFn({ method: 'POST' })
             if (url) await deleteFromR2(url)
             await sql`DELETE FROM images WHERE image_id = ${id}`
         } catch (error) {
-            console.error(`Failed to delete image ${id}:`, error)
+            reportError(`Failed to delete image ${id}:`, error)
             throw new Error('Failed to delete image')
         }
     })

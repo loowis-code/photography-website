@@ -2,6 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { getDb } from '~/lib/db'
 import type { Collection, Image, SortOrder, FilterType } from '~/lib/types'
 import { PAGE_SIZE, ORDER_BY_MAP, buildFilterClause } from './pagination'
+import { reportError } from './monitoring'
 
 export const getAllCollections = createServerFn().handler(async () => {
     try {
@@ -10,7 +11,7 @@ export const getAllCollections = createServerFn().handler(async () => {
             await sql`SELECT * FROM collections ORDER BY collection_name ASC`
         return collections as Collection[]
     } catch (error) {
-        console.error('Failed to fetch collections:', error)
+        reportError('Failed to fetch collections:', error)
         throw new Error('Failed to load collections')
     }
 })
@@ -77,7 +78,7 @@ export const getCollectionWithImages = createServerFn({ method: 'POST' })
                 totalPages,
             }
         } catch (error) {
-            console.error(`Failed to fetch collection ${data.id}:`, error)
+            reportError(`Failed to fetch collection ${data.id}:`, error)
             throw new Error('Failed to load collection')
         }
     })

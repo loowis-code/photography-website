@@ -5,6 +5,7 @@ import { getAuthConfig } from '~/lib/auth'
 import { getDb } from '~/lib/db'
 import { uploadToR2, deleteFromR2 } from '~/lib/r2'
 import type { Collection, CollectionWithImages } from '~/lib/types'
+import { reportError } from './monitoring'
 
 async function requireAuth() {
     if (__E2E_TEST_MODE__) {
@@ -24,7 +25,7 @@ export const getAdminCollections = createServerFn().handler(async () => {
             await sql`SELECT * FROM collections ORDER BY collection_name ASC`
         return collections as Collection[]
     } catch (error) {
-        console.error('Failed to fetch admin collections:', error)
+        reportError('Failed to fetch admin collections:', error)
         throw new Error('Failed to load collections')
     }
 })
@@ -48,7 +49,7 @@ export const getAdminCollection = createServerFn({ method: 'POST' })
                 images,
             } as CollectionWithImages
         } catch (error) {
-            console.error(`Failed to fetch admin collection ${id}:`, error)
+            reportError(`Failed to fetch admin collection ${id}:`, error)
             throw new Error('Failed to load collection')
         }
     })
@@ -77,7 +78,7 @@ export const createCollection = createServerFn({ method: 'POST' })
             `
             return result[0] as Collection
         } catch (error) {
-            console.error('Failed to create collection:', error)
+            reportError('Failed to create collection:', error)
             throw new Error('Failed to create collection')
         }
     })
@@ -154,7 +155,7 @@ export const updateCollection = createServerFn({ method: 'POST' })
 
             return updatedCollection[0] as Collection
         } catch (error) {
-            console.error(`Failed to update collection ${id}:`, error)
+            reportError(`Failed to update collection ${id}:`, error)
             throw new Error('Failed to update collection')
         }
     })
@@ -169,7 +170,7 @@ export const deleteCollection = createServerFn({ method: 'POST' })
             if (url) await deleteFromR2(url)
             await sql`DELETE FROM collections WHERE collection_id = ${id}`
         } catch (error) {
-            console.error(`Failed to delete collection ${id}:`, error)
+            reportError(`Failed to delete collection ${id}:`, error)
             throw new Error('Failed to delete collection')
         }
     })

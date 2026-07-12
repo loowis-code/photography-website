@@ -2,6 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { getDb } from '~/lib/db'
 import type { Image, PaginatedResult, SortOrder, FilterType } from '~/lib/types'
 import { PAGE_SIZE, ORDER_BY_MAP, buildFilterClause } from './pagination'
+import { reportError } from './monitoring'
 
 interface GetAllImagesInput {
     page: number
@@ -54,7 +55,7 @@ export const getAllImages = createServerFn({ method: 'POST' })
                 totalPages,
             }
         } catch (error) {
-            console.error('Failed to fetch images:', error)
+            reportError('Failed to fetch images:', error)
             throw new Error('Failed to load images')
         }
     })
@@ -82,7 +83,7 @@ export const getImageById = createServerFn({ method: 'POST' })
             if (images.length === 0) return null
             return (images as Image[])[0]
         } catch (error) {
-            console.error(`Failed to fetch image ${id}:`, error)
+            reportError(`Failed to fetch image ${id}:`, error)
             throw new Error('Failed to load image')
         }
     })
@@ -108,7 +109,7 @@ export const getFeaturedImages = createServerFn().handler(async () => {
         `
         return images as Image[]
     } catch (error) {
-        console.error('Failed to fetch featured images:', error)
+        reportError('Failed to fetch featured images:', error)
         throw new Error('Failed to load featured images')
     }
 })
@@ -135,7 +136,7 @@ export const getImagesForMap = createServerFn().handler(async () => {
             | 'longitude'
         >[]
     } catch (error) {
-        console.error('Failed to fetch images for map:', error)
+        reportError('Failed to fetch images for map:', error)
         throw new Error('Failed to load map images')
     }
 })
@@ -147,7 +148,7 @@ export const getRandomVisibleImage = createServerFn().handler(async () => {
             await sql`SELECT image_id, url, width, height, title, alt_text FROM images WHERE visible = true AND url IS NOT NULL ORDER BY RANDOM() LIMIT 1`
         return (images as Image[])[0] ?? null
     } catch (error) {
-        console.error('Failed to fetch random image:', error)
+        reportError('Failed to fetch random image:', error)
         throw new Error('Failed to load image')
     }
 })

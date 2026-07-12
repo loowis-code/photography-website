@@ -1,6 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { getDb } from '~/lib/db'
 import type { Image } from '~/lib/types'
+import { reportError } from './monitoring'
 
 export const searchImages = createServerFn({ method: 'POST' })
     .inputValidator((d: string) => d)
@@ -16,7 +17,7 @@ export const searchImages = createServerFn({ method: 'POST' })
             `
             return results as Image[]
         } catch (error) {
-            console.error('Failed to search images:', error)
+            reportError('Failed to search images:', error)
             throw new Error('Failed to search images')
         }
     })

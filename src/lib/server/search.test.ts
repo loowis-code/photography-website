@@ -1,14 +1,5 @@
 import { describe, it, expect } from 'vitest'
-
-// Test the ILIKE-wildcard escaping directly — the server function itself
-// requires createServerFn infrastructure, but the core logic is testable.
-// This only escapes "%"/"_"/"\" (ILIKE's wildcard and escape characters);
-// it does not strip other punctuation. SQL injection is not a concern here
-// because the value is still passed through the tagged `sql` template,
-// which parameterizes it — this function only prevents user input from
-// being interpreted as ILIKE wildcards.
-const escapeLikeWildcards = (input: string) =>
-    input.replace(/[\\%_]/g, (char) => `\\${char}`)
+import { escapeLikeWildcards } from './search-utils'
 
 describe('search query wildcard escaping', () => {
     it('preserves alphanumeric characters', () => {

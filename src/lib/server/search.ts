@@ -1,15 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { getDb } from '~/lib/db'
 import type { Image } from '~/lib/types'
-
-// Escape ILIKE wildcard characters (% and _) plus the escape character
-// itself (\), so user input can't inject unintended wildcard matches.
-// This is not SQL-injection protection — the tagged `sql` template already
-// parameterizes values — it just keeps "%"/"_" in a search query literal.
-// Postgres' LIKE/ILIKE default escape character is backslash.
-function escapeLikeWildcards(input: string): string {
-    return input.replace(/[\\%_]/g, (char) => `\\${char}`)
-}
+import { escapeLikeWildcards } from '~/lib/server/search-utils'
 
 export const searchImages = createServerFn({ method: 'POST' })
     .inputValidator((d: string) => d)

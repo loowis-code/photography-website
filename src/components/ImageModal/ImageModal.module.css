@@ -4,6 +4,8 @@
     box-shadow: 0.25rem 0.25rem var(--color-black);
     margin: 0 1rem 1rem;
     transition: 0.3s;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
 }
 
 .imageContainer:hover {

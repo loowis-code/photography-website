@@ -8,6 +8,7 @@
 }
 
 .collectionpreview {
+    display: block;
     text-decoration: none;
     color: var(--color-accent-teal);
     opacity: 75%;

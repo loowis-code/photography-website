@@ -12,12 +12,14 @@
 
 .mobileLink {
     display: block;
+    width: 100%;
     color: var(--color-black);
     text-decoration: none;
 }
 
 .modalButton {
     display: block;
+    width: 100%;
     transition: 0.3s;
     background-color: transparent;
     border: none;
@@ -119,6 +121,7 @@
 
 .modalImageLink {
     display: block;
+    width: 100%;
 }
 
 .modalImageLink:focus-visible {

@@ -9,6 +9,7 @@
 
 .collectionpreview {
     display: block;
+    width: 100%;
     text-decoration: none;
     color: var(--color-accent-teal);
     opacity: 75%;

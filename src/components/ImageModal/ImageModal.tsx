@@ -2,6 +2,7 @@ import ModalContent from './ModalContent/ModalContent'
 import styles from './ImageModal.module.css'
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { getResizedImageUrl } from '~/lib/images'
 import type { Image } from '~/lib/types'
 
 interface ImageModalProps {
@@ -84,7 +85,7 @@ export default function ImageModal({ data }: ImageModalProps) {
                     href={`/images/${data.image_id}`}
                 >
                     <img
-                        src={data.url}
+                        src={getResizedImageUrl(data.url, 'thumbnail')}
                         alt={data.alt_text ?? ''}
                         width={data.width}
                         height={data.height}
@@ -102,7 +103,7 @@ export default function ImageModal({ data }: ImageModalProps) {
                     aria-label={`View ${data.title} in full size`}
                 >
                     <img
-                        src={data.url}
+                        src={getResizedImageUrl(data.url, 'thumbnail')}
                         alt={data.alt_text ?? ''}
                         width={data.width}
                         height={data.height}

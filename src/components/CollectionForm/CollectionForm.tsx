@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import styles from './CollectionForm.module.css'
 import { useFormFeedback } from '~/hooks/useFormFeedback'
+import { getResizedImageUrl } from '~/lib/images'
 import type { Image } from '~/lib/types'
 
 interface CollectionFormProps {
@@ -145,7 +146,10 @@ export default function CollectionForm({
                                             className={styles.imageItem}
                                         >
                                             <img
-                                                src={img.url}
+                                                src={getResizedImageUrl(
+                                                    img.url,
+                                                    'thumbnail',
+                                                )}
                                                 alt={img.title}
                                                 onClick={() =>
                                                     setSelectedImages(

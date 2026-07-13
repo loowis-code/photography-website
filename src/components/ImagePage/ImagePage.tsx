@@ -47,6 +47,8 @@ export default function ImagePage({ data }: ImagePageProps) {
 
     return (
         <div className={styles.imagecontainer}>
+            {/* Detail page intentionally renders the full-resolution
+                original (not a resized variant) — see issue #196. */}
             <img
                 title={data.title}
                 className={styles.image}

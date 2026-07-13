@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import styles from '../ImageModal.module.css'
+import { getResizedImageUrl } from '~/lib/images'
 import type { Image } from '~/lib/types'
 
 interface ModalContentProps {
@@ -51,7 +52,7 @@ export default function ModalContent({ onClose, data }: ModalContentProps) {
                     aria-label={`View full details for ${data.title}`}
                 >
                     <img
-                        src={data.url}
+                        src={getResizedImageUrl(data.url, 'modal')}
                         alt={data.alt_text ?? ''}
                         width={data.width}
                         height={data.height}

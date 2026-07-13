@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { useState, useEffect } from 'react'
 import Layout from '~/components/Layout/Layout'
 import { getAdminImages, deleteImage } from '~/lib/server/admin-images'
+import { getResizedImageUrl } from '~/lib/images'
 import styles from '~/styles/pages/dashboard.module.css'
 
 export const Route = createFileRoute('/admin/')({
@@ -43,7 +44,10 @@ function Dashboard() {
                                 }}
                             >
                                 <img
-                                    src={image.url}
+                                    src={getResizedImageUrl(
+                                        image.url,
+                                        'thumbnail',
+                                    )}
                                     alt={image.alt_text ?? ''}
                                     width={image.width}
                                     height={image.height}

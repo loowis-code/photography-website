@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import Layout from '~/components/Layout/Layout'
 import { getRandomVisibleImage } from '~/lib/server/images'
+import { getResizedImageUrl } from '~/lib/images'
 import styles from '~/styles/pages/four-oh-four.module.css'
 
 export const Route = createFileRoute('/$')({
@@ -23,7 +24,7 @@ function Custom404() {
                         <img
                             title={photo.title}
                             className={styles.image}
-                            src={photo.url}
+                            src={getResizedImageUrl(photo.url, 'modal')}
                             alt={photo.alt_text ?? ''}
                             width={photo.width}
                             height={photo.height}

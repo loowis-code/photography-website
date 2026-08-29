@@ -34,7 +34,7 @@ interface VariantConfig {
  * that meaningfully cuts file size vs. an uploaded original.
  */
 export const IMAGE_VARIANTS: Record<ImageVariant, VariantConfig> = {
-    thumbnail: { width: 400, quality: 75 },
+    thumbnail: { width: 700, quality: 70 },
     modal: { width: 1400, quality: 80 },
 }
 

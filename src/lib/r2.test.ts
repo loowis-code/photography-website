@@ -64,7 +64,12 @@ describe('uploadToR2', () => {
         expect(mockPut).toHaveBeenCalledWith(
             'test-uuid-1234',
             expect.any(Buffer),
-            { httpMetadata: { contentType: 'image/jpeg' } },
+            {
+                httpMetadata: {
+                    contentType: 'image/jpeg',
+                    cacheControl: 'public, max-age=31536000, immutable',
+                },
+            },
         )
     })
 

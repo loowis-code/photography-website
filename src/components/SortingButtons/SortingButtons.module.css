@@ -14,7 +14,7 @@
     transition: 0.3s;
     aspect-ratio: 4/1;
     width: 10em;
-    font-family: josefin-regular;
+    font-family: var(--loowis-font-body);
 }
 
 .button:hover {

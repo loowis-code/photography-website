@@ -1,132 +1,27 @@
-@font-face {
-    font-family: sono-regular;
-    src: url('/fonts/sono/Sono-Regular.ttf');
-}
-
-@font-face {
-    font-family: sono-bold;
-    src: url('/fonts/sono/Sono-Bold.ttf');
-}
-
-@font-face {
-    font-family: sono-extra-bold;
-    src: url('/fonts/sono/Sono-ExtraBold.ttf');
-}
-
-@font-face {
-    font-family: sono-extra-light;
-    src: url('/fonts/sono/Sono-ExtraLight.ttf');
-}
-
-@font-face {
-    font-family: sono-light;
-    src: url('/fonts/sono/Sono-Light.ttf');
-}
-
-@font-face {
-    font-family: sono-medium;
-    src: url('/fonts/sono/Sono-Medium.ttf');
-}
-
-@font-face {
-    font-family: sono-semi-bold;
-    src: url('/fonts/sono/Sono-SemiBold.ttf');
-}
-
-@font-face {
-    font-family: josefin-bold;
-    src: url('/fonts/josefin/JosefinSans-Bold.ttf');
-}
-
-@font-face {
-    font-family: josefin-regular;
-    src: url('/fonts/josefin/JosefinSans-Regular.ttf');
-}
-
-@font-face {
-    font-family: josefin-light;
-    src: url('/fonts/josefin/JosefinSans-Light.ttf');
-}
-
-@font-face {
-    font-family: josefin-thin;
-    src: url('/fonts/josefin/JosefinSans-Thin.ttf');
-}
-
-@font-face {
-    font-family: josefin-semi-bold;
-    src: url('/fonts/josefin/JosefinSans-SemiBold.ttf');
-}
-
-@font-face {
-    font-family: josefin-medium;
-    src: url('/fonts/josefin/JosefinSans-Medium.ttf');
-}
-
-@font-face {
-    font-family: josefin-extra-light;
-    src: url('/fonts/josefin/JosefinSans-ExtraLight.ttf');
-}
-
-@font-face {
-    font-family: josefin-thin-italic;
-    src: url('/fonts/josefin/JosefinSans-ThinItalic.ttf');
-}
-
-@font-face {
-    font-family: josefin-light-italic;
-    src: url('/fonts/josefin/JosefinSans-LightItalic.ttf');
-}
-
-@font-face {
-    font-family: josefin-italic;
-    src: url('/fonts/josefin/JosefinSans-Italic.ttf');
-}
-
-@font-face {
-    font-family: josefin-bold-italic;
-    src: url('/fonts/josefin/JosefinSans-BoldItalic.ttf');
-}
-
-@font-face {
-    font-family: josefin-medium-italic;
-    src: url('/fonts/josefin/JosefinSans-MediumItalic.ttf');
-}
-
-@font-face {
-    font-family: josefin-semi-bold-italic;
-    src: url('/fonts/josefin/JosefinSans-SemiBoldItalic.ttf');
-}
-
-@font-face {
-    font-family: josefin-extra-light-italic;
-    src: url('/fonts/josefin/JosefinSans-ExtraLightItalic.ttf');
-}
-
 :root {
     /* Base */
-    --color-black: #000000;
-    --color-dark: #222222;
-    --color-white: #ffffff;
-    --color-gray: #808080;
-    --color-danger: #ff0000;
+    --color-black: var(--loowis-color-black);
+    --color-dark: var(--loowis-color-ink);
+    --color-white: var(--loowis-color-white);
+    --color-gray: var(--loowis-color-muted);
+    --color-danger: var(--loowis-color-danger);
     --color-overlay: #000000b3;
 
     /* Backgrounds */
-    --color-bg: #f7efe0;
+    --color-bg: var(--loowis-canvas-background);
     --color-bg-modal: #f8f8f8;
     --color-bg-input: #f7f7f7;
     --color-bg-admin: #fffbe6;
-    --color-bg-disabled: #e0e0e0;
+    --color-bg-disabled: var(--loowis-color-disabled);
 
     /* Accents */
-    --color-accent-red: #d95d5d;
-    --color-accent-orange: #db8525;
+    --color-accent-red: var(--loowis-accent-red);
+    --color-accent-orange: var(--loowis-accent-orange);
     --color-accent-orange-faded: #db862550;
-    --color-accent-yellow: #e8c43c;
-    --color-accent-lime: #bed649;
-    --color-accent-blue: #9ecbdb;
-    --color-accent-pink: #c771a1;
+    --color-accent-yellow: var(--loowis-accent-yellow);
+    --color-accent-lime: var(--loowis-accent-green);
+    --color-accent-blue: var(--loowis-accent-blue);
+    --color-accent-pink: var(--loowis-accent-pink);
     --color-accent-teal: #7c9d96;
     --color-accent-tan: #e9b384;
     --color-accent-admin: #ff5a36;
@@ -144,7 +39,7 @@ html {
     height: 100vh;
     margin: 0;
     padding: 0;
-    font-family: josefin-regular;
+    font-family: var(--loowis-font-body);
 }
 
 body {

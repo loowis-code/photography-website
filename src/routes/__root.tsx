@@ -8,7 +8,10 @@ import {
 import * as React from 'react'
 import ErrorFallback from '~/components/ErrorFallback/ErrorFallback'
 import globalsCss from '~/styles/globals.css?url'
-import componentLibCss from 'loowis-component-library/dist/index.css?url'
+import designSystemTokensCss from 'loowis-component-library/tokens.css?url'
+import designSystemThemeCss from 'loowis-component-library/theme.css?url'
+import designSystemFontsCss from 'loowis-component-library/fonts.css?url'
+import designSystemComponentsCss from 'loowis-component-library/components.css?url'
 
 export const Route = createRootRoute({
     head: () => ({
@@ -26,8 +29,11 @@ export const Route = createRootRoute({
             { title: 'Loowis Photography' },
         ],
         links: [
+            { rel: 'stylesheet', href: designSystemTokensCss },
+            { rel: 'stylesheet', href: designSystemThemeCss },
+            { rel: 'stylesheet', href: designSystemFontsCss },
+            { rel: 'stylesheet', href: designSystemComponentsCss },
             { rel: 'stylesheet', href: globalsCss },
-            { rel: 'stylesheet', href: componentLibCss },
             { rel: 'icon', href: '/favicon/favicon.png' },
         ],
     }),
@@ -38,7 +44,7 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en">
+        <html lang="en" data-loowis-theme="default">
             <head>
                 <HeadContent />
             </head>

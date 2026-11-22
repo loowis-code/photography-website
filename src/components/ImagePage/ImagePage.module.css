@@ -27,12 +27,15 @@
 }
 
 .imageHeader {
-    font-family: josefin-bold-italic;
+    font-family: var(--loowis-font-body);
+    font-style: italic;
+    font-weight: var(--loowis-font-weight-bold);
     margin: 0;
 }
 
 .imageDate {
-    font-family: josefin-bold;
+    font-family: var(--loowis-font-body);
+    font-weight: var(--loowis-font-weight-bold);
     margin: 0;
 }
 

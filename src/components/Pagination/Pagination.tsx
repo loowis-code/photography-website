@@ -14,29 +14,23 @@ export default function Pagination({
 }: PaginationProps) {
     return (
         <div className={styles.pagination}>
-            {currentPage > 1 ? (
-                <Button
-                    buttonText="Previous Page"
-                    clickHandler={() => onPageChange(currentPage - 1)}
-                />
-            ) : (
-                <button className={styles.disabledButton} disabled>
-                    Previous Page
-                </button>
-            )}
+            <Button
+                className={styles.pageButton}
+                disabled={currentPage <= 1}
+                onClick={() => onPageChange(currentPage - 1)}
+            >
+                Previous Page
+            </Button>
             <p className={styles.pageInfo}>
                 Page {currentPage} of {totalPages}
             </p>
-            {currentPage < totalPages ? (
-                <Button
-                    buttonText="Next Page"
-                    clickHandler={() => onPageChange(currentPage + 1)}
-                />
-            ) : (
-                <button className={styles.disabledButton} disabled>
-                    Next Page
-                </button>
-            )}
+            <Button
+                className={styles.pageButton}
+                disabled={currentPage >= totalPages}
+                onClick={() => onPageChange(currentPage + 1)}
+            >
+                Next Page
+            </Button>
         </div>
     )
 }

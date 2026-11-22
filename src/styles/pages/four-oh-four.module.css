@@ -9,7 +9,9 @@
 .heading {
     text-align: center;
     font-size: xx-large;
-    font-family: josefin-bold-italic;
+    font-family: var(--loowis-font-body);
+    font-style: italic;
+    font-weight: var(--loowis-font-weight-bold);
     padding-top: 1rem;
 }
 

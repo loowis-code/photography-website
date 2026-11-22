@@ -39,7 +39,9 @@
 
 .thumbnailTitle {
     font-size: larger;
-    font-family: josefin-bold-italic;
+    font-family: var(--loowis-font-body);
+    font-style: italic;
+    font-weight: var(--loowis-font-weight-bold);
     padding: 0.5rem;
 }
 
@@ -97,13 +99,15 @@
 
 .imageTitle {
     font-size: x-large;
-    font-family: josefin-bold;
+    font-family: var(--loowis-font-body);
+    font-weight: var(--loowis-font-weight-bold);
     text-decoration: underline;
     text-decoration-thickness: 0.2rem;
 }
 
 .closeButton {
-    font-family: josefin-bold;
+    font-family: var(--loowis-font-body);
+    font-weight: var(--loowis-font-weight-bold);
     border: var(--color-black) 0.25rem solid;
     background-color: transparent;
     aspect-ratio: 1;
@@ -142,7 +146,8 @@
     flex-direction: column;
     align-items: end;
     padding-top: 1rem;
-    font-family: josefin-bold;
+    font-family: var(--loowis-font-body);
+    font-weight: var(--loowis-font-weight-bold);
     font-size: large;
     width: 100%;
 }

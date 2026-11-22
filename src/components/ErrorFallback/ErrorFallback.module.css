@@ -8,12 +8,14 @@
 
 .heading {
     font-size: xx-large;
-    font-family: josefin-bold-italic;
+    font-family: var(--loowis-font-body);
+    font-style: italic;
+    font-weight: var(--loowis-font-weight-bold);
     margin-bottom: 1rem;
 }
 
 .message {
-    font-family: josefin-regular;
+    font-family: var(--loowis-font-body);
     font-size: 1.125rem;
     color: var(--color-gray);
     margin-bottom: 2rem;
@@ -28,7 +30,8 @@
 
 .retryButton {
     padding: 0.75rem 1.5rem;
-    font-family: josefin-bold;
+    font-family: var(--loowis-font-body);
+    font-weight: var(--loowis-font-weight-bold);
     font-size: 1rem;
     background-color: var(--color-black);
     color: var(--color-white);
@@ -42,7 +45,8 @@
 
 .homeLink {
     padding: 0.75rem 1.5rem;
-    font-family: josefin-bold;
+    font-family: var(--loowis-font-body);
+    font-weight: var(--loowis-font-weight-bold);
     font-size: 1rem;
     color: var(--color-black);
     text-decoration: underline;
